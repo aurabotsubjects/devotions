@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>morninglight — daily devotions</title>
+<style>
+  @font-face{
+    font-family:'CaveatBold';
+    src: url('FONT_CAVEAT_BOLD') format('woff2');
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'CaveatSemiBold';
+    src: url('FONT_CAVEAT_SEMIBOLD') format('woff2');
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Baloo2ExtraBold';
+    src: url('FONT_BALOO_XB') format('woff2');
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Baloo2SemiBold';
+    src: url('FONT_BALOO_SB') format('woff2');
+    font-display:swap;
+  }
+
+  :root{
+    --paper:#FBF9F4;
+    --ink:#1C1B17;
+    --ink-soft:#6B6759;
+    --sky:#7BA7D9;
+    --sky-deep:#4A7AB5;
+    --honey:#F2C77B;
+    --honey-deep:#D99F3D;
+    --line:#EAE5D8;
+    --card:#FFFFFF;
+    --verse-bg:#1C1B17;
+    --verse-ink:#FBF9F4;
+    --radius:16px;
+    --serif: "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+    --sans: -apple-system, "Segoe UI", Calibri, Arial, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:36px 24px 100px;
+  }
+
+  /* ---------- HEADER / LOGO LOCKUP ---------- */
+  header.app-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:18px;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+  }
+  .logo-block{ position:relative; }
+  .logo{
+    display:flex;
+    align-items:baseline;
+    gap:2px;
+    line-height:1;
+  }
+  .logo .script{
+    font-family:'CaveatBold', cursive;
+    font-size:2.6rem;
+    color:var(--sky-deep);
+    transform: rotate(-3deg);
+    display:inline-block;
+  }
+  .logo .bold{
+    font-family:'Baloo2ExtraBold', sans-serif;
+    font-size:2.15rem;
+    color:var(--ink);
+    letter-spacing:-0.5px;
+  }
+  .tagline{
+    font-family:'CaveatSemiBold', cursive;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    transform: rotate(-2deg);
+    display:inline-block;
+    margin-top:-4px;
+    margin-left:6px;
+  }
+
+  .controls{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    flex-wrap:wrap;
+    padding-top:8px;
+  }
+  select{
+    appearance:none;
+    -webkit-appearance:none;
+    background:var(--card);
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:8px 28px 8px 12px;
+    font-family:var(--sans);
+    font-size:0.8rem;
+    font-weight:700;
+    color:var(--ink);
+    cursor:pointer;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M0 0L5 6L10 0Z" fill="%236B6759"/></svg>');
+    background-repeat:no-repeat;
+    background-position:right 10px center;
+  }
+  select:focus-visible{ outline:2px solid var(--sky); outline-offset:1px; }
+
+  .day-pills{ display:flex; gap:6px; }
+  .day-pill{
+    padding:8px 13px;
+    border-radius:10px;
+    border:1.5px solid var(--line);
+    background:var(--card);
+    font-size:0.78rem;
+    font-weight:700;
+    color:var(--ink-soft);
+    cursor:pointer;
+  }
+  .day-pill:hover{ border-color:var(--sky); }
+  .day-pill.active{ background:var(--ink); border-color:var(--ink); color:#fff; }
+
+  .teacher-toggle{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    background:var(--card);
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:8px 13px;
+    font-size:0.76rem;
+    font-weight:700;
+    color:var(--ink-soft);
+    cursor:pointer;
+    user-select:none;
+  }
+  .teacher-toggle.active{ background:#FCF3E0; border-color:var(--honey); color:var(--honey-deep); }
+  .teacher-toggle .dot{ width:8px; height:8px; border-radius:50%; background:var(--line); }
+  .teacher-toggle.active .dot{ background:var(--honey-deep); }
+
+  hr.rule{
+    border:none;
+    border-top:1.5px solid var(--line);
+    margin:26px 0 32px;
+  }
+
+  /* ---------- LESSON HEADER (plain, calm — per brief) ---------- */
+  .lesson-card{
+    margin-bottom:30px;
+  }
+  .lesson-eyebrow{
+    font-size:0.7rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:800;
+    color:var(--honey-deep);
+    margin-bottom:8px;
+  }
+  .lesson-title{
+    font-family:var(--serif);
+    font-size:1.8rem;
+    font-weight:700;
+    line-height:1.25;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  .day-name-big{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- CONTENT BLOCKS ---------- */
+  .blocks{ display:flex; flex-direction:column; gap:22px; }
+  .block{ border-radius:var(--radius); position:relative; }
+
+  .block.story{
+    background:var(--card);
+    border:1.5px solid var(--line);
+    padding:32px 34px;
+    text-align:center;
+  }
+  .block.story p{
+    font-family:var(--serif);
+    font-size:1.45rem;
+    line-height:1.55;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .block.image{
+    background:var(--card);
+    border:1.5px solid var(--line);
+    padding:20px;
+    text-align:center;
+  }
+  .block.image img{
+    max-width:100%;
+    max-height:540px;
+    border-radius:12px;
+    display:block;
+    margin:0 auto 14px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.10);
+  }
+  .block.image .caption{
+    font-family:'CaveatSemiBold', cursive;
+    font-size:1.2rem;
+    color:var(--sky-deep);
+    max-width:560px;
+    margin:0 auto;
+    line-height:1.4;
+    transform: rotate(-0.6deg);
+  }
+
+  .block.question{
+    background:#F1F6FB;
+    border:1.5px solid #D7E6F3;
+    padding:32px 34px;
+    text-align:center;
+  }
+  .block.question .qmark{
+    font-family:'Baloo2ExtraBold', sans-serif;
+    font-size:1.8rem;
+    color:var(--sky);
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .block.question p.q{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.45rem;
+    line-height:1.4;
+    color:var(--sky-deep);
+    margin:0;
+  }
+  .hint-toggle-row{ margin-top:16px; display:flex; justify-content:center; }
+  .hint-btn{
+    background:rgba(255,255,255,0.7);
+    border:1.5px dashed var(--sky);
+    border-radius:30px;
+    padding:6px 16px;
+    font-size:0.74rem;
+    font-weight:700;
+    color:var(--sky-deep);
+    cursor:pointer;
+  }
+  .hint-text{
+    margin-top:12px;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    font-style:italic;
+    background:rgba(255,255,255,0.7);
+    border-radius:10px;
+    padding:10px 16px;
+    display:none;
+  }
+  .hint-text.shown{ display:block; }
+  body:not(.teacher-mode) .hint-toggle-row{ display:none; }
+
+  .block.activity{
+    background:#FDF6E8;
+    border:1.5px solid #F2DFAF;
+    padding:28px 32px;
+    text-align:center;
+  }
+  .block.activity .label{
+    font-family:'CaveatSemiBold', cursive;
+    font-size:1.15rem;
+    color:var(--honey-deep);
+    margin-bottom:8px;
+    transform: rotate(-2deg);
+    display:inline-block;
+  }
+  .block.activity p.lead{
+    font-family:var(--serif);
+    font-size:1.25rem;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .activity-options{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .activity-options span{
+    background:var(--card);
+    border:1.5px solid #F2DFAF;
+    border-radius:30px;
+    padding:8px 18px;
+    font-weight:700;
+    font-size:0.95rem;
+    color:var(--honey-deep);
+  }
+
+  .block.verse{
+    background:var(--verse-bg);
+    color:var(--verse-ink);
+    padding:42px 34px;
+    text-align:center;
+  }
+  .block.verse .label{
+    font-family:'CaveatBold', cursive;
+    font-size:1.3rem;
+    color:var(--honey);
+    margin-bottom:14px;
+    transform: rotate(-2deg);
+    display:inline-block;
+  }
+  .block.verse blockquote{
+    font-family:var(--serif);
+    font-size:1.5rem;
+    line-height:1.6;
+    margin:0 0 14px;
+    font-weight:600;
+  }
+  .block.verse cite{
+    font-size:0.85rem;
+    color:#BFB9A8;
+    font-style:normal;
+    font-weight:700;
+    letter-spacing:0.5px;
+  }
+
+  .block.prayer{
+    background:var(--card);
+    border:1.5px solid var(--line);
+    text-align:center;
+    padding:32px 34px;
+  }
+  .block.prayer .label{
+    font-family:'CaveatSemiBold', cursive;
+    font-size:1.2rem;
+    color:var(--sky-deep);
+    margin-bottom:12px;
+    transform: rotate(-2deg);
+    display:inline-block;
+  }
+  .block.prayer p{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.2rem;
+    line-height:1.65;
+    margin:0 auto;
+    max-width:600px;
+    color:var(--ink);
+  }
+
+  /* ---------- NAV FOOTER ---------- */
+  .day-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:32px;
+    gap:10px;
+  }
+  .nav-btn{
+    flex:1;
+    background:var(--card);
+    border:1.5px solid var(--line);
+    border-radius:11px;
+    padding:13px 16px;
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:0.9rem;
+    color:var(--sky-deep);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+  .nav-btn:hover:not(:disabled){ background:#F1F6FB; }
+  .nav-btn:disabled{ opacity:0.35; cursor:not-allowed; }
+  .nav-btn:focus-visible{ outline:2px solid var(--sky); outline-offset:2px; }
+
+  .progress-dots{ display:flex; gap:6px; align-items:center; }
+  .progress-dots span{ width:8px;height:8px;border-radius:50%; background:var(--line); display:inline-block; }
+  .progress-dots span.done{ background:var(--honey); }
+  .progress-dots span.current{ background:var(--ink); width:10px;height:10px; }
+
+  footer.app-foot{
+    text-align:center;
+    margin-top:54px;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    opacity:0.7;
+  }
+
+  /* ---------- LESSON PLAN BUTTON ---------- */
+  .lessonplan-btn-row{
+    display:flex;
+    justify-content:center;
+    margin:-6px 0 28px;
+  }
+  body:not(.teacher-mode) .lessonplan-btn-row{ display:none; }
+  .lessonplan-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#FCF3E0;
+    border:1.5px solid var(--honey);
+    border-radius:30px;
+    padding:10px 20px;
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:0.82rem;
+    color:var(--honey-deep);
+    cursor:pointer;
+  }
+  .lessonplan-btn:hover{ background:#FAEAC9; }
+  .lessonplan-btn svg{ width:15px; height:15px; flex:none; }
+
+  /* ---------- LESSON PLAN MODAL ---------- */
+  .lp-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(28,27,23,0.55);
+    backdrop-filter:blur(2px);
+    display:none;
+    align-items:flex-start;
+    justify-content:center;
+    padding:28px 16px;
+    overflow-y:auto;
+    z-index:100;
+  }
+  .lp-overlay.open{ display:flex; }
+  .lp-modal{
+    background:var(--paper);
+    border-radius:20px;
+    max-width:760px;
+    width:100%;
+    margin:auto;
+    box-shadow:0 24px 60px rgba(0,0,0,0.30);
+    overflow:hidden;
+  }
+  .lp-head{
+    background:var(--ink);
+    color:var(--paper);
+    padding:24px 30px 20px;
+    position:relative;
+  }
+  .lp-head .lp-eyebrow{
+    font-size:0.68rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:800;
+    color:var(--honey);
+    margin-bottom:6px;
+  }
+  .lp-head h2{
+    font-family:var(--serif);
+    font-size:1.5rem;
+    margin:0 0 4px;
+    line-height:1.3;
+  }
+  .lp-head .lp-sub{
+    font-family:'CaveatSemiBold', cursive;
+    font-size:1.15rem;
+    color:var(--honey);
+    transform: rotate(-1.5deg);
+    display:inline-block;
+  }
+  .lp-close{
+    position:absolute;
+    top:18px; right:18px;
+    width:32px; height:32px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    border:none;
+    color:var(--paper);
+    font-size:1.1rem;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .lp-close:hover{ background:rgba(255,255,255,0.22); }
+
+  .lp-body{ padding:6px 0 18px; }
+
+  .lp-row{
+    display:flex;
+    border-bottom:1px solid var(--line);
+  }
+  .lp-row:last-child{ border-bottom:none; }
+  .lp-row .lp-label{
+    flex:0 0 150px;
+    background:#F6F1E4;
+    padding:14px 16px;
+    font-size:0.78rem;
+    font-weight:800;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+  }
+  .lp-row .lp-value{
+    flex:1;
+    padding:14px 20px;
+    font-size:0.92rem;
+    line-height:1.55;
+    color:var(--ink);
+  }
+  .lp-row .lp-value ul{ margin:0; padding-left:18px; }
+  .lp-row .lp-value li{ margin-bottom:5px; }
+  .lp-row .lp-value li:last-child{ margin-bottom:0; }
+
+  .lp-section-head{
+    background:var(--sky-deep);
+    color:#fff;
+    padding:10px 20px;
+    font-size:0.74rem;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+
+  .lp-step{
+    border-bottom:1px solid var(--line);
+    padding:18px 20px 20px;
+  }
+  .lp-step:last-child{ border-bottom:none; }
+  .lp-step-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:8px;
+  }
+  .lp-step-title{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--ink);
+  }
+  .lp-step-min{
+    flex:none;
+    font-size:0.72rem;
+    font-weight:800;
+    color:var(--sky-deep);
+    background:#F1F6FB;
+    border:1px solid #D7E6F3;
+    border-radius:20px;
+    padding:3px 10px;
+    white-space:nowrap;
+  }
+  .lp-step p{
+    font-size:0.9rem;
+    line-height:1.55;
+    color:var(--ink);
+    margin:0 0 8px;
+  }
+  .lp-step .lp-step-label{
+    font-size:0.68rem;
+    font-weight:800;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 3px;
+  }
+  .lp-step .lp-activity{
+    background:#FDF6E8;
+    border:1px solid #F2DFAF;
+    border-radius:10px;
+    padding:10px 14px;
+    margin-top:6px;
+  }
+  .lp-step .lp-activity p{ margin:0; color:var(--honey-deep); font-style:italic; }
+  .lp-step .lp-question{
+    background:#F1F6FB;
+    border:1px solid #D7E6F3;
+    border-radius:10px;
+    padding:12px 14px;
+    margin-top:6px;
+  }
+  .lp-step .lp-question .lp-qtext{
+    font-family:var(--serif);
+    font-weight:700;
+    color:var(--sky-deep);
+    margin:0 0 6px;
+  }
+  .lp-step .lp-question .lp-qguide{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    font-style:italic;
+    margin:0;
+  }
+
+  .lp-next{
+    background:var(--verse-bg);
+    color:var(--verse-ink);
+    padding:18px 20px;
+    font-size:0.88rem;
+    line-height:1.5;
+  }
+  .lp-next .lp-step-label{ color:var(--honey); }
+
+  .lp-print-row{
+    display:flex;
+    justify-content:flex-end;
+    padding:14px 20px 22px;
+  }
+  .lp-print-btn{
+    background:var(--card);
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:8px 16px;
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    cursor:pointer;
+  }
+  .lp-print-btn:hover{ border-color:var(--sky); color:var(--sky-deep); }
+
+  @media print{
+    body *{ visibility:hidden; }
+    .lp-modal, .lp-modal *{ visibility:visible; }
+    .lp-overlay{ position:absolute; background:none; padding:0; }
+    .lp-modal{ box-shadow:none; max-width:100%; }
+    .lp-close, .lp-print-row{ display:none !important; }
+  }
+
+  @media (max-width:640px){
+    .lp-row{ flex-direction:column; }
+    .lp-row .lp-label{ flex:none; }
+    .lp-step-head{ flex-direction:column; align-items:flex-start; gap:4px; }
+  }
+
+  @media (max-width:640px){
+    .logo .script{ font-size:2.1rem; }
+    .logo .bold{ font-size:1.75rem; }
+    .lesson-title{ font-size:1.4rem; }
+    .block.story p{ font-size:1.2rem; }
+    .block.question p.q{ font-size:1.2rem; }
+    .block.verse blockquote{ font-size:1.2rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="app-head">
+    <div class="logo-block">
+      <div class="logo"><span class="script">morning</span><span class="bold">light</span></div>
+      <div class="tagline">a little light each day</div>
+    </div>
+    <div class="controls">
+      <select id="termSelect"></select>
+      <select id="weekSelect"></select>
+      <div class="day-pills" id="dayPills"></div>
+      <div class="teacher-toggle" id="teacherToggle"><span class="dot"></span>Teacher view</div>
+    </div>
+  </header>
+
+  <hr class="rule" />
+
+  <div class="lessonplan-btn-row">
+    <button class="lessonplan-btn" id="lessonPlanBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+      View lesson plan for this day
+    </button>
+  </div>
+
+  <div id="content"></div>
+
+  <footer class="app-foot">Built from the Connect B1 Upper Primary teacher's manual &amp; lesson slides.</footer>
+</div>
+
+<div class="lp-overlay" id="lpOverlay">
+  <div class="lp-modal" id="lpModal" role="dialog" aria-modal="true" aria-labelledby="lpModalTitle"></div>
+</div>
+
+
+<script src="fonts_data.js"></script>
+<script src="images_data.js"></script>
+<script src="data.js"></script>
+<script>
+  // inject font-face data URIs now that FONT_DATA is loaded
+  (function(){
+    const styleTag = document.querySelector('style');
+    let css = styleTag.textContent;
+    css = css.replace('FONT_CAVEAT_BOLD', FONT_DATA.caveatBold);
+    css = css.replace('FONT_CAVEAT_SEMIBOLD', FONT_DATA.caveatSemiBold);
+    css = css.replace('FONT_BALOO_XB', FONT_DATA.baloo2ExtraBold);
+    css = css.replace('FONT_BALOO_SB', FONT_DATA.baloo2SemiBold);
+    styleTag.textContent = css;
+  })();
+</script>
+<script>
+(function(){
+  const termSelect = document.getElementById('termSelect');
+  const weekSelect = document.getElementById('weekSelect');
+  const dayPills = document.getElementById('dayPills');
+  const teacherToggle = document.getElementById('teacherToggle');
+  const content = document.getElementById('content');
+
+  let state = { term: null, week: null, dayIndex: 0, teacherMode: false };
+
+  function populateTerms(){
+    const terms = Object.keys(DEVOTIONS);
+    termSelect.innerHTML = terms.map(t => `<option value="${t}">${t}</option>`).join('');
+    state.term = terms[0];
+  }
+
+  function populateWeeks(){
+    const weeks = Object.keys(DEVOTIONS[state.term] || {});
+    weekSelect.innerHTML = weeks.map(w => `<option value="${w}">${w}</option>`).join('');
+    state.week = weeks[0] || null;
+  }
+
+  function getCurrentLesson(){
+    if(!state.term || !state.week) return null;
+    const t = DEVOTIONS[state.term];
+    if(!t) return null;
+    return t[state.week] || null;
+  }
+
+  function renderDayPills(){
+    const lesson = getCurrentLesson();
+    if(!lesson){ dayPills.innerHTML = ''; return; }
+    dayPills.innerHTML = lesson.days.map((d,i) => {
+      const short = d.label.slice(0,3);
+      return `<button class="day-pill${i===state.dayIndex?' active':''}" data-i="${i}" aria-pressed="${i===state.dayIndex}">${short}</button>`;
+    }).join('');
+    dayPills.querySelectorAll('.day-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.dayIndex = parseInt(btn.dataset.i,10);
+        renderDayPills();
+        renderDay();
+      });
+    });
+  }
+
+  function escapeHTML(str){
+    if(str == null) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  let hintCounter = 0;
+
+  function blockHTML(b){
+    switch(b.type){
+      case 'story':
+        return `<div class="block story"><p>${escapeHTML(b.text)}</p></div>`;
+
+      case 'image': {
+        const src = (typeof COMIC_IMAGES !== 'undefined') ? COMIC_IMAGES[b.key] : null;
+        if(!src){
+          return `<div class="block image"><p class="caption">[Image unavailable: ${escapeHTML(b.key||'')}]</p></div>`;
+        }
+        return `<div class="block image">
+          <img src="${src}" alt="${escapeHTML(b.caption||'Comic panel')}" loading="lazy" />
+          ${b.caption ? `<p class="caption">${escapeHTML(b.caption)}</p>` : ''}
+        </div>`;
+      }
+
+      case 'question': {
+        hintCounter++;
+        const hintId = `hint-${hintCounter}`;
+        const hintHTML = b.hint ? `
+          <div class="hint-toggle-row">
+            <button class="hint-btn" data-hint="${hintId}">Show teacher hint</button>
+          </div>
+          <div class="hint-text" id="${hintId}">${escapeHTML(b.hint)}</div>
+        ` : '';
+        return `<div class="block question">
+          <div class="qmark">?</div>
+          <p class="q">${escapeHTML(b.text)}</p>
+          ${hintHTML}
+        </div>`;
+      }
+
+      case 'activity': {
+        const opts = (b.options && b.options.length)
+          ? `<div class="activity-options">${b.options.map(o => `<span>${escapeHTML(o)}</span>`).join('')}</div>`
+          : '';
+        return `<div class="block activity">
+          <div class="label">let's do this together</div>
+          <p class="lead">${escapeHTML(b.text)}</p>
+          ${opts}
+        </div>`;
+      }
+
+      case 'verse':
+        return `<div class="block verse">
+          <div class="label">this week's verse</div>
+          <blockquote>${escapeHTML(b.text)}</blockquote>
+          <cite>${escapeHTML(b.reference)}</cite>
+        </div>`;
+
+      case 'prayer':
+        return `<div class="block prayer">
+          <div class="label">let's pray together</div>
+          <p>${escapeHTML(b.text)}</p>
+        </div>`;
+
+      default:
+        return '';
+    }
+  }
+
+  function renderDay(){
+    const lesson = getCurrentLesson();
+
+    if(!lesson){
+      content.innerHTML = `<div class="block story"><p>No lesson loaded yet for this week.</p></div>`;
+      return;
+    }
+
+    const day = lesson.days[state.dayIndex];
+    const total = lesson.days.length;
+    hintCounter = 0;
+
+    const dots = lesson.days.map((d,i) => {
+      let cls = '';
+      if(i < state.dayIndex) cls = 'done';
+      if(i === state.dayIndex) cls = 'current';
+      return `<span class="${cls}"></span>`;
+    }).join('');
+
+    content.innerHTML = `
+      <div class="lesson-card">
+        <div class="lesson-eyebrow">${escapeHTML(state.week)} &middot; ${escapeHTML(state.term)}</div>
+        <h1 class="lesson-title">${escapeHTML(lesson.lessonTitle)}</h1>
+        <div class="day-name-big">${escapeHTML(day.label)} &mdash; ${escapeHTML(day.theme)}</div>
+      </div>
+
+      <div class="blocks">
+        ${day.blocks.map(blockHTML).join('')}
+      </div>
+
+      <div class="day-nav">
+        <button class="nav-btn" id="prevBtn" ${state.dayIndex===0?'disabled':''}>&#8592; Previous day</button>
+        <div class="progress-dots">${dots}</div>
+        <button class="nav-btn" id="nextBtn" ${state.dayIndex===total-1?'disabled':''}>Next day &#8594;</button>
+      </div>
+    `;
+
+    document.getElementById('prevBtn')?.addEventListener('click', () => {
+      if(state.dayIndex > 0){ state.dayIndex--; renderDayPills(); renderDay(); window.scrollTo({top:0,behavior:'smooth'}); }
+    });
+    document.getElementById('nextBtn')?.addEventListener('click', () => {
+      if(state.dayIndex < total-1){ state.dayIndex++; renderDayPills(); renderDay(); window.scrollTo({top:0,behavior:'smooth'}); }
+    });
+
+    content.querySelectorAll('.hint-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.hint);
+        if(target){
+          target.classList.toggle('shown');
+          btn.textContent = target.classList.contains('shown') ? 'Hide teacher hint' : 'Show teacher hint';
+        }
+      });
+    });
+  }
+
+  function lpEscapeHTML(str){
+    if(str == null) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderLessonPlan(){
+    const lesson = getCurrentLesson();
+    const lpModal = document.getElementById('lpModal');
+    if(!lesson){
+      lpModal.innerHTML = `<div class="lp-body"><p style="padding:24px;">No lesson plan available.</p></div>`;
+      return;
+    }
+    const day = lesson.days[state.dayIndex];
+    const lp = day.lessonPlan;
+    if(!lp){
+      lpModal.innerHTML = `
+        <div class="lp-head">
+          <button class="lp-close" id="lpCloseBtn" aria-label="Close">&times;</button>
+          <div class="lp-eyebrow">${lpEscapeHTML(state.week)} &middot; ${lpEscapeHTML(day.label)}</div>
+          <h2 id="lpModalTitle">${lpEscapeHTML(lesson.lessonTitle)}</h2>
+        </div>
+        <div class="lp-body"><div class="lp-row"><div class="lp-value">No lesson plan has been written for this day yet.</div></div></div>
+      `;
+      document.getElementById('lpCloseBtn').addEventListener('click', closeLessonPlan);
+      return;
+    }
+
+    const intentionsHTML = (lp.learningIntentions||[]).map(li => `<li>${lpEscapeHTML(li)}</li>`).join('');
+    const resourcesHTML = (lp.resources||[]).map(r => `<li>${lpEscapeHTML(r)}</li>`).join('');
+
+    const stepsHTML = (lp.script||[]).map(step => {
+      const activityHTML = step.activityNote ? `
+        <div class="lp-activity"><p>${lpEscapeHTML(step.activityNote)}</p></div>
+      ` : '';
+      const questionHTML = step.keyQuestion ? `
+        <div class="lp-question">
+          <p class="lp-qtext">${lpEscapeHTML(step.keyQuestion)}</p>
+          ${step.teacherGuidance ? `<p class="lp-qguide">${lpEscapeHTML(step.teacherGuidance)}</p>` : ''}
+        </div>
+      ` : '';
+      return `
+        <div class="lp-step">
+          <div class="lp-step-head">
+            <div class="lp-step-title">${lpEscapeHTML(step.heading)}</div>
+            ${step.minutes ? `<div class="lp-step-min">${lpEscapeHTML(step.minutes)}</div>` : ''}
+          </div>
+          ${step.teacherTalk ? `<div class="lp-step-label">Teacher talk</div><p>${lpEscapeHTML(step.teacherTalk)}</p>` : ''}
+          ${activityHTML}
+          ${questionHTML}
+        </div>
+      `;
+    }).join('');
+
+    lpModal.innerHTML = `
+      <div class="lp-head">
+        <button class="lp-close" id="lpCloseBtn" aria-label="Close">&times;</button>
+        <div class="lp-eyebrow">${lpEscapeHTML(state.week)} &middot; ${lpEscapeHTML(day.label)}</div>
+        <h2 id="lpModalTitle">${lpEscapeHTML(lesson.lessonTitle)}</h2>
+        <span class="lp-sub">${lpEscapeHTML(lp.topic || day.theme)}</span>
+      </div>
+      <div class="lp-body">
+        <div class="lp-row"><div class="lp-label">Duration</div><div class="lp-value">${lpEscapeHTML(lp.duration||'')}</div></div>
+        <div class="lp-row"><div class="lp-label">Passage</div><div class="lp-value">${lpEscapeHTML(lp.passage||'')}</div></div>
+        <div class="lp-row"><div class="lp-label">Big idea</div><div class="lp-value">${lpEscapeHTML(lp.bigIdea||'')}</div></div>
+        <div class="lp-row"><div class="lp-label">Learning intentions</div><div class="lp-value"><ul>${intentionsHTML}</ul></div></div>
+        ${lp.assessment ? `<div class="lp-row"><div class="lp-label">Assessment</div><div class="lp-value">${lpEscapeHTML(lp.assessment)}</div></div>` : ''}
+        ${resourcesHTML ? `<div class="lp-row"><div class="lp-label">Resources</div><div class="lp-value"><ul>${resourcesHTML}</ul></div></div>` : ''}
+      </div>
+      <div class="lp-section-head">Teacher script</div>
+      <div>${stepsHTML}</div>
+      ${lp.whereToNext ? `
+        <div class="lp-next">
+          <div class="lp-step-label">Where to next</div>
+          <p style="margin:0;">${lpEscapeHTML(lp.whereToNext)}</p>
+        </div>
+      ` : ''}
+      <div class="lp-print-row">
+        <button class="lp-print-btn" id="lpPrintBtn">Print this lesson plan</button>
+      </div>
+    `;
+
+    document.getElementById('lpCloseBtn').addEventListener('click', closeLessonPlan);
+    document.getElementById('lpPrintBtn').addEventListener('click', () => window.print());
+  }
+
+  function openLessonPlan(){
+    renderLessonPlan();
+    document.getElementById('lpOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLessonPlan(){
+    document.getElementById('lpOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lessonPlanBtn').addEventListener('click', openLessonPlan);
+  document.getElementById('lpOverlay').addEventListener('click', (e) => {
+    if(e.target.id === 'lpOverlay') closeLessonPlan();
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeLessonPlan();
+  });
+
+  termSelect.addEventListener('change', () => {
+    state.term = termSelect.value;
+    populateWeeks();
+    state.dayIndex = 0;
+    renderDayPills();
+    renderDay();
+  });
+
+  weekSelect.addEventListener('change', () => {
+    state.week = weekSelect.value;
+    state.dayIndex = 0;
+    renderDayPills();
+    renderDay();
+  });
+
+  teacherToggle.addEventListener('click', () => {
+    state.teacherMode = !state.teacherMode;
+    teacherToggle.classList.toggle('active', state.teacherMode);
+    document.body.classList.toggle('teacher-mode', state.teacherMode);
+  });
+
+  // ---- init ----
+  populateTerms();
+  termSelect.value = state.term;
+  populateWeeks();
+  weekSelect.value = state.week;
+  renderDayPills();
+  renderDay();
+})();
+</script>
+
+</body>
+</html>
