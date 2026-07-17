@@ -689,8 +689,17 @@
 
 
 <script src="fonts_data.js"></script>
-<script src="images_data.js"></script>
-<script src="data.js"></script>
+<!-- Images and lesson data are chunked 10 weeks per file. Add a new pair of
+     <script> tags here (images_data_wkXX-YY.js, then data_wkXX-YY.js) each
+     time a new decade of weeks is added — no other changes to this file
+     are needed. Keep them in ascending order; each file merges into the
+     same global COMIC_IMAGES / DEVOTIONS objects. -->
+<script src="images_data_wk1-10.js"></script>
+<script src="images_data_wk11-20.js"></script>
+<script src="images_data_wk21-30.js"></script>
+<script src="data_wk1-10.js"></script>
+<script src="data_wk11-20.js"></script>
+<script src="data_wk21-30.js"></script>
 <script>
   // inject font-face data URIs now that FONT_DATA is loaded
   (function(){
