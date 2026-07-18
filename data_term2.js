@@ -40,14 +40,25 @@
 // NOTE: `hint` only renders on `question` blocks, never on `activity` blocks.
 //
 // TERM 2 STATUS: INCOMPLETE — Week 1 (Lesson 11, "Let the exploring
-// begin!" / Genesis 1-11) and Week 2 (Lesson 12, "Promises, promises,
-// promises" / Genesis 12:1-9, memory verse switches to Numbers 23:19 CEV)
-// are built. Lessons 13-20 (Weeks 3-10) still need to be built from the
-// manual. Week 2 ships with no images: its PowerPoint (Lesson 12) contains
-// only title/word cards, a SIN-CONSEQUENCES-GRACE cycle recap diagram, and
-// a maze puzzle — no comic-style panel art — so per the visual style rules
-// it's text/verse-forward, same as Term 3 Weeks 2-6. This is the
-// highest-priority gap in the whole app right now.
+// begin!" / Genesis 1-11), Week 2 (Lesson 12, "Promises, promises,
+// promises" / Genesis 12:1-9, memory verse switches to Numbers 23:19 CEV),
+// and Week 3 (Lesson 13, "Waiting, waiting, waiting" / Genesis 15:1-18:15;
+// 21:1-7) are built. Lessons 14-20 (Weeks 4-10) still need to be built
+// from the manual. Week 2 ships with no images: its PowerPoint (Lesson 12)
+// contains only title/word cards, a SIN-CONSEQUENCES-GRACE cycle recap
+// diagram, and a maze puzzle — no comic-style panel art. Week 3 ALSO ships
+// with no images: its PowerPoint (Lesson 13) contains only photographic
+// cake/candle prop shots (a physical object-lesson counting up Abraham and
+// Sarah's birthdays) and text/word cards — no comic-style panel art either,
+// and the photographic candle-cake images would visually clash with the
+// hand-drawn comic style used elsewhere in the app, so per the visual
+// style rules this week is text/verse-forward too, same as Term 3
+// Weeks 2-6. Week 3 uses the new 'roleplay' block type on Day 4 for an
+// original dramatisation of Genesis 18:1-15 (the manual's own "Act it
+// out" extension activity had no printed script to source verbatim, so
+// the script was written fresh from the CEV passage text quoted elsewhere
+// in the manual). Building Weeks 4-10 is the highest-priority gap in the
+// whole app right now.
 // ============================================================
 
 window.DEVOTIONS = window.DEVOTIONS || {};
@@ -636,6 +647,336 @@ window.DEVOTIONS["Term 2"] = Object.assign(window.DEVOTIONS["Term 2"] || {}, {
               },
             ],
             whereToNext: "Lesson 13 shows that even though God keeps every promise, Abraham has to learn to wait a long time for this one to come true.",
+          },
+        },
+      ],
+    },
+    "Week 3": {
+      lessonTitle: "Waiting, waiting, waiting",
+      passage: "Genesis 15:1–18:15; 21:1–7",
+      bigIdea: "God kept every promise he made to Abraham and Sarah — but it took twenty-five long years. Waiting is hard, and Abraham and Sarah sometimes struggled to trust God's timing along the way. But God never forgot, and he never gave up. Christians believe God can always be trusted to keep his promises, even if he takes far longer than we expect.",
+      source: "Connect B1 Upper Primary — Lesson 13",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Beginning to wonder",
+          blocks: [
+            { type: "question", text: "Imagine you sealed up a message today that wouldn't be opened for years and years. Do you think it would be easy or hard to trust that it was still safely there, waiting, the whole time you couldn't see it?", hint: "Accept responses. This is the idea behind a time capsule — something sealed away and easy to forget about, even though it's still there. Use it to introduce this week's big theme: waiting for a promise you can't yet see come true." },
+            { type: "story", text: "Last week we heard God make three huge promises to Abraham: a LAND, a GREAT NATION, and that the whole world would be BLESSED through him. Abraham trusted God and set off, not knowing exactly where he'd end up." },
+            { type: "story", text: "But here's the problem. Years went by. Abraham and Sarah still didn't have a single child of their own — and without a child, how could Abraham's family ever become a great nation? Abraham began to wonder whether God had forgotten him." },
+            { type: "question", text: "Abraham had trusted God enough to leave his whole home behind. But now, years later, with nothing to show for it yet, he was starting to doubt. Why do you think waiting can shake our trust more than the original hard decision did?", hint: "Guide toward: it's often easier to trust God for one big decision than to keep trusting him through a long, uncertain wait with no answer in sight — that ongoing trust is a different, harder kind of faith." },
+            { type: "story", text: "God came and spoke to Abraham again. He took him outside at night and made him an incredible promise." },
+            { type: "verse", reference: "Genesis 15:4b–5 (CEV)", text: "“You will have a son of your own, and everything you have will be his.” Then the Lord took Abram outside and said, “Look at the sky and see if you can count the stars. That's how many descendants you will have.”" },
+            { type: "question", text: "Abraham couldn't count the stars — there were far too many. Why do you think God chose a promise like that, one that was literally impossible to count, instead of just giving Abraham a number?", hint: "Guide toward: it showed the promise was bigger than Abraham could ever measure or fully picture — trusting it meant trusting God's word, not just doing the maths." },
+            { type: "story", text: "The Bible tells us Abraham trusted the Lord, and because of his faith, God accepted him as one of his own people." },
+            { type: "verse", reference: "Numbers 23:19 (CEV)", text: "“God is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.”" },
+            { type: "activity", text: "Let's say this term's memory verse together." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 15:1–6",
+            topic: "Beginning to wonder",
+            bigIdea: "God kept every promise he made to Abraham and Sarah — but it took twenty-five long years. Waiting is hard, and Abraham and Sarah sometimes struggled to trust God's timing along the way. But God never forgot, and he never gave up. Christians believe God can always be trusted to keep his promises, even if he takes far longer than we expect.",
+            learningIntentions: [
+              "We are learning that years passed after God's promises to Abraham with no child being born, and that Abraham began to doubt.",
+              "We are learning that God reassured Abraham with the promise of descendants as countless as the stars.",
+              "I can explain that Abraham trusted God even though he couldn't see how the promise would come true.",
+            ],
+            assessment: "Listen for whether students can explain why the passing of time (rather than the original promise itself) tested Abraham's trust, and can describe the stars promise in their own words.",
+            resources: [
+              "CEV Bible (optional, for reading Genesis 15:4b–5 aloud)",
+            ],
+            script: [
+              {
+                heading: "A message you can't yet see",
+                minutes: "2 min",
+                teacherTalk: "Open with the sealed-message/time-capsule warm-up question to introduce the theme of trusting something you can't yet see come true.",
+                activityNote: null,
+                keyQuestion: "Imagine you sealed up a message today that wouldn't be opened for years and years. Do you think it would be easy or hard to trust that it was still safely there, waiting, the whole time you couldn't see it?",
+                teacherGuidance: "Accept responses. This is the idea behind a time capsule — something sealed away and easy to forget about, even though it's still there. Use it to introduce this week's big theme: waiting for a promise you can't yet see come true.",
+              },
+              {
+                heading: "Recap and the problem",
+                minutes: "2–3 min",
+                teacherTalk: "Briefly recap last week's three promises, then explain that years passed with still no child for Abraham and Sarah.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Waiting shakes trust",
+                minutes: "2–3 min",
+                teacherTalk: "Ask why an ongoing wait can be harder to trust through than the original decision, letting students reflect honestly.",
+                activityNote: null,
+                keyQuestion: "Abraham had trusted God enough to leave his whole home behind. But now, years later, with nothing to show for it yet, he was starting to doubt. Why do you think waiting can shake our trust more than the original hard decision did?",
+                teacherGuidance: "Guide toward: it's often easier to trust God for one big decision than to keep trusting him through a long, uncertain wait with no answer in sight — that ongoing trust is a different, harder kind of faith.",
+              },
+              {
+                heading: "Count the stars",
+                minutes: "3–4 min",
+                teacherTalk: "Read Genesis 15:4b–5 together and unpack why God used a promise too big to count.",
+                activityNote: null,
+                keyQuestion: "Abraham couldn't count the stars — there were far too many. Why do you think God chose a promise like that, one that was literally impossible to count, instead of just giving Abraham a number?",
+                teacherGuidance: "Guide toward: it showed the promise was bigger than Abraham could ever measure or fully picture — trusting it meant trusting God's word, not just doing the maths.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Close by explaining that Abraham's trust was credited to him as righteousness, then say this term's memory verse together.",
+                activityNote: "Use the built-in verse block for Numbers 23:19, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 shows that even Abraham and Sarah, while they waited, sometimes struggled to trust God and tried to take matters into their own hands.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Taking matters into their own hands",
+          blocks: [
+            { type: "story", text: "Even after God's amazing star promise, more time passed — and Abraham and Sarah still didn't have a child. The waiting kept going, and it kept being hard." },
+            { type: "question", text: "Have you ever wanted something so badly, and waited so long for it, that you were tempted to just make it happen yourself instead of waiting any longer?", hint: "Accept honest responses — most people have felt this. Use it to set up today's story with empathy rather than judgement: waiting is genuinely hard, even for people the Bible holds up as examples of great faith." },
+            { type: "story", text: "Sarah grew so tired of waiting that she came up with her own plan. She gave her servant Hagar to Abraham, hoping that Hagar could have a child that would count as theirs instead. Abraham agreed, and Hagar had a son named Ishmael." },
+            { type: "story", text: "But this shortcut didn't bring the peace Sarah hoped for. Instead, it caused deep jealousy and hurt in their family, and lasting trouble between Sarah and Hagar." },
+            { type: "question", text: "Sarah and Abraham loved God and had already shown real faith in him — but they still tried to solve the waiting their own way, and it went badly. What does that tell us about how hard waiting on God can be, even for people who trust him?", hint: "Guide toward: even people the Bible admires for their faith still struggled with impatience — this isn't really a story about Abraham and Sarah failing so much as a story about how genuinely hard waiting is, and how easy it is to want to force our own solution instead of trusting God's timing." },
+            { type: "story", text: "But even after Sarah and Abraham's plan caused so much trouble, God didn't walk away from them. He was still faithful to keep his promise — the real promise, the one he had made himself." },
+            { type: "verse", reference: "Numbers 23:19 (CEV)", text: "“God is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.”" },
+            { type: "activity", text: "Let's say this week's memory verse together again." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 16",
+            topic: "Taking matters into their own hands",
+            bigIdea: "God kept every promise he made to Abraham and Sarah — but it took twenty-five long years. Waiting is hard, and Abraham and Sarah sometimes struggled to trust God's timing along the way. But God never forgot, and he never gave up. Christians believe God can always be trusted to keep his promises, even if he takes far longer than we expect.",
+            learningIntentions: [
+              "We are learning that Sarah and Abraham grew impatient waiting for God's promise and tried to solve it themselves, through Hagar and Ishmael.",
+              "We are learning that this shortcut caused jealousy and trouble in their family rather than solving anything.",
+              "I can explain that even faithful people can struggle to trust God's timing, and that God stayed faithful anyway.",
+            ],
+            assessment: "Listen for whether students can retell what Sarah and Abraham did instead of waiting, and can describe the consequence without treating the story as simple failure — aim for empathy alongside honesty.",
+            resources: [],
+            script: [
+              {
+                heading: "Still waiting",
+                minutes: "1–2 min",
+                teacherTalk: "Recap that despite the star promise, more time passed with still no child.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The temptation to force it",
+                minutes: "2 min",
+                teacherTalk: "Ask the warm-up question so students can relate personally before hearing today's story.",
+                activityNote: null,
+                keyQuestion: "Have you ever wanted something so badly, and waited so long for it, that you were tempted to just make it happen yourself instead of waiting any longer?",
+                teacherGuidance: "Accept honest responses — most people have felt this. Use it to set up today's story with empathy rather than judgement: waiting is genuinely hard, even for people the Bible holds up as examples of great faith.",
+              },
+              {
+                heading: "Sarah's plan",
+                minutes: "3 min",
+                teacherTalk: "Tell the story of Hagar and Ishmael and the trouble it caused, keeping the tone gentle rather than harshly critical.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Even faithful people struggle",
+                minutes: "2–3 min",
+                teacherTalk: "Ask what this reveals about how hard waiting on God can be, guiding students away from judging Abraham and Sarah too harshly.",
+                activityNote: null,
+                keyQuestion: "Sarah and Abraham loved God and had already shown real faith in him — but they still tried to solve the waiting their own way, and it went badly. What does that tell us about how hard waiting on God can be, even for people who trust him?",
+                teacherGuidance: "Guide toward: even people the Bible admires for their faith still struggled with impatience — this isn't really a story about Abraham and Sarah failing so much as a story about how genuinely hard waiting is, and how easy it is to want to force our own solution instead of trusting God's timing.",
+              },
+              {
+                heading: "God stayed faithful anyway",
+                minutes: "1–2 min",
+                teacherTalk: "Emphasise that God didn't abandon Abraham and Sarah despite their shortcut, then say the memory verse together.",
+                activityNote: "Use the built-in verse block for Numbers 23:19, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 jumps forward to when Abraham is 99 years old, as God renews his promise and gives Abraham and Sarah brand new names.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Father of many nations",
+          blocks: [
+            { type: "story", text: "More birthdays passed. And more. And more. Abraham was 75 when God first made his promises. Now, twenty-four birthdays later, Abraham was 99 years old and Sarah was 89 — and they still didn't have a child of their own." },
+            { type: "question", text: "If you'd been waiting twenty-four years for something you'd been promised, do you think you'd still be expecting it to happen — or would you have given up hope by then?", hint: "Accept honest responses. Use it to help students feel the weight of just how long this wait really was — this isn't a short story, it's a quarter of a century." },
+            { type: "story", text: "God came and spoke to Abraham again. This time, God didn't just repeat the promise — he renewed it as an everlasting covenant, and gave Abraham and Sarah brand new names to go with it." },
+            { type: "verse", reference: "Genesis 17:4–5, 15–16 (CEV)", text: "“I promise that you will be the father of many nations. That's why I now change your name from Abram to Abraham … Abraham, your wife's name will now be Sarah instead of Sarai. I will bless her, and you will have a son by her. She will become the mother of nations, and some of her descendants will even be kings.”" },
+            { type: "question", text: "Abraham means 'father of many', and Sarah means 'mother of nations' — new names that only made sense if the promise came true. Why do you think God chose to change their names before Isaac had even been born?", hint: "Guide toward: it gave Abraham and Sarah a daily reminder of God's promise, every single time anyone said their names — a sign of God's certainty, even before the promise was fulfilled." },
+            { type: "story", text: "God also said something even more specific this time — not just that a son would come one day, but exactly when." },
+            { type: "verse", reference: "Genesis 18:10a (CEV)", text: "One of the guests was the Lord, and he said, “I'll come back about this time next year, and when I do, Sarah will already have a son.”" },
+            { type: "question", text: "After twenty-four years of waiting with no timeline at all, God suddenly gave Abraham and Sarah an exact promise: one year. How do you think it would feel to finally have a date to look forward to, after waiting that long?", hint: "Accept responses — likely a mix of excitement, disbelief, and maybe still some doubt after so many years of nothing." },
+            { type: "verse", reference: "Numbers 23:19 (CEV)", text: "“God is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.”" },
+            { type: "activity", text: "Let's say this week's memory verse together — try it once without looking!" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 17:1–5, 15–17; 18:10a",
+            topic: "Father of many nations",
+            bigIdea: "God kept every promise he made to Abraham and Sarah — but it took twenty-five long years. Waiting is hard, and Abraham and Sarah sometimes struggled to trust God's timing along the way. But God never forgot, and he never gave up. Christians believe God can always be trusted to keep his promises, even if he takes far longer than we expect.",
+            learningIntentions: [
+              "We are learning that twenty-four years after the first promise, at age 99, Abraham still had no child of his own.",
+              "We are learning that God renewed his covenant with Abraham, changing his and Sarah's names to reflect the promise still to come.",
+              "I can explain that God gave Abraham and Sarah a specific one-year timeline for their son to be born.",
+            ],
+            assessment: "Listen for whether students can state Abraham and Sarah's ages at this point in the story, and can explain why their names were changed before the promise came true.",
+            resources: [
+              "CEV Bible (optional, for reading Genesis 17:4–5, 15–16 and 18:10a aloud)",
+            ],
+            script: [
+              {
+                heading: "Twenty-four birthdays later",
+                minutes: "2 min",
+                teacherTalk: "Emphasise just how long twenty-four years is, then ask the reflection question.",
+                activityNote: null,
+                keyQuestion: "If you'd been waiting twenty-four years for something you'd been promised, do you think you'd still be expecting it to happen — or would you have given up hope by then?",
+                teacherGuidance: "Accept honest responses. Use it to help students feel the weight of just how long this wait really was — this isn't a short story, it's a quarter of a century.",
+              },
+              {
+                heading: "New names, renewed promise",
+                minutes: "3–4 min",
+                teacherTalk: "Read Genesis 17:4–5, 15–16 together and explain the covenant renewal and name changes.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Why change the names now?",
+                minutes: "2–3 min",
+                teacherTalk: "Ask why God changed their names before the promise was fulfilled.",
+                activityNote: null,
+                keyQuestion: "Abraham means 'father of many', and Sarah means 'mother of nations' — new names that only made sense if the promise came true. Why do you think God chose to change their names before Isaac had even been born?",
+                teacherGuidance: "Guide toward: it gave Abraham and Sarah a daily reminder of God's promise, every single time anyone said their names — a sign of God's certainty, even before the promise was fulfilled.",
+              },
+              {
+                heading: "One year from now",
+                minutes: "2–3 min",
+                teacherTalk: "Read Genesis 18:10a and ask how it would feel to finally have an exact timeline after so long.",
+                activityNote: null,
+                keyQuestion: "After twenty-four years of waiting with no timeline at all, God suddenly gave Abraham and Sarah an exact promise: one year. How do you think it would feel to finally have a date to look forward to, after waiting that long?",
+                teacherGuidance: "Accept responses — likely a mix of excitement, disbelief, and maybe still some doubt after so many years of nothing.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Try the memory verse together, once without looking at the screen.",
+                activityNote: "Use the built-in verse block for Numbers 23:19, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 acts out that visit to Abraham's tent, hears Sarah's reaction, and finds out whether God really did keep his promise.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Is God a promise keeper?",
+          blocks: [
+            { type: "story", text: "Let's act out what happened on the day God gave Abraham and Sarah that one-year promise." },
+            { type: "roleplay", title: "Lesson 13 script: Three visitors at Mamre", characters: ["Narrator", "Abraham", "The LORD", "Sarah"], lines: [
+              { character: "Narrator", text: "One hot afternoon, Abraham was resting at the entrance of his tent near the great trees of Mamre. He looked up and saw three visitors standing nearby." },
+              { text: "(Abraham jumps up and hurries over, bowing low.)", direction: true },
+              { character: "Abraham", text: "Please, don't go on without resting a while. Let me bring water to wash your feet, and some bread to give you strength before you continue your journey." },
+              { character: "The LORD", text: "Very well. Do as you have said." },
+              { text: "(Abraham hurries to Sarah's tent.)", direction: true },
+              { character: "Abraham", text: "Sarah — quickly! Take our best flour and bake some bread for our guests!" },
+              { text: "(Abraham chooses a tender calf to be prepared, then serves the visitors as they eat under a tree.)", direction: true },
+              { character: "The LORD", text: "Where is your wife Sarah?" },
+              { character: "Abraham", text: "She is there, in the tent." },
+              { character: "The LORD", text: "I'll come back about this time next year, and when I do, Sarah will already have a son." },
+              { character: "Narrator", text: "Sarah was listening at the entrance to the tent behind him. Abraham and Sarah were very old, and Sarah was well past the age for having children." },
+              { text: "(Sarah laughs quietly to herself.)", direction: true },
+              { character: "Sarah", text: "Now that I am worn out, and my husband is old, will I really know such happiness?" },
+              { character: "The LORD", text: "Why did Sarah laugh and say, 'Can I really have a child now that I am so old?' Is anything too hard for the Lord? I'll come back about this time next year, and Sarah will have a son." },
+              { character: "Sarah", text: "I didn't laugh." },
+              { character: "The LORD", text: "Yes, you did laugh." },
+            ] },
+            { type: "question", text: "Sarah thought the idea of having a baby at 89 was so unlikely that she laughed. Do you think you would have believed the promise if you were her — after everything that had already happened?", hint: "Accept honest responses. Guide toward: it's completely understandable that Sarah struggled to believe it after so many years — the question isn't really whether her doubt makes sense, but whether God kept his word anyway." },
+            { type: "story", text: "Well, another birthday came around. Abraham turned 100. Sarah turned 90. And exactly as God had promised, one year on — Abraham and Sarah had a baby boy!" },
+            { type: "story", text: "God KEPT his promise to Abraham. They named their son Isaac, which means 'he laughed' — because both Abraham and Sarah had laughed in disbelief when they first heard the promise, and now they were laughing with joy instead." },
+            { type: "question", text: "So here's the big question this whole week has been building to: after twenty-five years of waiting, doubting, and even trying to take matters into their own hands — did God turn out to be a promise keeper, or a promise breaker?", hint: "Accept responses, but guide firmly toward: God is a promise keeper — he kept every single promise, exactly as he said he would, even though it took twenty-five years." },
+            { type: "story", text: "Think about the message sealed away that we talked about on Monday. A promise can be sealed away for a really long time, and it might even seem like everyone has forgotten about it. But when the time is right, it's opened — and it's exactly what was promised, all along." },
+            { type: "question", text: "God's timing wasn't the same as Abraham and Sarah's. Is there something in your own life that you're waiting for right now, where it's hard to trust God's timing?", hint: "Accept honest, personal responses — this can be kept private if a student prefers. Guide toward: waiting is genuinely hard, but this week's story is proof that God's promises are worth trusting even when the timing feels slow." },
+            { type: "verse", reference: "Numbers 23:19 (CEV)", text: "“God is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.”" },
+            { type: "activity", text: "Let's say this week's memory verse together one more time — see if we can do it fully from memory!" },
+            { type: "prayer", text: "Dear God, thank you for the promises you made to Abraham. Thank you that you kept your promise to give Sarah and Abraham a son. Thank you that the Bible shows us you are a promise keeper. Help us to enjoy learning about your promises this term. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 18:1–15; 21:1–7",
+            topic: "Is God a promise keeper?",
+            bigIdea: "God kept every promise he made to Abraham and Sarah — but it took twenty-five long years. Waiting is hard, and Abraham and Sarah sometimes struggled to trust God's timing along the way. But God never forgot, and he never gave up. Christians believe God can always be trusted to keep his promises, even if he takes far longer than we expect.",
+            learningIntentions: [
+              "We are learning what happened when the Lord visited Abraham's tent and told Sarah she would have a son within the year.",
+              "We are learning that despite Sarah's disbelief, God kept his promise exactly on time — Isaac was born when Abraham was 100 and Sarah was 90.",
+              "I can explain, in my own words, why the Bible calls God a promise keeper even when a promise takes a long time.",
+            ],
+            assessment: "Listen for whether students can retell the visit to Abraham's tent and Sarah's reaction in their own words, and can explain why God is described as a promise keeper despite the twenty-five year wait.",
+            resources: [
+              "Volunteers to read Abraham, the LORD, Sarah, and Narrator for the roleplay",
+            ],
+            script: [
+              {
+                heading: "Acting out the visit",
+                minutes: "4–5 min",
+                teacherTalk: "Choose four volunteers for Narrator, Abraham, the LORD, and Sarah, and run the built-in script as a fullscreen presenter for the whole class to watch.",
+                activityNote: "Use the built-in roleplay block — tap 'Start the script on screen' to open the fullscreen presenter for your four volunteers.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Would you have believed it?",
+                minutes: "2 min",
+                teacherTalk: "Ask whether students think they'd have believed the promise in Sarah's position.",
+                activityNote: null,
+                keyQuestion: "Sarah thought the idea of having a baby at 89 was so unlikely that she laughed. Do you think you would have believed the promise if you were her — after everything that had already happened?",
+                teacherGuidance: "Accept honest responses. Guide toward: it's completely understandable that Sarah struggled to believe it after so many years — the question isn't really whether her doubt makes sense, but whether God kept his word anyway.",
+              },
+              {
+                heading: "Isaac is born",
+                minutes: "2 min",
+                teacherTalk: "Tell how, exactly one year later, Isaac was born and explain the meaning of his name.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Promise keeper or promise breaker?",
+                minutes: "2–3 min",
+                teacherTalk: "Ask the central question of the week and guide students firmly toward the answer.",
+                activityNote: null,
+                keyQuestion: "So here's the big question this whole week has been building to: after twenty-five years of waiting, doubting, and even trying to take matters into their own hands — did God turn out to be a promise keeper, or a promise breaker?",
+                teacherGuidance: "Accept responses, but guide firmly toward: God is a promise keeper — he kept every single promise, exactly as he said he would, even though it took twenty-five years.",
+              },
+              {
+                heading: "What are you waiting for?",
+                minutes: "2–3 min",
+                teacherTalk: "Revisit Monday's sealed-message idea, then invite students to name something they're waiting on God for personally.",
+                activityNote: null,
+                keyQuestion: "God's timing wasn't the same as Abraham and Sarah's. Is there something in your own life that you're waiting for right now, where it's hard to trust God's timing?",
+                teacherGuidance: "Accept honest, personal responses — this can be kept private if a student prefers. Guide toward: waiting is genuinely hard, but this week's story is proof that God's promises are worth trusting even when the timing feels slow.",
+              },
+              {
+                heading: "Memory verse and closing prayer",
+                minutes: "2 min",
+                teacherTalk: "Finish the week's memory verse fully from memory, then close together with the prayer in the app.",
+                activityNote: "Use the say-it-from-memory activity block, then the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Lesson 14 moves on to a drama based on the story of Isaac and Rebekah.",
           },
         },
       ],
