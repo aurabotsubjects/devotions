@@ -845,7 +845,7 @@
 
   <div id="content"></div>
 
-  <footer class="app-foot">Built from the Connect B1 Upper Primary teacher's manual &amp; lesson slides.</footer>
+  <footer class="app-foot">Built from the Connect Upper Primary teacher's manuals &amp; lesson slides.</footer>
 </div>
 
 <div class="lp-overlay" id="lpOverlay">
@@ -871,17 +871,18 @@
 
 
 <script src="fonts_data.js"></script>
-<!-- Images and lesson data are chunked 10 weeks per file. Add a new pair of
-     <script> tags here (images_data_wkXX-YY.js, then data_wkXX-YY.js) each
-     time a new decade of weeks is added — no other changes to this file
-     are needed. Keep them in ascending order; each file merges into the
-     same global COMIC_IMAGES / DEVOTIONS objects. -->
-<script src="images_data_wk1-10.js"></script>
-<script src="images_data_wk11-20.js"></script>
-<script src="images_data_b2_wk1-10.js"></script>
-<script src="data_wk1-10.js"></script>
-<script src="data_wk11-20.js"></script>
-<script src="data_b2_wk1-10.js"></script>
+<!-- Images and lesson data are chunked one file per term (each term = up to
+     10 weeks/lessons). Add a new pair of <script> tags here
+     (images_term{N}.js, then data_term{N}.js) each time a new term is
+     added — no other changes to this file are needed. Keep them in
+     ascending order; each file merges into the same global COMIC_IMAGES /
+     DEVOTIONS objects. -->
+<script src="images_term1.js"></script>
+<script src="images_term2.js"></script>
+<script src="images_term3.js"></script>
+<script src="data_term1.js"></script>
+<script src="data_term2.js"></script>
+<script src="data_term3.js"></script>
 <script>
   // inject font-face data URIs now that FONT_DATA is loaded
   (function(){
@@ -1018,6 +1019,22 @@
         </div>`;
       }
 
+      // 'dictation': same fullscreen line-by-line presenter as 'roleplay', but framed as a
+      // whole-class reading (no cast list) instead of an acted-out scene. Use this whenever
+      // the manual/PDF has a script the WHOLE CLASS reads aloud together (often literally
+      // called "dictation" in the manual), so the teacher can project it like a TV prompter
+      // instead of printing narration handouts. See full shape notes near openScript() below.
+      case 'dictation': {
+        return `<div class="block roleplay" data-block-i="${blockIndex}">
+          <div class="label">read together</div>
+          <h3 class="rp-title">${escapeHTML(b.title || 'Read the passage together')}</h3>
+          <button class="rp-start-btn" data-role-i="${blockIndex}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Start the reading on screen
+          </button>
+        </div>`;
+      }
+
       default:
         return '';
     }
@@ -1092,6 +1109,14 @@
   //     lines:[ {character:'Narrator', text:'...', direction:true}, {character:'Abraham', text:'...'} ] }
   // `characters` may be an array of strings, or {name,color} objects for a manually chosen color.
   // `lines[].direction:true` renders that line as an italic stage direction instead of dialogue.
+  //
+  // Data shape for a 'dictation' block (whole-class reading, e.g. manual scripts literally
+  // labelled "dictation" that students read aloud together off the projected screen instead
+  // of a printed handout):
+  //   { type:'dictation', title:'Lesson 14 dictation', lines:[ {text:'...'}, {text:'...'} ] }
+  // Reuses this exact same openScript()/renderScriptLine() presenter — `character` and
+  // `direction` on each line are optional here (omit `character` for plain unattributed
+  // lines; a shared speaker label like "Class" still works fine if wanted).
   const SCRIPT_PALETTE = ['#7BA7D9','#F2C77B','#9FC49A','#E0958E','#B9A6D9','#7FC4C9'];
 
   let scriptState = { block: null, lineIndex: 0, colorByName: {} };
@@ -1133,9 +1158,14 @@
       charEl.innerHTML = '';
       textEl.className = 'script-line-text script-direction';
       textEl.textContent = line.text;
+    } else if(!line.character){
+      // Unattributed line (e.g. a plain dictation line with no speaker) — no badge pill.
+      charEl.innerHTML = '';
+      textEl.className = 'script-line-text';
+      textEl.textContent = line.text;
     } else {
-      const color = scriptCharacterColor(line.character || '');
-      charEl.innerHTML = `<div class="script-character" style="background:${color}">${escapeHTML(line.character || '')}</div>`;
+      const color = scriptCharacterColor(line.character);
+      charEl.innerHTML = `<div class="script-character" style="background:${color}">${escapeHTML(line.character)}</div>`;
       textEl.className = 'script-line-text';
       textEl.textContent = line.text;
     }
