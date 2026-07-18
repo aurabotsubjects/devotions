@@ -444,14 +444,27 @@
     text-transform:uppercase;
     color:rgba(251,249,244,0.55);
   }
-  .script-stage{
+  .script-stage-wrap{
+    position:relative;
     flex:1;
+    min-height:0;
+  }
+  .script-stage{
+    position:absolute;
+    inset:0;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
+    justify-content:safe center;
+    overflow-y:auto;
     padding:20px 6vw 10px;
     text-align:center;
+  }
+  .script-stage::-webkit-scrollbar{ width:10px; }
+  .script-stage::-webkit-scrollbar-track{ background:transparent; }
+  .script-stage::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,0.22);
+    border-radius:10px;
   }
   .script-title{
     font-family:'CaveatSemiBold', cursive;
@@ -485,6 +498,32 @@
     font-family:var(--serif);
     font-style:italic;
     color:rgba(251,249,244,0.65);
+  }
+  .script-scroll-hint{
+    position:absolute;
+    left:0; right:0;
+    bottom:0;
+    height:90px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    padding-bottom:10px;
+    background:linear-gradient(to bottom, rgba(30,29,26,0) 0%, var(--ink) 85%);
+    color:rgba(251,249,244,0.85);
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity 0.2s ease;
+  }
+  .script-scroll-hint.visible{ opacity:1; }
+  .script-scroll-hint svg{ width:16px; height:16px; margin-left:6px; animation:scriptBounce 1.4s infinite; }
+  @keyframes scriptBounce{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(5px); }
   }
   .script-controls{
     display:flex;
@@ -857,10 +896,15 @@
   <div class="script-progress-row">
     <div class="script-progress-text" id="scriptProgressText"></div>
   </div>
-  <div class="script-stage">
-    <div class="script-title" id="scriptTitle"></div>
-    <div id="scriptCharacter"></div>
-    <p class="script-line-text" id="scriptLineText"></p>
+  <div class="script-stage-wrap">
+    <div class="script-stage" id="scriptStage">
+      <div class="script-title" id="scriptTitle"></div>
+      <div id="scriptCharacter"></div>
+      <p class="script-line-text" id="scriptLineText"></p>
+    </div>
+    <div class="script-scroll-hint" id="scriptScrollHint">Scroll for more
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
   </div>
   <div class="script-controls">
     <button class="script-nav-btn" id="scriptPrevBtn">&#8592; Back</button>
@@ -1182,7 +1226,35 @@
     const nextBtn = document.getElementById('scriptNextBtn');
     prevBtn.disabled = lineIndex === 0;
     nextBtn.textContent = lineIndex === total - 1 ? 'Finish' : 'Next \u2192';
+
+    // Reset scroll position so a long line that needs scrolling always starts
+    // visible from the top, rather than staying scrolled from the previous line.
+    const stageEl = document.getElementById('scriptStage');
+    if(stageEl) stageEl.scrollTop = 0;
+    updateScriptScrollHint();
   }
+
+  // Shows a "Scroll for more" hint at the bottom of the script stage whenever
+  // the current line's content is taller than the screen (so long roleplay/
+  // dictation lines don't get silently cut off on a TV where zooming out
+  // isn't an option). Hides itself once the reader has scrolled to the end.
+  function updateScriptScrollHint(){
+    const stageEl = document.getElementById('scriptStage');
+    const hintEl = document.getElementById('scriptScrollHint');
+    if(!stageEl || !hintEl) return;
+    const checkOverflow = () => {
+      const hasMore = stageEl.scrollHeight - stageEl.scrollTop - stageEl.clientHeight > 12;
+      hintEl.classList.toggle('visible', hasMore);
+    };
+    checkOverflow();
+    // Re-check shortly after render in case fonts/layout are still settling.
+    requestAnimationFrame(checkOverflow);
+    stageEl.onscroll = checkOverflow;
+  }
+
+  window.addEventListener('resize', () => {
+    if(document.getElementById('scriptOverlay').classList.contains('open')) updateScriptScrollHint();
+  });
 
   function scriptNext(){
     const { block, lineIndex } = scriptState;
