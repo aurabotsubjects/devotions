@@ -42,9 +42,10 @@
 // TERM 2 STATUS: INCOMPLETE — Week 1 (Lesson 11, "Let the exploring
 // begin!" / Genesis 1-11), Week 2 (Lesson 12, "Promises, promises,
 // promises" / Genesis 12:1-9, memory verse switches to Numbers 23:19 CEV),
-// and Week 3 (Lesson 13, "Waiting, waiting, waiting" / Genesis 15:1-18:15;
-// 21:1-7) are built. Lessons 14-20 (Weeks 4-10) still need to be built
-// from the manual. Week 2 ships with no images: its PowerPoint (Lesson 12)
+// Week 3 (Lesson 13, "Waiting, waiting, waiting" / Genesis 15:1-18:15;
+// 21:1-7), and Week 4 (Lesson 14, "God's family grows" / Genesis 24) are
+// built. Lessons 15-20 (Weeks 5-10) still need to be built from the manual.
+// Week 2 ships with no images: its PowerPoint (Lesson 12)
 // contains only title/word cards, a SIN-CONSEQUENCES-GRACE cycle recap
 // diagram, and a maze puzzle — no comic-style panel art. Week 3 ALSO ships
 // with no images: its PowerPoint (Lesson 13) contains only photographic
@@ -57,7 +58,16 @@
 // original dramatisation of Genesis 18:1-15 (the manual's own "Act it
 // out" extension activity had no printed script to source verbatim, so
 // the script was written fresh from the CEV passage text quoted elsewhere
-// in the manual). Building Weeks 4-10 is the highest-priority gap in the
+// in the manual). Week 4 ALSO ships with no images: its PowerPoint (Lesson
+// 14) contains only a title card, generic clip-art family-tree diagram
+// templates (for the "Way in"/"Taking it further" activities), and
+// screenshots of the manual's own printed drama-script pages — no
+// hand-drawn comic-style panel art, so per the visual style rules this
+// week is text/verse-forward too. Week 4 uses the 'roleplay' block type on
+// Day 4 for the manual's own printed "Lesson 14 script" (Genesis 24,
+// licensed in the manual for classroom photocopying), transcribed close to
+// verbatim rather than written fresh, since a real printed script existed
+// this time. Building Weeks 5-10 is the highest-priority gap in the
 // whole app right now.
 // ============================================================
 
@@ -977,6 +987,444 @@ window.DEVOTIONS["Term 2"] = Object.assign(window.DEVOTIONS["Term 2"] || {}, {
               },
             ],
             whereToNext: "Lesson 14 moves on to a drama based on the story of Isaac and Rebekah.",
+          },
+        },
+      ],
+    },
+    "Week 4": {
+      lessonTitle: "God's family grows",
+      passage: "Genesis 24",
+      bigIdea: "Over sixty years after God first promised Abraham a family as countless as the stars, Isaac still had no wife — and without a wife, the promise couldn't grow any further. God used the careful obedience of an unnamed servant, and the willing trust of a young woman named Rebekah, to move his promise forward another step. Christians believe God can be trusted to work through ordinary people, and even the small details of an ordinary day, to keep his promises.",
+      source: "Connect B1 Upper Primary — Lesson 14",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "A wife for Isaac",
+          blocks: [
+            {
+              type: "question",
+              text: "Has anyone ever made an important decision on your behalf — like a parent choosing your school, or a friend picking a gift for you? How did it feel to trust someone else with something that mattered?",
+              hint: "Accept responses. Use this to set up today's story, where Abraham trusts his servant to make one of the most important decisions of Isaac's life for him.",
+            },
+            {
+              type: "story",
+              text: "It had been over sixty years since God first promised Abraham a land, a great family, and blessing for the whole world. Sarah had died, and Abraham was now very old. His son Isaac was forty years old — and still had no wife.",
+            },
+            {
+              type: "question",
+              text: "Without a wife for Isaac, Abraham's family couldn't grow into the great nation God had promised. Why do you think this moment mattered so much for God's promise to keep moving forward?",
+              hint: "Guide toward: the promise depended on Isaac having children of his own one day — no wife meant no next generation, and no next generation meant the promise couldn't grow any further.",
+            },
+            {
+              type: "story",
+              text: "So Abraham called his most trusted servant and gave him a very important job: travel back to Abraham's own homeland and family, far away, and find a wife there for Isaac. Abraham was firm that Isaac's wife must not come from the local Canaanite people they now lived among.",
+            },
+            {
+              type: "question",
+              text: "The servant wasn't so sure about this plan. What if the woman he found didn't want to leave her home and travel back with him? Should he just bring Isaac to meet her instead? What do you think Abraham said to that?",
+              hint: "Accept guesses, then reveal: Abraham said no — Isaac must stay in the land God had promised him. If the woman wasn't willing to come, the servant was free to come back alone, but Isaac himself was not to leave.",
+            },
+            {
+              type: "story",
+              text: "Abraham trusted that God had a plan in this too — he even told his servant that God would send an angel ahead of him to prepare the way. So the servant loaded ten camels with valuable gifts and set off on the long journey, trusting God with a job he couldn't fully control.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "\u201cGod is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.\u201d",
+            },
+            {
+              type: "activity",
+              text: "Let's say this week's memory verse together.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 24:1–9",
+            topic: "A wife for Isaac",
+            bigIdea: "Over sixty years after God first promised Abraham a family as countless as the stars, Isaac still had no wife — and without a wife, the promise couldn't grow any further. God used the careful obedience of an unnamed servant, and the willing trust of a young woman named Rebekah, to move his promise forward another step. Christians believe God can be trusted to work through ordinary people, and even the small details of an ordinary day, to keep his promises.",
+            learningIntentions: [
+              "We are learning that over sixty years after God's first promise, Isaac was forty and still had no wife.",
+              "We are learning that Abraham sent his trusted servant to find a wife for Isaac from his own family and homeland, not from the local Canaanite people.",
+              "I can explain why Isaac having a wife mattered for God's promise to Abraham to keep moving forward.",
+            ],
+            assessment: "Listen for whether students can explain, in their own words, why a wife for Isaac was necessary for God's promise of a great family to continue.",
+            resources: [
+              "CEV Bible (optional, for reading Genesis 24:1–9 aloud)",
+            ],
+            script: [
+              {
+                heading: "Trusting someone else's choice",
+                minutes: "2 min",
+                teacherTalk: "Open with the warm-up question about trusting someone else with an important decision.",
+                activityNote: null,
+                keyQuestion: "Has anyone ever made an important decision on your behalf — like a parent choosing your school, or a friend picking a gift for you? How did it feel to trust someone else with something that mattered?",
+                teacherGuidance: "Accept responses. Use this to set up today's story, where Abraham trusts his servant to make one of the most important decisions of Isaac's life for him.",
+              },
+              {
+                heading: "Sixty years on",
+                minutes: "2 min",
+                teacherTalk: "Recap the promise so far and introduce the problem: Isaac is forty and unmarried.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Why this moment mattered",
+                minutes: "2–3 min",
+                teacherTalk: "Ask why a wife for Isaac was so important for the promise, guiding toward the idea of the next generation.",
+                activityNote: null,
+                keyQuestion: "Without a wife for Isaac, Abraham's family couldn't grow into the great nation God had promised. Why do you think this moment mattered so much for God's promise to keep moving forward?",
+                teacherGuidance: "Guide toward: the promise depended on Isaac having children of his own one day — no wife meant no next generation, and no next generation meant the promise couldn't grow any further.",
+              },
+              {
+                heading: "Abraham sends his servant",
+                minutes: "3 min",
+                teacherTalk: "Tell how Abraham commissioned his servant, insisting Isaac's wife come from his own family and homeland rather than the local Canaanites.",
+                activityNote: null,
+                keyQuestion: "The servant wasn't so sure about this plan. What if the woman he found didn't want to leave her home and travel back with him? Should he just bring Isaac to meet her instead? What do you think Abraham said to that?",
+                teacherGuidance: "Accept guesses, then reveal: Abraham said no — Isaac must stay in the land God had promised him. If the woman wasn't willing to come, the servant was free to come back alone, but Isaac himself was not to leave.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Explain the servant set off trusting God with the outcome, then say this week's memory verse together.",
+                activityNote: "Use the built-in verse block for Numbers 23:19, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 follows the servant to a well, where he prays for a very specific sign.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "A prayer with a sign",
+          blocks: [
+            {
+              type: "story",
+              text: "The servant travelled a long way with his ten loaded camels until he reached the city where Abraham's brother lived. As evening came, he stopped outside the city at a well — the place where the young women of the town would come to draw water.",
+            },
+            {
+              type: "question",
+              text: "If you had to pick out one specific person, out of everyone who might walk by, using only God's help — would you feel confident asking God for something that exact, or would it feel too risky?",
+              hint: "Accept honest responses. Use this to set up how bold the servant's prayer is about to be — he's not just asking for guidance in general, but for one very specific, testable sign.",
+            },
+            {
+              type: "story",
+              text: "While the camels rested, the servant prayed a very particular prayer. He asked God to keep his promise to Abraham, and then set up an exact test: he would ask a young woman for a drink of water, and if she offered water for his camels too — without being asked — he would know she was the one God had chosen for Isaac.",
+            },
+            {
+              type: "question",
+              text: "Offering a stranger a drink would be normal politeness. But offering to water ten thirsty camels too — that's a lot of extra work no one would expect. Why do you think the servant chose a sign that was so specific and so costly to fulfil?",
+              hint: "Guide toward: a small, ordinary kindness could happen by chance, but going out of her way to water ten camels as well would be a clear, unmistakable answer — proof that God himself was at work, not just good luck.",
+            },
+            {
+              type: "story",
+              text: "Before the servant had even finished praying, a young woman named Rebekah came to the well to fill her jar. The servant didn't yet know it, but she was the granddaughter of Abraham's own brother — exactly the family Abraham had sent him to find.",
+            },
+            {
+              type: "story",
+              text: "The servant asked her for a drink. Rebekah gave him one straight away — and then, without being asked, she offered to draw water for all his camels too, until they had all finished drinking.",
+            },
+            {
+              type: "question",
+              text: "Rebekah had no idea she was answering anyone's prayer, or being tested for anything at all — she was simply being kind to a tired traveller. What does it show us about God's promises that he can work through something as ordinary as one person's everyday kindness?",
+              hint: "Guide toward: God doesn't need dramatic miracles to keep his promises — he can work through completely ordinary moments and ordinary kindness, even when the person involved has no idea they're part of God's plan.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "\u201cGod is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.\u201d",
+            },
+            {
+              type: "activity",
+              text: "Let's say this week's memory verse together again.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 24:10–21",
+            topic: "A prayer with a sign",
+            bigIdea: "Over sixty years after God first promised Abraham a family as countless as the stars, Isaac still had no wife — and without a wife, the promise couldn't grow any further. God used the careful obedience of an unnamed servant, and the willing trust of a young woman named Rebekah, to move his promise forward another step. Christians believe God can be trusted to work through ordinary people, and even the small details of an ordinary day, to keep his promises.",
+            learningIntentions: [
+              "We are learning that the servant prayed for a specific, testable sign at the well to know which young woman God had chosen for Isaac.",
+              "We are learning that Rebekah unknowingly matched the sign exactly, offering to water all ten camels without being asked.",
+              "I can explain what this story shows us about God working through ordinary moments and ordinary kindness.",
+            ],
+            assessment: "Listen for whether students can describe the servant's specific test, and can explain why Rebekah's actions mattering so precisely shows God at work.",
+            resources: [
+              "CEV Bible (optional, for reading Genesis 24:12–14 aloud)",
+            ],
+            script: [
+              {
+                heading: "Arriving at the well",
+                minutes: "1–2 min",
+                teacherTalk: "Set the scene: the servant arrives at the well in the evening, the place where the town's young women came to draw water.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "A risky kind of prayer",
+                minutes: "2 min",
+                teacherTalk: "Ask the warm-up question about how confident students would feel asking God for something that specific.",
+                activityNote: null,
+                keyQuestion: "If you had to pick out one specific person, out of everyone who might walk by, using only God's help — would you feel confident asking God for something that exact, or would it feel too risky?",
+                teacherGuidance: "Accept honest responses. Use this to set up how bold the servant's prayer is about to be — he's not just asking for guidance in general, but for one very specific, testable sign.",
+              },
+              {
+                heading: "The servant's test",
+                minutes: "2–3 min",
+                teacherTalk: "Explain the servant's specific prayer and sign — water for him and for all his camels.",
+                activityNote: null,
+                keyQuestion: "Offering a stranger a drink would be normal politeness. But offering to water ten thirsty camels too — that's a lot of extra work no one would expect. Why do you think the servant chose a sign that was so specific and so costly to fulfil?",
+                teacherGuidance: "Guide toward: a small, ordinary kindness could happen by chance, but going out of her way to water ten camels as well would be a clear, unmistakable answer — proof that God himself was at work, not just good luck.",
+              },
+              {
+                heading: "Rebekah arrives",
+                minutes: "2–3 min",
+                teacherTalk: "Tell how Rebekah appeared before the servant had even finished praying, and matched the sign exactly without knowing it.",
+                activityNote: null,
+                keyQuestion: "Rebekah had no idea she was answering anyone's prayer, or being tested for anything at all — she was simply being kind to a tired traveller. What does it show us about God's promises that he can work through something as ordinary as one person's everyday kindness?",
+                teacherGuidance: "Guide toward: God doesn't need dramatic miracles to keep his promises — he can work through completely ordinary moments and ordinary kindness, even when the person involved has no idea they're part of God's plan.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say this week's memory verse together again.",
+                activityNote: "Use the built-in verse block for Numbers 23:19, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 follows the servant to Rebekah's family, and Rebekah's own choice about whether to go.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Rebekah says yes",
+          blocks: [
+            {
+              type: "story",
+              text: "The servant was overjoyed. He gave Rebekah gold jewellery as gifts, and asked to meet her family right away — he had something very important to tell them. Rebekah ran home, and the servant followed with his camels.",
+            },
+            {
+              type: "story",
+              text: "The servant explained everything to Rebekah's father and her brother Laban: who he was, how rich and blessed his master Abraham was, and how he had prayed at the well and God had answered by sending Rebekah, exactly as he'd asked.",
+            },
+            {
+              type: "question",
+              text: "This was a huge, sudden request — a stranger asking a family to send their daughter far away to marry a man she'd never met. Rebekah's father and Laban didn't want her to leave home for a distant land. What do you think helped them decide what to do?",
+              hint: "Accept responses. Reveal: they chose to trust that this was God's doing, because of how exactly the servant's prayer had been answered — so, despite not wanting Rebekah to leave, they agreed to let her choose for herself.",
+            },
+            {
+              type: "story",
+              text: "So they asked Rebekah herself what she wanted to do. Rebekah didn't hesitate. She said yes — she would go and be Isaac's wife.",
+            },
+            {
+              type: "question",
+              text: "The Bible makes a point of showing that Rebekah's family asked HER, and that she made the choice herself, rather than her father or brother deciding for her. Why do you think that detail matters?",
+              hint: "Guide toward: Rebekah's trust in God had to be her own, not just something decided for her — real faith means choosing to trust God yourself, even when it's a huge, costly decision, like leaving your whole family and home behind.",
+            },
+            {
+              type: "story",
+              text: "Rebekah's family blessed her and prayed she would have many children. They were sad to see her go, and Laban even asked the servant to let her stay just a little longer — but when they asked Rebekah one more time if she was ready to leave straight away, she said yes again. So Rebekah packed up and set off across the desert toward a new home, and a husband she had never met.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "\u201cGod is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.\u201d",
+            },
+            {
+              type: "activity",
+              text: "Let's say this week's memory verse together — try it once without looking!",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 24:22–58",
+            topic: "Rebekah says yes",
+            bigIdea: "Over sixty years after God first promised Abraham a family as countless as the stars, Isaac still had no wife — and without a wife, the promise couldn't grow any further. God used the careful obedience of an unnamed servant, and the willing trust of a young woman named Rebekah, to move his promise forward another step. Christians believe God can be trusted to work through ordinary people, and even the small details of an ordinary day, to keep his promises.",
+            learningIntentions: [
+              "We are learning that the servant explained his prayer and how God had answered it to Rebekah's father and brother, Laban.",
+              "We are learning that Rebekah's family chose to trust God, even though they didn't want her to leave home for a distant land.",
+              "I can explain why the Bible shows Rebekah being asked, and choosing for herself, to go and be Isaac's wife.",
+            ],
+            assessment: "Listen for whether students can retell why Rebekah's family agreed to let her go, and can explain why Rebekah being asked personally matters.",
+            resources: [],
+            script: [
+              {
+                heading: "Meeting the family",
+                minutes: "2 min",
+                teacherTalk: "Tell how the servant gave gifts and explained his mission to Rebekah's father and Laban.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "A hard decision",
+                minutes: "2–3 min",
+                teacherTalk: "Ask what helped the family decide to trust God with such a big, sudden request.",
+                activityNote: null,
+                keyQuestion: "This was a huge, sudden request — a stranger asking a family to send their daughter far away to marry a man she'd never met. Rebekah's father and Laban didn't want her to leave home for a distant land. What do you think helped them decide what to do?",
+                teacherGuidance: "Accept responses. Reveal: they chose to trust that this was God's doing, because of how exactly the servant's prayer had been answered — so, despite not wanting Rebekah to leave, they agreed to let her choose for herself.",
+              },
+              {
+                heading: "Rebekah's own choice",
+                minutes: "2–3 min",
+                teacherTalk: "Tell how Rebekah was asked directly, and said yes, then discuss why this detail matters.",
+                activityNote: null,
+                keyQuestion: "The Bible makes a point of showing that Rebekah's family asked HER, and that she made the choice herself, rather than her father or brother deciding for her. Why do you think that detail matters?",
+                teacherGuidance: "Guide toward: Rebekah's trust in God had to be her own, not just something decided for her — real faith means choosing to trust God yourself, even when it's a huge, costly decision, like leaving your whole family and home behind.",
+              },
+              {
+                heading: "Leaving home",
+                minutes: "2 min",
+                teacherTalk: "Tell how the family blessed Rebekah, and how she confirmed she was ready to leave straight away.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Try saying this week's memory verse together once without looking.",
+                activityNote: "Use the built-in verse block for Numbers 23:19, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 acts out the whole story as a class script, then looks at how everyone in it trusted God.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Acting it out: God's family grows",
+          blocks: [
+            {
+              type: "story",
+              text: "This week we've followed the whole story of how Isaac got a wife: Abraham sending his servant, the servant's specific prayer at the well, Rebekah's unknowing answer to it, and her family's — and her own — choice to trust God. Today, let's act the whole thing out together.",
+            },
+            {
+              type: "roleplay",
+              title: "Lesson 14 script: God's family grows",
+              characters: ["Narrator", "Abraham", "Servant", "Rebekah", "Laban"],
+              lines: [
+                { character: "Narrator", text: "Isaac grew up and became a man. His mother Sarah had died and his father Abraham was very old. God had made Abraham a rich and successful man. Abraham called his servant to him one day for a very important chat." },
+                { character: "Abraham", text: "You need to go and find a wife for my son Isaac. Go to the distant land I came from and find a wife for Isaac from there. Do not choose a wife from the land near here, where we live." },
+                { character: "Narrator", text: "The servant wasn't too sure about this. He said:" },
+                { character: "Servant", text: "What if the woman doesn't want to come with me and be Isaac's wife? Should I come back and get Isaac?" },
+                { character: "Abraham", text: "No, Isaac must stay here. If she isn't willing to come, you may come back alone." },
+                { character: "Narrator", text: "So the servant loaded ten of Abraham's camels with valuable gifts for Isaac's new wife. He then set off for a city in northern Syria where Abraham's brother lived. When the servant arrived, he stopped at a well, and while the camels rested, he prayed." },
+                { character: "Servant", text: "Dear God, please keep your promise to Abraham and let me find a wife for Isaac today. I will ask a lady for a drink of water for me and the camels. If she says yes and gets me one, I will know she is the one you have chosen to marry Isaac. Amen." },
+                { character: "Narrator", text: "While the servant was still praying, a beautiful young woman came up to get some water. She was the granddaughter of Abraham's brother — though the servant didn't know it." },
+                { character: "Servant", text: "Excuse me. May I please have a drink of water?" },
+                { character: "Rebekah", text: "I will be glad to give you one. And some for your camels too." },
+                { character: "Narrator", text: "The servant was very excited at this. He gave the young woman some gold bracelets and a ring, and asked if he could meet her family right away, as he had something very important to tell them all. Rebekah and the servant ran straight home to her family." },
+                { character: "Servant", text: "I need to tell you why I have come here. I am Abraham's servant. The Lord has been good to my master, Abraham, and made him very rich. He has many sheep, camels, goats, cattle and donkeys, gold, silver, and servants. But he has only one son, Isaac, and Isaac doesn't have a wife. I promised I would come and find a wife from Abraham's family for Isaac, so that Abraham's land will stay in his family. Today at the well I prayed that God would show me the young woman to be Isaac's wife. Rebekah came, and now I am here." },
+                { character: "Narrator", text: "Rebekah's dad and her brother, Laban, both wondered what she was going to say. This kind of thing didn't happen every day. They didn't want Rebekah to go away to a distant land, but they chose to trust God." },
+                { character: "Laban", text: "Dad and I believe this is what God wants. Let's ask Rebekah what she wants to do." },
+                { character: "Narrator", text: "They asked Rebekah if she would go with the servant. And she replied:" },
+                { character: "Rebekah", text: "Yes, I will be Isaac's wife." },
+                { character: "Narrator", text: "Rebekah's family gave her their blessing, and said they would pray that she would have many children and grandchildren. They were very sad to see her leave, but they knew that, somehow, this was all part of God's plan. The servant got ready to leave, but Laban, who loved his sister very much, tried to delay him." },
+                { character: "Laban", text: "Please can you wait a week or ten days, so we can be with Rebekah longer?" },
+                { character: "Servant", text: "No, don't make me wait any longer. I must get back to my master Abraham." },
+                { character: "Narrator", text: "Laban thought he'd try again." },
+                { character: "Laban", text: "Let's ask Rebekah what she would like to do! Rebekah, are you happy to leave now to go and be Isaac's wife?" },
+                { character: "Rebekah", text: "Yes. I am ready." },
+                { character: "Narrator", text: "The servant and Rebekah loaded up the camels and then set off across the desert. The end." },
+              ],
+            },
+            {
+              type: "question",
+              text: "Think back over everyone in this story — Abraham, the servant, Rebekah, and even Rebekah's family. How did each of them show they trusted God, even when it was hard or uncertain?",
+              hint: "Guide through each: Abraham trusted God enough to send his servant on the journey instead of going himself; the servant trusted God enough to pray for a specific sign and act on it; Rebekah trusted God enough to leave her whole family and home; her family trusted God enough to let her go, and to let her make that choice herself.",
+            },
+            {
+              type: "question",
+              text: "Was God keeping his promise to grow Abraham's family into a great nation, through everything that happened this week?",
+              hint: "Accept responses. Guide toward: yes — not the whole promise all at once, but another real step forward. Isaac and Rebekah's marriage was the next generation of the family God had promised, moving one step closer to becoming as many as the stars.",
+            },
+            {
+              type: "story",
+              text: "Abraham's family was growing! Through an old man's trust, a servant's careful prayer, and a young woman's brave 'yes,' God kept moving his promise forward — one ordinary, everyday step at a time.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "\u201cGod is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.\u201d",
+            },
+            {
+              type: "activity",
+              text: "Let's finish by saying this week's memory verse together, all from memory.",
+            },
+            {
+              type: "prayer",
+              text: "Dear Lord, thank you that the servant and Rebekah trusted you and were obedient. Thank you for the way the Bible shows how you keep your promises, and that people today can trust you and your promises too. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 24 (recap)",
+            topic: "Acting it out: God's family grows",
+            bigIdea: "Over sixty years after God first promised Abraham a family as countless as the stars, Isaac still had no wife — and without a wife, the promise couldn't grow any further. God used the careful obedience of an unnamed servant, and the willing trust of a young woman named Rebekah, to move his promise forward another step. Christians believe God can be trusted to work through ordinary people, and even the small details of an ordinary day, to keep his promises.",
+            learningIntentions: [
+              "We are recapping the whole story of Genesis 24 by acting it out as a class.",
+              "We are learning to identify how each character in the story — Abraham, the servant, Rebekah, and her family — showed trust in God.",
+              "I can explain how this story shows God moving his promise to Abraham forward, one step at a time.",
+            ],
+            assessment: "Listen for whether students can name how each character trusted God, and can explain that this story represents real (if partial) progress toward God's promise, not its full completion.",
+            resources: [
+              "Four (or five) student volunteers to read the Abraham, Servant, Rebekah, and Laban parts on screen, with the teacher or another volunteer reading Narrator",
+            ],
+            script: [
+              {
+                heading: "Recap the week",
+                minutes: "1 min",
+                teacherTalk: "Briefly recap the week's story before acting it out together.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Acting out Genesis 24",
+                minutes: "6–8 min",
+                teacherTalk: "Choose volunteers for Abraham, the Servant, Rebekah, and Laban, and run the built-in script as a fullscreen presenter for the whole class to watch and follow along.",
+                activityNote: "Use the built-in roleplay block — tap 'Start the script on screen' to open the fullscreen presenter for your volunteers.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Who trusted God?",
+                minutes: "2–3 min",
+                teacherTalk: "Ask students to identify how each character in the story showed trust in God.",
+                activityNote: null,
+                keyQuestion: "Think back over everyone in this story — Abraham, the servant, Rebekah, and even Rebekah's family. How did each of them show they trusted God, even when it was hard or uncertain?",
+                teacherGuidance: "Guide through each: Abraham trusted God enough to send his servant on the journey instead of going himself; the servant trusted God enough to pray for a specific sign and act on it; Rebekah trusted God enough to leave her whole family and home; her family trusted God enough to let her go, and to let her make that choice herself.",
+              },
+              {
+                heading: "God's promise, one step further",
+                minutes: "2 min",
+                teacherTalk: "Ask whether God was keeping his promise this week, and tie it back to the ongoing growth of Abraham's family.",
+                activityNote: null,
+                keyQuestion: "Was God keeping his promise to grow Abraham's family into a great nation, through everything that happened this week?",
+                teacherGuidance: "Accept responses. Guide toward: yes — not the whole promise all at once, but another real step forward. Isaac and Rebekah's marriage was the next generation of the family God had promised, moving one step closer to becoming as many as the stars.",
+              },
+              {
+                heading: "Memory verse and closing prayer",
+                minutes: "2 min",
+                teacherTalk: "Finish the week's memory verse fully from memory, then close together with the prayer in the app.",
+                activityNote: "Use the say-it-from-memory activity block, then the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Lesson 15 continues the story of Isaac and Rebekah's family.",
           },
         },
       ],
