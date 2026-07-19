@@ -44,8 +44,25 @@
 // promises" / Genesis 12:1-9, memory verse switches to Numbers 23:19 CEV),
 // Week 3 (Lesson 13, "Waiting, waiting, waiting" / Genesis 15:1-18:15;
 // 21:1-7), Week 4 (Lesson 14, "God's family grows" / Genesis 24), and
-// Week 5 (Lesson 15, "Chalk and cheese" / Genesis 25:19-34) are built.
-// Lessons 16-20 (Weeks 6-10) still need to be built from the manual.
+// Week 5 (Lesson 15, "Chalk and cheese" / Genesis 25:19-34), and Week 6
+// (Lesson 16, "Sibling rivalry" / Genesis 27:1-40) are built.
+// Lessons 17-20 (Weeks 7-10) still need to be built from the manual.
+// Week 6 uses 1 new comic-style image (Isaac blessing the disguised Jacob,
+// cropped from the Lesson 16 PowerPoint at high resolution, matching the
+// manual's own page 164 illustration), plus a reuse of Week 5's stew image
+// as a Day 1 recap (the manual itself re-displays that same visual aid in
+// Lesson 16's Bible focus). The PowerPoint's kangaroo-fighting stock photo
+// (used for the manual's own "Way in") was skipped per the visual-style
+// rules, since it's a real photo that clashes with the comic art style —
+// Day 1 opens instead with a text-only warm-up question about animals/
+// siblings squaring off, which serves the same purpose. Day 4 uses the
+// `roleplay` block type for an original dramatisation of the manual's
+// "teach the Bible focus as a boxing commentary" activity (Commentator,
+// Team Esau, and Team Jacob) — written fresh in this app's own words
+// rather than transcribed verbatim, since the manual's version is prose
+// instructions for the teacher to improvise from, not a fixed script like
+// Week 4's. The memory verse, Numbers 23:19 (CEV), is confirmed unchanged
+// from the manual for Lesson 16.
 // Week 5 uses 2 comic-style images from its PowerPoint (a distressed,
 // visibly-pregnant Rebekah, and the Jacob-and-Esau stew scene matching
 // the manual's own page 156 illustration) — see images_term2.js. Its
@@ -1892,6 +1909,443 @@ window.DEVOTIONS["Term 2"] = Object.assign(window.DEVOTIONS["Term 2"] || {}, {
               },
             ],
             whereToNext: "Lesson 16 continues the story of Jacob and Esau.",
+          },
+        },
+      ],
+    },
+    "Week 6": {
+      lessonTitle: "Sibling rivalry",
+      passage: "Genesis 27:1–40",
+      bigIdea: "God had already chosen Jacob, before he was even born, to be the one through whom he would keep his promises. But everyone in Isaac's family went about it in the worst possible way. Isaac tried to hand Esau the blessing in secret, going around God's own words to Rebekah. Rebekah and Jacob answered secrecy with deceit, tricking a blind old man into giving away what he thought he was choosing freely. Nobody in this story played fair, and nobody comes out looking good. Yet the blessing still ended up exactly where God had already said it would. Christians believe this shows how powerful God is: he doesn't need anyone's good behaviour to keep his promises — not even the sinful scheming of the very family he's working through.",
+      source: "Connect B1 Upper Primary — Lesson 16",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Two brothers, still fighting",
+          blocks: [
+            {
+              type: "question",
+              text: "Have you ever seen two animals — maybe dogs, or even kangaroos — squaring up and shoving each other, both trying to come out on top? What does that kind of fight usually look like?",
+              hint: "Accept any answer describing pushing, posturing, or wrestling for dominance. Use this to introduce today's theme: Jacob and Esau are about to have their biggest fight yet — not with fists, but with tricks.",
+            },
+            {
+              type: "story",
+              text: "Last week we left Jacob and Esau as grown men. Esau had already given away his birthright for a bowl of stew, because he didn't think it was worth much. But Isaac and Rebekah still knew God had chosen Jacob — the younger twin — to be the one through whom God would keep his promises.",
+            },
+            {
+              type: "question",
+              text: "Since Isaac and Rebekah both already knew that God had chosen Jacob for the blessing, who would you expect Isaac to want to give the blessing to?",
+              hint: "Guide toward: Jacob, since that's who God had already said would receive it. This sets up today's twist — Isaac does the opposite.",
+            },
+            {
+              type: "story",
+              text: "Isaac had grown old and had lost his sight. Not knowing when he might die, he decided it was time to give his final blessing — the blessing that came with all of God's promises attached to it. But instead of giving it to Jacob, Isaac called for his favourite son, Esau, and asked him to hunt some wild game and cook him a delicious meal, so that Isaac could bless him properly — in secret, without saying a word to Rebekah or Jacob.",
+            },
+            {
+              type: "question",
+              text: "How do you feel, hearing that Isaac tried to do this important blessing quietly, behind his family's back — even though he already knew God had chosen Jacob?",
+              hint: "Accept honest responses. Isaac's secrecy here is his own way of going around what he knew God had said — not so different from how Rebekah and Jacob are about to go around Isaac.",
+            },
+            {
+              type: "image",
+              key: "wk5-02-jacob-esau-stew",
+              caption: "A reminder from last week: Esau had already traded away his birthright for a single bowl of stew.",
+            },
+            {
+              type: "story",
+              text: "But Rebekah overheard everything Isaac had planned. And instead of trusting God to sort it out, she decided to take matters into her own hands — by helping her favourite son, Jacob, steal the blessing before Esau ever got the chance.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "“God is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.”",
+            },
+            {
+              type: "question",
+              text: "Even though Isaac was about to try to give the blessing to the wrong son, do you think that could actually stop God's plan from happening?",
+              hint: "Guide toward: no. As we'll see today and tomorrow, no amount of human scheming — not Isaac's secrecy, not Rebekah's trickery — can stop God from keeping the promise he'd already made.",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you are powerful enough to keep your promises no matter what people around us try to do. Help us to trust you instead of taking matters into our own hands. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 27:1–4 (context)",
+            topic: "Isaac's secret plan",
+            bigIdea: "Even though Isaac and Rebekah both already knew God had chosen Jacob to carry his promises, Isaac tried to give his final blessing to his favourite son Esau instead — and to do it secretly. This sets up a whole family who each try to handle God's promise their own way rather than trusting God with it.",
+            learningIntentions: [
+              "We are recapping Jacob and Esau's rivalry from last week.",
+              "We are learning that Isaac tried to give the blessing to Esau in secret, even though God had already chosen Jacob.",
+              "I can explain that no human secrecy or scheming can stop God from keeping his promises.",
+            ],
+            assessment: "Listen for whether students can explain who Isaac tried to bless, and why that was surprising given what God had already said about Jacob.",
+            resources: [
+              "Recap image: the Jacob-and-Esau stew scene from last week",
+            ],
+            script: [
+              {
+                heading: "Way in: sibling rivalry",
+                minutes: "2 min",
+                teacherTalk: "Ask the warm-up question about animals or siblings fighting for dominance to set the scene for today's story.",
+                activityNote: null,
+                keyQuestion: "Have you ever seen two animals — maybe dogs, or even kangaroos — squaring up and shoving each other, both trying to come out on top? What does that kind of fight usually look like?",
+                teacherGuidance: "Accept any answer describing pushing, posturing, or wrestling for dominance. Use this to introduce today's theme: Jacob and Esau are about to have their biggest fight yet — not with fists, but with tricks.",
+              },
+              {
+                heading: "Recap last week",
+                minutes: "2 min",
+                teacherTalk: "Recap that Esau sold his birthright, and that God had already chosen Jacob before he was born.",
+                activityNote: "Display the recap image of the stew scene.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Isaac's secret plan",
+                minutes: "5–6 min",
+                teacherTalk: "Read through the story of Isaac's plan to secretly bless Esau, and Rebekah overhearing it.",
+                activityNote: null,
+                keyQuestion: "How do you feel, hearing that Isaac tried to do this important blessing quietly, behind his family's back — even though he already knew God had chosen Jacob?",
+                teacherGuidance: "Accept honest responses. Isaac's secrecy here is his own way of going around what he knew God had said — not so different from how Rebekah and Jacob are about to go around Isaac.",
+              },
+              {
+                heading: "Memory verse and closing prayer",
+                minutes: "2 min",
+                teacherTalk: "Read the memory verse together and close with the built-in prayer.",
+                activityNote: "Use the verse block, then the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: Jacob disguises himself and steals the blessing meant for Esau.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Jacob steals the blessing",
+          blocks: [
+            {
+              type: "question",
+              text: "Yesterday we heard that Rebekah overheard Isaac's secret plan. If you were Rebekah, what might you have done next?",
+              hint: "Accept any guesses. Rebekah's actual plan involved deception, not honesty — set up today's story with this question before revealing what she actually did.",
+            },
+            {
+              type: "story",
+              text: "Rebekah called for Jacob and told him everything she'd overheard. Then she came up with a plan of her own: she told Jacob to fetch two young goats from the flock so she could cook up a delicious meal, just the way Isaac liked it — so that Jacob could bring it in and pretend to be Esau.",
+            },
+            {
+              type: "question",
+              text: "There's a problem with this plan straight away — something obvious that could give Jacob away the moment he walked in. What do you think it might be?",
+              hint: "Guide toward: Esau was a hairy, outdoorsy hunter, while Jacob was smooth-skinned and stayed close to home. If Isaac touched Jacob, he might immediately know it wasn't Esau.",
+            },
+            {
+              type: "story",
+              text: "Rebekah had thought of that too. She dressed Jacob in Esau's clothes, and covered his hands and neck with the skins of the goats, so that he would feel just like his hairy brother. Jacob did exactly what his mother told him, and carried the food in to his father, pretending the whole time to be Esau.",
+            },
+            {
+              type: "image",
+              key: "wk6-01-isaac-blesses-jacob",
+              caption: "Jacob, dressed in Esau's clothes and covered in goat skin, kneels before his father Isaac to receive the blessing meant for his brother.",
+            },
+            {
+              type: "question",
+              text: "The Bible tells us Isaac hesitated at first — something about the voice made him unsure. Why do you think Isaac went along with it anyway, even though part of him suspected something was wrong?",
+              hint: "Accept honest guesses — perhaps he wanted to believe it was Esau, or the disguise was convincing enough to overrule his doubts. However it happened, Isaac was fully deceived and went ahead with the blessing.",
+            },
+            {
+              type: "story",
+              text: "Isaac ate the meal Jacob brought him, and then gave him the blessing — the very words that carried God's promises to Abraham and Isaac's family: the promise of land, of becoming a great nation, and of blessing the whole world. Jacob walked out with everything, and Isaac still believed he had just blessed Esau.",
+            },
+            {
+              type: "question",
+              text: "Jacob now has the blessing God always intended him to have. But think carefully — was the way he got it a good thing to copy, even though the outcome matched what God had planned?",
+              hint: "Guide toward: no. Getting the right result through lying and deceiving your own father is not something to imitate. God's plan succeeding doesn't make Jacob and Rebekah's methods okay — it shows God is powerful enough to work his plan out even through people behaving badly.",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that your plans don't depend on people doing the right thing. Help us to be honest with the people around us, even when it feels easier not to be. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 27:5–29",
+            topic: "Jacob steals the blessing",
+            bigIdea: "Rebekah and Jacob answered Isaac's secrecy with deceit of their own — disguising Jacob as Esau so thoroughly that Isaac was completely fooled, and gave Jacob the blessing that carried all of God's promises. The outcome matched what God had already planned, but the method was dishonest and wrong.",
+            learningIntentions: [
+              "We are learning how Rebekah and Jacob disguised Jacob to steal Esau's blessing.",
+              "We are learning to identify what was wrong with the way Jacob got the blessing.",
+              "I can explain that God's plan succeeding doesn't make Jacob and Rebekah's deception acceptable.",
+            ],
+            assessment: "Listen for whether students can describe the disguise Jacob used and can identify that deceiving Isaac was wrong, even though the result matched God's plan.",
+            resources: [
+              "Image: Isaac blessing the disguised Jacob",
+            ],
+            script: [
+              {
+                heading: "Recap Rebekah's plan",
+                minutes: "1–2 min",
+                teacherTalk: "Ask what students think Rebekah might have done after overhearing Isaac's plan, before revealing the actual story.",
+                activityNote: null,
+                keyQuestion: "Yesterday we heard that Rebekah overheard Isaac's secret plan. If you were Rebekah, what might you have done next?",
+                teacherGuidance: "Accept any guesses. Rebekah's actual plan involved deception, not honesty — set up today's story with this question before revealing what she actually did.",
+              },
+              {
+                heading: "The disguise",
+                minutes: "5–6 min",
+                teacherTalk: "Read through how Rebekah dressed Jacob in Esau's clothes and goat skin, and how Jacob deceived Isaac to receive the blessing.",
+                activityNote: "Display the image of Isaac blessing the disguised Jacob.",
+                keyQuestion: "There's a problem with this plan straight away — something obvious that could give Jacob away the moment he walked in. What do you think it might be?",
+                teacherGuidance: "Guide toward: Esau was a hairy, outdoorsy hunter, while Jacob was smooth-skinned and stayed close to home. If Isaac touched Jacob, he might immediately know it wasn't Esau.",
+              },
+              {
+                heading: "Was this okay?",
+                minutes: "2–3 min",
+                teacherTalk: "Discuss whether Jacob's method of getting the blessing was acceptable, even though the outcome matched God's plan.",
+                activityNote: null,
+                keyQuestion: "Jacob now has the blessing God always intended him to have. But think carefully — was the way he got it a good thing to copy, even though the outcome matched what God had planned?",
+                teacherGuidance: "Guide toward: no. Getting the right result through lying and deceiving your own father is not something to imitate. God's plan succeeding doesn't make Jacob and Rebekah's methods okay — it shows God is powerful enough to work his plan out even through people behaving badly.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: Esau returns and discovers what's happened.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Esau's fury",
+          blocks: [
+            {
+              type: "question",
+              text: "Imagine working hard on something — hunting, cooking, getting everything ready — only to find out someone else already took what you were working towards. How do you think that would feel?",
+              hint: "Accept honest responses — frustrating, unfair, angry. This sets up how Esau is about to feel when he returns from the hunt.",
+            },
+            {
+              type: "story",
+              text: "Not long after Jacob left his father's tent, Esau came back from hunting. He prepared the delicious meal Isaac had asked for and brought it in, ready to receive his father's blessing at last.",
+            },
+            {
+              type: "question",
+              text: "What do you think Isaac and Esau discovered when Esau walked in?",
+              hint: "Guide toward: that Jacob had already been there, disguised as Esau, and had already received the blessing meant for Esau. There was nothing left to give.",
+            },
+            {
+              type: "story",
+              text: "Isaac began to tremble violently when he realised what had happened — someone had already come in, pretending to be Esau, and Isaac had already given away the blessing. When Esau heard this, he cried out in a loud and bitter voice, begging his father for some blessing — any blessing — but the one that carried God's full promises to Abraham's family was already gone.",
+            },
+            {
+              type: "question",
+              text: "What was really wrong with how Jacob got this blessing? How did he actually get it?",
+              hint: "Accept responses. Jacob got it by disguising himself and lying directly to his father's face — cheating and deceiving him, not by anything fair or honest.",
+            },
+            {
+              type: "story",
+              text: "Esau was furious, and he began to plot how he might get revenge on his brother once their father had died. But notice something about Esau, too: he wasn't upset because he suddenly cared deeply about God's promises. He was upset because he hated losing — the very same attitude that had made him carelessly trade his birthright away for a bowl of stew in the first place.",
+            },
+            {
+              type: "question",
+              text: "Isaac tried to bless the wrong son in secret. Rebekah and Jacob lied and disguised themselves to steal the blessing. Esau cared more about winning than about God's promises. Was there anyone in this story who comes across as clearly the 'good guy'?",
+              hint: "Guide toward: no — everyone in this family acted selfishly, secretly, or dishonestly in this story. Nobody here deserved God's blessing based on their own behaviour.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "“God is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that even when the people around us let us down or treat each other unfairly, your promises don't depend on any of us being good enough. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 27:30–40",
+            topic: "Esau's fury",
+            bigIdea: "When Esau returned from hunting, he discovered that Jacob had already stolen his blessing by deception. Esau's fury reveals that not one person in this story — Isaac, Rebekah, Jacob, or Esau — acted well or deserved God's blessing on their own merit.",
+            learningIntentions: [
+              "We are learning what happened when Esau discovered Jacob had taken his blessing.",
+              "We are learning to identify that every character in this story acted selfishly or dishonestly.",
+              "I can explain that God's promises don't depend on any person deserving them.",
+            ],
+            assessment: "Listen for whether students can explain why Esau was upset, and whether they can identify that no character in the story behaved well.",
+            resources: [],
+            script: [
+              {
+                heading: "Way in: losing out",
+                minutes: "2 min",
+                teacherTalk: "Ask students to imagine working hard toward something only to find someone else already took it.",
+                activityNote: null,
+                keyQuestion: "Imagine working hard on something — hunting, cooking, getting everything ready — only to find out someone else already took what you were working towards. How do you think that would feel?",
+                teacherGuidance: "Accept honest responses — frustrating, unfair, angry. This sets up how Esau is about to feel when he returns from the hunt.",
+              },
+              {
+                heading: "Esau's discovery",
+                minutes: "5 min",
+                teacherTalk: "Read through Esau's return, Isaac's trembling, and Esau's bitter cry for a blessing.",
+                activityNote: null,
+                keyQuestion: "What was really wrong with how Jacob got this blessing? How did he actually get it?",
+                teacherGuidance: "Accept responses. Jacob got it by disguising himself and lying directly to his father's face — cheating and deceiving him, not by anything fair or honest.",
+              },
+              {
+                heading: "Nobody's the good guy",
+                minutes: "2–3 min",
+                teacherTalk: "Discuss how every character in the story acted badly in some way.",
+                activityNote: null,
+                keyQuestion: "Isaac tried to bless the wrong son in secret. Rebekah and Jacob lied and disguised themselves to steal the blessing. Esau cared more about winning than about God's promises. Was there anyone in this story who comes across as clearly the 'good guy'?",
+                teacherGuidance: "Guide toward: no — everyone in this family acted selfishly, secretly, or dishonestly in this story. Nobody here deserved God's blessing based on their own behaviour.",
+              },
+              {
+                heading: "Memory verse and closing prayer",
+                minutes: "2 min",
+                teacherTalk: "Read the memory verse together and close with the built-in prayer.",
+                activityNote: "Use the verse block, then the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: we retell the whole story as a boxing match commentary, and talk about what it shows us about God.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Reading it as a boxing match",
+          blocks: [
+            {
+              type: "roleplay",
+              title: "Lesson 16 script: Jacob and Esau's title fight",
+              characters: [
+                { name: "Commentator", color: "gold" },
+                { name: "Team Esau", color: "red" },
+                { name: "Team Jacob", color: "blue" },
+              ],
+              lines: [
+                { character: "Commentator", text: "Welcome, everyone, to the biggest title fight this family has ever seen — two brothers who've been battling each other since before they were even born!", direction: true },
+                { character: "Commentator", text: "In the red corner, weighing in as the hairy outdoorsman and champion hunter — it's Esau!" },
+                { character: "Team Esau", text: "Esau! Esau! Esau!" },
+                { character: "Commentator", text: "And in the blue corner, the smooth-skinned home-body — it's Jacob!" },
+                { character: "Team Jacob", text: "Jacob! Jacob! Jacob!" },
+                { character: "Commentator", text: "Isaac is old now, and he's lost his sight. Not sure how much time he has left, he calls in his favourite son, Esau, wanting to give him the big blessing before he dies." },
+                { character: "Team Esau", text: "Yes! That's our man!" },
+                { character: "Commentator", text: "But here's the catch — Isaac wants to do this quietly, without telling Rebekah or Jacob a thing." },
+                { character: "Team Jacob", text: "Boo! That's not fair play!" },
+                { character: "Commentator", text: "Esau heads out to hunt down some wild game for his father's favourite meal, just like Isaac asked." },
+                { character: "Team Esau", text: "Esau! Esau!" },
+                { character: "Commentator", text: "But Rebekah has been listening at the tent the whole time!" },
+                { character: "Team Jacob", text: "Boo!", direction: true },
+                { character: "Commentator", text: "She calls in her own favourite — Jacob — and comes up with a sneaky plan of her own." },
+                { character: "Team Jacob", text: "Jacob! Jacob!" },
+                { character: "Team Esau", text: "Boo! Boo!", direction: true },
+                { character: "Commentator", text: "Jacob does exactly what his mother tells him. He fetches two young goats from the flock..." },
+                { character: "Team Jacob", text: "Jacob! Jacob!" },
+                { character: "Commentator", text: "...Rebekah cooks up the meal, dresses Jacob in his brother's clothes, and straps goat skin to his hands and neck so he'll feel just like hairy Esau." },
+                { character: "Commentator", text: "Jacob carries the food in to his father, pretending the whole time to be his brother!" },
+                { character: "Team Jacob", text: "Jacob! Jacob! Jacob!" },
+                { character: "Commentator", text: "Isaac isn't totally sure at first — something about that voice — but he's fooled! He gives Jacob the blessing meant for Esau!" },
+                { character: "Team Jacob", text: "JACOB! JACOB! JACOB!" },
+                { character: "Commentator", text: "Esau comes back from the hunt with a feast fit for a king, ready to finally get his blessing..." },
+                { character: "Team Esau", text: "Esau! Esau!" },
+                { character: "Commentator", text: "...only to find out there's nothing left. Jacob has already taken it!" },
+                { character: "Team Jacob", text: "Jacob wins!" },
+                { character: "Commentator", text: "Ding, ding, ding! Esau is furious, and he's already plotting revenge on his brother." },
+                { character: "Team Esau", text: "Boo! Get him back, Esau!" },
+                { character: "Commentator", text: "So — Jacob has snuck away with the win. But let's be honest, everyone in this fight has played dirty, right from Isaac's secret plan to Rebekah and Jacob's disguise.", direction: true },
+                { character: "Team Esau", text: "Boo! Boo! Boo!", direction: true },
+                { character: "Team Jacob", text: "Boo! Boo! Boo!", direction: true },
+              ],
+            },
+            {
+              type: "question",
+              text: "Now that we've replayed the whole story as a boxing match — what was actually wrong with how Jacob won this 'fight'?",
+              hint: "Guide toward: Jacob tricked and cheated his own father and brother to get the blessing, even though God had already promised it to him. Winning the right result the wrong way is still wrong.",
+            },
+            {
+              type: "question",
+              text: "It's hard to believe God would put up with a family behaving like this. So what does this story actually show us about God?",
+              hint: "Guide toward: it shows how amazing and powerful God is — he planned to save people through this exact family, even though every single person in it acted selfishly, secretly, or dishonestly. Nothing they did could stop God's plan.",
+            },
+            {
+              type: "story",
+              text: "God had a plan to save his people from sin, right from the very beginning — and that plan has always been about Jesus. God set that plan in motion through the promises he made to Abraham, and nothing can get in the way of God keeping those promises — not even sinful, scheming people. God is powerful, and he is able to keep his promises. He's a promise keeper!",
+            },
+            {
+              type: "question",
+              text: "Why do you think God chooses to work through unexpected, imperfect people instead of only ever using people who deserve it?",
+              hint: "Accept responses. He does this so that people remember he is God, and they are not — so people won't take the good things God gives them for granted, and so people will put their trust in him rather than in themselves.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "“God is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.”",
+            },
+            {
+              type: "activity",
+              text: "Let's say this week's memory verse together, all from memory.",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you are powerful in keeping your promises. Thank you that nothing can stand in the way of you keeping your promises — not even people's sinfulness. Thank you that you kept your promises to Abraham, Isaac, and Jacob, even though they didn't deserve it. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 27:1–40 (recap)",
+            topic: "Reading it as a boxing match: what this shows us about God",
+            bigIdea: "Retelling the whole week's story as a boxing-match commentary helps highlight that nobody in this fight played fair — yet God's plan for Jacob to receive the blessing still went ahead exactly as promised. This shows how powerful and trustworthy God is: his promises don't depend on people's good behaviour.",
+            learningIntentions: [
+              "We are recapping the whole story of Genesis 27:1–40 through an acted-out boxing commentary.",
+              "We are learning to identify that everyone in the story played dishonestly, yet God's plan still succeeded.",
+              "I can explain that God is powerful enough to keep his promises even through sinful people.",
+            ],
+            assessment: "Listen for whether students can explain what was wrong with how Jacob won the blessing, and what the story shows about God's power to keep his promises.",
+            resources: [
+              "A few confident volunteers to read the Commentator, Team Esau, and Team Jacob parts, plus the rest of the class to join in cheering",
+            ],
+            script: [
+              {
+                heading: "Act it out: the boxing commentary",
+                minutes: "6–7 min",
+                teacherTalk: "Assign volunteers to the Commentator, Team Esau, and Team Jacob roles (or split the class into two cheering sides) and run the built-in roleplay script on screen.",
+                activityNote: "Use the built-in roleplay block — tap 'Start the script on screen' to open the fullscreen presenter.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "What was wrong with the win?",
+                minutes: "2 min",
+                teacherTalk: "Discuss what was actually wrong with how Jacob won the blessing.",
+                activityNote: null,
+                keyQuestion: "Now that we've replayed the whole story as a boxing match — what was actually wrong with how Jacob won this 'fight'?",
+                teacherGuidance: "Guide toward: Jacob tricked and cheated his own father and brother to get the blessing, even though God had already promised it to him. Winning the right result the wrong way is still wrong.",
+              },
+              {
+                heading: "What this shows us about God",
+                minutes: "2–3 min",
+                teacherTalk: "Draw out the big idea: God is powerful enough to keep his promises even through a sinful, scheming family.",
+                activityNote: null,
+                keyQuestion: "It's hard to believe God would put up with a family behaving like this. So what does this story actually show us about God?",
+                teacherGuidance: "Guide toward: it shows how amazing and powerful God is — he planned to save people through this exact family, even though every single person in it acted selfishly, secretly, or dishonestly. Nothing they did could stop God's plan.",
+              },
+              {
+                heading: "Memory verse and closing prayer",
+                minutes: "2 min",
+                teacherTalk: "Finish the week's memory verse fully from memory, then close together with the prayer in the app.",
+                activityNote: "Use the say-it-from-memory activity block, then the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Lesson 17 continues the story of Jacob.",
           },
         },
       ],
