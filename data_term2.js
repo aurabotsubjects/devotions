@@ -49,8 +49,24 @@
 // into greatness" / Genesis 29:31-30:24; 37, memory verse switches to
 // Romans 8:28a CEV) are built.
 // Week 8 (Lesson 18, "Working for good" / Genesis 39-41, memory verse
-// stays on Romans 8:28a CEV) is now also built. Lessons 19-20 (Weeks
-// 9-10) still need to be built from the manual.
+// stays on Romans 8:28a CEV) is now also built. Week 9 (Lesson 19,
+// "Mighty to save" / Genesis 41-50, memory verse stays on Romans 8:28a
+// CEV) is now also built. Lesson 20 (Week 10) still needs to be built
+// from the manual.
+// Week 9 ships with NO images: its PowerPoint (Lesson 19) contains 21
+// wood/paper-texture background slides (used behind the Explorer's Quiz
+// questions and a couple of narration slides quoting Genesis 50:19-21
+// and 46:2-4) and no hand-drawn comic panel art at all (verified by
+// inspecting all 23 embedded media images in the PowerPoint - every one
+// is a plain background texture, not an illustration). The manual's own
+// "Bible focus" section for this lesson is built entirely around a
+// teacher pulling props out of an "explorer's story bag" (a map, a
+// speech bubble, a test paper, a clock, a dinner plate, a cup, tissues,
+// a smaller bag, and a RIP tombstone) to narrate the story live, with no
+// printed multi-character script for this lesson (unlike Weeks 5/6's
+// "Act it out" script or Lesson 18's puppet scripts) - so this week
+// stays text/verse-forward, retelling the story across the four days
+// instead of using a roleplay or dictation block.
 // Week 8 ships with NO images: its PowerPoint (Lesson 18) contains only
 // 6 slides, all wood/paper-texture backgrounds with text overlaid
 // ("The story so far ...", "Scene 1", "Scene 2", "Scene 3", the memory
@@ -3167,6 +3183,396 @@ window.DEVOTIONS["Term 2"] = Object.assign(window.DEVOTIONS["Term 2"] || {}, {
               },
             ],
             whereToNext: "Lesson 19 continues the story as Joseph's brothers come to Egypt during the famine, not knowing who he is.",
+          },
+        },
+      ],
+    },
+    "Week 9": {
+      lessonTitle: "Mighty to save",
+      passage: "Genesis 41–50",
+      bigIdea: "God revealed to Pharaoh that seven years of plenty would be followed by seven years of famine, and gave Joseph the wisdom to store up grain so that Egypt — and the whole world — could be saved. When Joseph's own brothers came to Egypt for food, not recognising the brother they had sold into slavery, God used the famine to bring Jacob's whole family back together in Egypt, keeping his promise that Abraham's family would become a great nation and would bless the whole world.",
+      source: "Connect B1 Upper Primary — Lesson 19",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Joseph saves the world from famine",
+          blocks: [
+            {
+              type: "question",
+              text: "Last week we followed Joseph from slavery, to prison, to being second-in-command of all Egypt. What do you remember about how God was with Joseph through all of that?",
+              hint: "Accept responses. God always works for the good of those who love him — even when Joseph's circumstances looked terrible, God was preparing him for something bigger.",
+            },
+            {
+              type: "story",
+              text: "God gave Pharaoh, the king of Egypt, two dreams in one night. Joseph explained that both dreams meant the same thing: there would be seven years when there was plenty of food in Egypt, followed by seven years of terrible famine. Pharaoh put Joseph in charge of the whole country to prepare. During the seven good years, Joseph collected as much grain as he could and stored it up.",
+            },
+            {
+              type: "story",
+              text: "Then the famine came, just as God had said it would. There was no food growing in Egypt or in any of the countries around it. But because of Joseph's planning, Egypt had plenty of grain stored away. People from every nation came to Egypt to buy food from Joseph, because the famine had spread everywhere.",
+            },
+            {
+              type: "question",
+              text: "Right back in Lesson 12, God promised Abraham that his family would be a blessing, and that the whole world would be blessed through his family. How do you think Joseph selling grain to the whole world connects to that promise God made to Abraham, generations earlier?",
+              hint: "Guide toward: this is God keeping his promise. Through Joseph, one member of Abraham's family, people from every nation were saved from starving — exactly what God had promised long ago.",
+            },
+            {
+              type: "story",
+              text: "Meanwhile, back in the land of Canaan, Jacob heard that there was grain in Egypt. He sent ten of his sons to buy food, but he kept the youngest, Benjamin, at home — Jacob had already lost Joseph, and he couldn't bear to lose Rachel's other son too. When the brothers arrived in Egypt, they bowed down low in front of the powerful Governor of Egypt, not knowing it was Joseph.",
+            },
+            {
+              type: "question",
+              text: "Joseph recognised his brothers straight away, but they had no idea who he was. Why do you think Joseph's brothers might not have recognised him?",
+              hint: "Accept responses. Joseph had grown up, he was dressed like an Egyptian official, and he spoke to them through an interpreter — Joseph was the last person the brothers expected to see sitting on Egypt's throne.",
+            },
+            {
+              type: "story",
+              text: "Joseph decided to test his brothers rather than reveal who he was straight away. He accused them of being spies, questioned them, and kept Simeon in prison in Egypt while he sent the others home with grain — on the condition that they bring their youngest brother, Benjamin, back with them next time. Jacob was heartbroken and at first refused to let Benjamin go.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you had a plan for Joseph all along. Thank you that you used him to save so many people from starving, and that you always keep your promises. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 41:46–42:28",
+            topic: "Joseph saves the world from famine",
+            bigIdea: "God gave Joseph wisdom to prepare Egypt for a terrible famine, saving people from every nation — including Joseph's own family, who came to Egypt for food without recognising him.",
+            learningIntentions: [
+              "We are learning how Joseph's storing of grain saved Egypt and the surrounding world from famine.",
+              "We are learning how this connects to God's promise that Abraham's family would bless the whole world.",
+              "We are learning that Joseph's brothers came to Egypt for food, not recognising the brother they had sold into slavery.",
+            ],
+            assessment: "Listen for whether students can retell how Joseph saved the world from famine, and can explain why his brothers didn't recognise him.",
+            resources: ["Optional: a map showing Egypt and Canaan, to point out how far the brothers travelled"],
+            script: [
+              {
+                heading: "Way in: recapping Joseph's story",
+                minutes: "2 min",
+                teacherTalk: "Ask students to recap what they remember about how God was with Joseph through slavery, prison, and being put in charge of Egypt.",
+                activityNote: null,
+                keyQuestion: "Last week we followed Joseph from slavery, to prison, to being second-in-command of all Egypt. What do you remember about how God was with Joseph through all of that?",
+                teacherGuidance: "Accept responses. God always works for the good of those who love him — even when Joseph's circumstances looked terrible, God was preparing him for something bigger.",
+              },
+              {
+                heading: "The famine and God's promise to Abraham",
+                minutes: "4–5 min",
+                teacherTalk: "Read through the seven years of plenty and famine, and connect Joseph saving the world to God's promise to Abraham in Genesis 12.",
+                activityNote: null,
+                keyQuestion: "Right back in Lesson 12, God promised Abraham that his family would be a blessing, and that the whole world would be blessed through his family. How do you think Joseph selling grain to the whole world connects to that promise God made to Abraham, generations earlier?",
+                teacherGuidance: "Guide toward: this is God keeping his promise. Through Joseph, one member of Abraham's family, people from every nation were saved from starving — exactly what God had promised long ago.",
+              },
+              {
+                heading: "The brothers come to Egypt",
+                minutes: "4–5 min",
+                teacherTalk: "Read through the brothers' first trip to Egypt, being accused of spying, and Simeon being kept behind.",
+                activityNote: null,
+                keyQuestion: "Joseph recognised his brothers straight away, but they had no idea who he was. Why do you think Joseph's brothers might not have recognised him?",
+                teacherGuidance: "Accept responses. Joseph had grown up, he was dressed like an Egyptian official, and he spoke to them through an interpreter — Joseph was the last person the brothers expected to see sitting on Egypt's throne.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: the brothers return to Egypt with Benjamin, and Joseph tests them one final time.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "One final test",
+          blocks: [
+            {
+              type: "question",
+              text: "Yesterday Jacob didn't want to let Benjamin go to Egypt. Eventually the food ran out again and he had no choice. If you were Jacob, how do you think you'd feel sending your last remaining son from Rachel into a country ruled by a stranger?",
+              hint: "Accept responses. Jacob had already lost Joseph and was terrified of losing Benjamin too — this shows how much courage it took for him to let Benjamin go.",
+            },
+            {
+              type: "story",
+              text: "Judah promised his father that he would personally guarantee Benjamin's safety, so Jacob finally agreed. The brothers travelled back to Egypt with Benjamin, and Joseph ordered a huge feast to be prepared at his own house. The brothers were confused and frightened — they thought it might have something to do with the money they'd found in their sacks the first time.",
+            },
+            {
+              type: "story",
+              text: "But the feast went well, and the brothers headed home with grain once again. This time, though, Joseph secretly had his own silver cup hidden in Benjamin's sack. His attendants chased after the brothers and accused them of stealing it. When the cup was found in Benjamin's sack, the brothers were devastated and returned to face Joseph.",
+            },
+            {
+              type: "question",
+              text: "Judah begged Joseph to take him as a slave instead of Benjamin, saying his father would die of grief if Benjamin didn't come home. Why do you think this moment finally changed everything for Joseph?",
+              hint: "Guide toward: Joseph could see that his brothers had truly changed. Years earlier they had shown no mercy selling their own brother into slavery — now Judah was offering his own freedom to protect the youngest brother.",
+            },
+            {
+              type: "story",
+              text: "Joseph couldn't hold back any longer. He sent all his Egyptian attendants out of the room and told his brothers who he really was: their brother Joseph, the one they had sold into slavery all those years ago. He wept loudly, and hugged each of his brothers in turn.",
+            },
+            {
+              type: "question",
+              text: "How do you think Joseph's brothers might have felt in that moment, discovering that the powerful Governor of Egypt was actually the brother they had wronged?",
+              hint: "Accept responses. They may have felt relieved and amazed, but also frightened and deeply guilty for what they had done to him all those years before.",
+            },
+            {
+              type: "story",
+              text: "Joseph told his brothers not to be afraid or upset with themselves. He said it was God who had sent him ahead to Egypt to save many lives during the famine. Joseph sent his brothers home to bring their father and the whole family back to live in Egypt, where the king of Egypt promised to look after them.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that Joseph forgave his brothers instead of taking revenge. Help us to forgive people who have hurt us, the way Joseph did. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 43:1–45:15",
+            topic: "One final test",
+            bigIdea: "Joseph tested his brothers one last time with his silver cup, and when Judah offered to take Benjamin's punishment himself, Joseph saw that his brothers had truly changed and revealed who he really was.",
+            learningIntentions: [
+              "We are learning how Joseph tested his brothers with his silver cup.",
+              "We are learning that Judah's offer to protect Benjamin showed the brothers had changed.",
+              "We are learning how Joseph revealed himself to his brothers and forgave them.",
+            ],
+            assessment: "Listen for whether students can explain what changed Joseph's mind about revealing himself, and how he responded to his brothers.",
+            resources: [],
+            script: [
+              {
+                heading: "Way in: sending Benjamin to Egypt",
+                minutes: "2 min",
+                teacherTalk: "Ask students to imagine how Jacob felt sending Benjamin to Egypt after already losing Joseph.",
+                activityNote: null,
+                keyQuestion: "Yesterday Jacob didn't want to let Benjamin go to Egypt. Eventually the food ran out again and he had no choice. If you were Jacob, how do you think you'd feel sending your last remaining son from Rachel into a country ruled by a stranger?",
+                teacherGuidance: "Accept responses. Jacob had already lost Joseph and was terrified of losing Benjamin too — this shows how much courage it took for him to let Benjamin go.",
+              },
+              {
+                heading: "The silver cup test",
+                minutes: "4–5 min",
+                teacherTalk: "Read through the feast, the silver cup being planted in Benjamin's sack, and Judah's offer to take his place.",
+                activityNote: null,
+                keyQuestion: "Judah begged Joseph to take him as a slave instead of Benjamin, saying his father would die of grief if Benjamin didn't come home. Why do you think this moment finally changed everything for Joseph?",
+                teacherGuidance: "Guide toward: Joseph could see that his brothers had truly changed. Years earlier they had shown no mercy selling their own brother into slavery — now Judah was offering his own freedom to protect the youngest brother.",
+              },
+              {
+                heading: "Joseph reveals himself",
+                minutes: "4–5 min",
+                teacherTalk: "Read through Joseph revealing his identity and forgiving his brothers, sending them home to bring Jacob and the whole family to Egypt.",
+                activityNote: null,
+                keyQuestion: "How do you think Joseph's brothers might have felt in that moment, discovering that the powerful Governor of Egypt was actually the brother they had wronged?",
+                teacherGuidance: "Accept responses. They may have felt relieved and amazed, but also frightened and deeply guilty for what they had done to him all those years before.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: Jacob's whole family moves to Egypt, and God repeats his promise to make them into a great nation.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "God's promise travels to Egypt",
+          blocks: [
+            {
+              type: "question",
+              text: "Can anyone remember the three promises God made to Abraham, right back near the start of this term? (Land, nation, and blessing.) Which of those promises do you think is about to come true in today's story?",
+              hint: "Guide toward the NATION promise — God promised Abraham's family would become a great nation, and today we see God confirm that this will happen in Egypt.",
+            },
+            {
+              type: "story",
+              text: "Jacob packed up his entire household — sons, daughters, grandchildren, flocks and everything he owned — and set out for Egypt to be reunited with Joseph. On the way, God spoke to Jacob in the night and said his name twice: “Jacob, Jacob!”",
+            },
+            {
+              type: "verse",
+              reference: "Genesis 46:3–4 (CEV, paraphrased)",
+              text: "God told Jacob not to be afraid to go to Egypt, because he would make Jacob's family into a great nation there. God promised to go with Jacob to Egypt, and one day to bring his family back out again.",
+            },
+            {
+              type: "question",
+              text: "What did God promise Jacob would happen to his family in Egypt?",
+              hint: "Accept responses. They would become a great nation — this is God repeating the exact same nation promise he first made to Abraham.",
+            },
+            {
+              type: "question",
+              text: "Did God break any of his promises to Abraham, Isaac, and Jacob along the way?",
+              hint: "Guide toward: No he didn't! God is faithful and gracious — when he makes a promise, he keeps it, even when it takes a very long time or looks impossible.",
+            },
+            {
+              type: "story",
+              text: "Jacob's whole family arrived safely in Egypt and settled in a region called Goshen. Jacob and Joseph were reunited at last. Abraham's family — which started as just Abraham and Sarah — had grown into Jacob's twelve sons and their families. They weren't a great nation yet, but they were certainly growing.",
+            },
+            {
+              type: "story",
+              text: "Jacob lived the rest of his life in Egypt with his family, and eventually grew very old and died there. Once their father had died, Joseph's brothers became afraid all over again — they worried that Joseph might finally take revenge on them for what they had done to him so long ago.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you kept your promise to make Abraham's family into a great nation. Thank you that you are always faithful, even when we have to wait a long time to see your promises come true. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 46:1–7; 46:28–47:12; 49:33",
+            topic: "God's promise travels to Egypt",
+            bigIdea: "As Jacob's family moved to Egypt, God repeated his promise that they would become a great nation, showing that God had never broken any of his promises to Abraham, Isaac, and Jacob.",
+            learningIntentions: [
+              "We are learning that God repeated his nation promise to Jacob on the way to Egypt.",
+              "We are learning that God did not break any of his promises to Abraham, Isaac, or Jacob.",
+              "We are learning that Jacob's family settled in Egypt and grew, and that Jacob eventually died there.",
+            ],
+            assessment: "Listen for whether students can state what God promised Jacob in Egypt, and whether they can say that God kept every one of his promises.",
+            resources: [],
+            script: [
+              {
+                heading: "Way in: recapping the three promises",
+                minutes: "2 min",
+                teacherTalk: "Ask students to recall the three promises God made to Abraham (land, nation, blessing), and which one connects to today's story.",
+                activityNote: null,
+                keyQuestion: "Can anyone remember the three promises God made to Abraham, right back near the start of this term? (Land, nation, and blessing.) Which of those promises do you think is about to come true in today's story?",
+                teacherGuidance: "Guide toward the NATION promise — God promised Abraham's family would become a great nation, and today we see God confirm that this will happen in Egypt.",
+              },
+              {
+                heading: "God speaks to Jacob on the way to Egypt",
+                minutes: "4–5 min",
+                teacherTalk: "Read through God's promise to Jacob in Genesis 46:3–4, and discuss whether God has broken any promises so far this term.",
+                activityNote: null,
+                keyQuestion: "Did God break any of his promises to Abraham, Isaac, and Jacob along the way?",
+                teacherGuidance: "Guide toward: No he didn't! God is faithful and gracious — when he makes a promise, he keeps it, even when it takes a very long time or looks impossible.",
+              },
+              {
+                heading: "Settling in Egypt, and Jacob's death",
+                minutes: "3–4 min",
+                teacherTalk: "Read through the family settling in Goshen and Jacob's eventual death, and the brothers' renewed fear.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: Joseph reassures his frightened brothers one final time, and we look back at everything God has done this term.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "God had a plan all along",
+          blocks: [
+            {
+              type: "question",
+              text: "Why might Joseph's brothers have been afraid of Joseph after their father Jacob died?",
+              hint: "Accept responses. They thought he might finally take revenge on them for selling him into slavery, now that Jacob wasn't there to keep the peace.",
+            },
+            {
+              type: "story",
+              text: "The brothers went to Joseph and told him that before Jacob died, he had asked Joseph to forgive them. Joseph was so sad that they thought he would still want to hurt them, and he wept when he heard their message.",
+            },
+            {
+              type: "verse",
+              reference: "Genesis 50:19–21 (CEV)",
+              text: "Joseph told his brothers, “Don't be afraid! I have no right to change what God has decided. You tried to harm me, but God made it turn out for the best, so that he could save all these people, as he is now doing. I will take care of you and your children.”",
+            },
+            {
+              type: "question",
+              text: "God had a plan for Joseph the whole time — through slavery, prison, and finally being in charge of Egypt. What do you think that plan was?",
+              hint: "Guide toward: God chose to use Joseph to save his people from the famine and to keep his promise to Abraham, Isaac and Jacob that their family would become a great nation and a blessing to the whole world.",
+            },
+            {
+              type: "story",
+              text: "This is exactly what Christians mean when they say God is always at work for the good of everyone who loves him. It doesn't mean bad things never happen — Joseph was sold as a slave, falsely accused, and forgotten in prison. But God was never absent from any part of Joseph's story. Every hard chapter was part of how God got Joseph exactly where he needed to be, not just to save his own family, but to bless the whole world.",
+            },
+            {
+              type: "activity",
+              text: "Let's say this term's memory verse together, all from memory.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "question",
+              text: "This term we've followed God's promises all the way from Abraham to Joseph's family settling in Egypt. What's one thing that's stood out to you about the way God keeps his promises?",
+              hint: "Accept any answer. This is a personal reflection question to finish the term's story of Abraham's family — there's no single right answer.",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you had a plan for Joseph. Thank you that you used him to save your people and to keep your promises to Abraham, Isaac and Jacob. Thank you that you are always at work for the good of everyone who loves you. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 50:15–21",
+            topic: "God had a plan all along",
+            bigIdea: "When Joseph's brothers feared revenge after Jacob's death, Joseph reassured them that God had planned everything that happened to him for good — to save many people and to keep God's promises to Abraham's family.",
+            learningIntentions: [
+              "We are learning that Joseph forgave his brothers completely, even after their father died.",
+              "We are learning that God had a plan for Joseph's whole life, even through the hardest parts.",
+              "I can explain how this term's story shows that God is a promise keeper.",
+            ],
+            assessment: "Listen for whether students can explain why Joseph forgave his brothers, and whether they can describe God's plan for Joseph's life in their own words.",
+            resources: [],
+            script: [
+              {
+                heading: "Way in: why were the brothers afraid?",
+                minutes: "2 min",
+                teacherTalk: "Ask students why the brothers might have been afraid of Joseph once their father had died.",
+                activityNote: null,
+                keyQuestion: "Why might Joseph's brothers have been afraid of Joseph after their father Jacob died?",
+                teacherGuidance: "Accept responses. They thought he might finally take revenge on them for selling him into slavery, now that Jacob wasn't there to keep the peace.",
+              },
+              {
+                heading: "Joseph's forgiveness and God's plan",
+                minutes: "4–5 min",
+                teacherTalk: "Read Genesis 50:19–21 together and discuss what God's plan for Joseph's life actually was.",
+                activityNote: null,
+                keyQuestion: "God had a plan for Joseph the whole time — through slavery, prison, and finally being in charge of Egypt. What do you think that plan was?",
+                teacherGuidance: "Guide toward: God chose to use Joseph to save his people from the famine and to keep his promise to Abraham, Isaac and Jacob that their family would become a great nation and a blessing to the whole world.",
+              },
+              {
+                heading: "Memory verse from memory and term reflection",
+                minutes: "3–4 min",
+                teacherTalk: "Say this term's memory verse fully from memory, then ask students to reflect on what's stood out to them about how God keeps his promises.",
+                activityNote: "Use the say-it-from-memory activity block.",
+                keyQuestion: "This term we've followed God's promises all the way from Abraham to Joseph's family settling in Egypt. What's one thing that's stood out to you about the way God keeps his promises?",
+                teacherGuidance: "Accept any answer. This is a personal reflection question to finish the term's story of Abraham's family — there's no single right answer.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Lesson 20 moves into a contemporary lesson about Holly and Compassion Australia, a change of pace from the Genesis narrative.",
           },
         },
       ],
