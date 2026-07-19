@@ -43,8 +43,22 @@
 // begin!" / Genesis 1-11), Week 2 (Lesson 12, "Promises, promises,
 // promises" / Genesis 12:1-9, memory verse switches to Numbers 23:19 CEV),
 // Week 3 (Lesson 13, "Waiting, waiting, waiting" / Genesis 15:1-18:15;
-// 21:1-7), and Week 4 (Lesson 14, "God's family grows" / Genesis 24) are
-// built. Lessons 15-20 (Weeks 5-10) still need to be built from the manual.
+// 21:1-7), Week 4 (Lesson 14, "God's family grows" / Genesis 24), and
+// Week 5 (Lesson 15, "Chalk and cheese" / Genesis 25:19-34) are built.
+// Lessons 16-20 (Weeks 6-10) still need to be built from the manual.
+// Week 5 uses 2 comic-style images from its PowerPoint (a distressed,
+// visibly-pregnant Rebekah, and the Jacob-and-Esau stew scene matching
+// the manual's own page 156 illustration) — see images_term2.js. Its
+// PowerPoint also included 3 generic stock photos (a traffic jam, a
+// skyscraper, a luxury hotel) for the manual's "unexpected things"
+// Way-in exercise, plus an "Antarctica" text-only Way-in prompt (this
+// edition swapped out the manual's own African-jungle framing) — all
+// skipped per the visual style rules, since stock photography clashes
+// with the comic art style; Day 1 opens with a warm-up question tied
+// directly to the story's own "unexpected" beat (twins fighting before
+// birth) instead. Day 4 uses the new 'dictation' block type, reading the
+// week's full CEV passage (Genesis 25:19-34) together as a class, since
+// the manual has no printed drama script for this lesson (unlike Week 4).
 // Week 2 ships with no images: its PowerPoint (Lesson 12)
 // contains only title/word cards, a SIN-CONSEQUENCES-GRACE cycle recap
 // diagram, and a maze puzzle — no comic-style panel art. Week 3 ALSO ships
@@ -1425,6 +1439,459 @@ window.DEVOTIONS["Term 2"] = Object.assign(window.DEVOTIONS["Term 2"] || {}, {
               },
             ],
             whereToNext: "Lesson 15 continues the story of Isaac and Rebekah's family.",
+          },
+        },
+      ],
+    },
+    "Week 5": {
+      lessonTitle: "Chalk and cheese",
+      passage: "Genesis 25:19–34",
+      bigIdea: "Twenty years after Isaac married Rebekah, God again answered prayer for a childless couple — but this time with unexpected twins who were fighting each other even before birth. God told Rebekah that the older twin would serve the younger, turning everyone's expectations upside down. As Jacob and Esau grew up to be complete opposites, favouritism split the family in two, and Esau carelessly traded away his birthright — and the promises attached to it — for a single bowl of stew. Christians believe God keeps his promises to his people, but not always through the people we'd expect, or in the way we'd expect.",
+      source: "Connect B1 Upper Primary — Lesson 15",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Fighting before they were even born",
+          blocks: [
+            {
+              type: "question",
+              text: "Do you think it's possible for two people to become rivals before they've even met properly, or said a single word to each other? What would that even look like?",
+              hint: "Accept guesses. Use this to set up today's very unusual detail: two brothers who were already fighting each other before either of them was even born.",
+            },
+            {
+              type: "story",
+              text: "Isaac was forty years old when he married Rebekah. Just like his father Abraham and mother Sarah before him, Isaac and Rebekah were unable to have children — for almost twenty years. So Isaac prayed to the LORD for his wife, and the LORD answered his prayer.",
+            },
+            {
+              type: "question",
+              text: "This is now the second time in this family's story that God's promise has depended on a couple who couldn't have children for years and years. Why do you think God kept letting this happen?",
+              hint: "Guide toward: it makes it completely clear that any child born is a gift from God, answered through prayer — not something Isaac and Rebekah achieved by themselves. It shows the promise depends on God's power, not human effort.",
+            },
+            {
+              type: "story",
+              text: "Rebekah became pregnant — but this was no ordinary pregnancy. She could feel the babies inside her, fighting each other. It was so difficult and painful that Rebekah asked the LORD why this was happening to her.",
+            },
+            {
+              type: "image",
+              key: "wk5-01-rebekah-pregnant",
+              caption: "Rebekah, expecting twins who were already fighting each other inside her.",
+            },
+            {
+              type: "question",
+              text: "What do you think it might have felt like for Rebekah to feel her own unborn babies fighting inside her, even before she'd met them?",
+              hint: "Accept honest responses — confusing, worrying, painful. This is what led her to go and ask God directly what was happening.",
+            },
+            {
+              type: "story",
+              text: "The LORD told Rebekah: her two sons would become two separate nations. One of these nations would be stronger than the other — and the older twin would serve the younger.",
+            },
+            {
+              type: "question",
+              text: "In those days, everyone expected the oldest son to be the most important one, the one in charge. What does it tell us about God, that here he flips that expectation and chooses to bless the younger twin instead?",
+              hint: "Guide toward: God doesn't work the way people expect him to. He isn't bound by human traditions about who deserves to be first — he's free to choose whoever he wants for his plans.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "\u201cGod is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.\u201d",
+            },
+            {
+              type: "activity",
+              text: "Let's say this week's memory verse together.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 25:19–23",
+            topic: "Fighting before they were even born",
+            bigIdea: "Twenty years after Isaac married Rebekah, God again answered prayer for a childless couple — but this time with unexpected twins who were fighting each other even before birth. God told Rebekah that the older twin would serve the younger, turning everyone's expectations upside down. As Jacob and Esau grew up to be complete opposites, favouritism split the family in two, and Esau carelessly traded away his birthright — and the promises attached to it — for a single bowl of stew. Christians believe God keeps his promises to his people, but not always through the people we'd expect, or in the way we'd expect.",
+            learningIntentions: [
+              "We are learning that Isaac and Rebekah, like Abraham and Sarah before them, were unable to have children for many years until God answered prayer.",
+              "We are learning that Rebekah's pregnancy was unusually difficult, and that God told her the older of her twin sons would serve the younger.",
+              "I can explain why God choosing the younger twin was the opposite of what people in that culture would have expected.",
+            ],
+            assessment: "Listen for whether students can explain why the prophecy about the older serving the younger was so unexpected for its time.",
+            resources: [
+              "CEV Bible (optional, for reading Genesis 25:19–23 aloud)",
+            ],
+            script: [
+              {
+                heading: "Rivals before they'd met",
+                minutes: "2 min",
+                teacherTalk: "Open with the warm-up question about two people becoming rivals before they've even met.",
+                activityNote: null,
+                keyQuestion: "Do you think it's possible for two people to become rivals before they've even met properly, or said a single word to each other? What would that even look like?",
+                teacherGuidance: "Accept guesses. Use this to set up today's very unusual detail: two brothers who were already fighting each other before either of them was even born.",
+              },
+              {
+                heading: "Answered prayer, again",
+                minutes: "2 min",
+                teacherTalk: "Recap Isaac and Rebekah's marriage and their twenty years without children, until God answered prayer.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Why God keeps doing this",
+                minutes: "2–3 min",
+                teacherTalk: "Ask why God might have let another couple in this family struggle to have children before answering prayer.",
+                activityNote: null,
+                keyQuestion: "This is now the second time in this family's story that God's promise has depended on a couple who couldn't have children for years and years. Why do you think God kept letting this happen?",
+                teacherGuidance: "Guide toward: it makes it completely clear that any child born is a gift from God, answered through prayer — not something Isaac and Rebekah achieved by themselves. It shows the promise depends on God's power, not human effort.",
+              },
+              {
+                heading: "A painful, unusual pregnancy",
+                minutes: "2–3 min",
+                teacherTalk: "Describe Rebekah's difficult pregnancy and show the image of her in distress, then ask the follow-up question.",
+                activityNote: "Use the built-in image block showing Rebekah expecting the fighting twins.",
+                keyQuestion: "What do you think it might have felt like for Rebekah to feel her own unborn babies fighting inside her, even before she'd met them?",
+                teacherGuidance: "Accept honest responses — confusing, worrying, painful. This is what led her to go and ask God directly what was happening.",
+              },
+              {
+                heading: "The LORD's answer",
+                minutes: "2–3 min",
+                teacherTalk: "Reveal God's prophecy to Rebekah, then discuss how it reversed cultural expectations.",
+                activityNote: null,
+                keyQuestion: "In those days, everyone expected the oldest son to be the most important one, the one in charge. What does it tell us about God, that here he flips that expectation and chooses to bless the younger twin instead?",
+                teacherGuidance: "Guide toward: God doesn't work the way people expect him to. He isn't bound by human traditions about who deserves to be first — he's free to choose whoever he wants for his plans.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say this week's memory verse together.",
+                activityNote: "Use the built-in verse block for Numbers 23:19, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 follows the twins' births, and how completely different Jacob and Esau turned out to be.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Chalk and cheese",
+          blocks: [
+            {
+              type: "story",
+              text: "When the twins were born, the first baby came out covered in red hair — so they named him Esau. The second baby came out gripping his brother's heel, as though trying to pull him back or push past him — so they named him Jacob, which means 'grabs the heel.' Isaac was sixty years old when they were born.",
+            },
+            {
+              type: "question",
+              text: "Even the way Jacob was born — grabbing at his brother's heel — hints at something about him. What do you think that detail might suggest about how Jacob will act later in this story?",
+              hint: "Accept guesses, then reveal: Jacob's name became linked to grabbing and getting ahead by any means — which foreshadows exactly how he behaves later, trying to grab hold of things that aren't his yet.",
+            },
+            {
+              type: "story",
+              text: "As the boys grew up, they turned out to be nothing alike. Esau became a skilful hunter who loved being out in the open country. Jacob was quieter, preferring to stay closer to home. Esau and Jacob were like chalk and cheese.",
+            },
+            {
+              type: "question",
+              text: "Does anyone know what the saying 'chalk and cheese' means? Can you think of two people you know — maybe even in your own family — who are chalk and cheese?",
+              hint: "It means two things, or two people, that are completely different from each other, even though you might expect them to be similar.",
+            },
+            {
+              type: "story",
+              text: "These differences didn't stay just between the brothers — they split the rest of the family too. Esau would bring home the meat of the animals he'd hunted, and Isaac loved him for it. But Jacob was his mother Rebekah's favourite.",
+            },
+            {
+              type: "question",
+              text: "How do you think it might have felt to grow up in a family where each parent openly favoured a different child?",
+              hint: "Accept responses — hurtful, confusing, likely to cause jealousy and rivalry between the brothers. This favouritism is part of what fuels the conflict still to come in this story.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "\u201cGod is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.\u201d",
+            },
+            {
+              type: "activity",
+              text: "Let's say this week's memory verse together again.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 25:24–28",
+            topic: "Chalk and cheese",
+            bigIdea: "Twenty years after Isaac married Rebekah, God again answered prayer for a childless couple — but this time with unexpected twins who were fighting each other even before birth. God told Rebekah that the older twin would serve the younger, turning everyone's expectations upside down. As Jacob and Esau grew up to be complete opposites, favouritism split the family in two, and Esau carelessly traded away his birthright — and the promises attached to it — for a single bowl of stew. Christians believe God keeps his promises to his people, but not always through the people we'd expect, or in the way we'd expect.",
+            learningIntentions: [
+              "We are learning how Esau and Jacob got their names, and how completely different they turned out to be as they grew up.",
+              "We are learning that Isaac favoured Esau while Rebekah favoured Jacob, splitting the family's loyalties.",
+              "I can explain what the saying 'chalk and cheese' means and how it applies to these two brothers.",
+            ],
+            assessment: "Listen for whether students can describe at least two ways Jacob and Esau were different from each other, and explain how parental favouritism affected the family.",
+            resources: [
+              "CEV Bible (optional, for reading Genesis 25:24–28 aloud)",
+            ],
+            script: [
+              {
+                heading: "The twins are born",
+                minutes: "2 min",
+                teacherTalk: "Tell how Esau and Jacob got their names at birth.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "A hint in Jacob's name",
+                minutes: "2 min",
+                teacherTalk: "Ask what Jacob grabbing his brother's heel might foreshadow about him.",
+                activityNote: null,
+                keyQuestion: "Even the way Jacob was born — grabbing at his brother's heel — hints at something about him. What do you think that detail might suggest about how Jacob will act later in this story?",
+                teacherGuidance: "Accept guesses, then reveal: Jacob's name became linked to grabbing and getting ahead by any means — which foreshadows exactly how he behaves later, trying to grab hold of things that aren't his yet.",
+              },
+              {
+                heading: "Chalk and cheese",
+                minutes: "2–3 min",
+                teacherTalk: "Describe how differently the boys grew up, then ask about the saying 'chalk and cheese.'",
+                activityNote: null,
+                keyQuestion: "Does anyone know what the saying 'chalk and cheese' means? Can you think of two people you know — maybe even in your own family — who are chalk and cheese?",
+                teacherGuidance: "It means two things, or two people, that are completely different from each other, even though you might expect them to be similar.",
+              },
+              {
+                heading: "A divided family",
+                minutes: "2–3 min",
+                teacherTalk: "Explain how Isaac favoured Esau and Rebekah favoured Jacob, then discuss what that might have felt like.",
+                activityNote: null,
+                keyQuestion: "How do you think it might have felt to grow up in a family where each parent openly favoured a different child?",
+                teacherGuidance: "Accept responses — hurtful, confusing, likely to cause jealousy and rivalry between the brothers. This favouritism is part of what fuels the conflict still to come in this story.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say this week's memory verse together again.",
+                activityNote: "Use the built-in verse block for Numbers 23:19, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 sees the family's rivalry come to a head over a bowl of stew.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "A bowl of stew",
+          blocks: [
+            {
+              type: "question",
+              text: "As the eldest son, Esau's birthright entitled him to a double share of the family inheritance, and to become the family's leader when Isaac died. But for this particular family, it meant something even bigger. What do you think the birthright represented for Isaac's family, beyond just money or land?",
+              hint: "Guide toward: for this family, the birthright carried God's promise to Abraham forward — the land, the great nation, the blessing for the whole world. It wasn't just an inheritance, it was part of God's plan.",
+            },
+            {
+              type: "story",
+              text: "One day, Jacob was cooking a pot of stew when Esau came home exhausted and starving from hunting. 'Quick, give me some of that red stew,' Esau said, 'I'm about to die of hunger!'",
+            },
+            {
+              type: "image",
+              key: "wk5-02-jacob-esau-stew",
+              caption: "Jacob offers Esau a bowl of stew — in exchange for his birthright.",
+            },
+            {
+              type: "story",
+              text: "Jacob saw his chance. 'First, sell me your rights as the firstborn son,' he said. Esau, thinking only of his hunger, replied, 'I'm about to die — what good will my birthright do me?' So Esau promised Jacob his birthright, right there on the spot, in exchange for some bread and stew.",
+            },
+            {
+              type: "question",
+              text: "Esau said, 'What good will those rights do me if I'm about to die?' What does this tell us about how much Esau actually valued the promises God had made to his family?",
+              hint: "Guide toward: Esau cared more about the comfort of the moment than about something with lasting, far greater value — he despised his birthright rather than treasuring it.",
+            },
+            {
+              type: "question",
+              text: "And what does Jacob's willingness to take advantage of his own brother's hunger tell us about him?",
+              hint: "Guide toward: Jacob was cunning and opportunistic, willing to exploit his brother's weak moment — even though, unlike Esau, he did seem to understand how valuable the birthright really was.",
+            },
+            {
+              type: "story",
+              text: "And that's exactly what Esau did — he ate, drank, got up, and left, showing just how little he thought of his rights as the firstborn.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "\u201cGod is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.\u201d",
+            },
+            {
+              type: "activity",
+              text: "Let's say this week's memory verse together — try it once without looking!",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 25:29–34",
+            topic: "A bowl of stew",
+            bigIdea: "Twenty years after Isaac married Rebekah, God again answered prayer for a childless couple — but this time with unexpected twins who were fighting each other even before birth. God told Rebekah that the older twin would serve the younger, turning everyone's expectations upside down. As Jacob and Esau grew up to be complete opposites, favouritism split the family in two, and Esau carelessly traded away his birthright — and the promises attached to it — for a single bowl of stew. Christians believe God keeps his promises to his people, but not always through the people we'd expect, or in the way we'd expect.",
+            learningIntentions: [
+              "We are learning what a birthright meant in this culture, and why it mattered especially for Isaac's family.",
+              "We are learning that Esau sold his birthright to Jacob for a single bowl of stew.",
+              "I can explain what this trade shows about how Esau and Jacob each valued God's promises.",
+            ],
+            assessment: "Listen for whether students can explain why the birthright mattered so much for this family, and can describe what Esau's choice reveals about his priorities.",
+            resources: [
+              "CEV Bible (optional, for reading Genesis 25:29–34 aloud)",
+            ],
+            script: [
+              {
+                heading: "What a birthright meant",
+                minutes: "2–3 min",
+                teacherTalk: "Ask what the birthright represented for this particular family, beyond ordinary inheritance.",
+                activityNote: null,
+                keyQuestion: "As the eldest son, Esau's birthright entitled him to a double share of the family inheritance, and to become the family's leader when Isaac died. But for this particular family, it meant something even bigger. What do you think the birthright represented for Isaac's family, beyond just money or land?",
+                teacherGuidance: "Guide toward: for this family, the birthright carried God's promise to Abraham forward — the land, the great nation, the blessing for the whole world. It wasn't just an inheritance, it was part of God's plan.",
+              },
+              {
+                heading: "Esau comes home starving",
+                minutes: "2 min",
+                teacherTalk: "Tell how Esau came home exhausted and begged Jacob for stew.",
+                activityNote: "Show the image of Jacob offering Esau the stew.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The trade",
+                minutes: "2 min",
+                teacherTalk: "Describe how Jacob demanded the birthright in exchange, and Esau agreed.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "What Esau's choice shows",
+                minutes: "2–3 min",
+                teacherTalk: "Ask what Esau's willingness to trade away his birthright reveals about his priorities.",
+                activityNote: null,
+                keyQuestion: "Esau said, 'What good will those rights do me if I'm about to die?' What does this tell us about how much Esau actually valued the promises God had made to his family?",
+                teacherGuidance: "Guide toward: Esau cared more about the comfort of the moment than about something with lasting, far greater value — he despised his birthright rather than treasuring it.",
+              },
+              {
+                heading: "What Jacob's choice shows",
+                minutes: "2 min",
+                teacherTalk: "Ask what Jacob's willingness to exploit his brother reveals about him.",
+                activityNote: null,
+                keyQuestion: "And what does Jacob's willingness to take advantage of his own brother's hunger tell us about him?",
+                teacherGuidance: "Guide toward: Jacob was cunning and opportunistic, willing to exploit his brother's weak moment — even though, unlike Esau, he did seem to understand how valuable the birthright really was.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Try saying this week's memory verse together once without looking.",
+                activityNote: "Use the built-in verse block for Numbers 23:19, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 reads back through the whole story together and reflects on what it shows us about God.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Reading it together: Chalk and cheese",
+          blocks: [
+            {
+              type: "story",
+              text: "This week we've followed the whole story of Jacob and Esau: their difficult, fighting-filled birth, how completely different they turned out to be, and how Esau traded away his birthright for a single bowl of stew. Today, let's read the whole passage together, straight from the Bible.",
+            },
+            {
+              type: "dictation",
+              title: "Lesson 15 dictation: Genesis 25:19–34",
+              lines: [
+                { text: "Isaac was the son of Abraham, and he was forty years old when he married Rebekah, the daughter of Bethuel. She was also the sister of Laban, the Aramean from northern Syria." },
+                { text: "Almost twenty years later, Rebekah still had no children. So Isaac asked the LORD to let her have a child, and the LORD answered his prayer." },
+                { text: "Before Rebekah gave birth, she knew she was going to have twins, because she could feel them inside her, fighting each other. She thought, 'Why is this happening to me?' Finally, she asked the LORD why her twins were fighting, and he told her:" },
+                { text: "'Your two sons will become two separate nations. The younger of the two will be stronger, and the older son will be his servant.'" },
+                { text: "When Rebekah gave birth, the first baby was covered with red hair, so he was named Esau. The second baby grabbed on to his brother's heel, so they named him Jacob. Isaac was sixty years old when they were born." },
+                { text: "As Jacob and Esau grew older, Esau liked the outdoors and became a good hunter, while Jacob settled down and became a shepherd. Esau would take the meat of wild animals to his father Isaac, and so Isaac loved him more, but Jacob was his mother's favourite son." },
+                { text: "One day, Jacob was cooking some stew, when Esau came home hungry and said, 'I'm starving to death! Give me some of that red stew right now!' That's how Esau got the name 'Edom.'" },
+                { text: "Jacob replied, 'Sell me your rights as the firstborn son.' 'I'm about to die,' Esau answered. 'What good will those rights do me?'" },
+                { text: "But Jacob said, 'Promise me your birthright, here and now!' And that's what Esau did. Jacob then gave Esau some bread and some of the bean stew, and when Esau had finished eating and drinking, he just got up and left, showing how little he thought of his rights as the firstborn." },
+              ],
+            },
+            {
+              type: "question",
+              text: "Out of the two brothers, who ended up walking away with the promises God had made to this family — even though he wasn't the one born first?",
+              hint: "Jacob did — through Esau's own careless choice to sell his birthright away, not through anything unfair Jacob did to take it (yet — there's more to Jacob's story still to come).",
+            },
+            {
+              type: "question",
+              text: "Thinking back over this whole week — was God keeping his promise to Abraham and Isaac in the way we might have expected, or in a surprising way?",
+              hint: "Guide toward: a surprising way. Nobody would have expected the younger twin to be chosen over the older, or for the promise to be won through a bowl of stew rather than a formal blessing. God keeps his promises but not always in the way we expect him to.",
+            },
+            {
+              type: "story",
+              text: "Jacob and Esau were like chalk and cheese — but they had one thing in common: neither of them turned out to be a particularly admirable man. Yet God's promise didn't depend on either of them being good enough to deserve it. It depended on God being powerful enough to keep it.",
+            },
+            {
+              type: "verse",
+              reference: "Numbers 23:19 (CEV)",
+              text: "\u201cGod is no mere human! He doesn't tell lies or change his mind. God always keeps his promises.\u201d",
+            },
+            {
+              type: "activity",
+              text: "Let's finish by saying this week's memory verse together, all from memory.",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you are in control. Thank you that you have always had a plan to save your people from sin through Jesus. Thank you that nothing can stand in the way of you keeping your promises. Thank you that you are a powerful promise keeper! Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 25:19–34 (recap)",
+            topic: "Reading it together: Chalk and cheese",
+            bigIdea: "Twenty years after Isaac married Rebekah, God again answered prayer for a childless couple — but this time with unexpected twins who were fighting each other even before birth. God told Rebekah that the older twin would serve the younger, turning everyone's expectations upside down. As Jacob and Esau grew up to be complete opposites, favouritism split the family in two, and Esau carelessly traded away his birthright — and the promises attached to it — for a single bowl of stew. Christians believe God keeps his promises to his people, but not always through the people we'd expect, or in the way we'd expect.",
+            learningIntentions: [
+              "We are recapping the whole story of Genesis 25:19–34 by reading it together as a class.",
+              "We are learning to identify how the story's ending was different from what people at the time would have expected.",
+              "I can explain that God's promise didn't depend on Jacob or Esau being especially good people, but on God's own power to keep his word.",
+            ],
+            assessment: "Listen for whether students can retell how Jacob ended up with the birthright, and can explain why the outcome was unexpected.",
+            resources: [
+              "A confident reader (or the teacher) to lead the class through the built-in dictation reading",
+            ],
+            script: [
+              {
+                heading: "Recap the week",
+                minutes: "1 min",
+                teacherTalk: "Briefly recap the week's story before reading it together.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Reading Genesis 25:19–34 together",
+                minutes: "5–6 min",
+                teacherTalk: "Lead the class through the built-in dictation as a fullscreen read-together, or invite a confident reader to lead it.",
+                activityNote: "Use the built-in dictation block — tap 'Start the script on screen' to open the fullscreen presenter for the whole class to read together.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Who won the promise?",
+                minutes: "1–2 min",
+                teacherTalk: "Ask which brother ended up with the birthright, and how.",
+                activityNote: null,
+                keyQuestion: "Out of the two brothers, who ended up walking away with the promises God had made to this family — even though he wasn't the one born first?",
+                teacherGuidance: "Jacob did — through Esau's own careless choice to sell his birthright away, not through anything unfair Jacob did to take it (yet — there's more to Jacob's story still to come).",
+              },
+              {
+                heading: "An unexpected way of keeping a promise",
+                minutes: "2 min",
+                teacherTalk: "Ask whether God kept his promise the way people would have expected, tying back to the lesson's big idea.",
+                activityNote: null,
+                keyQuestion: "Thinking back over this whole week — was God keeping his promise to Abraham and Isaac in the way we might have expected, or in a surprising way?",
+                teacherGuidance: "Guide toward: a surprising way. Nobody would have expected the younger twin to be chosen over the older, or for the promise to be won through a bowl of stew rather than a formal blessing. God keeps his promises but not always in the way we expect him to.",
+              },
+              {
+                heading: "Memory verse and closing prayer",
+                minutes: "2 min",
+                teacherTalk: "Finish the week's memory verse fully from memory, then close together with the prayer in the app.",
+                activityNote: "Use the say-it-from-memory activity block, then the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Lesson 16 continues the story of Jacob and Esau.",
           },
         },
       ],
