@@ -48,7 +48,18 @@
 // "Sibling rivalry" / Genesis 27:1-40), and Week 7 (Lesson 17, "Growing
 // into greatness" / Genesis 29:31-30:24; 37, memory verse switches to
 // Romans 8:28a CEV) are built.
-// Lessons 18-20 (Weeks 8-10) still need to be built from the manual.
+// Week 8 (Lesson 18, "Working for good" / Genesis 39-41, memory verse
+// stays on Romans 8:28a CEV) is now also built. Lessons 19-20 (Weeks
+// 9-10) still need to be built from the manual.
+// Week 8 ships with NO images: its PowerPoint (Lesson 18) contains only
+// 6 slides, all wood/paper-texture backgrounds with text overlaid
+// ("The story so far ...", "Scene 1", "Scene 2", "Scene 3", the memory
+// verse) - no hand-drawn comic panel art at all (verified by inspecting
+// all 6 embedded media images in the PowerPoint). The lesson is built
+// entirely around a puppet show with three printed "Joseph in Egypt"
+// scripts (Scene 1: Potiphar's house; Scene 2: prison/cupbearer/baker;
+// Scene 3: Pharaoh's dreams), which were transcribed close to verbatim
+// from the manual into three roleplay blocks, one per day on Days 1-3.
 // Week 7 ships with NO images: its PowerPoint (Lesson 17) contains only
 // wood/paper-texture background slides with text overlaid (family tree
 // building, the word ISRAEL, tribe names, a "Family tree" word-card) and
@@ -2759,6 +2770,403 @@ window.DEVOTIONS["Term 2"] = Object.assign(window.DEVOTIONS["Term 2"] || {}, {
               },
             ],
             whereToNext: "Lesson 18 continues Joseph's story in Egypt.",
+          },
+        },
+      ],
+    },
+    "Week 8": {
+      lessonTitle: "Working for good",
+      passage: "Genesis 39–41",
+      bigIdea: "Joseph was sold into slavery in Egypt, but Christians believe God had not abandoned him. Whether Joseph was a slave in Potiphar's house, forgotten in prison, or finally standing in front of Pharaoh himself, the Bible shows God being with him and blessing everything he did. God even gave Joseph the ability to interpret dreams, which eventually put him in charge of all Egypt during a terrible famine — saving not just Egypt, but the whole world, and keeping God's promise that Abraham's family would be a blessing to everyone.",
+      source: "Connect B1 Upper Primary — Lesson 18",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "God was with Joseph, even as a slave",
+          blocks: [
+            {
+              type: "question",
+              text: "Last week we heard Joseph's brothers sold him as a slave into Egypt. If you were sold as a slave in a country far from home, would you expect God to still be with you there?",
+              hint: "Accept any answer. This week's story keeps coming back to that exact question — and the Bible's answer is a clear yes.",
+            },
+            {
+              type: "story",
+              text: "Joseph was taken to Egypt and sold to a man named Potiphar, an Egyptian official who worked for the king and was in charge of the palace guard. Slavery was illegal in Australia, but in Egypt at that time many people had slaves. Joseph would now have to work hard for Potiphar and obey him.",
+            },
+            {
+              type: "question",
+              text: "Joseph had every reason to feel like God had forgotten him. What do you think the Bible says happened to Joseph in Potiphar's house?",
+              hint: "Guide toward: the Bible says the Lord was with Joseph, and he became successful. Potiphar noticed and put Joseph in charge of his entire household.",
+            },
+            {
+              type: "roleplay",
+              title: "Lesson 18 script: Joseph in Egypt — Scene 1",
+              characters: ["Narrator", "Potiphar", "Joseph", "Potiphar's wife"],
+              lines: [
+                { character: "Narrator", text: "(Enter Potiphar and Joseph.) Joseph worked hard in Potiphar's house and God made him successful. Potiphar was so pleased with Joseph that he put him in charge of his whole household." },
+                { character: "Potiphar", text: "With Joseph in charge, I don't need to worry about anything except for the food I eat! Things could not be better. Joseph really is the best!" },
+                { character: "Narrator", text: "(Potiphar leaves.) Joseph was great. God was with him in everything he did. But Joseph was also attractive.", direction: true },
+                { character: "Narrator", text: "(Enter Potiphar's wife.) Potiphar's wife liked Joseph too and wanted him to be like a husband to her whenever Potiphar was away. But Joseph kept saying …" },
+                { character: "Joseph", text: "No, I will not sin against my master and my God!" },
+                { character: "Narrator", text: "(Turn Joseph side to side as though he is shaking his head to say 'no'.) Potiphar's wife tried one last time, and when Joseph said 'no' she grabbed him by the coat. Joseph wriggled out of his coat and ran out of the house, leaving his coat behind.", direction: true },
+                { character: "Narrator", text: "(Enter Potiphar.) When Potiphar got home from work that day, his wife told him this story …" },
+                { character: "Potiphar's wife", text: "Joseph tried to hurt me when no-one else was around, but I screamed so he ran out of the house, leaving his cloak behind." },
+                { character: "Narrator", text: "Potiphar was so mad he threw Joseph into the prison where the king's prisoners were kept." },
+              ],
+            },
+            {
+              type: "question",
+              text: "Joseph did nothing wrong, and he still ended up in prison. Why do you think Joseph still trusted God even when doing the right thing led to something so unfair?",
+              hint: "Guide toward: Joseph knew that obeying God mattered more than the outcome. He couldn't control what Potiphar's wife did or how Potiphar reacted, but he could control his own faithfulness — and he trusted God with everything else.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you were with Joseph even when he was a slave and even when he was treated unfairly. Help us to trust that you are with us too, even in hard or unfair situations. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 39:1–20",
+            topic: "God was with Joseph, even as a slave",
+            bigIdea: "Even after being sold as a slave in Egypt, Joseph found that God was with him and blessed everything he did. When Joseph refused to sin against God and was punished unfairly for it, he still trusted that God was at work for good.",
+            learningIntentions: [
+              "We are learning that God was with Joseph even though he was a slave in Potiphar's house.",
+              "We are learning that Joseph chose to obey God even when it cost him something.",
+              "I can explain that trusting God doesn't always mean things turn out fair straight away.",
+            ],
+            assessment: "Listen for whether students can explain how Joseph was blessed in Potiphar's house, and why he ended up in prison despite doing the right thing.",
+            resources: ["Craft-stick puppets for Potiphar, Joseph, and Potiphar's wife (optional, for acting out the script)"],
+            script: [
+              {
+                heading: "Way in: would God still be with you?",
+                minutes: "2 min",
+                teacherTalk: "Ask the warm-up question about whether students would expect God to be with them if they were sold as a slave far from home.",
+                activityNote: null,
+                keyQuestion: "Last week we heard Joseph's brothers sold him as a slave into Egypt. If you were sold as a slave in a country far from home, would you expect God to still be with you there?",
+                teacherGuidance: "Accept any answer. This week's story keeps coming back to that exact question — and the Bible's answer is a clear yes.",
+              },
+              {
+                heading: "Joseph in Potiphar's house",
+                minutes: "3 min",
+                teacherTalk: "Read through Joseph being sold to Potiphar and put in charge of his household.",
+                activityNote: null,
+                keyQuestion: "Joseph had every reason to feel like God had forgotten him. What do you think the Bible says happened to Joseph in Potiphar's house?",
+                teacherGuidance: "Guide toward: the Bible says the Lord was with Joseph, and he became successful. Potiphar noticed and put Joseph in charge of his entire household.",
+              },
+              {
+                heading: "Act out Scene 1",
+                minutes: "6–7 min",
+                teacherTalk: "Act out or read through the Scene 1 script together as a class, covering Potiphar's wife's false accusation and Joseph being thrown in prison.",
+                activityNote: "Use the roleplay block to act out the script on screen. Assign readers for Narrator, Potiphar, Joseph, and Potiphar's wife if acting it out live.",
+                keyQuestion: "Joseph did nothing wrong, and he still ended up in prison. Why do you think Joseph still trusted God even when doing the right thing led to something so unfair?",
+                teacherGuidance: "Guide toward: Joseph knew that obeying God mattered more than the outcome. He couldn't control what Potiphar's wife did or how Potiphar reacted, but he could control his own faithfulness — and he trusted God with everything else.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: Joseph is faithful to God even in prison, and interprets two dreams.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Faithful in prison",
+          blocks: [
+            {
+              type: "question",
+              text: "Yesterday Joseph was thrown in prison for something he didn't even do. If that happened to you, how do you think you'd feel about God at that point?",
+              hint: "Accept honest responses. It would be completely understandable to feel forgotten or angry. Today's story shows that even in prison, Joseph wasn't actually forgotten by God.",
+            },
+            {
+              type: "story",
+              text: "Even in prison, Joseph stayed faithful to God. The jailer was so pleased with Joseph that he put him in charge of all the prisoners. One day, two of the king's servants — his baker and his cupbearer, the man who tasted the king's drinks for poison before the king drank from his own cup — were thrown into that same prison. On the same night, both men had a dream that troubled them, and no-one could tell them what their dreams meant.",
+            },
+            {
+              type: "question",
+              text: "Joseph told the cupbearer and the baker he could help them with their dreams. Where do you think Joseph believed the power to understand dreams actually came from?",
+              hint: "Guide toward: Joseph made it clear that dream interpretation belongs to God, not to Joseph himself. Even using this special gift, Joseph gave credit to God rather than taking it for himself.",
+            },
+            {
+              type: "roleplay",
+              title: "Lesson 18 script: Joseph in Egypt — Scene 2",
+              characters: ["Narrator", "Jailer", "Joseph", "Cupbearer", "Baker"],
+              lines: [
+                { character: "Narrator", text: "(Enter Jailer and Joseph.) Joseph was faithful to God even in prison. The jailer was so pleased with Joseph that he put him in charge of all the prisoners." },
+                { character: "Jailer", text: "With Joseph in charge I don't need to worry at all!" },
+                { character: "Narrator", text: "(Jailer leaves.) One day, two of the king's servants were thrown into prison by the king. These were his baker and his cupbearer — the guy who tested the king's drinks for poison before the king himself drank from his cup." },
+                { character: "Narrator", text: "(Enter Cupbearer and Baker.) On the same night both these men had a dream.", direction: true },
+                { character: "Narrator", text: "(Lay both the Cupbearer and Baker down to 'sleep'.) The next morning they were troubled because of their dreams. No-one could tell them what they meant. Joseph knew that God is the one who gives dreams and their meanings, so he asked the men to tell him their dreams.", direction: true },
+                { character: "Cupbearer", text: "In my dream there was a vine. And on the vine there were three branches. As soon as the grapes had grown on the branches, I squeezed them into Pharaoh's cup and gave it to him." },
+                { character: "Joseph", text: "The three branches are three days. In three days the king of Egypt will give you your job back. But when he does, please don't forget me. Please ask the king to let me out of prison." },
+                { character: "Baker", text: "In my dream I was carrying three baskets of bread on my head. In the baskets were all different kinds of bread and baked goods for the King of Egypt. But as I carried them, the birds swooped down and pecked at the bread until there was none left!" },
+                { character: "Joseph", text: "The three baskets are three days. In three days you will be gone." },
+                { character: "Narrator", text: "(Joseph leaves.) Well, three days later the King of Egypt threw himself a huge birthday party! And in front of all his guests, he gave the Cupbearer his job back, and the Baker was no more." },
+              ],
+            },
+            {
+              type: "question",
+              text: "Joseph asked the cupbearer to remember him and tell the king about him. But the manual tells us the cupbearer forgot Joseph — for two whole years! What do you think it might feel like to keep trusting God while you're still waiting for things to change?",
+              hint: "Accept honest responses. Guide toward: waiting on God, even when it feels like he's forgotten you or when other people forget their promises, is genuinely hard — but Joseph's story isn't over yet.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you were with Joseph even in prison, and that you gave him the ability to help others. Help us to trust you while we wait for things to change in our own lives too. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 39:21–40:23",
+            topic: "Faithful in prison",
+            bigIdea: "God was with Joseph even in prison, giving him favour with the jailer and the ability to correctly interpret the dreams of the king's cupbearer and baker. Even though the cupbearer forgot about Joseph for two years, God had not forgotten him.",
+            learningIntentions: [
+              "We are learning that God was with Joseph even in prison.",
+              "We are learning that Joseph correctly interpreted the dreams of the cupbearer and the baker, and gave God the credit for it.",
+              "I can explain what it might mean to trust God while waiting for a hard situation to change.",
+            ],
+            assessment: "Listen for whether students can retell what happened with the cupbearer and the baker, and whether they can explain why Joseph gave God the credit for interpreting the dreams.",
+            resources: ["Craft-stick puppets for Jailer, Joseph, Cupbearer, and Baker (optional, for acting out the script)"],
+            script: [
+              {
+                heading: "Way in: forgotten but not forgotten",
+                minutes: "2 min",
+                teacherTalk: "Ask students how they might feel about God if they were thrown in prison unfairly, to set up today's story.",
+                activityNote: null,
+                keyQuestion: "Yesterday Joseph was thrown in prison for something he didn't even do. If that happened to you, how do you think you'd feel about God at that point?",
+                teacherGuidance: "Accept honest responses. It would be completely understandable to feel forgotten or angry. Today's story shows that even in prison, Joseph wasn't actually forgotten by God.",
+              },
+              {
+                heading: "Joseph faithful in prison",
+                minutes: "3 min",
+                teacherTalk: "Read through Joseph being put in charge of the prisoners, and the cupbearer and baker's troubling dreams.",
+                activityNote: null,
+                keyQuestion: "Joseph told the cupbearer and the baker he could help them with their dreams. Where do you think Joseph believed the power to understand dreams actually came from?",
+                teacherGuidance: "Guide toward: Joseph made it clear that dream interpretation belongs to God, not to Joseph himself. Even using this special gift, Joseph gave credit to God rather than taking it for himself.",
+              },
+              {
+                heading: "Act out Scene 2",
+                minutes: "6–7 min",
+                teacherTalk: "Act out or read through the Scene 2 script together as a class, covering the cupbearer and baker's dreams and their fulfilment.",
+                activityNote: "Use the roleplay block to act out the script on screen. Assign readers for Narrator, Jailer, Joseph, Cupbearer, and Baker if acting it out live.",
+                keyQuestion: "Joseph asked the cupbearer to remember him and tell the king about him. But the manual tells us the cupbearer forgot Joseph — for two whole years! What do you think it might feel like to keep trusting God while you're still waiting for things to change?",
+                teacherGuidance: "Accept honest responses. Guide toward: waiting on God, even when it feels like he's forgotten you or when other people forget their promises, is genuinely hard — but Joseph's story isn't over yet.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: two years later, the King of Egypt has a troubling dream of his own.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "God gives Pharaoh's dream its meaning",
+          blocks: [
+            {
+              type: "question",
+              text: "Yesterday we heard the cupbearer forgot all about Joseph. Do you think Joseph is going to stay stuck in prison forever, or does something change?",
+              hint: "Accept guesses. Today we find out — two years later, something happens that finally gets Joseph out of prison.",
+            },
+            {
+              type: "story",
+              text: "Two years passed. Then one night, the King of Egypt had two troubling dreams of his own — one about seven healthy cows being eaten by seven skinny cows, and another about seven healthy heads of corn being swallowed up by seven thin, burnt heads of corn. None of the wise men or magicians in Egypt could tell the king what his dreams meant. Finally, the cupbearer remembered Joseph.",
+            },
+            {
+              type: "question",
+              text: "Once again, Joseph is about to interpret someone's dream. Do you think he's changed his answer about where his ability to do this comes from?",
+              hint: "Guide toward: no — Joseph tells the king exactly the same thing he told the cupbearer and the baker: he can't tell the king what his dreams mean, but God can. Joseph never made this about his own cleverness.",
+            },
+            {
+              type: "roleplay",
+              title: "Lesson 18 script: Joseph in Egypt — Scene 3",
+              characters: ["Narrator", "King", "Joseph", "Cupbearer"],
+              lines: [
+                { character: "Narrator", text: "(Lie the King of Egypt down as though he's asleep.) In his dream, the King of Egypt was standing by the Nile River when seven fat, healthy cows came out and ate at the edge of the river. After them, seven skinny, ugly cows came out and ate up the healthy ones. The king woke up because he was worried about this dream!", direction: true },
+                { character: "Narrator", text: "(Sit the king up. Finally, the king fell asleep again. But he had another dream! Lie the king down again.) This time, the king saw seven good, healthy heads of corn growing on a single stalk. After them seven other ears of corn sprouted — thin and burnt by the wind. The thin, burnt corn swallowed up the good, healthy corn. The king woke up again!", direction: true },
+                { character: "King", text: "These dreams worry me. I wonder if there is anyone who can tell me what they mean." },
+                { character: "Narrator", text: "None of the wise men and magicians in the land could tell the King of Egypt what his dreams meant. (Enter Cupbearer.) Finally, the cupbearer remembered Joseph." },
+                { character: "Cupbearer", text: "Your highness. There is one man who can tell you what your dreams mean …" },
+                { character: "King", text: "Get me this man!" },
+                { character: "Narrator", text: "(The Cupbearer leaves and comes back with Joseph.) So the king told Joseph his dreams. And Joseph said …" },
+                { character: "Joseph", text: "I cannot tell you what your dreams mean but God can. Both of the dreams mean the same thing. The seven cows and the seven ears of corn are seven years. God has shown you that for seven years there will be lots and lots of food in Egypt — more food than we can eat. But after that, there will be seven years of famine — there will be no food anywhere in Egypt or in the countries around it. And when the famine comes, the good seven years will be forgotten. This will happen soon!" },
+                { character: "Narrator", text: "So the King of Egypt put Joseph in charge of all Egypt to collect the food and store it up for the famine." },
+              ],
+            },
+            {
+              type: "question",
+              text: "After everything Joseph had been through — sold as a slave, falsely accused, forgotten in prison — he ended up in charge of the whole of Egypt. What does this tell you about how God had been at work in Joseph's story the whole time, even in the bad parts?",
+              hint: "Guide toward: nothing that happened to Joseph — not the slavery, not the false accusation, not the two years in prison — was wasted. God was working through every part of it to eventually put Joseph exactly where he needed to be.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you gave Joseph the ability to understand Pharaoh's dream, and that you put him in charge of Egypt at exactly the right time. Help us trust that you're working through every part of our lives too, even the hard parts. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 41:1–41",
+            topic: "God gives Pharaoh's dream its meaning",
+            bigIdea: "Two years after being forgotten in prison, Joseph was brought before Pharaoh to interpret his troubling dreams. Joseph gave God the credit for the interpretation, correctly predicting seven years of plenty followed by seven years of famine — and Pharaoh put Joseph in charge of all Egypt as a result.",
+            learningIntentions: [
+              "We are learning how Joseph interpreted Pharaoh's dreams of seven years of plenty and seven years of famine.",
+              "We are learning that Joseph gave God the credit for understanding the dreams, not himself.",
+              "I can explain how God was at work through even the difficult parts of Joseph's story.",
+            ],
+            assessment: "Listen for whether students can explain what Pharaoh's dreams meant, and whether they can explain how God had been at work through Joseph's whole story so far.",
+            resources: ["Craft-stick puppets for the King of Egypt, Joseph, and Cupbearer (optional, for acting out the script)"],
+            script: [
+              {
+                heading: "Way in: does Joseph stay stuck?",
+                minutes: "2 min",
+                teacherTalk: "Ask students to guess whether Joseph stays stuck in prison forever, to build anticipation for today's story.",
+                activityNote: null,
+                keyQuestion: "Yesterday we heard the cupbearer forgot all about Joseph. Do you think Joseph is going to stay stuck in prison forever, or does something change?",
+                teacherGuidance: "Accept guesses. Today we find out — two years later, something happens that finally gets Joseph out of prison.",
+              },
+              {
+                heading: "Pharaoh's troubling dreams",
+                minutes: "3 min",
+                teacherTalk: "Read through Pharaoh's two dreams and how none of his wise men could interpret them, until the cupbearer remembered Joseph.",
+                activityNote: null,
+                keyQuestion: "Once again, Joseph is about to interpret someone's dream. Do you think he's changed his answer about where his ability to do this comes from?",
+                teacherGuidance: "Guide toward: no — Joseph tells the king exactly the same thing he told the cupbearer and the baker: he can't tell the king what his dreams mean, but God can. Joseph never made this about his own cleverness.",
+              },
+              {
+                heading: "Act out Scene 3",
+                minutes: "6–7 min",
+                teacherTalk: "Act out or read through the Scene 3 script together as a class, covering Pharaoh's dreams, Joseph's interpretation, and his promotion to be in charge of Egypt.",
+                activityNote: "Use the roleplay block to act out the script on screen. Assign readers for Narrator, King, Joseph, and Cupbearer if acting it out live.",
+                keyQuestion: "After everything Joseph had been through — sold as a slave, falsely accused, forgotten in prison — he ended up in charge of the whole of Egypt. What does this tell you about how God had been at work in Joseph's story the whole time, even in the bad parts?",
+                teacherGuidance: "Guide toward: nothing that happened to Joseph — not the slavery, not the false accusation, not the two years in prison — was wasted. God was working through every part of it to eventually put Joseph exactly where he needed to be.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: the famine hits, and Joseph's story becomes a blessing for the whole world.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Blessed to be a blessing",
+          blocks: [
+            {
+              type: "question",
+              text: "This week we've followed Joseph from slavery, to prison, to being second-in-command of all Egypt. Out of everything we've heard so far, what part of Joseph's story has stood out to you the most?",
+              hint: "Accept any answer — this is a recap question to get students thinking back over the whole week's story before we finish it.",
+            },
+            {
+              type: "story",
+              text: "During the seven years of plenty, Joseph stored away so much grain from all over Egypt that he stopped keeping track of it — there was too much to count! When the seven years of famine came, just as Joseph had said, there was no food anywhere except in Egypt. So when the famine spread over the whole world, people from every country came to Egypt to buy grain from Joseph.",
+            },
+            {
+              type: "question",
+              text: "Right back in Lesson 12, God promised Abraham that his family would be blessed, and that the whole world would be blessed through his family. How do you think Joseph selling grain to the whole world connects to that promise God made to Abraham, generations earlier?",
+              hint: "Guide toward: this is exactly God keeping his promise. Through Joseph, one member of Abraham's family, people from every nation were saved from starving during the famine. God's promise to bless the whole world through Abraham's family was coming true in a way nobody could have predicted.",
+            },
+            {
+              type: "story",
+              text: "This is what Christians mean when they say God is always at work for the good of everyone who loves him. It doesn't mean bad things never happen to people who love God — Joseph was sold as a slave, falsely accused, and forgotten in prison for two years. But it does mean that God was never absent from any part of Joseph's story. Every difficult chapter was part of how God got Joseph exactly where he needed to be — not just to save Joseph's own family, but to bless the whole world.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "activity",
+              text: "Let's say this week's memory verse together, all from memory.",
+            },
+            {
+              type: "question",
+              text: "Sometimes we can find ourselves in difficult situations and it can feel like God doesn't care. While you're sitting there, have a think about a difficult situation you've found yourself in — you may be in one right now. What might it look like to trust God the way Joseph did, even before you can see how things will turn out?",
+              hint: "Accept responses. This is a personal application question — there's no need for students to share out loud if they don't want to. The point is to connect Joseph's trust in God to something happening in their own lives.",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you were with Joseph. Thank you that you were working everything out for his good, and that you had a plan for his life. Thank you that you promise to work all things for the good of those who love you. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 41:46–57",
+            topic: "Blessed to be a blessing",
+            bigIdea: "Joseph's careful storing of grain during the seven years of plenty meant that when famine struck the whole world, people from every nation came to Egypt to buy food from him — fulfilling God's promise to Abraham that his family would be a blessing to the whole world.",
+            learningIntentions: [
+              "We are learning how Joseph's storing of grain saved Egypt and the surrounding world from famine.",
+              "We are learning how this connects to God's promise that Abraham's family would bless the whole world.",
+              "I can explain what it might look like to trust God in my own difficult situations, the way Joseph did.",
+            ],
+            assessment: "Listen for whether students can retell how Joseph saved the world from famine, and whether they can connect this to God's promise to Abraham.",
+            resources: [],
+            script: [
+              {
+                heading: "Way in: recap of the week",
+                minutes: "2 min",
+                teacherTalk: "Ask students to recap what's stood out to them from the week's story so far.",
+                activityNote: null,
+                keyQuestion: "This week we've followed Joseph from slavery, to prison, to being second-in-command of all Egypt. Out of everything we've heard so far, what part of Joseph's story has stood out to you the most?",
+                teacherGuidance: "Accept any answer — this is a recap question to get students thinking back over the whole week's story before we finish it.",
+              },
+              {
+                heading: "The famine and God's promise to Abraham",
+                minutes: "4–5 min",
+                teacherTalk: "Read through the seven years of plenty and famine, and connect Joseph saving the world to God's promise to Abraham in Genesis 12.",
+                activityNote: null,
+                keyQuestion: "Right back in Lesson 12, God promised Abraham that his family would be blessed, and that the whole world would be blessed through his family. How do you think Joseph selling grain to the whole world connects to that promise God made to Abraham, generations earlier?",
+                teacherGuidance: "Guide toward: this is exactly God keeping his promise. Through Joseph, one member of Abraham's family, people from every nation were saved from starving during the famine. God's promise to bless the whole world through Abraham's family was coming true in a way nobody could have predicted.",
+              },
+              {
+                heading: "Memory verse from memory and personal application",
+                minutes: "3–4 min",
+                teacherTalk: "Say this week's memory verse fully from memory, then ask students to think personally about trusting God in their own hard situations.",
+                activityNote: "Use the say-it-from-memory activity block.",
+                keyQuestion: "Sometimes we can find ourselves in difficult situations and it can feel like God doesn't care. While you're sitting there, have a think about a difficult situation you've found yourself in — you may be in one right now. What might it look like to trust God the way Joseph did, even before you can see how things will turn out?",
+                teacherGuidance: "Accept responses. This is a personal application question — there's no need for students to share out loud if they don't want to. The point is to connect Joseph's trust in God to something happening in their own lives.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Lesson 19 continues the story as Joseph's brothers come to Egypt during the famine, not knowing who he is.",
           },
         },
       ],

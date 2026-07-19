@@ -8,6 +8,8 @@
 // shipped text/verse-forward with no comic panels.)
 // Week 5 (Lesson 15) has 2 images — see data_term2.js header for details.
 // Week 6 (Lesson 16) has 1 image — see data_term2.js header for details.
+// Week 7 (Lesson 17) and Week 8 (Lesson 18) have no images — see
+// data_term2.js header for details.
 // ============================================================
 
 window.COMIC_IMAGES = window.COMIC_IMAGES || {};
