@@ -39,20 +39,38 @@
 //
 // NOTE: `hint` only renders on `question` blocks, never on `activity` blocks.
 //
-// TERM 2 STATUS: INCOMPLETE — Week 1 (Lesson 11, "Let the exploring
-// begin!" / Genesis 1-11), Week 2 (Lesson 12, "Promises, promises,
-// promises" / Genesis 12:1-9, memory verse switches to Numbers 23:19 CEV),
-// Week 3 (Lesson 13, "Waiting, waiting, waiting" / Genesis 15:1-18:15;
-// 21:1-7), Week 4 (Lesson 14, "God's family grows" / Genesis 24), Week 5
-// (Lesson 15, "Chalk and cheese" / Genesis 25:19-34), Week 6 (Lesson 16,
-// "Sibling rivalry" / Genesis 27:1-40), and Week 7 (Lesson 17, "Growing
-// into greatness" / Genesis 29:31-30:24; 37, memory verse switches to
-// Romans 8:28a CEV) are built.
+// TERM 2 STATUS: COMPLETE — all 10 weeks built. Week 1 (Lesson 11, "Let
+// the exploring begin!" / Genesis 1-11), Week 2 (Lesson 12, "Promises,
+// promises, promises" / Genesis 12:1-9, memory verse switches to Numbers
+// 23:19 CEV), Week 3 (Lesson 13, "Waiting, waiting, waiting" / Genesis
+// 15:1-18:15; 21:1-7), Week 4 (Lesson 14, "God's family grows" / Genesis
+// 24), Week 5 (Lesson 15, "Chalk and cheese" / Genesis 25:19-34), Week 6
+// (Lesson 16, "Sibling rivalry" / Genesis 27:1-40), and Week 7 (Lesson 17,
+// "Growing into greatness" / Genesis 29:31-30:24; 37, memory verse
+// switches to Romans 8:28a CEV) are built.
 // Week 8 (Lesson 18, "Working for good" / Genesis 39-41, memory verse
-// stays on Romans 8:28a CEV) is now also built. Week 9 (Lesson 19,
-// "Mighty to save" / Genesis 41-50, memory verse stays on Romans 8:28a
-// CEV) is now also built. Lesson 20 (Week 10) still needs to be built
-// from the manual.
+// stays on Romans 8:28a CEV), Week 9 (Lesson 19, "Mighty to save" /
+// Genesis 41-50, memory verse stays on Romans 8:28a CEV), and Week 10
+// (Lesson 20, "Holly and Compassion Australia" / various NT passages plus
+// Psalm 82:3, Luke 12:13-21 — a contemporary lesson, not a Genesis
+// narrative, marking the end of the Abraham-to-Joseph story arc) are all
+// built.
+// Week 10 ships with NO images: its PowerPoint (Lesson 20) contains only
+// real photographs (Holly's own photos, a group photo from her Indonesia
+// trip), stock photography (a globe, an open Bible), rounded flag icons
+// for partner countries, and a world-map illustration — no hand-drawn
+// comic panel art at all, and several images are of real identifiable
+// people, which this app avoids regardless of style — so this week stays
+// text/verse-forward across all four days. It also has no roleplay or
+// dictation block: unlike some earlier lessons, this manual's "Taking it
+// further" extensions (singing, letter writing, a video advertisement,
+// planning an event) don't include a printed multi-character script or
+// whole-class reading script to source from. The memory verse switches
+// one final time for this closing lesson, from Romans 8:28a (CEV) to
+// Psalm 82:3 (CEV) — "Be fair to the poor and to orphans. Defend the
+// helpless and everyone in need" — confirmed as this lesson's own stated
+// Key Verse in the manual, and a natural fit for its compassion/poverty
+// theme.
 // Week 9 ships with NO images: its PowerPoint (Lesson 19) contains 21
 // wood/paper-texture background slides (used behind the Explorer's Quiz
 // questions and a couple of narration slides quoting Genesis 50:19-21
@@ -3573,6 +3591,429 @@ window.DEVOTIONS["Term 2"] = Object.assign(window.DEVOTIONS["Term 2"] || {}, {
               },
             ],
             whereToNext: "Lesson 20 moves into a contemporary lesson about Holly and Compassion Australia, a change of pace from the Genesis narrative.",
+          },
+        },
+      ],
+    },
+    "Week 10": {
+      lessonTitle: "Holly and Compassion Australia",
+      passage: "Various (Matthew 14:14; Mark 6:34; Colossians 3:12; James 1:27; Luke 12:13-21)",
+      bigIdea: "Holly, a Compassion Australia volunteer, saw first-hand how Compassion Australia shows the love and compassion of Jesus to children and families living in poverty. Just as Jesus had compassion on the crowds and healed and taught them, God wants his people to have compassion on the poor and needy, and to look for ways to help make a difference.",
+      source: "Connect B1 Upper Primary — Lesson 20",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Meet Holly and Compassion Australia",
+          blocks: [
+            {
+              type: "question",
+              text: "If you had to guess, which countries do you think are some of the richest in the world? And which do you think are some of the poorest?",
+              hint: "Accept any guesses. In 2017, some of the richest countries in the world (by average spending per person) were Qatar, Luxembourg and Singapore. Some of the poorest were the Central African Republic, the Democratic Republic of the Congo and Burundi — in fact, all 10 of the poorest countries that year were in Africa.",
+            },
+            {
+              type: "story",
+              text: "There are children and families living in poverty all over the world. Today we're going to meet someone who lives right here in Australia, but who is committed to making a real difference in the lives of people living in some of the poorest countries in the world.",
+            },
+            {
+              type: "story",
+              text: "This is Holly! Holly is 17 years old and in her final year at school. She loves Indian food, sausages and mashed potato, fruit and vegetables — but she definitely doesn't like eggplant, seafood, pork, bacon, ham or eggs! Holly enjoys acting in dramas, and volunteering at her local animal shelter.",
+            },
+            {
+              type: "question",
+              text: "Holly also cares a lot about children in our world who live in poverty. What are some reasons you think someone like Holly might care so much about children she's never even met?",
+              hint: "Accept responses. Guide toward: caring for the poor and needy is something God asks his people to do, and once you understand how much difference it makes, it's hard not to care.",
+            },
+            {
+              type: "story",
+              text: "Holly came to know about Compassion Australia through a trip to Indonesia organised by her school. Seeing the work of Compassion Australia first-hand changed Holly for good — she realised that God was real and that she needed to put her trust in him. Holly became a Christian, and later became a volunteer for Compassion Australia too.",
+            },
+            {
+              type: "question",
+              text: "Compassion Australia describes itself as 'an international Christian child development and child advocacy ministry' that is committed to holistic development for children in poverty — caring about a child's spiritual, economical, social, physical and emotional needs, not just their physical wellbeing. Why do you think caring for all of these parts of a child's life matters, not just making sure they have enough food or money?",
+              hint: "Guide toward: God cares about the whole person, not just their physical needs. A child needs to be loved, to be taught about Jesus, to be safe, and to be given hope for their future — not only to be fed.",
+            },
+            {
+              type: "verse",
+              reference: "Psalm 82:3 (CEV)",
+              text: "“Be fair to the poor and to orphans. Defend the helpless and everyone in need.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you for the work of Compassion Australia. Thank you that through Holly's passion for the poor, she has come into a saving knowledge of Jesus. Please help us to be fair to the poor and to defend those in need, just like your word asks us to. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Introduction to Holly and Compassion Australia",
+            topic: "Meet Holly and Compassion Australia",
+            bigIdea: "Holly is a young Australian Christian who volunteers for Compassion Australia, an organisation committed to holistically caring for children living in poverty around the world.",
+            learningIntentions: [
+              "We are learning who Holly is and how she came to be involved with Compassion Australia.",
+              "We are learning that Compassion Australia is committed to holistic development for children in poverty.",
+              "We are learning that God calls his people to be fair to the poor and to defend the helpless.",
+            ],
+            assessment: "Listen for whether students can explain who Holly is and what holistic development means for Compassion Australia.",
+            resources: ["Optional: access to compassion.com.au to show students Holly's profile and the Compassion Australia home page"],
+            script: [
+              {
+                heading: "Way in: richest and poorest countries",
+                minutes: "3–4 min",
+                teacherTalk: "Ask students to guess some of the richest and poorest countries in the world, then share the 2017 lists from the manual.",
+                activityNote: null,
+                keyQuestion: "If you had to guess, which countries do you think are some of the richest in the world? And which do you think are some of the poorest?",
+                teacherGuidance: "Accept any guesses. In 2017, some of the richest countries in the world (by average spending per person) were Qatar, Luxembourg and Singapore. Some of the poorest were the Central African Republic, the Democratic Republic of the Congo and Burundi — in fact, all 10 of the poorest countries that year were in Africa.",
+              },
+              {
+                heading: "Meet Holly",
+                minutes: "3–4 min",
+                teacherTalk: "Introduce Holly using her profile from the manual — her age, school year, favourite foods and hobbies.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Why does Holly care so much?",
+                minutes: "3–4 min",
+                teacherTalk: "Discuss why Holly might care so much about children in poverty, then explain how her Indonesia trip led her to become a Christian and Compassion Australia volunteer.",
+                activityNote: null,
+                keyQuestion: "Holly also cares a lot about children in our world who live in poverty. What are some reasons you think someone like Holly might care so much about children she's never even met?",
+                teacherGuidance: "Accept responses. Guide toward: caring for the poor and needy is something God asks his people to do, and once you understand how much difference it makes, it's hard not to care.",
+              },
+              {
+                heading: "Holistic development",
+                minutes: "3–4 min",
+                teacherTalk: "Explain that Compassion Australia is committed to holistic development — caring for a child's spiritual, economical, social, physical and emotional needs — and discuss why this matters.",
+                activityNote: null,
+                keyQuestion: "Compassion Australia describes itself as 'an international Christian child development and child advocacy ministry' that is committed to holistic development for children in poverty — caring about a child's spiritual, economical, social, physical and emotional needs, not just their physical wellbeing. Why do you think caring for all of these parts of a child's life matters, not just making sure they have enough food or money?",
+                teacherGuidance: "Guide toward: God cares about the whole person, not just their physical needs. A child needs to be loved, to be taught about Jesus, to be safe, and to be given hope for their future — not only to be fed.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in verse and prayer.",
+                activityNote: "Use the built-in verse and prayer blocks to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: we look at the four programs Compassion Australia runs, and how Jesus' own compassion for people is the model for this work.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Compassion Australia's programs and Jesus' compassion",
+          blocks: [
+            {
+              type: "question",
+              text: "Yesterday we learned that Compassion Australia cares about the whole child, not just their physical needs. Can you remember any of the different kinds of needs they care about?",
+              hint: "Accept responses. Spiritual, economical, social, physical and emotional needs — this is called holistic development.",
+            },
+            {
+              type: "story",
+              text: "Compassion Australia has four programs that work with children from when they are in their mum's tummy right through to university. The Child Survival Program cares for children aged 0–3 and their mothers, with medical, nutritional and pre and post-natal care — this matters because 40% of infant deaths in poverty-stricken countries happen before a baby is even one month old.",
+            },
+            {
+              type: "story",
+              text: "The Child Sponsorship Program is for children and young people aged 3–22. It provides health care, education, job training and nutrition — but most importantly, each child is also taught about Jesus. This program is the heart of Compassion's ministry.",
+            },
+            {
+              type: "story",
+              text: "The Leadership Development Program trains a smaller group of young people aged 18 and above who have graduated from child sponsorship, giving them university study, mentoring and Christian leadership training. The fourth program, Complementary Interventions, runs alongside the others — providing things like clean water, medical care, disaster relief and support for orphans wherever they're needed most.",
+            },
+            {
+              type: "question",
+              text: "Compassion Australia partners with local churches in 25 developing countries across Africa, Asia, and Central and South America to run these programs. Why do you think partnering with local churches, rather than just sending help from Australia, might be so important?",
+              hint: "Guide toward: local churches understand what their own community really needs, and they're already in a trusted position to care for people long after any outside visitors have gone home.",
+            },
+            {
+              type: "verse",
+              reference: "Matthew 14:14 (CEV)",
+              text: "“When Jesus got out of the boat, he saw the large crowd. He felt sorry for them and healed everyone who was sick.”",
+            },
+            {
+              type: "verse",
+              reference: "Mark 6:34 (CEV)",
+              text: "“When Jesus got out of the boat, he saw the large crowd that was like sheep without a shepherd. He felt sorry for the people and started teaching them many things.”",
+            },
+            {
+              type: "question",
+              text: "In these two verses, Jesus healed people who were sick and taught people who needed guidance. How is this similar to the way Compassion Australia cares for the whole child — not just one need, but many?",
+              hint: "Guide toward: Jesus' compassion wasn't only for people who were sick — he cared for the whole person, physically and spiritually. Compassion Australia reflects this same kind of compassion in the way it cares for children.",
+            },
+            {
+              type: "verse",
+              reference: "Psalm 82:3 (CEV)",
+              text: "“Be fair to the poor and to orphans. Defend the helpless and everyone in need.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you for the work of Compassion Australia's programs. Thank you that Jesus' own compassion for the sick and the lost is the example for how your people care for others today. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Matthew 14:14; Mark 6:34",
+            topic: "Compassion Australia's programs and Jesus' compassion",
+            bigIdea: "Compassion Australia runs four programs to holistically care for children from before birth through to university, reflecting the same compassion Jesus showed when he healed and taught the crowds who came to him.",
+            learningIntentions: [
+              "We are learning about Compassion Australia's four programs: Child Survival, Child Sponsorship, Leadership Development, and Complementary Interventions.",
+              "We are learning that Compassion Australia partners with local churches in developing countries.",
+              "We are learning that Jesus' own compassion for the crowds is the model for how Compassion Australia cares for children.",
+            ],
+            assessment: "Listen for whether students can name at least two of Compassion Australia's programs and explain how Jesus' compassion connects to this work.",
+            resources: ["Optional: access to compassion.com.au to show students the 'What we do' page and the list of 14 partner countries"],
+            script: [
+              {
+                heading: "Way in: recapping holistic development",
+                minutes: "2 min",
+                teacherTalk: "Ask students to recall the different kinds of needs Compassion Australia cares about from yesterday's lesson.",
+                activityNote: null,
+                keyQuestion: "Yesterday we learned that Compassion Australia cares about the whole child, not just their physical needs. Can you remember any of the different kinds of needs they care about?",
+                teacherGuidance: "Accept responses. Spiritual, economical, social, physical and emotional needs — this is called holistic development.",
+              },
+              {
+                heading: "The four programs",
+                minutes: "4–5 min",
+                teacherTalk: "Read through Compassion Australia's four programs: Child Survival, Child Sponsorship, Leadership Development, and Complementary Interventions.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Partnering with local churches",
+                minutes: "3–4 min",
+                teacherTalk: "Explain that Compassion Australia partners with local churches in 25 developing countries, and discuss why this matters.",
+                activityNote: null,
+                keyQuestion: "Compassion Australia partners with local churches in 25 developing countries across Africa, Asia, and Central and South America to run these programs. Why do you think partnering with local churches, rather than just sending help from Australia, might be so important?",
+                teacherGuidance: "Guide toward: local churches understand what their own community really needs, and they're already in a trusted position to care for people long after any outside visitors have gone home.",
+              },
+              {
+                heading: "Jesus' compassion for the crowds",
+                minutes: "3–4 min",
+                teacherTalk: "Read Matthew 14:14 and Mark 6:34 together, and connect Jesus' compassion for the crowds to the holistic way Compassion Australia cares for children.",
+                activityNote: null,
+                keyQuestion: "In these two verses, Jesus healed people who were sick and taught people who needed guidance. How is this similar to the way Compassion Australia cares for the whole child — not just one need, but many?",
+                teacherGuidance: "Guide toward: Jesus' compassion wasn't only for people who were sick — he cared for the whole person, physically and spiritually. Compassion Australia reflects this same kind of compassion in the way it cares for children.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in verse and prayer.",
+                activityNote: "Use the built-in verse and prayer blocks to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: Holly's own trip to Indonesia, and what the Bible says about loving God by loving others.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Holly's trip to Indonesia",
+          blocks: [
+            {
+              type: "question",
+              text: "We've learned a lot about Compassion Australia's programs this week. Do you remember how Holly first found out about the work of Compassion Australia?",
+              hint: "Accept responses. Holly came to know about Compassion Australia through a trip to Indonesia organised by her school.",
+            },
+            {
+              type: "story",
+              text: "Holly and 12 of her school friends travelled to Wangurer village in Indonesia, one of the 25 developing countries where Compassion Australia runs programs. There, Holly met the local Compassion Australia staff, as well as the children and mothers who had been helped by the programs.",
+            },
+            {
+              type: "story",
+              text: "Holly saw first-hand both how difficult it is to live in these areas, and how much of a difference Compassion Australia makes. She saw that every person who met a Compassion Australia worker wasn't only given physical help for themselves and their children — they were also given hope of eternity in heaven because of what Jesus has done for them.",
+            },
+            {
+              type: "verse",
+              reference: "Colossians 3:12 (CEV)",
+              text: "“God loves you and has chosen you as his own special people. So be gentle, kind, humble, meek, and patient.”",
+            },
+            {
+              type: "question",
+              text: "This verse says that because God has loved and chosen us, we should be gentle, kind, humble, meek and patient with others. How do you think Holly showed these qualities on her trip to Indonesia?",
+              hint: "Accept responses. Guide toward: Holly showed kindness and gentleness by meeting with the local mothers and children, listening to their stories, and caring about their lives rather than just observing from a distance.",
+            },
+            {
+              type: "verse",
+              reference: "James 1:27 (CEV)",
+              text: "“Religion that pleases God the Father must be pure and spotless. You must help needy orphans and widows and not let this world make you evil.”",
+            },
+            {
+              type: "story",
+              text: "To love God means to love others — especially the poor and needy. This is exactly what Holly saw Compassion Australia reflecting: the same love and compassion that Jesus had for people.",
+            },
+            {
+              type: "question",
+              text: "How has hearing about Holly's trip and the work of Compassion Australia made you feel?",
+              hint: "Accept responses. There's no single right answer here — this is a personal reflection question.",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you for the opportunity Holly had to go to Indonesia and see the work of Compassion Australia first-hand. Please help us to love you by loving the poor and needy, just as your word asks us to. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Colossians 3:12; James 1:27",
+            topic: "Holly's trip to Indonesia",
+            bigIdea: "On a school trip to Wangurer village in Indonesia, Holly saw first-hand how Compassion Australia reflects the love and compassion of Jesus for people living in poverty, both physically and spiritually.",
+            learningIntentions: [
+              "We are learning that Holly travelled to Wangurer village in Indonesia and saw Compassion Australia's work first-hand.",
+              "We are learning that Compassion Australia shares the hope of Jesus alongside physical help.",
+              "We are learning that loving God means loving others, especially the poor and needy.",
+            ],
+            assessment: "Listen for whether students can retell what Holly experienced on her trip, and explain what James 1:27 says about true religion.",
+            resources: ["Optional: access to compassion.com.au or a printed copy of the photo of Holly and her school mates with locals from Wangurer village"],
+            script: [
+              {
+                heading: "Way in: how did Holly find Compassion Australia?",
+                minutes: "2 min",
+                teacherTalk: "Ask students to recall how Holly first came to know about Compassion Australia.",
+                activityNote: null,
+                keyQuestion: "We've learned a lot about Compassion Australia's programs this week. Do you remember how Holly first found out about the work of Compassion Australia?",
+                teacherGuidance: "Accept responses. Holly came to know about Compassion Australia through a trip to Indonesia organised by her school.",
+              },
+              {
+                heading: "Wangurer village",
+                minutes: "4–5 min",
+                teacherTalk: "Read through Holly's trip to Wangurer village, meeting the local staff, children and mothers, and read Colossians 3:12 together.",
+                activityNote: null,
+                keyQuestion: "This verse says that because God has loved and chosen us, we should be gentle, kind, humble, meek and patient with others. How do you think Holly showed these qualities on her trip to Indonesia?",
+                teacherGuidance: "Accept responses. Guide toward: Holly showed kindness and gentleness by meeting with the local mothers and children, listening to their stories, and caring about their lives rather than just observing from a distance.",
+              },
+              {
+                heading: "True religion — James 1:27",
+                minutes: "3–4 min",
+                teacherTalk: "Read James 1:27 together and explain that loving God means loving others, especially the poor and needy.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Reflection",
+                minutes: "2 min",
+                teacherTalk: "Ask students to reflect on how hearing about Holly and Compassion Australia has made them feel.",
+                activityNote: null,
+                keyQuestion: "How has hearing about Holly's trip and the work of Compassion Australia made you feel?",
+                teacherGuidance: "Accept responses. There's no single right answer here — this is a personal reflection question.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: how Holly supports Compassion Australia at her own school, and what the Bible says about generosity.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "How can I help?",
+          blocks: [
+            {
+              type: "question",
+              text: "What are some ways that someone might be able to support an organisation like Compassion Australia?",
+              hint: "Accept responses. This connects to what students are about to hear about how Holly herself supports Compassion Australia.",
+            },
+            {
+              type: "story",
+              text: "Holly is now an advocate for Compassion Australia — an events volunteer who helps promote their programs. She helps at events Compassion Australia runs, sets up stalls in shopping centres asking people to sponsor children, and also promotes Compassion Australia at her own school.",
+            },
+            {
+              type: "story",
+              text: "At her school, Holly has organised mufti days where students dress in Compassion Australia's colours of blue and white and bring a gold coin donation. She's run cake stalls to raise money, made speeches at school assemblies, and shown videos to help teachers and students see more clearly how their money could help children in poverty.",
+            },
+            {
+              type: "story",
+              text: "The Bible has a story Jesus told about a rich farmer who built bigger barns to store his crops, planning to relax and enjoy his wealth for many years. But God called the farmer a fool, because he was going to die that very night — and everything he had stored up would go to someone else.",
+            },
+            {
+              type: "question",
+              text: "What did the farmer in Jesus' story do wrong?",
+              hint: "Guide toward: the farmer was only thinking about himself and storing up wealth for his own comfort. He wasn't being generous or 'rich toward God' with what he had been given.",
+            },
+            {
+              type: "question",
+              text: "What does God want us to do with the things he's generously given us, instead of just storing them up for ourselves?",
+              hint: "Guide toward: God wants us to be generous with what we've been given — sharing it to help others, especially the poor and needy, rather than hoarding it only for ourselves.",
+            },
+            {
+              type: "activity",
+              text: "Think about the pocket money or blessings God has given you. Talk with the person next to you about one small way you could be generous with what you have, to help someone in poverty.",
+            },
+            {
+              type: "verse",
+              reference: "Psalm 82:3 (CEV)",
+              text: "“Be fair to the poor and to orphans. Defend the helpless and everyone in need.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you for the work that Holly has been doing in promoting and raising money for Compassion Australia. Thank you for the opportunity to go over to Indonesia to see these programs first-hand. Please help Compassion Australia and Holly to make an impact in our world for those who are in poverty. Please also help us to think of ways that we can help make a difference too. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Luke 12:13–21",
+            topic: "How can I help?",
+            bigIdea: "Holly finds creative ways to support Compassion Australia at her own school, and Jesus' story of the rich farmer reminds us that God wants us to be generous with what he has given us, rather than storing it up only for ourselves.",
+            learningIntentions: [
+              "We are learning some of the ways Holly supports Compassion Australia at her own school.",
+              "We are learning what the rich farmer in Jesus' story did wrong.",
+              "We are learning that God wants us to be generous with what he has given us, especially toward the poor and needy.",
+            ],
+            assessment: "Listen for whether students can describe at least one way Holly supports Compassion Australia, and explain what God wants us to do with what he's given us.",
+            resources: ["Blank paper or the student Activity book, for students to write down their own ideas for how their school could support Compassion Australia"],
+            script: [
+              {
+                heading: "Way in: ways to support Compassion Australia",
+                minutes: "2 min",
+                teacherTalk: "Ask students to brainstorm ways someone could support an organisation like Compassion Australia.",
+                activityNote: null,
+                keyQuestion: "What are some ways that someone might be able to support an organisation like Compassion Australia?",
+                teacherGuidance: "Accept responses. This connects to what students are about to hear about how Holly herself supports Compassion Australia.",
+              },
+              {
+                heading: "How Holly helps",
+                minutes: "3–4 min",
+                teacherTalk: "Read through the ways Holly supports Compassion Australia as an events volunteer and at her own school (mufti days, cake stalls, speeches, videos).",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The rich farmer — Luke 12:13–21",
+                minutes: "4–5 min",
+                teacherTalk: "Tell the story of the rich farmer from Luke 12:13–21 and discuss what he did wrong and what God wants us to do instead.",
+                activityNote: null,
+                keyQuestion: "What does God want us to do with the things he's generously given us, instead of just storing them up for ourselves?",
+                teacherGuidance: "Guide toward: God wants us to be generous with what we've been given — sharing it to help others, especially the poor and needy, rather than hoarding it only for ourselves.",
+              },
+              {
+                heading: "Personal generosity activity",
+                minutes: "2–3 min",
+                teacherTalk: "Give students a moment to talk with a partner about one small way they could be generous with what they have.",
+                activityNote: "Use the built-in partner-discussion activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in verse and prayer.",
+                activityNote: "Use the built-in verse and prayer blocks to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "This is the final lesson of Term 2. Term 3 moves to a different level of the curriculum, Connect B2 Upper Primary, starting back at Lesson 1.",
           },
         },
       ],
