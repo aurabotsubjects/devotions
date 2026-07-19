@@ -43,10 +43,29 @@
 // begin!" / Genesis 1-11), Week 2 (Lesson 12, "Promises, promises,
 // promises" / Genesis 12:1-9, memory verse switches to Numbers 23:19 CEV),
 // Week 3 (Lesson 13, "Waiting, waiting, waiting" / Genesis 15:1-18:15;
-// 21:1-7), Week 4 (Lesson 14, "God's family grows" / Genesis 24), and
-// Week 5 (Lesson 15, "Chalk and cheese" / Genesis 25:19-34), and Week 6
-// (Lesson 16, "Sibling rivalry" / Genesis 27:1-40) are built.
-// Lessons 17-20 (Weeks 7-10) still need to be built from the manual.
+// 21:1-7), Week 4 (Lesson 14, "God's family grows" / Genesis 24), Week 5
+// (Lesson 15, "Chalk and cheese" / Genesis 25:19-34), Week 6 (Lesson 16,
+// "Sibling rivalry" / Genesis 27:1-40), and Week 7 (Lesson 17, "Growing
+// into greatness" / Genesis 29:31-30:24; 37, memory verse switches to
+// Romans 8:28a CEV) are built.
+// Lessons 18-20 (Weeks 8-10) still need to be built from the manual.
+// Week 7 ships with NO images: its PowerPoint (Lesson 17) contains only
+// wood/paper-texture background slides with text overlaid (family tree
+// building, the word ISRAEL, tribe names, a "Family tree" word-card) and
+// no hand-drawn comic panel art at all (verified by inspecting all 17
+// embedded media images in the PowerPoint - all are background textures,
+// not illustrations). The manual's own "Joseph sold" 5-panel visual aid
+// and "Lesson 17 script" (a single-narrator script, not multi-character
+// dialogue) only appear in the printed manual/PDF, not the PowerPoint, so
+// per the visual-style and image-sourcing rules this week stays
+// text/verse-forward; the Lesson 17 script's content is retold as 'story'
+// blocks on Day 4 instead of a 'roleplay' (it has no distinct character
+// dialogue, just one narrating voice) or 'dictation' (the manual doesn't
+// label it a whole-class read-aloud). The recurring memory verse switches
+// from Numbers 23:19 (CEV), which ran Weeks 2-6, to Romans 8:28a (CEV) —
+// "We know that God is always at work for the good of everyone who loves
+// him" — confirmed as Lesson 17's own stated memory verse straight from
+// the manual.
 // Week 6 uses 1 new comic-style image (Isaac blessing the disguised Jacob,
 // cropped from the Lesson 16 PowerPoint at high resolution, matching the
 // manual's own page 164 illustration), plus a reuse of Week 5's stew image
@@ -2346,6 +2365,400 @@ window.DEVOTIONS["Term 2"] = Object.assign(window.DEVOTIONS["Term 2"] || {}, {
               },
             ],
             whereToNext: "Lesson 17 continues the story of Jacob.",
+          },
+        },
+      ],
+    },
+    "Week 7": {
+      lessonTitle: "Growing into greatness",
+      passage: "Genesis 29:31–30:24; 37",
+      bigIdea: "God had promised Abraham a family as countless as the stars, and that promise kept growing — through Isaac, through Jacob, and now through Jacob's twelve sons, the beginning of the twelve tribes of Israel. But this family was far from perfect. Jacob loved Rachel's son Joseph best of all, and made that favouritism obvious with a special coat, which only deepened the hatred his brothers already felt. When Joseph made things worse by sharing dreams of his whole family bowing down to him, his brothers' hatred turned into a plan to get rid of him. They didn't kill him, but they did sell him into slavery in Egypt. It looked like the worst thing that could happen to this growing family — but Christians believe God was already at work, even through this terrible act, planning to use Joseph to rescue and preserve his people.",
+      source: "Connect B1 Upper Primary — Lesson 17",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Jacob's family keeps growing",
+          blocks: [
+            {
+              type: "question",
+              text: "Last week, Jacob tricked his own brother to get what he wanted. Do you think someone who tricks people usually gets away with it forever, or does it usually catch up with them somehow?",
+              hint: "Accept any answer. Today's story shows the trickster get tricked himself — Jacob is about to find out what it feels like to be on the receiving end.",
+            },
+            {
+              type: "story",
+              text: "After tricking Esau out of the blessing, Jacob fled to his uncle Laban's home to escape his brother's anger. There, Jacob fell deeply in love with Laban's younger daughter, Rachel, and agreed to work for Laban for seven years so he could marry her.",
+            },
+            {
+              type: "question",
+              text: "Rachel had an older sister named Leah who wasn't yet married. What do you think might go wrong with Jacob's wedding plans?",
+              hint: "Guide toward: Laban might try to marry off his older daughter first, before Rachel. Let students guess before revealing the twist.",
+            },
+            {
+              type: "story",
+              text: "On the wedding day, Laban tricked Jacob — the same way Jacob had once tricked his own father — and gave him Leah instead of Rachel. By the time Jacob realised what had happened, it was already done. Because he loved Rachel so much, Jacob agreed to work another seven years for Laban so he could marry her too.",
+            },
+            {
+              type: "question",
+              text: "How do you think it felt for Jacob to be deceived like this, after everything he'd done to deceive his own father and brother?",
+              hint: "Accept honest responses. It's a fitting turn — the deceiver gets deceived. This doesn't erase what Jacob did to Esau, but it shows Jacob is now living with the same kind of hurt he caused.",
+            },
+            {
+              type: "story",
+              text: "So Jacob ended up married to both Leah and Rachel — and a fierce rivalry grew between the sisters as each wanted to be more loved by Jacob than the other. Between Leah, Rachel, and their servants, Jacob ended up with twelve sons altogether.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "question",
+              text: "This week we've got a brand new memory verse. Even with all this family rivalry and trickery going on, what do you think this verse means for how God was working in Jacob's messy family?",
+              hint: "Guide toward: God was still at work for good, even through a complicated, rivalry-filled family. This verse will keep coming back all week, including tomorrow when God speaks to Jacob directly, and later when we see it stretch all the way to Joseph.",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you are always at work for good, even in families that don't always get along. Help us to trust that you're at work in our own families too. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 29:31–30:24",
+            topic: "Jacob's family keeps growing",
+            bigIdea: "Jacob, who once tricked his own father and brother, was tricked himself by his uncle Laban into marrying Leah before Rachel. Jacob ended up married to both sisters, and amid their rivalry, Jacob's family grew to twelve sons — God's promise to Abraham of a great family continuing to unfold.",
+            learningIntentions: [
+              "We are learning how Jacob was tricked by Laban into marrying Leah before Rachel.",
+              "We are learning that Jacob's family grew to twelve sons through Leah, Rachel, and their servants.",
+              "I can explain that this week's new memory verse teaches that God is always at work for good, even in a rivalry-filled family.",
+            ],
+            assessment: "Listen for whether students can explain how Laban tricked Jacob, and whether they can recite or paraphrase this week's new memory verse.",
+            resources: [],
+            script: [
+              {
+                heading: "Way in: does trickery catch up with you?",
+                minutes: "2 min",
+                teacherTalk: "Ask the warm-up question about whether tricking people usually catches up with someone eventually.",
+                activityNote: null,
+                keyQuestion: "Last week, Jacob tricked his own brother to get what he wanted. Do you think someone who tricks people usually gets away with it forever, or does it usually catch up with them somehow?",
+                teacherGuidance: "Accept any answer. Today's story shows the trickster get tricked himself — Jacob is about to find out what it feels like to be on the receiving end.",
+              },
+              {
+                heading: "Jacob is tricked by Laban",
+                minutes: "5 min",
+                teacherTalk: "Read through Jacob falling in love with Rachel, working seven years for her, and being tricked into marrying Leah first.",
+                activityNote: null,
+                keyQuestion: "How do you think it felt for Jacob to be deceived like this, after everything he'd done to deceive his own father and brother?",
+                teacherGuidance: "Accept honest responses. It's a fitting turn — the deceiver gets deceived. This doesn't erase what Jacob did to Esau, but it shows Jacob is now living with the same kind of hurt he caused.",
+              },
+              {
+                heading: "New memory verse",
+                minutes: "3–4 min",
+                teacherTalk: "Introduce this week's new memory verse and discuss what it might mean given Jacob's messy, rivalry-filled family.",
+                activityNote: "Display the verse block.",
+                keyQuestion: "This week we've got a brand new memory verse. Even with all this family rivalry and trickery going on, what do you think this verse means for how God was working in Jacob's messy family?",
+                teacherGuidance: "Guide toward: God was still at work for good, even through a complicated, rivalry-filled family. This verse will keep coming back all week, including tomorrow when God speaks to Jacob directly, and later when we see it stretch all the way to Joseph.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: God speaks to Jacob again and gives him a new name.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "A new name, an old promise",
+          blocks: [
+            {
+              type: "question",
+              text: "If someone gave you a brand new name to remind you of something important, what would you want that name to remind you of?",
+              hint: "Accept any answer. Today we see God give Jacob a whole new name — one meant to remind him of God's promises for the rest of his life.",
+            },
+            {
+              type: "story",
+              text: "Jacob's family kept growing, and God hadn't forgotten his promise to Abraham. Some time later, God appeared to Jacob again and gave him a new name and a blessing.",
+            },
+            {
+              type: "verse",
+              reference: "Genesis 35:9–12 (CEV, paraphrased)",
+              text: "God told Jacob: “I am God All-Powerful, and from now on your name will be Israel instead of Jacob. You will have many children, and your family will grow into whole nations. I will give you the same land I promised Abraham and Isaac, and it will belong to your family forever.”",
+            },
+            {
+              type: "question",
+              text: "God changed Jacob's name to Israel. Why do you think God wanted Jacob to have a new name, rather than just keep making the same promise using his old one?",
+              hint: "Guide toward: the name itself became a permanent, everyday reminder of God's promise — every time someone said Jacob's new name, it pointed back to what God had promised him. It wasn't just words spoken once; it became part of who he was.",
+            },
+            {
+              type: "story",
+              text: "Jacob — now called Israel — had twelve sons altogether: Reuben, Simeon, Levi, Judah, Dan, Naphtali, Gad, Asher, Issachar, Zebulun, Joseph, and Benjamin. These twelve sons and their families would one day grow into the twelve tribes of Israel — God's own chosen people.",
+            },
+            {
+              type: "activity",
+              text: "Without looking anything up, see if your group can say all twelve of Jacob's sons in order, from the eldest to the youngest: Reuben, Simeon, Levi, Judah, Dan, Naphtali, Gad, Asher, Issachar, Zebulun, Joseph, Benjamin.",
+            },
+            {
+              type: "question",
+              text: "Near the end of his life, Jacob gathered all twelve of his sons to bless them. What do you think it shows us that the writer of Genesis records the names of every single one of Jacob's sons?",
+              hint: "Guide toward: it shows that Jacob's family truly was becoming the great nation God had promised Abraham — each son mattered enough to be named, because each one would become the head of a whole tribe of Israel.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you kept your promise to Abraham by growing his family into the twelve tribes of Israel. Thank you that you're always at work for good, even when we can't see the whole plan yet. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 35:9–12; 49:28 (context)",
+            topic: "A new name, an old promise",
+            bigIdea: "God appeared to Jacob again, renamed him Israel, and renewed his promise of land and a great family. Jacob's twelve sons became the beginning of the twelve tribes of Israel, showing God's promise to Abraham continuing to unfold exactly as he'd said.",
+            learningIntentions: [
+              "We are learning that God renamed Jacob 'Israel' and renewed his promise to him.",
+              "We are learning the names of Jacob's twelve sons and that they became the twelve tribes of Israel.",
+              "I can explain that Jacob's growing family shows God keeping his promise to Abraham.",
+            ],
+            assessment: "Listen for whether students can explain why God changed Jacob's name, and whether they can name several of Jacob's twelve sons.",
+            resources: [
+              "None — this is a text/discussion-based day (see the file's header notes for why this lesson ships without images)",
+            ],
+            script: [
+              {
+                heading: "Way in: the meaning of a new name",
+                minutes: "2 min",
+                teacherTalk: "Ask the warm-up question about what a new name might be chosen to remind someone of.",
+                activityNote: null,
+                keyQuestion: "If someone gave you a brand new name to remind you of something important, what would you want that name to remind you of?",
+                teacherGuidance: "Accept any answer. Today we see God give Jacob a whole new name — one meant to remind him of God's promises for the rest of his life.",
+              },
+              {
+                heading: "God renames Jacob 'Israel'",
+                minutes: "4–5 min",
+                teacherTalk: "Read God's words to Jacob from Genesis 35:9–12, renaming him Israel and renewing the promise of land and family.",
+                activityNote: "Display the verse block with Genesis 35:9–12.",
+                keyQuestion: "God changed Jacob's name to Israel. Why do you think God wanted Jacob to have a new name, rather than just keep making the same promise using his old one?",
+                teacherGuidance: "Guide toward: the name itself became a permanent, everyday reminder of God's promise — every time someone said Jacob's new name, it pointed back to what God had promised him. It wasn't just words spoken once; it became part of who he was.",
+              },
+              {
+                heading: "Twelve sons, twelve tribes",
+                minutes: "4–5 min",
+                teacherTalk: "Introduce Jacob's twelve sons by name and try the ordering activity as a group.",
+                activityNote: "Use the built-in activity block to try naming all twelve sons in birth order.",
+                keyQuestion: "Near the end of his life, Jacob gathered all twelve of his sons to bless them. What do you think it shows us that the writer of Genesis records the names of every single one of Jacob's sons?",
+                teacherGuidance: "Guide toward: it shows that Jacob's family truly was becoming the great nation God had promised Abraham — each son mattered enough to be named, because each one would become the head of a whole tribe of Israel.",
+              },
+              {
+                heading: "Memory verse and closing prayer",
+                minutes: "2 min",
+                teacherTalk: "Read the memory verse together and close with the built-in prayer.",
+                activityNote: "Use the verse block, then the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: we meet Jacob's favourite son, Joseph, and find out why his brothers grew to hate him.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Jacob's favourite son",
+          blocks: [
+            {
+              type: "question",
+              text: "Have you ever felt like someone had an obvious favourite — maybe a favourite student, a favourite sibling, a favourite friend? How did that make everyone else feel?",
+              hint: "Accept honest responses — left out, jealous, unfair. This sets up how Joseph's brothers are about to feel toward him.",
+            },
+            {
+              type: "story",
+              text: "Out of all twelve of his sons, Jacob loved Joseph the most. Joseph was the first son born to Rachel, Jacob's favourite wife, and Jacob made his favouritism obvious for everyone to see: he gave Joseph a beautiful, special coat that none of his other sons received.",
+            },
+            {
+              type: "question",
+              text: "Put yourself in the shoes of one of Joseph's ten older brothers, watching your father give this one brother a special coat that none of you got. How would you feel toward Joseph?",
+              hint: "Guide toward: jealous, resentful, angry — maybe even hateful. The Bible tells us this is exactly how Joseph's brothers felt.",
+            },
+            {
+              type: "story",
+              text: "It didn't help that Joseph brought his father bad reports about his brothers' behaviour. And then Joseph made things even worse: he had two dreams, and instead of keeping them to himself, he told his brothers all about them. In both dreams, his whole family — his brothers, and even his parents — were bowing down to him, as if he was a king and they were his servants.",
+            },
+            {
+              type: "question",
+              text: "Do you think it was wise for Joseph to share these dreams with his brothers, who already hated him? Why or why not?",
+              hint: "Guide toward: no — even if the dreams were true and came from God, sharing them this way, to brothers who already resented him, only poured fuel on the fire. Joseph wasn't necessarily wrong to have the dreams, but boasting about them wasn't wise.",
+            },
+            {
+              type: "story",
+              text: "As a result, Joseph's brothers hated him more than ever. Between the special coat, the bad reports, and now these dreams of ruling over his own family, their hatred for Joseph grew until they began to plan how they might get rid of him for good.",
+            },
+            {
+              type: "question",
+              text: "Even though Joseph's brothers were about to do something terrible, this week's memory verse says God is always at work for the good of everyone who loves him. What do you think that might mean for what happens next?",
+              hint: "Accept guesses — this is meant to build anticipation, not be fully answered yet. Guide toward: it hints that even the very worst things Joseph's brothers plan to do won't be outside of God's control — but don't give away tomorrow's ending yet.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that even when families struggle with jealousy and favouritism, you are still at work. Help us to treat the people in our own families fairly, and to trust you when things feel unfair. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 37:2–11",
+            topic: "Jacob's favourite son",
+            bigIdea: "Jacob's obvious favouritism toward Joseph — shown through the special coat — combined with Joseph's own bad reports and boastful dreams of ruling over his family, caused his ten older brothers' hatred to grow until they began plotting to get rid of him.",
+            learningIntentions: [
+              "We are learning why Joseph's brothers grew to hate him: favouritism, bad reports, and his dreams.",
+              "We are learning to identify why sharing the dreams the way Joseph did wasn't wise.",
+              "I can explain how favouritism and jealousy built up inside Jacob's family.",
+            ],
+            assessment: "Listen for whether students can explain the three reasons Joseph's brothers hated him, and whether they can evaluate why sharing the dreams wasn't wise.",
+            resources: [],
+            script: [
+              {
+                heading: "Way in: obvious favourites",
+                minutes: "2 min",
+                teacherTalk: "Ask the warm-up question about how it feels when someone has an obvious favourite.",
+                activityNote: null,
+                keyQuestion: "Have you ever felt like someone had an obvious favourite — maybe a favourite student, a favourite sibling, a favourite friend? How did that make everyone else feel?",
+                teacherGuidance: "Accept honest responses — left out, jealous, unfair. This sets up how Joseph's brothers are about to feel toward him.",
+              },
+              {
+                heading: "The coat and the dreams",
+                minutes: "5–6 min",
+                teacherTalk: "Read through Jacob's favouritism toward Joseph, the special coat, Joseph's bad reports, and his two dreams.",
+                activityNote: null,
+                keyQuestion: "Do you think it was wise for Joseph to share these dreams with his brothers, who already hated him? Why or why not?",
+                teacherGuidance: "Guide toward: no — even if the dreams were true and came from God, sharing them this way, to brothers who already resented him, only poured fuel on the fire. Joseph wasn't necessarily wrong to have the dreams, but boasting about them wasn't wise.",
+              },
+              {
+                heading: "Building anticipation",
+                minutes: "2 min",
+                teacherTalk: "Use the memory verse to build anticipation for tomorrow's story without giving away the ending.",
+                activityNote: null,
+                keyQuestion: "Even though Joseph's brothers were about to do something terrible, this week's memory verse says God is always at work for the good of everyone who loves him. What do you think that might mean for what happens next?",
+                teacherGuidance: "Accept guesses — this is meant to build anticipation, not be fully answered yet. Guide toward: it hints that even the very worst things Joseph's brothers plan to do won't be outside of God's control — but don't give away tomorrow's ending yet.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close together with the built-in prayer.",
+                activityNote: "Use the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Tomorrow: Joseph's brothers finally act on their hatred, and we find out what God was really doing all along.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Sold, but not forgotten",
+          blocks: [
+            {
+              type: "question",
+              text: "Yesterday we heard Joseph's brothers were plotting to get rid of him. If you were one of the brothers, what's the worst plan you can imagine them coming up with?",
+              hint: "Accept any guesses. The real story is bad enough without needing to imagine worse — use this to set up today's account.",
+            },
+            {
+              type: "story",
+              text: "One day, Jacob sent Joseph out to check on his older brothers, who were out looking after the family's sheep. Joseph was still wearing his special coat. His brothers saw him coming from a distance, and before he even arrived, they were already plotting to kill him and tell their father a wild animal had done it.",
+            },
+            {
+              type: "question",
+              text: "What do you think stopped the brothers from actually going through with killing Joseph?",
+              hint: "Guide toward: one brother, Reuben, convinced the others not to kill him outright — though as we'll hear, that didn't mean Joseph was safe.",
+            },
+            {
+              type: "story",
+              text: "In the end, the brothers didn't kill Joseph. Instead, they stripped him of his special coat and threw him into a dry well. Just then, a group of Midianite traders came travelling down the road on their way to Egypt — so the brothers pulled Joseph out of the well and sold him to the traders for twenty pieces of silver.",
+            },
+            {
+              type: "question",
+              text: "The brothers then had to explain to their father why Joseph didn't come home. What lie do you think they came up with?",
+              hint: "Guide toward: they dipped Joseph's coat in goat's blood and brought it to Jacob, letting him believe a wild animal had killed Joseph — never admitting what they had actually done.",
+            },
+            {
+              type: "story",
+              text: "Jacob was devastated. He tore his clothes and grieved for his son for a very long time — no one could comfort him. Meanwhile, the Midianite traders took Joseph all the way to Egypt and sold him again, this time to an Egyptian official named Potiphar.",
+            },
+            {
+              type: "question",
+              text: "From where we're sitting, this looks like one of the worst things that could happen to this family God had been growing all week. So why do you think this story is still part of God keeping his promise to Abraham?",
+              hint: "Guide toward: even though Joseph's brothers meant this for evil, God was already at work — planning to use Joseph's time in Egypt to eventually save his whole family from a coming famine. This is exactly what this week's memory verse has been pointing toward.",
+            },
+            {
+              type: "story",
+              text: "This is what Christians mean when they say God is always at work for the good of everyone who loves him. It doesn't mean bad things don't happen, or that what Joseph's brothers did was somehow okay — it wasn't. It means that even in the worst moments, God is still working out his plan, and nothing — not jealousy, not betrayal, not slavery — can stop him from keeping his promises to Abraham's family.",
+            },
+            {
+              type: "verse",
+              reference: "Romans 8:28a (CEV)",
+              text: "“We know that God is always at work for the good of everyone who loves him.”",
+            },
+            {
+              type: "activity",
+              text: "Let's say this week's memory verse together, all from memory.",
+            },
+            {
+              type: "prayer",
+              text: "Dear God, thank you that you are always at work for good, even when things look their very worst. Thank you that nothing Joseph's brothers did could stop your plan for Joseph, or your promises to Abraham's family. Help us trust you the same way when hard things happen to us. Amen.",
+            },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 37:12–36",
+            topic: "Sold, but not forgotten",
+            bigIdea: "Joseph's brothers, driven by hatred, sold him into slavery in Egypt and deceived their father into believing he was dead. It looked like the end for Joseph and for God's growing promise — but this sets up God working through Joseph's suffering for the good of his whole family, exactly as this week's memory verse describes.",
+            learningIntentions: [
+              "We are learning what happened when Joseph's brothers sold him into slavery.",
+              "We are learning how the brothers deceived Jacob into believing Joseph was dead.",
+              "I can explain that God was at work for good even through this terrible act, in line with this week's memory verse.",
+            ],
+            assessment: "Listen for whether students can retell how Joseph was sold, and whether they can explain what this week's memory verse means in light of it.",
+            resources: [],
+            script: [
+              {
+                heading: "Way in: imagining the plan",
+                minutes: "2 min",
+                teacherTalk: "Ask students to imagine what plan the brothers might have come up with, before revealing the real story.",
+                activityNote: null,
+                keyQuestion: "Yesterday we heard Joseph's brothers were plotting to get rid of him. If you were one of the brothers, what's the worst plan you can imagine them coming up with?",
+                teacherGuidance: "Accept any guesses. The real story is bad enough without needing to imagine worse — use this to set up today's account.",
+              },
+              {
+                heading: "Joseph is sold into slavery",
+                minutes: "5–6 min",
+                teacherTalk: "Read through Joseph being thrown into the well, sold to the Midianite traders, and taken to Egypt, and the brothers' lie to Jacob.",
+                activityNote: null,
+                keyQuestion: "From where we're sitting, this looks like one of the worst things that could happen to this family God had been growing all week. So why do you think this story is still part of God keeping his promise to Abraham?",
+                teacherGuidance: "Guide toward: even though Joseph's brothers meant this for evil, God was already at work — planning to use Joseph's time in Egypt to eventually save his whole family from a coming famine. This is exactly what this week's memory verse has been pointing toward.",
+              },
+              {
+                heading: "Memory verse from memory, and closing prayer",
+                minutes: "3 min",
+                teacherTalk: "Finish the week's memory verse fully from memory, then close together with the prayer in the app.",
+                activityNote: "Use the say-it-from-memory activity block, then the built-in prayer block to close.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Lesson 18 continues Joseph's story in Egypt.",
           },
         },
       ],
