@@ -563,6 +563,117 @@
     .script-nav-btn{ width:100%; }
   }
 
+  /* ---------- READING PACE (word-by-word colour highlight) ---------- */
+  .script-word{
+    border-radius:7px;
+    padding:0 2px;
+    transition:background-color 0.12s ease, color 0.12s ease;
+  }
+  .script-word.pace-active{
+    background:var(--pace-color, #FF7A29);
+    color:#241F14;
+    font-weight:800;
+  }
+  .script-pace-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    padding:14px 6vw 0;
+  }
+  .pace-toggle-wrap{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:rgba(251,249,244,0.65);
+  }
+  .pace-switch{
+    position:relative;
+    width:38px;
+    height:21px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.18);
+    border:none;
+    cursor:pointer;
+    flex-shrink:0;
+    padding:0;
+  }
+  .pace-switch::after{
+    content:'';
+    position:absolute;
+    top:2px; left:2px;
+    width:17px; height:17px;
+    border-radius:50%;
+    background:var(--paper);
+    transition:transform 0.18s ease;
+  }
+  .pace-switch.on{ background:var(--honey); }
+  .pace-switch.on::after{ transform:translateX(17px); }
+  .pace-play-btn{
+    width:34px; height:34px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.10);
+    border:1.5px solid rgba(255,255,255,0.18);
+    color:var(--paper);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .pace-play-btn:hover{ background:rgba(255,255,255,0.18); }
+  .pace-play-btn svg{ width:14px; height:14px; }
+  .pace-speed-wrap{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .pace-speed-wrap input[type="range"]{
+    width:110px;
+    accent-color:var(--honey);
+  }
+  .pace-speed-label{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:0.78rem;
+    color:rgba(251,249,244,0.65);
+    white-space:nowrap;
+    min-width:64px;
+  }
+  .pace-color-wrap{
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+  .pace-color-dot{
+    width:20px; height:20px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,0.25);
+    cursor:pointer;
+    padding:0;
+  }
+  .pace-color-dot.selected{
+    border-color:var(--paper);
+    box-shadow:0 0 0 2px rgba(0,0,0,0.35);
+  }
+  .script-pace-row.disabled .pace-play-btn,
+  .script-pace-row.disabled .pace-speed-wrap,
+  .script-pace-row.disabled .pace-color-wrap{
+    opacity:0.35;
+    pointer-events:none;
+  }
+
+  @media (max-width:640px){
+    .script-pace-row{ gap:10px; }
+    .pace-speed-wrap input[type="range"]{ width:80px; }
+  }
+
   /* ---------- NAV FOOTER ---------- */
   .day-nav{
     display:flex;
@@ -896,6 +1007,20 @@
   <div class="script-progress-row">
     <div class="script-progress-text" id="scriptProgressText"></div>
   </div>
+  <div class="script-pace-row" id="scriptPaceRow">
+    <div class="pace-toggle-wrap">
+      <button class="pace-switch" id="paceSwitch" aria-label="Toggle word-by-word reading pace"></button>
+      <span>Reading pace</span>
+    </div>
+    <button class="pace-play-btn" id="pacePlayBtn" aria-label="Play or pause reading pace" title="Play/pause">
+      <svg id="pacePlayIcon" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>
+    </button>
+    <div class="pace-speed-wrap">
+      <input type="range" id="paceSpeedSlider" min="60" max="220" step="10" value="130" aria-label="Reading speed in words per minute">
+      <span class="pace-speed-label" id="paceSpeedLabel">130 wpm</span>
+    </div>
+    <div class="pace-color-wrap" id="paceColorWrap"></div>
+  </div>
   <div class="script-stage-wrap">
     <div class="script-stage" id="scriptStage">
       <div class="script-title" id="scriptTitle"></div>
@@ -1165,6 +1290,158 @@
 
   let scriptState = { block: null, lineIndex: 0, colorByName: {} };
 
+  // ---------- READING PACE (word-by-word colour highlight) ----------
+  // Highlights one word at a time across the currently-displayed script/dictation
+  // line, moving at an adjustable words-per-minute speed, so a student reading
+  // off the screen has a clear "read me now" cue instead of losing their place.
+  // Settings (on/off, speed, colour) persist across lines and, where available,
+  // across sessions via localStorage.
+  const PACE_COLORS = [
+    { name: 'Orange', value: '#FF7A29' },
+    { name: 'Yellow', value: '#FFD23F' },
+    { name: 'Pink',   value: '#FF6FA5' },
+    { name: 'Green',  value: '#5FD97A' },
+    { name: 'Blue',   value: '#5CC7F2' },
+  ];
+
+  function paceLoadPrefs(){
+    const defaults = { enabled: true, wpm: 130, color: PACE_COLORS[0].value };
+    try{
+      const raw = localStorage.getItem('morninglight-pace-prefs');
+      if(raw) return Object.assign(defaults, JSON.parse(raw));
+    }catch(e){ /* localStorage unavailable (e.g. some file:// setups) — use defaults */ }
+    return defaults;
+  }
+  function paceSavePrefs(){
+    try{
+      localStorage.setItem('morninglight-pace-prefs', JSON.stringify({
+        enabled: paceState.enabled, wpm: paceState.wpm, color: paceState.color
+      }));
+    }catch(e){ /* ignore — not critical if this can't persist */ }
+  }
+
+  let paceState = Object.assign({ playing:false, timer:null, wordIndex:-1 }, paceLoadPrefs());
+
+  function wrapWordsForPace(text){
+    // Splits on whitespace runs, keeping them intact for correct spacing, and
+    // wraps each real word in a span we can target for the highlight.
+    const tokens = String(text).split(/(\s+)/);
+    let n = 0;
+    return tokens.map(tok => {
+      if(tok === '' || /^\s+$/.test(tok)) return escapeHTML(tok);
+      const span = `<span class="script-word" data-word-index="${n}">${escapeHTML(tok)}</span>`;
+      n++;
+      return span;
+    }).join('');
+  }
+
+  function paceClearHighlight(){
+    document.querySelectorAll('#scriptLineText .script-word.pace-active').forEach(w => w.classList.remove('pace-active'));
+  }
+
+  function paceStop(){
+    clearTimeout(paceState.timer);
+    paceState.timer = null;
+    paceState.playing = false;
+    paceUpdatePlayIcon();
+  }
+
+  function paceStep(){
+    const words = document.querySelectorAll('#scriptLineText .script-word');
+    if(!words.length){ paceStop(); return; }
+    paceClearHighlight();
+    paceState.wordIndex++;
+    if(paceState.wordIndex >= words.length){
+      paceStop();
+      return;
+    }
+    const w = words[paceState.wordIndex];
+    w.classList.add('pace-active');
+    if(paceState.wordIndex > 0) w.scrollIntoView({ block:'nearest', behavior:'smooth' });
+    const msPerWord = 60000 / paceState.wpm;
+    paceState.timer = setTimeout(paceStep, msPerWord);
+  }
+
+  function pacePlay(){
+    if(!paceState.enabled) return;
+    const words = document.querySelectorAll('#scriptLineText .script-word');
+    if(!words.length) return;
+    if(paceState.wordIndex >= words.length - 1) paceState.wordIndex = -1; // restart if already finished
+    paceState.playing = true;
+    paceUpdatePlayIcon();
+    clearTimeout(paceState.timer);
+    paceStep();
+  }
+
+  function pacePauseResume(){
+    if(!paceState.enabled) return;
+    if(paceState.playing) paceStop();
+    else pacePlay();
+  }
+
+  function paceUpdatePlayIcon(){
+    const icon = document.getElementById('pacePlayIcon');
+    if(!icon) return;
+    icon.innerHTML = paceState.playing
+      ? '<rect x="5" y="4" width="5" height="16"/><rect x="14" y="4" width="5" height="16"/>'
+      : '<polygon points="6 4 20 12 6 20"/>';
+  }
+
+  function paceResetForNewLine(){
+    clearTimeout(paceState.timer);
+    paceState.timer = null;
+    paceState.wordIndex = -1;
+    paceState.playing = false;
+    paceUpdatePlayIcon();
+    document.documentElement.style.setProperty('--pace-color', paceState.color);
+    if(paceState.enabled) pacePlay();
+  }
+
+  function paceRenderColorSwatches(){
+    const wrap = document.getElementById('paceColorWrap');
+    if(!wrap) return;
+    wrap.innerHTML = PACE_COLORS.map(c =>
+      `<button class="pace-color-dot${c.value === paceState.color ? ' selected' : ''}" style="background:${c.value}" data-color="${c.value}" aria-label="${c.name} highlight colour" title="${c.name}"></button>`
+    ).join('');
+    wrap.querySelectorAll('.pace-color-dot').forEach(btn => {
+      btn.addEventListener('click', () => {
+        paceState.color = btn.getAttribute('data-color');
+        document.documentElement.style.setProperty('--pace-color', paceState.color);
+        wrap.querySelectorAll('.pace-color-dot').forEach(b => b.classList.toggle('selected', b === btn));
+        paceSavePrefs();
+      });
+    });
+  }
+
+  function paceUpdateToggleUI(){
+    const row = document.getElementById('scriptPaceRow');
+    const sw = document.getElementById('paceSwitch');
+    if(row) row.classList.toggle('disabled', !paceState.enabled);
+    if(sw) sw.classList.toggle('on', paceState.enabled);
+  }
+
+  document.getElementById('paceSwitch').addEventListener('click', () => {
+    paceState.enabled = !paceState.enabled;
+    paceUpdateToggleUI();
+    paceSavePrefs();
+    if(paceState.enabled) pacePlay();
+    else { paceStop(); paceClearHighlight(); }
+  });
+  document.getElementById('pacePlayBtn').addEventListener('click', pacePauseResume);
+  document.getElementById('paceSpeedSlider').addEventListener('input', (e) => {
+    paceState.wpm = Number(e.target.value);
+    document.getElementById('paceSpeedLabel').textContent = `${paceState.wpm} wpm`;
+    paceSavePrefs();
+  });
+
+  // One-time init of the pace controls to reflect any saved preferences.
+  document.getElementById('paceSpeedSlider').value = paceState.wpm;
+  document.getElementById('paceSpeedLabel').textContent = `${paceState.wpm} wpm`;
+  document.documentElement.style.setProperty('--pace-color', paceState.color);
+  paceRenderColorSwatches();
+  paceUpdateToggleUI();
+  paceUpdatePlayIcon();
+
   function scriptCharacterColor(name){
     if(scriptState.colorByName[name]) return scriptState.colorByName[name];
     const custom = (scriptState.block.characters || []).find(c => typeof c === 'object' && c.name === name);
@@ -1183,6 +1460,7 @@
   }
 
   function closeScript(){
+    paceStop();
     document.getElementById('scriptOverlay').classList.remove('open');
     document.body.style.overflow = '';
   }
@@ -1199,6 +1477,8 @@
     const textEl = document.getElementById('scriptLineText');
 
     if(line.direction){
+      // Stage directions aren't read aloud by students, so no word-pace highlight here.
+      paceStop();
       charEl.innerHTML = '';
       textEl.className = 'script-line-text script-direction';
       textEl.textContent = line.text;
@@ -1206,12 +1486,14 @@
       // Unattributed line (e.g. a plain dictation line with no speaker) — no badge pill.
       charEl.innerHTML = '';
       textEl.className = 'script-line-text';
-      textEl.textContent = line.text;
+      textEl.innerHTML = wrapWordsForPace(line.text);
+      paceResetForNewLine();
     } else {
       const color = scriptCharacterColor(line.character);
       charEl.innerHTML = `<div class="script-character" style="background:${color}">${escapeHTML(line.character)}</div>`;
       textEl.className = 'script-line-text';
-      textEl.textContent = line.text;
+      textEl.innerHTML = wrapWordsForPace(line.text);
+      paceResetForNewLine();
     }
 
     const dotsEl = document.getElementById('scriptDots');
