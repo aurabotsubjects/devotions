@@ -719,6 +719,8 @@
   .lessonplan-btn-row{
     display:flex;
     justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
     margin:-6px 0 28px;
   }
   body:not(.teacher-mode) .lessonplan-btn-row{ display:none; }
@@ -754,6 +756,7 @@
   }
   .lp-overlay.open{ display:flex; }
   .lp-modal{
+    position:relative;
     background:var(--paper);
     border-radius:20px;
     max-width:760px;
@@ -791,6 +794,7 @@
   }
   .lp-close{
     position:absolute;
+    z-index:2;
     top:18px; right:18px;
     width:32px; height:32px;
     border-radius:50%;
@@ -923,6 +927,14 @@
   }
   .lp-next .lp-step-label{ color:var(--honey); }
 
+  .lp-print-page{
+    border-bottom:2px dashed var(--line);
+    padding-bottom:8px;
+    margin-bottom:8px;
+  }
+  .lp-print-page:last-of-type{ border-bottom:none; }
+  .lp-bulk-head .lp-eyebrow{ opacity:0.85; }
+
   .lp-print-row{
     display:flex;
     justify-content:flex-end;
@@ -942,11 +954,36 @@
   .lp-print-btn:hover{ border-color:var(--sky); color:var(--sky-deep); }
 
   @media print{
+    html, body{ height:auto !important; overflow:visible !important; }
     body *{ visibility:hidden; }
     .lp-modal, .lp-modal *{ visibility:visible; }
-    .lp-overlay{ position:absolute; background:none; padding:0; }
-    .lp-modal{ box-shadow:none; max-width:100%; }
+    .lp-overlay{
+      position:static !important;
+      inset:auto !important;
+      background:none;
+      padding:0;
+      display:block !important;
+      overflow:visible !important;
+      height:auto !important;
+      max-height:none !important;
+    }
+    .lp-modal{
+      box-shadow:none;
+      max-width:100%;
+      overflow:visible !important;
+      height:auto !important;
+      max-height:none !important;
+    }
     .lp-close, .lp-print-row{ display:none !important; }
+    .lp-print-page{
+      border-bottom:none;
+      page-break-after:always;
+      break-after:page;
+    }
+    .lp-print-page:last-of-type{
+      page-break-after:auto;
+      break-after:auto;
+    }
   }
 
   @media (max-width:640px){
@@ -990,6 +1027,10 @@
     <button class="lessonplan-btn" id="lessonPlanBtn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
       View lesson plan for this day
+    </button>
+    <button class="lessonplan-btn" id="printAllBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print all lesson plans for <span id="printAllTermLabel"></span>
     </button>
   </div>
 
@@ -1570,26 +1611,22 @@
     return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
-  function renderLessonPlan(){
-    const lesson = getCurrentLesson();
-    const lpModal = document.getElementById('lpModal');
-    if(!lesson){
-      lpModal.innerHTML = `<div class="lp-body"><p style="padding:24px;">No lesson plan available.</p></div>`;
-      return;
-    }
-    const day = lesson.days[state.dayIndex];
+  // Builds the inner markup for a single day's lesson plan. Shared by the
+  // single-day modal and the whole-term "print all" view below.
+  // opts.eyebrow lets callers prefix the week label with a term name for
+  // the bulk print view; opts.headingId sets the id used for aria-labelledby
+  // (only needed once per page, on the first/only heading).
+  function buildLessonPlanContent(lesson, day, weekLabel, opts){
+    opts = opts || {};
     const lp = day.lessonPlan;
     if(!lp){
-      lpModal.innerHTML = `
+      return `
         <div class="lp-head">
-          <button class="lp-close" id="lpCloseBtn" aria-label="Close">&times;</button>
-          <div class="lp-eyebrow">${lpEscapeHTML(state.week)} &middot; ${lpEscapeHTML(day.label)}</div>
-          <h2 id="lpModalTitle">${lpEscapeHTML(lesson.lessonTitle)}</h2>
+          <div class="lp-eyebrow">${lpEscapeHTML(weekLabel)} &middot; ${lpEscapeHTML(day.label)}</div>
+          <h2${opts.headingId ? ` id="${opts.headingId}"` : ''}>${lpEscapeHTML(lesson.lessonTitle)}</h2>
         </div>
         <div class="lp-body"><div class="lp-row"><div class="lp-value">No lesson plan has been written for this day yet.</div></div></div>
       `;
-      document.getElementById('lpCloseBtn').addEventListener('click', closeLessonPlan);
-      return;
     }
 
     const intentionsHTML = (lp.learningIntentions||[]).map(li => `<li>${lpEscapeHTML(li)}</li>`).join('');
@@ -1618,11 +1655,10 @@
       `;
     }).join('');
 
-    lpModal.innerHTML = `
+    return `
       <div class="lp-head">
-        <button class="lp-close" id="lpCloseBtn" aria-label="Close">&times;</button>
-        <div class="lp-eyebrow">${lpEscapeHTML(state.week)} &middot; ${lpEscapeHTML(day.label)}</div>
-        <h2 id="lpModalTitle">${lpEscapeHTML(lesson.lessonTitle)}</h2>
+        <div class="lp-eyebrow">${lpEscapeHTML(weekLabel)} &middot; ${lpEscapeHTML(day.label)}</div>
+        <h2${opts.headingId ? ` id="${opts.headingId}"` : ''}>${lpEscapeHTML(lesson.lessonTitle)}</h2>
         <span class="lp-sub">${lpEscapeHTML(lp.topic || day.theme)}</span>
       </div>
       <div class="lp-body">
@@ -1641,8 +1677,69 @@
           <p style="margin:0;">${lpEscapeHTML(lp.whereToNext)}</p>
         </div>
       ` : ''}
+    `;
+  }
+
+  function renderLessonPlan(){
+    const lesson = getCurrentLesson();
+    const lpModal = document.getElementById('lpModal');
+    lpModal.classList.remove('lp-modal-bulk');
+    if(!lesson){
+      lpModal.innerHTML = `<div class="lp-body"><p style="padding:24px;">No lesson plan available.</p></div>`;
+      return;
+    }
+    const day = lesson.days[state.dayIndex];
+
+    lpModal.innerHTML = `
+      <button class="lp-close" id="lpCloseBtn" aria-label="Close">&times;</button>
+      ${buildLessonPlanContent(lesson, day, state.week, { headingId:'lpModalTitle' })}
       <div class="lp-print-row">
         <button class="lp-print-btn" id="lpPrintBtn">Print this lesson plan</button>
+      </div>
+    `;
+
+    document.getElementById('lpCloseBtn').addEventListener('click', closeLessonPlan);
+    document.getElementById('lpPrintBtn').addEventListener('click', () => window.print());
+  }
+
+  // Renders every day's lesson plan for the given term into the same modal,
+  // one page per day (separated for print with a page-break), so the whole
+  // term can be printed to a single PDF via the browser's print dialog.
+  function renderAllLessonPlansForTerm(termName){
+    const termData = DEVOTIONS[termName];
+    const lpModal = document.getElementById('lpModal');
+    lpModal.classList.add('lp-modal-bulk');
+
+    if(!termData){
+      lpModal.innerHTML = `
+        <button class="lp-close" id="lpCloseBtn" aria-label="Close">&times;</button>
+        <div class="lp-body"><p style="padding:24px;">No lesson plans available for ${lpEscapeHTML(termName)}.</p></div>
+      `;
+      document.getElementById('lpCloseBtn').addEventListener('click', closeLessonPlan);
+      return;
+    }
+
+    const weekKeys = Object.keys(termData);
+
+    let pagesHTML = weekKeys.map((weekKey, wi) => {
+      const lesson = termData[weekKey];
+      return (lesson.days||[]).map((day, di) => `
+        <div class="lp-print-page">
+          ${buildLessonPlanContent(lesson, day, `${termName} \u2014 ${weekKey}`)}
+        </div>
+      `).join('');
+    }).join('');
+
+    lpModal.innerHTML = `
+      <div class="lp-head lp-bulk-head">
+        <button class="lp-close" id="lpCloseBtn" aria-label="Close">&times;</button>
+        <div class="lp-eyebrow">${lpEscapeHTML(termName)}</div>
+        <h2 id="lpModalTitle">All lesson plans</h2>
+        <span class="lp-sub">${weekKeys.length} week${weekKeys.length === 1 ? '' : 's'}</span>
+      </div>
+      ${pagesHTML}
+      <div class="lp-print-row">
+        <button class="lp-print-btn" id="lpPrintBtn">Print all lesson plans</button>
       </div>
     `;
 
@@ -1656,12 +1753,24 @@
     document.body.style.overflow = 'hidden';
   }
 
+  function openAllLessonPlans(){
+    renderAllLessonPlansForTerm(state.term);
+    document.getElementById('lpOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
   function closeLessonPlan(){
     document.getElementById('lpOverlay').classList.remove('open');
     document.body.style.overflow = '';
   }
 
+  function updatePrintAllLabel(){
+    const el = document.getElementById('printAllTermLabel');
+    if(el) el.textContent = state.term || '';
+  }
+
   document.getElementById('lessonPlanBtn').addEventListener('click', openLessonPlan);
+  document.getElementById('printAllBtn').addEventListener('click', openAllLessonPlans);
   document.getElementById('lpOverlay').addEventListener('click', (e) => {
     if(e.target.id === 'lpOverlay') closeLessonPlan();
   });
@@ -1675,6 +1784,7 @@
     state.dayIndex = 0;
     renderDayPills();
     renderDay();
+    updatePrintAllLabel();
   });
 
   weekSelect.addEventListener('change', () => {
@@ -1697,6 +1807,7 @@
   weekSelect.value = state.week;
   renderDayPills();
   renderDay();
+  updatePrintAllLabel();
 })();
 </script>
 
