@@ -44,19 +44,40 @@
 // own Lesson numbering starting back at Lesson 1 (Exodus). Term 3 Week N =
 // that book's Lesson N.
 //
-// TERM 3 STATUS: Weeks 1–6 built (Lessons 1–6: "Survivor: Egypt Begins,"
-// "The Leader," "The Challenge," "The Rescue," "The Law," "The
-// Tabernacle" — Exodus 1-14, 19-20, 25-40). Weeks 7-10 (Lessons 7-10) still
-// need to be built once their manual pages/PowerPoints are available.
+// TERM 3 STATUS: COMPLETE — all 10 weeks built (Lessons 1-10: "Survivor:
+// Egypt Begins," "The Leader," "The Challenge," "The Rescue," "The Law,"
+// "The Tabernacle," "The exploration," "The people's response," "The
+// land," "The new covenant" — Exodus 1-14, 19-20, 25-40; Numbers 13-14;
+// Deuteronomy 4; Joshua 1-6; and a closing old-covenant/new-covenant
+// lesson drawing on Jeremiah 31, Hebrews 10 and Luke 24).
 //
 // RECURRING MEMORY VERSE FOR THIS TERM: confirmed directly from each
 // lesson's own "Memory verse" box in the manual.
 //   - Weeks 1–5: Deuteronomy 4:39 (CEV) — "So remember that the Lord is
 //     the only true God, whether in the sky above or on the earth below."
-//   - Week 6: the manual's own memory verse box changes to Psalm 117:2
+//   - Weeks 6-9: the manual's own memory verse box changes to Psalm 117:2
 //     (CEV) — "His love for us is wonderful, his faithfulness never ends.
 //     Shout praises to the Lord!" This is a genuine change flagged in the
-//     manual itself, not an error.
+//     manual itself, not an error, and it then stays put for Lessons 7, 8
+//     and 9 (confirmed from each of those lessons' own Memory verse boxes).
+//   - Week 10: changes again, to Luke 24:27 (CEV) — "Jesus then explained
+//     everything written about himself in the Scriptures, beginning with
+//     the Law of Moses and the Books of the Prophets." Also confirmed
+//     straight from Lesson 10's own Memory verse box.
+//   Two lessons additionally quote a clearly-flagged secondary verse
+//   alongside the running memory verse, and those are included as extra
+//   verse blocks, not replacements: Week 7 Day 4 uses John 3:16 (CEV) and
+//   Week 8 Day 4 uses John 14:1-3 (CEV), both as the manual does.
+//
+// NOTE ON SCRIPTS: Week 9 (Lesson 9) uses three `roleplay` blocks on Days
+// 1-3 — "Rahab and the spies," "Crossing the Jordan" and "Battle of
+// Jericho" — transcribed close to verbatim from the manual's own printed,
+// photocopy-licensed Scenes on pages 113-115. Week 10 Day 2 uses a
+// `dictation` block: the manual's old-agreement/new-agreement comparison
+// table (page 119) reworked into a whole-class line-by-line reading, so it
+// can be read together off the screen instead of filled in on a handout.
+// Weeks 7 and 8 have no scripted scenes — their lessons are built around
+// physical trust challenges and discussion, not printed dialogue.
 //
 // NOTE ON IMAGES: Week 1 (originally built as standalone "Week 21" before
 // this term-based numbering existed) kept its original wk21- key prefix
@@ -65,7 +86,13 @@
 // no usable comic panels were found in the source PowerPoints, or (Weeks
 // 4–6) the deck was actually a "Survivor" game-show visual aid with no
 // comic panels at all, only decorative textures, per the visual style
-// discipline rule.
+// discipline rule. Weeks 7, 9 and 10 each carry hand-drawn illustrations
+// pulled from their own decks (manna in the desert; crossing the Jordan;
+// the walls of Jericho; the Happy Promised Land). Week 8 ships with NO
+// images — its deck holds only a title card, blank paper/parchment
+// backgrounds, a greyscale stock map and a maze puzzle. See the
+// images_term3.js header for the full week-by-week rundown of what was
+// used and what was skipped.
 // ============================================================
 
 window.DEVOTIONS = window.DEVOTIONS || {};
@@ -1980,6 +2007,1163 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
               },
             ],
             whereToNext: "This closes out the B2 Upper Primary Exodus material built so far (Lessons 4–6). Lessons 1–3 for this track, and any lessons beyond 6, are not yet built.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 7 =================
+    "Week 7": {
+      lessonTitle: "The exploration",
+      passage: "Numbers 13–14",
+      bigIdea: "God's promises are good promises and he is faithful to them — but when God's people refused to trust and obey him, they missed out on what he had promised.",
+      source: "Connect B2 Upper Primary — Lesson 7",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Back on the move",
+          blocks: [
+            { type: "story", text: "It had been about two years since God's people first arrived at Mount Sinai. In that time God gave them his Law, made an agreement with them, and had them build the sacred tent so he could live right in the middle of their camp. Now, at last, it was time to move on." },
+            { type: "story", text: "Think about how far God had already brought them. He rescued them out of Egypt, took them through the Red Sea, and led them down to Mount Sinai. Now they packed up and travelled north to a place called Kadesh-Barnea, in the Desert of Paran — right on the edge of the land God had promised to Abraham, Isaac and Jacob." },
+            { type: "story", text: "And the whole time they were in the desert, God provided for them. He sent bread from heaven every single morning — they called it manna — and quail in the evening. He gave them water out of a rock. He even protected them when the Amalekite army attacked." },
+            { type: "image", key: "wk7-01-manna", caption: "Every morning God sent bread from heaven, and the people went out and gathered exactly as much as they needed." },
+            { type: "question", text: "God had fed them, given them water and protected them every single day for two years. What should that have taught them about God?", hint: "Accept responses. Guide toward: God can be trusted. He does what he says. He had never once let them go hungry or thirsty — so there was no good reason to think he would let them down now." },
+            { type: "activity", text: "Trust challenge, in pairs. Stand facing your partner, about one arm's length apart, with the palms of your hands together and your arms bent. Take turns rocking slowly forward, trusting that your partner will catch you and hold you up. Everyone in the room needs to be able to trust their partner. (Teacher: supervise carefully — anyone being silly or unsafe sits down.)" },
+            { type: "story", text: "Today we were challenged to trust each other. This week we are going to see God's people challenged to trust God — and find out whether or not they succeeded." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Numbers 10:11–13",
+            topic: "Leaving Sinai — remembering how God provided",
+            bigIdea: "God's promises are good promises and he is faithful to them — but when God's people refused to trust and obey him, they missed out on what he had promised.",
+            learningIntentions: [
+              "We are learning that God's people left Mount Sinai after two years and camped at the edge of the Promised Land.",
+              "We are learning that God provided food, water and protection for his people the whole time they were in the desert.",
+              "I can explain why God's people had good reason to trust him.",
+            ],
+            assessment: "Listen for whether students can name specific things God had already done for his people that gave them reason to trust him.",
+            resources: ["Comic panel: God's provision (manna in the desert)"],
+            script: [
+              {
+                heading: "Two years at Sinai",
+                minutes: "2 min",
+                teacherTalk: "Recap the tabernacle from last week, then explain that it is now time for God's people to move on.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The journey so far",
+                minutes: "2–3 min",
+                teacherTalk: "Trace the route out loud: Egypt, Red Sea, Mount Sinai, and now Kadesh-Barnea in the Desert of Paran, at the edge of the land.",
+                activityNote: "If you have the Journey to the Promised Land map, trace the path as you speak.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "How God provided",
+                minutes: "3 min",
+                teacherTalk: "Describe manna, quail, water from the rock, and protection from the Amalekites, then show the comic panel and ask the key question.",
+                activityNote: "Display the manna image block.",
+                keyQuestion: "God had fed them, given them water and protected them every single day for two years. What should that have taught them about God?",
+                teacherGuidance: "Accept responses. Guide toward: God can be trusted. He does what he says. He had never once let them go hungry or thirsty — so there was no good reason to think he would let them down now.",
+              },
+              {
+                heading: "Trust challenge",
+                minutes: "3–4 min",
+                teacherTalk: "Run the paired trust challenge, then link it straight back: this week God's people are challenged to trust God.",
+                activityNote: "Supervise carefully. Anyone silly or unsafe sits down and misses out.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say this term's memory verse, Psalm 117:2, together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 sends twelve explorers into the land — and they come back with two very different reports.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Twelve explorers",
+          blocks: [
+            { type: "story", text: "God told Moses to choose twelve men — one leader from each of the twelve tribes of Israel — and send them into the land to explore it." },
+            { type: "story", text: "Their instructions were clear. Explore the land from south to north. See what it is like: how many people live there, how strong they are, what kind of cities they live in, how good the soil is, what kind of trees grow there. And bring back some fruit." },
+            { type: "story", text: "Forty days later the twelve explorers came back. And every single one of them agreed about what they had seen: the land was good. It was flowing with milk and honey. They brought back fruit to prove it." },
+            { type: "question", text: "The twelve explorers all walked the same land and saw exactly the same things. So why do you think they came back with two completely different reports?", hint: "Accept responses. Guide toward: they didn't disagree about the land — they disagreed about God. Ten looked at the people in the cities and measured the job against themselves. Two looked at the same cities and measured the job against God." },
+            { type: "story", text: "Ten of the explorers said: yes, the land is good — but the people there are strong, the cities are huge and walled, and we would have to fight them. We can't do it. And they spread that report all through the camp." },
+            { type: "story", text: "But two of them — Caleb and Joshua — said something completely different. They said: we should go up and take the land, because we can certainly do it." },
+            { type: "activity", text: "Hands up if you think the Israelites listened to the ten explorers. Now hands up if you think they listened to Caleb and Joshua. Remember your answer — tomorrow we find out." },
+            { type: "question", text: "How quickly had the explorers forgotten the God who brought them out of Egypt?", hint: "Accept responses. Guide toward: God had just crushed the strongest empire on earth to get them out of Egypt, and had promised to go ahead of them and drive the nations out. The walled cities were never the real problem." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Numbers 13:1–33",
+            topic: "The twelve explorers and their two reports",
+            bigIdea: "God's promises are good promises and he is faithful to them — but when God's people refused to trust and obey him, they missed out on what he had promised.",
+            learningIntentions: [
+              "We are learning that God sent twelve explorers into the land he was giving his people.",
+              "We are learning that ten explorers spread a bad report and only Caleb and Joshua trusted God.",
+              "I can explain that the twelve disagreed about God, not about the land.",
+            ],
+            assessment: "Listen for whether students can state what all twelve agreed on, and exactly where the ten and the two differed.",
+            resources: [],
+            script: [
+              {
+                heading: "The mission",
+                minutes: "2–3 min",
+                teacherTalk: "Explain who was sent and what their instructions were — the land, the people, the cities, the soil, the trees, and fruit to bring back.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Forty days later",
+                minutes: "3 min",
+                teacherTalk: "Report what all twelve agreed on — the land is good, flowing with milk and honey — then ask the key question before revealing the split.",
+                activityNote: null,
+                keyQuestion: "The twelve explorers all walked the same land and saw exactly the same things. So why do you think they came back with two completely different reports?",
+                teacherGuidance: "Accept responses. Guide toward: they didn't disagree about the land — they disagreed about God. Ten measured the job against themselves; two measured it against God.",
+              },
+              {
+                heading: "Ten against two",
+                minutes: "3 min",
+                teacherTalk: "Give the ten explorers' bad report, then Caleb and Joshua's report.",
+                activityNote: "Run the hands-up vote — who will the Israelites listen to? Keep it as a cliffhanger for tomorrow.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "How quickly they forgot",
+                minutes: "2–3 min",
+                teacherTalk: "Ask the closing question about how quickly the explorers had forgotten what God had already done.",
+                activityNote: null,
+                keyQuestion: "How quickly had the explorers forgotten the God who brought them out of Egypt?",
+                teacherGuidance: "Accept responses. Guide toward: God had just crushed the strongest empire on earth to get them out, and promised to go ahead of them. The walled cities were never the real problem.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Psalm 117:2 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 finds out who the people listened to — and what it cost them.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "The night they said no",
+          blocks: [
+            { type: "story", text: "Yesterday we left the Israelites with a choice. So — who did they listen to? They listened to the ten." },
+            { type: "story", text: "That night the whole camp cried out loud. They grumbled against Moses and Aaron and said they would have been better off dying in Egypt. They started talking about choosing a new leader to take them back." },
+            { type: "story", text: "Caleb and Joshua were desperate. They tore their clothes and begged the people: the land is very good! If the Lord is pleased with us, he will lead us there and give it to us. Don't rebel against the Lord, and don't be afraid of the people who live there." },
+            { type: "story", text: "The people picked up stones to throw at them. But just then, the shining glory of the Lord appeared at the sacred tent, in front of everyone." },
+            { type: "question", text: "Who remembers what God's people had promised God at Mount Sinai?", hint: "Accept responses. They promised they would do everything God commanded — Exodus 19:7–8. This is the promise they had just broken." },
+            { type: "question", text: "Did God's people have any good reasons to trust God? What were they?", hint: "Accept responses. Yes — plenty. They had seen the plagues and the Red Sea, God appeared to them at Mount Sinai, he lived with them in the tabernacle, and he protected and fed them in the desert for two years." },
+            { type: "story", text: "God was angry. His people had seen everything he had done and still refused to believe him. God said he would wipe them out and start again with Moses' family — but Moses stood up for God's honour and pleaded with God to forgive them, and God did." },
+            { type: "story", text: "But there was still a consequence. God said that the people who had refused to go in would never see the land. They would wander in the desert for forty years, until everyone over twenty had died and their children had grown up. What the grumblers said they wanted — to die in the desert — is exactly what happened." },
+            { type: "question", text: "God forgave them. So why do you think they still missed out on the land?", hint: "Accept responses. Guide toward: forgiveness is real, but it doesn't always erase consequences. God kept his promise about the land — he just kept it with the next generation. God was being faithful, gracious and just all at once." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Numbers 14:1–25",
+            topic: "Israel refuses to trust God",
+            bigIdea: "God's promises are good promises and he is faithful to them — but when God's people refused to trust and obey him, they missed out on what he had promised.",
+            learningIntentions: [
+              "We are learning that God's people believed the ten explorers and refused to go into the land.",
+              "We are learning that Moses pleaded for the people and God forgave them, but the grumbling generation still did not enter the land.",
+              "I can explain that God was faithful to his promise even when his people were not.",
+            ],
+            assessment: "Listen for whether students can say what the people had promised at Sinai and why refusing to enter the land was a rejection of God, not just of Moses.",
+            resources: [],
+            script: [
+              {
+                heading: "Who did they listen to?",
+                minutes: "2–3 min",
+                teacherTalk: "Reveal the answer to yesterday's cliffhanger and describe the night of crying and grumbling.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Caleb and Joshua plead",
+                minutes: "2–3 min",
+                teacherTalk: "Tell how Caleb and Joshua begged the people, and how the people picked up stones — until God's glory appeared.",
+                activityNote: null,
+                keyQuestion: "Who remembers what God's people had promised God at Mount Sinai?",
+                teacherGuidance: "Accept responses. They promised to do everything God commanded — Exodus 19:7–8. This is the promise they had just broken.",
+              },
+              {
+                heading: "Good reasons to trust",
+                minutes: "2–3 min",
+                teacherTalk: "Ask the class to list the reasons God's people already had to trust him.",
+                activityNote: null,
+                keyQuestion: "Did God's people have any good reasons to trust God? What were they?",
+                teacherGuidance: "Accept responses. Yes — the plagues, the Red Sea, Mount Sinai, the tabernacle, and two years of food, water and protection.",
+              },
+              {
+                heading: "Forgiven — and forty years",
+                minutes: "3–4 min",
+                teacherTalk: "Tell how Moses interceded, God forgave, and the grumbling generation still would not enter. Then ask the key question.",
+                activityNote: null,
+                keyQuestion: "God forgave them. So why do you think they still missed out on the land?",
+                teacherGuidance: "Accept responses. Guide toward: forgiveness is real but doesn't always erase consequences. God kept his promise about the land — with the next generation.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Psalm 117:2 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 asks what a trustworthy God has promised his people today.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "God is still trustworthy",
+          blocks: [
+            { type: "story", text: "Here is what this whole story shows us about God: he is a trustworthy God. He always keeps the promises he makes. And his promises are good ones. God wanted his people to trust him." },
+            { type: "question", text: "How could God's people have shown that they trusted God?", hint: "Accept responses. By obeying his command and going in to take the land. Trust isn't just a feeling — it shows up in what you actually do." },
+            { type: "story", text: "Because they didn't trust God, they missed out on the good things he had promised them. But Caleb and Joshua trusted God, and God promised those two men that they would live to enter the land — and they did." },
+            { type: "story", text: "And God is the same God today. He has brought forgiveness, and he has promised his people today good things too." },
+            { type: "verse", reference: "John 3:16 (CEV)", text: "“God loved the people of this world so much that he gave his only Son, so that everyone who has faith in him will have eternal life.”" },
+            { type: "question", text: "God promised Israel a land. What has God promised Christians today?", hint: "Accept responses. That everyone who trusts in Jesus will be forgiven and will live with God forever." },
+            { type: "question", text: "How could someone show God that they trust him — and how would they know what God wants them to do?", hint: "Accept responses. By obeying him. And by reading the Bible, which is how God tells his people what he wants." },
+            { type: "story", text: "Trusting and obeying God isn't always easy. The Bible is honest about that. But it says that when people trust him, they will get the good things he has promised — life with him forever." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+            { type: "prayer", text: "Dear God, thank you that we learned today that you are trustworthy and always keep your promises. Thank you that you loved the world so much that you sent your Son to bring forgiveness of sins, so that your people can live forever with you. Please help your people to trust and obey you. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "John 3:16",
+            topic: "A trustworthy God, then and now",
+            bigIdea: "God's promises are good promises and he is faithful to them — but when God's people refused to trust and obey him, they missed out on what he had promised.",
+            learningIntentions: [
+              "We are learning that God is trustworthy and always keeps his promises.",
+              "We are learning that God has promised eternal life to everyone who trusts in Jesus.",
+              "I can explain that trusting God shows itself in obeying him.",
+            ],
+            assessment: "Listen for whether students can name a promise God has made to people today and describe one way someone shows they trust him.",
+            resources: [],
+            script: [
+              {
+                heading: "A trustworthy God",
+                minutes: "2–3 min",
+                teacherTalk: "Draw the conclusion out of the story: God's promises are good and he keeps them.",
+                activityNote: null,
+                keyQuestion: "How could God's people have shown that they trusted God?",
+                teacherGuidance: "Accept responses. By obeying his command and going in to take the land. Trust shows up in what you do.",
+              },
+              {
+                heading: "Caleb and Joshua",
+                minutes: "2 min",
+                teacherTalk: "Contrast the people who missed out with the two who trusted God and did enter the land.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The same God today",
+                minutes: "3 min",
+                teacherTalk: "Read John 3:16 and connect it to God's promise-keeping.",
+                activityNote: "Use the John 3:16 verse block alongside the term's memory verse.",
+                keyQuestion: "God promised Israel a land. What has God promised Christians today?",
+                teacherGuidance: "Accept responses. That everyone who trusts in Jesus will be forgiven and will live with God forever.",
+              },
+              {
+                heading: "Showing trust",
+                minutes: "2–3 min",
+                teacherTalk: "Ask how someone shows they trust God, and how they'd know what he wants.",
+                activityNote: null,
+                keyQuestion: "How could someone show God that they trust him — and how would they know what God wants them to do?",
+                teacherGuidance: "Accept responses. By obeying him; by reading the Bible.",
+              },
+              {
+                heading: "Verse and prayer",
+                minutes: "2 min",
+                teacherTalk: "Say Psalm 117:2 together and close in prayer.",
+                activityNote: "Use the verse and prayer blocks.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Next week: forty years later, a new generation stands at the edge of the land and Moses gives them God's final instructions.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 8 =================
+    "Week 8": {
+      lessonTitle: "The people's response",
+      passage: "Deuteronomy 4",
+      bigIdea: "God is faithful to his promises and will give his people what he promised — but he wants his people to trust and obey him, and he never gives up on them even when they fail.",
+      source: "Connect B2 Upper Primary — Lesson 8",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Forty years later",
+          blocks: [
+            { type: "story", text: "Last week God's people refused to trust God and would not go into the land he had promised them. So they wandered around in the desert for forty years, until all the adults who had refused were gone and their children had grown up. God provided for them and kept them safe that whole time." },
+            { type: "story", text: "Now a new generation stood on the eastern side of the Jordan River, looking across at the land. On the way there they had already defeated the kings along that eastern side — because God was with them." },
+            { type: "story", text: "But there was one person who would not be going in: Moses. Because of the way he and Aaron had dishonoured God back in the desert, God would not let Moses cross into the land." },
+            { type: "story", text: "So before he died, Moses gave the people three very long speeches. The book of Deuteronomy is those speeches — God's final instructions to his people before they went in." },
+            { type: "activity", text: "Trust and obey challenge. Two volunteers. One is blindfolded and turned around twice at the back of the room. The other stands at the front and calls out directions to guide their partner safely to them. The blindfolded person has to trust a voice they can't see — and actually do what it says." },
+            { type: "question", text: "To finish that challenge, what two things did the blindfolded person have to do?", hint: "Accept responses. Trust their partner, and obey them. Trusting without obeying gets you nowhere — and that is exactly what God was asking of his people." },
+            { type: "question", text: "Moses spent his last speeches reminding the people of everything God had already done. Why do you think they needed reminding?", hint: "Accept responses. Guide toward: their parents had forgotten, and forgetting is exactly what led to the disaster last week. Remembering what God has done is how his people stay trusting." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Deuteronomy 4 (introduction); Numbers 20:1–13",
+            topic: "A new generation at the edge of the land",
+            bigIdea: "God is faithful to his promises and will give his people what he promised — but he wants his people to trust and obey him, and he never gives up on them even when they fail.",
+            learningIntentions: [
+              "We are learning that after forty years God brought a new generation to the edge of the Promised Land.",
+              "We are learning that Moses was not allowed to enter the land, and gave three final speeches instead.",
+              "I can explain that trusting God and obeying God go together.",
+            ],
+            assessment: "Listen for whether students can explain why the people needed reminding of what God had done.",
+            resources: ["A blindfold (or scarf) for the Way in challenge"],
+            script: [
+              {
+                heading: "Forty years of wandering",
+                minutes: "2–3 min",
+                teacherTalk: "Recap last week, then describe the forty years and God's continued provision.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Moses' last speeches",
+                minutes: "2–3 min",
+                teacherTalk: "Explain that Moses could not enter the land, and that Deuteronomy is his three final speeches.",
+                activityNote: "If you have the Journey to the Promised Land map, point out the wandering that finished east of the Jordan.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Blindfold challenge",
+                minutes: "4 min",
+                teacherTalk: "Run the blindfold challenge with two volunteers, then debrief with the key question.",
+                activityNote: "Supervise carefully; clear the route first.",
+                keyQuestion: "To finish that challenge, what two things did the blindfolded person have to do?",
+                teacherGuidance: "Accept responses. Trust their partner, and obey them. Trusting without obeying gets you nowhere.",
+              },
+              {
+                heading: "Why remind them?",
+                minutes: "2–3 min",
+                teacherTalk: "Ask why the people needed reminding of everything God had done.",
+                activityNote: null,
+                keyQuestion: "Moses spent his last speeches reminding the people of everything God had already done. Why do you think they needed reminding?",
+                teacherGuidance: "Accept responses. Their parents forgot, and forgetting led to the disaster last week. Remembering is how God's people stay trusting.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Psalm 117:2 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 sets out the choice Moses put in front of Israel: blessing or curse.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "The choice",
+          blocks: [
+            { type: "story", text: "In his speeches Moses reminded the people how God rescued them from Egypt, how their parents had disobeyed him, and how they had spent forty years in the desert. He reminded them of God's faithfulness. And he called them to love the Lord their God with all their heart, all their soul and all their strength." },
+            { type: "story", text: "Then Moses set a choice in front of them, and it was a stark one. If they obeyed all the Lord's decrees and laws, they would be blessed — God would send life-giving rain on the land, their crops would grow, and they would live in peace. But if they disobeyed him, they would be cursed and sent out of the land altogether." },
+            { type: "question", text: "What was the one thing God most wanted his people not to do?", hint: "Accept responses. He did not want them making idols and worshipping them. In a land full of other nations and other gods, that was the temptation waiting for them." },
+            { type: "question", text: "And what did God want them to do instead?", hint: "Accept responses. He wanted them to worship him alone — the God who had actually rescued them." },
+            { type: "question", text: "Why do you think God said worship me alone, rather than worship me most?", hint: "Accept responses. Guide toward: God isn't asking to be their favourite out of a collection. He is the only true God, and he had rescued them himself — so sharing him with idols would be treating a rescuer like an option." },
+            { type: "story", text: "Israel had a choice to make: obey God and be blessed, or ignore God and be cursed." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Deuteronomy 4; 6:4–9; 11",
+            topic: "Blessing or curse — Israel's choice",
+            bigIdea: "God is faithful to his promises and will give his people what he promised — but he wants his people to trust and obey him, and he never gives up on them even when they fail.",
+            learningIntentions: [
+              "We are learning that Moses called Israel to love God with all their heart, soul and strength.",
+              "We are learning that God set blessings and curses before Israel depending on their obedience.",
+              "I can explain why God asked to be worshipped alone.",
+            ],
+            assessment: "Listen for whether students can state both sides of the choice, and why worshipping God alone matters.",
+            resources: [],
+            script: [
+              {
+                heading: "Moses' reminder",
+                minutes: "3 min",
+                teacherTalk: "Summarise Moses' reminder of the rescue, the disobedience, and the call to love God completely.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Blessing or curse",
+                minutes: "3 min",
+                teacherTalk: "Set out both sides of the choice clearly — rain, crops and peace, or curse and exile.",
+                activityNote: null,
+                keyQuestion: "What was the one thing God most wanted his people not to do?",
+                teacherGuidance: "Accept responses. He did not want them making idols and worshipping them.",
+              },
+              {
+                heading: "Worship him alone",
+                minutes: "3–4 min",
+                teacherTalk: "Draw out what God did want, then push on the difference between alone and most.",
+                activityNote: null,
+                keyQuestion: "Why do you think God said worship me alone, rather than worship me most?",
+                teacherGuidance: "Accept responses. Guide toward: God is the only true God and had rescued them himself. Sharing him with idols treats a rescuer like an option.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Psalm 117:2 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 asks what God would do if his people broke the agreement — again.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "God never gives up",
+          blocks: [
+            { type: "story", text: "Let's put this back together. God saved Israel out of Egypt to be his own special people. He gave them the Law to show them how to live as his people. And at Mount Sinai they made a special agreement with him." },
+            { type: "question", text: "What did Israel agree to do?", hint: "Accept responses. They agreed to worship God alone and obey everything he commanded." },
+            { type: "question", text: "Knowing what you know about them by now — what do you think would happen to that agreement?", hint: "Accept responses. They would break it. Moses himself told them they would. This is not God being caught by surprise." },
+            { type: "story", text: "Even so, God told them something remarkable through Moses: even if his people broke the agreement and worshipped other gods, he would never give up on them. If they turned back to him, he would forgive them and take them back again — because he is a merciful God." },
+            { type: "question", text: "What does it tell us about God that he promised to take them back, even after they had broken their promise to him?", hint: "Accept responses. Guide toward: God's love for his people doesn't depend on how well they perform. He is faithful even when they are not — that is exactly what our memory verse says." },
+            { type: "story", text: "God loves his people so much that no matter how many times they turned away from him to worship other gods, he would always forgive them if they turned back to him." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Deuteronomy 4:25–31",
+            topic: "God's faithfulness when his people fail",
+            bigIdea: "God is faithful to his promises and will give his people what he promised — but he wants his people to trust and obey him, and he never gives up on them even when they fail.",
+            learningIntentions: [
+              "We are learning what Israel agreed to at Mount Sinai.",
+              "We are learning that God promised to forgive his people and take them back if they turned to him.",
+              "I can explain that God's faithfulness does not depend on his people's performance.",
+            ],
+            assessment: "Listen for whether students can connect God's promise to take them back with the memory verse about his faithfulness never ending.",
+            resources: [],
+            script: [
+              {
+                heading: "The agreement at Sinai",
+                minutes: "3 min",
+                teacherTalk: "Recap the rescue, the Law and the agreement, then ask what Israel agreed to.",
+                activityNote: null,
+                keyQuestion: "What did Israel agree to do?",
+                teacherGuidance: "Accept responses. To worship God alone and obey everything he commanded.",
+              },
+              {
+                heading: "They will break it",
+                minutes: "2–3 min",
+                teacherTalk: "Ask the class to predict what happens to the agreement, then confirm that Moses said the same thing.",
+                activityNote: null,
+                keyQuestion: "Knowing what you know about them by now — what do you think would happen to that agreement?",
+                teacherGuidance: "Accept responses. They would break it. Moses told them they would — God was not caught by surprise.",
+              },
+              {
+                heading: "He will never give up",
+                minutes: "3–4 min",
+                teacherTalk: "Give God's promise to forgive and take them back, then ask what that shows about him.",
+                activityNote: null,
+                keyQuestion: "What does it tell us about God that he promised to take them back, even after they had broken their promise to him?",
+                teacherGuidance: "Accept responses. Guide toward: God's love doesn't depend on performance. He is faithful even when they are not.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Psalm 117:2 together and point out how directly it fits today.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 hears Jesus make a promise about a place, just like God promised Israel a land.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "A place prepared",
+          blocks: [
+            { type: "story", text: "God loved his people then, and he loves his people today. Just as God saved Israel to be his chosen people, God has saved people today to belong to his family." },
+            { type: "question", text: "How does God save people today?", hint: "Accept responses. God saves people from the consequences of their sin by sending Jesus to die on the cross in their place, so they can be forgiven and have eternal life." },
+            { type: "story", text: "And God is a good God who has made good promises. Just as God was going to give Israel a land to live in, God has promised people today a place to live too. Listen to what Jesus promised." },
+            { type: "verse", reference: "John 14:1–3 (CEV)", text: "“Jesus said to his disciples: Don't be worried! Have faith in God and have faith in me. There are many rooms in my Father's house. I wouldn't tell you this, unless it was true. I am going there to prepare a place for each of you. After I have done this, I will come back and take you with me.”" },
+            { type: "story", text: "Jesus said this just before he left his disciples. He was about to die on the cross and be raised from death, and his disciples were worried about what life would be like without him." },
+            { type: "question", text: "What did Jesus tell his disciples to do, and what promise were they to trust?", hint: "Accept responses. To have faith in God and have faith in him — to trust him. The promise: that Jesus was going to prepare a place for them, and when it was ready he would come back and take them to live there." },
+            { type: "question", text: "What things might someone be tempted to love more than God today?", hint: "Accept responses — money, family, friends, sport, games, pets, phones. Note that most of these are good things; the problem is putting them ahead of God, which is exactly the idol problem Israel faced." },
+            { type: "question", text: "How can someone show that they love God more than anything else in their life?", hint: "Accept responses. By trusting and obeying him — and they find out what he wants by reading the Bible." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+            { type: "prayer", text: "Dear God, thank you for what we learned today about how Israel had a choice to obey you or to ignore you. Thank you that the Bible teaches us that you invite people today to make a choice, and that you want your people to trust and obey you. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "John 14:1–7",
+            topic: "Jesus' promise of a place",
+            bigIdea: "God is faithful to his promises and will give his people what he promised — but he wants his people to trust and obey him, and he never gives up on them even when they fail.",
+            learningIntentions: [
+              "We are learning that God saves people today through Jesus' death in their place.",
+              "We are learning that Jesus promised to prepare a place for his people and to come back for them.",
+              "I can name something people might love more than God, and say how someone shows they love God most.",
+            ],
+            assessment: "Listen for whether students can state Jesus' promise in their own words and connect it to God's promise of land to Israel.",
+            resources: [],
+            script: [
+              {
+                heading: "Saved to belong",
+                minutes: "2–3 min",
+                teacherTalk: "Connect God choosing Israel with God saving people today into his family.",
+                activityNote: null,
+                keyQuestion: "How does God save people today?",
+                teacherGuidance: "Accept responses. By sending Jesus to die on the cross in their place so they can be forgiven and have eternal life.",
+              },
+              {
+                heading: "Jesus' promise",
+                minutes: "3–4 min",
+                teacherTalk: "Read John 14:1–3, set the scene, then draw out the promise.",
+                activityNote: "Use the John 14 verse block.",
+                keyQuestion: "What did Jesus tell his disciples to do, and what promise were they to trust?",
+                teacherGuidance: "Accept responses. To have faith in God and in him; that he was preparing a place and would come back for them.",
+              },
+              {
+                heading: "Loving God most",
+                minutes: "3–4 min",
+                teacherTalk: "Ask both questions about competing loves and how love for God shows.",
+                activityNote: null,
+                keyQuestion: "What things might someone be tempted to love more than God today?",
+                teacherGuidance: "Accept responses. Note that most are good things — the problem is putting them ahead of God, the same idol problem Israel faced.",
+              },
+              {
+                heading: "Verse and prayer",
+                minutes: "2 min",
+                teacherTalk: "Say Psalm 117:2 together and close in prayer.",
+                activityNote: "Use the verse and prayer blocks.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Next week Joshua takes over, and God finally brings his people into the land.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 9 =================
+    "Week 9": {
+      lessonTitle: "The land",
+      passage: "Joshua 1–6",
+      bigIdea: "God brought his people into the land, exactly as he had promised — and his promises to Abraham were always pointing to something bigger than a piece of land: Jesus, and living with God forever.",
+      source: "Connect B2 Upper Primary — Lesson 9",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Be strong and brave",
+          blocks: [
+            { type: "story", text: "Moses had given the people everything they needed to know, and then he died — before they entered the land. So God chose Joshua, Moses' assistant, to lead his people in." },
+            { type: "story", text: "This is what God said to Joshua: Be strong and brave. Be careful to do everything my servant Moses taught you and wrote down in the book of the Law. Don't ever stop reading it. Don't be afraid, because I will be with you everywhere you go." },
+            { type: "question", text: "What exactly was Joshua told to do?", hint: "Accept responses. Be strong and brave; be careful to obey everything Moses taught and wrote down; keep reading God's Law; don't be afraid, because God would be with him." },
+            { type: "question", text: "Over the last two terms we have been following God's promises to Abraham — land, a great nation, and blessing to the nations. Which of those had God already kept, and which was Israel still waiting for?", hint: "Accept responses. Israel had certainly become a great nation, and God had blessed them again and again. The land, and blessing to the nations, were still outstanding. Today we find out about the land." },
+            { type: "story", text: "Before taking the land, Joshua sent two men to secretly explore it — and especially the walled city of Jericho." },
+            { type: "roleplay", title: "Lesson 9 scene: Rahab and the spies", characters: ["Narrator", "Soldiers", "Rahab", "Spy 1", "Spy 2"], lines: [
+              { character: "Narrator", text: "Joshua chose two men to spy out the land. The spies went into Jericho and spent the night at the house of a woman named Rahab. When the king was told about them he sent soldiers to arrest them. But Rahab had hidden the spies on her roof under some branches." },
+              { character: "Soldiers", text: "(Knocking at Rahab's door)", direction: true },
+              { character: "Soldiers", text: "Let us have the men who are staying at your house. They are spies." },
+              { character: "Rahab", text: "Some men did come to my house but they didn't say where they'd come from. They left just before the gates were closed. If you hurry, maybe you can catch them." },
+              { character: "Narrator", text: "So the soldiers left to look for the spies. And Rahab went back up to the roof to talk to the men." },
+              { character: "Rahab", text: "I know that the Lord has given Israel this land. Everyone shakes with fear because we've heard of everything the Lord has done for you. Please promise me in the Lord's name that you will be as kind to my family as I have been to you." },
+              { character: "Spy 1", text: "If you keep quiet about what we're doing, we promise to be kind to you when the Lord gives us this land." },
+              { character: "Spy 2", text: "Tie this red rope on your window when we attack, and all your family must be here with you." },
+              { character: "Rahab", text: "I'll do exactly what you said." },
+              { character: "Narrator", text: "Rahab's house was built into the town wall, so she gave the spies a rope so they could climb down." },
+              { character: "Rahab", text: "Hide in the hills because the men who are looking for you won't find you there. When they give up and come back you can be on your way." },
+              { character: "Narrator", text: "The spies left and Rahab tied the red rope to the window. After hiding in the hills, the spies went back and reported everything that had happened to Joshua." },
+              { character: "Spy 1", text: "(To Joshua) We're sure the Lord has given us the whole country. The people there shake with fear every time they think of us." },
+            ] },
+            { type: "question", text: "Rahab wasn't an Israelite. So why was she so certain that God had given Israel the land?", hint: "Accept responses. Because she had heard everything the Lord had done — the Red Sea, the desert, the kings Israel had already defeated. The news had reached Jericho, and the whole city was terrified." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Joshua 1:6–9; Joshua 2",
+            topic: "Joshua takes over; Rahab and the spies",
+            bigIdea: "God brought his people into the land, exactly as he had promised — and his promises to Abraham were always pointing to something bigger than a piece of land: Jesus, and living with God forever.",
+            learningIntentions: [
+              "We are learning that God chose Joshua to lead his people into the land, and told him to be strong, brave and obedient.",
+              "We are learning that Rahab protected the spies because she had heard what God had done.",
+              "I can say which of God's promises to Abraham Israel was still waiting for.",
+            ],
+            assessment: "Listen for whether students can explain why Rahab feared and trusted Israel's God.",
+            resources: ["On-screen script: Rahab and the spies (5 speaking parts)"],
+            script: [
+              {
+                heading: "A new leader",
+                minutes: "2–3 min",
+                teacherTalk: "Explain that Moses died before entering the land and God chose Joshua. Give God's charge from Joshua 1:6–9.",
+                activityNote: null,
+                keyQuestion: "What exactly was Joshua told to do?",
+                teacherGuidance: "Accept responses. Be strong and brave; obey everything Moses taught; keep reading God's Law; don't be afraid, because God would be with him.",
+              },
+              {
+                heading: "Promises still outstanding",
+                minutes: "2 min",
+                teacherTalk: "Review God's three promises to Abraham and which ones remained.",
+                activityNote: null,
+                keyQuestion: "Which of those had God already kept, and which was Israel still waiting for?",
+                teacherGuidance: "Accept responses. Great nation and blessing already evident; the land and blessing to the nations still outstanding.",
+              },
+              {
+                heading: "Rahab and the spies",
+                minutes: "5–6 min",
+                teacherTalk: "Assign parts and run the on-screen script.",
+                activityNote: "Tap Start the script on screen; readers follow the fullscreen presenter one line at a time.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Why Rahab believed",
+                minutes: "2 min",
+                teacherTalk: "Ask why an outsider in Jericho was so sure about Israel's God.",
+                activityNote: null,
+                keyQuestion: "Rahab wasn't an Israelite. So why was she so certain that God had given Israel the land?",
+                teacherGuidance: "Accept responses. She had heard about the Red Sea, the desert and the defeated kings. Jericho was terrified.",
+              },
+            ],
+            whereToNext: "Day 2 crosses the Jordan River on dry ground.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Crossing the Jordan",
+          blocks: [
+            { type: "story", text: "The spies came back with the report: the whole country shakes with fear at the thought of us. But between God's people and the land was the Jordan River — and there was no bridge." },
+            { type: "roleplay", title: "Lesson 9 scene: Crossing the Jordan", characters: ["Narrator", "Leaders", "God", "Joshua"], lines: [
+              { character: "Narrator", text: "Early the next morning, Joshua and the Israelites packed up. They walked all day and they camped by the River Jordan that night. Two days later their leaders went through the camp, shouting:" },
+              { character: "Leaders", text: "When you see some of the priests carrying the sacred chest, you'll know it is time to cross to the other side. Unless you follow the chest you won't know the way. But don't get too close!" },
+              { character: "Narrator", text: "On Joshua's instruction the priests picked up the chest by its carrying poles and went ahead of Israel. The Lord told Joshua:" },
+              { character: "God", text: "(Voice only) Beginning today I will show the people that you are their leader, and they will know that I am helping you as I helped Moses. Now, tell the priests who are carrying the chest to go a little way into the river and stand there." },
+              { character: "Joshua", text: "(To the Israelites) Come here and listen to what the Lord our God said he will do! There are many people living on the other side of the river but the living God will be with you and will force them out of the land when you attack. And now, God is going to prove that he's powerful enough to force them out. Just watch the sacred chest that belongs to the Lord, the ruler of the whole earth. As soon as the priests carrying the chest step into the Jordan, the water will stop flowing and pile up as if someone had built a dam across the river." },
+              { character: "Narrator", text: "The Israelites packed up and left camp. The priests carrying the chest walked in front, until they came to the Jordan River. As soon as their feet touched the water, the river stopped flowing, and the water started piling up at the town up the river. No water flowed toward the Dead Sea, and the priests stood in the middle of the dry riverbed near Jericho while everyone else crossed over." },
+            ] },
+            { type: "image", key: "wk9-01-crossing-jordan", caption: "The priests carried the sacred chest into the Jordan — and the water piled up so the whole nation could walk across on dry ground." },
+            { type: "question", text: "Where had God's people seen water stop like this before?", hint: "Accept responses. At the Red Sea, when God rescued them out of Egypt — except that time it was their parents and grandparents who saw it, not them." },
+            { type: "question", text: "Why do you think God did it this way, with the priests stepping in first?", hint: "Accept responses. Guide toward: God said it himself — so the people would know he was with Joshua just as he had been with Moses, and so they would do what Joshua told them. Someone had to step into a flowing river before anything happened, which took trust." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Joshua 3",
+            topic: "God stops the Jordan River",
+            bigIdea: "God brought his people into the land, exactly as he had promised — and his promises to Abraham were always pointing to something bigger than a piece of land: Jesus, and living with God forever.",
+            learningIntentions: [
+              "We are learning that God stopped the Jordan River so his people could cross on dry ground.",
+              "We are learning that God did this so the people would know he was with Joshua as he had been with Moses.",
+              "I can compare the Jordan crossing with the Red Sea rescue.",
+            ],
+            assessment: "Listen for whether students can explain God's stated reason for the miracle, not just describe it.",
+            resources: ["On-screen script: Crossing the Jordan (4 speaking parts)", "Comic panel: Joshua crossing the Jordan"],
+            script: [
+              {
+                heading: "The river in the way",
+                minutes: "1–2 min",
+                teacherTalk: "Report the spies' news and set up the problem of the Jordan.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Crossing the Jordan",
+                minutes: "5–6 min",
+                teacherTalk: "Assign parts and run the on-screen script, then display the comic panel.",
+                activityNote: "Tap Start the script on screen; then show the crossing image block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Where have we seen this?",
+                minutes: "2 min",
+                teacherTalk: "Ask the class to connect this to the Red Sea.",
+                activityNote: null,
+                keyQuestion: "Where had God's people seen water stop like this before?",
+                teacherGuidance: "Accept responses. At the Red Sea — though that was their parents' and grandparents' generation.",
+              },
+              {
+                heading: "Why this way?",
+                minutes: "2–3 min",
+                teacherTalk: "Draw out God's own stated reason for the miracle.",
+                activityNote: null,
+                keyQuestion: "Why do you think God did it this way, with the priests stepping in first?",
+                teacherGuidance: "Accept responses. So the people would know God was with Joshua as with Moses, and would obey him. Stepping into a flowing river first took trust.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Psalm 117:2 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 marches around Jericho.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "The walls fall",
+          blocks: [
+            { type: "story", text: "The people of Jericho had heard everything, and they were terrified. They locked the gates in their town wall so that no-one could go out or come in. And then God gave Joshua his battle plan — which was not like any battle plan you have ever heard." },
+            { type: "roleplay", title: "Lesson 9 scene: Battle of Jericho", characters: ["Narrator", "God", "Joshua"], lines: [
+              { character: "Narrator", text: "Now, the people of Jericho had been locking the gates in their town wall because they were afraid of the Israelites. No-one could go out or come in. The Lord said to Joshua:" },
+              { character: "God", text: "With my help, you and your army will defeat the King of Jericho and his army, and you will capture the town." },
+              { character: "Narrator", text: "Joshua called the priests and army together and gave them their orders." },
+              { character: "Joshua", text: "(To the priests) Take the chest and have seven priests carry trumpets and march ahead of it." },
+              { character: "Joshua", text: "(To the army) March slowly around Jericho. A few of you will go ahead of the chest to guard it, but most of you will follow it. Don't shout the battle cry or yell or even talk until the day I tell you to. Then let out a shout!" },
+              { character: "Narrator", text: "As soon as Joshua finished giving the orders, the army started marching. They marched around Jericho once then returned to camp. They did this once a day for six days. On the seventh day, the army marched slowly around Jericho the same as they had done for the past six days, except on this day they went around seven times. After the last time the priests blew the trumpets and Joshua yelled:" },
+              { character: "Joshua", text: "Get ready to shout! The Lord will let you capture this town. But protect Rahab, the woman who helped the spies we sent, and the others who are inside her house." },
+              { character: "Narrator", text: "The priests blew their trumpets again, and the soldiers shouted as loud as they could. The walls of Jericho fell flat. Then the soldiers rushed up the hill, went straight into the town, and captured it — but they protected Rahab and the others in her house." },
+            ] },
+            { type: "image", key: "wk9-02-jericho-walls", caption: "On the seventh day the priests blew the trumpets, the soldiers shouted — and the walls of Jericho fell flat." },
+            { type: "question", text: "Marching quietly around a city for a week is a very strange way to win a battle. Why do you think God told them to do it that way?", hint: "Accept responses. Guide toward: nobody could look at those walls afterwards and say the army knocked them down. The victory was obviously God's. And obeying an instruction that sounded ridiculous was itself an act of trust — the exact thing their parents refused to do in Week 7." },
+            { type: "question", text: "Did God keep his promise to his people?", hint: "Accept responses. Yes, he did. God said he would give them the land, and he gave them their first city west of the Jordan." },
+            { type: "question", text: "Rahab helped the spies and was rescued when the city fell. What does it tell us that God rescued someone from Jericho?", hint: "Accept responses. Guide toward: God's rescue was never only for people born Israelite. Rahab heard what God had done, believed it, and acted on it — and she was saved along with her whole family." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Joshua 6",
+            topic: "The battle of Jericho",
+            bigIdea: "God brought his people into the land, exactly as he had promised — and his promises to Abraham were always pointing to something bigger than a piece of land: Jesus, and living with God forever.",
+            learningIntentions: [
+              "We are learning that God gave Israel Jericho after they obeyed his unusual instructions.",
+              "We are learning that Rahab and her family were rescued when the city fell.",
+              "I can explain why God's plan made the victory obviously his.",
+            ],
+            assessment: "Listen for whether students can say why the marching plan mattered, and connect obedience here with the refusal in Week 7.",
+            resources: ["On-screen script: Battle of Jericho (3 speaking parts)", "Comic panel: the walls of Jericho fall"],
+            script: [
+              {
+                heading: "A locked city",
+                minutes: "1–2 min",
+                teacherTalk: "Set the scene — Jericho locked up tight and terrified.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Battle of Jericho",
+                minutes: "5 min",
+                teacherTalk: "Assign parts and run the on-screen script, then display the comic panel.",
+                activityNote: "Tap Start the script on screen; then show the walls image block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Why march?",
+                minutes: "3 min",
+                teacherTalk: "Ask why God chose such a strange plan, and link back to Week 7.",
+                activityNote: null,
+                keyQuestion: "Marching quietly around a city for a week is a very strange way to win a battle. Why do you think God told them to do it that way?",
+                teacherGuidance: "Accept responses. Nobody could claim the army did it — the victory was obviously God's. Obeying an odd-sounding instruction was itself trust, exactly what their parents refused.",
+              },
+              {
+                heading: "Rahab rescued",
+                minutes: "2–3 min",
+                teacherTalk: "Note that Rahab and her family were protected, and ask what that shows.",
+                activityNote: null,
+                keyQuestion: "Rahab helped the spies and was rescued when the city fell. What does it tell us that God rescued someone from Jericho?",
+                teacherGuidance: "Accept responses. God's rescue was never only for people born Israelite. Rahab heard, believed and acted — and was saved.",
+              },
+            ],
+            whereToNext: "Day 4 asks what God's promise to Abraham was really about all along.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "What the promise was always about",
+          blocks: [
+            { type: "story", text: "God kept being faithful to his people even when they weren't faithful to him. And when they were faithful, they were blessed with great victories. At the very end of the book of Joshua, God's people promised again that they would worship and obey God alone." },
+            { type: "question", text: "Do you think the Israelites managed to keep that promise?", hint: "Accept responses. No. They kept disobeying God and worshipping idols — and eventually God did exactly what he had said in Deuteronomy and they were not able to stay in the land." },
+            { type: "question", text: "So if God's people ended up not living in the land — does that mean God didn't keep his promise?", hint: "Accept responses. Let students sit with this one for a moment; today's answer is that the promise was always about something bigger than that piece of ground." },
+            { type: "story", text: "Here is what the writer of Hebrews says about Abraham: because Abraham had faith, he lived as a stranger in the promised land, living in tents — because he was waiting for the eternal city that God had planned and built." },
+            { type: "verse", reference: "Hebrews 11:9–10 (CEV)", text: "“Abraham had faith and lived as a stranger in the country that God had promised him. He lived there in a tent, and so did Isaac and Jacob, who were later given the same promise. Abraham did this, because he was waiting for the eternal city that God had planned and built.”" },
+            { type: "question", text: "What was Abraham waiting for, and where is it?", hint: "Accept responses. An eternal city that God had planned and built — in heaven. Abraham was living in the land God promised him and was still waiting for something better." },
+            { type: "story", text: "God's promises to Abraham were always about something bigger than the Israelites and the Promised Land. God's promises to Abraham were always about Jesus. The promise to give Abraham the land of Canaan was pointing all along to heaven, where God's people will live with him forever and always obey him." },
+            { type: "story", text: "Which means God's promises to Abraham are for people today too. When people trust in Jesus and obey God, they will live forever with him." },
+            { type: "verse", reference: "Psalm 117:2 (CEV)", text: "“His love for us is wonderful, his faithfulness never ends. Shout praises to the Lord!”" },
+            { type: "prayer", text: "Dear God, thank you that you kept your promise to Abraham, Isaac and Jacob and brought your people into the land of Canaan. Thank you that your promises to Abraham are for people today too. Thank you that you sent Jesus to die for people's sins so that they can have eternal life in heaven. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Hebrews 11:8–10; Joshua 24",
+            topic: "The promise was always about Jesus",
+            bigIdea: "God brought his people into the land, exactly as he had promised — and his promises to Abraham were always pointing to something bigger than a piece of land: Jesus, and living with God forever.",
+            learningIntentions: [
+              "We are learning that Israel did not keep their promise to worship God alone and eventually lost the land.",
+              "We are learning that Abraham was waiting for an eternal city built by God.",
+              "I can explain that God's promises to Abraham were always pointing to Jesus.",
+            ],
+            assessment: "Listen for whether students can answer the did-God-break-his-promise question using Hebrews 11.",
+            resources: [],
+            script: [
+              {
+                heading: "The promise they couldn't keep",
+                minutes: "3 min",
+                teacherTalk: "Describe Israel's renewed promise at the end of Joshua and what actually happened.",
+                activityNote: null,
+                keyQuestion: "Do you think the Israelites managed to keep that promise?",
+                teacherGuidance: "Accept responses. No — they worshipped idols and eventually lost the land, exactly as God had warned.",
+              },
+              {
+                heading: "Did God break his promise?",
+                minutes: "2 min",
+                teacherTalk: "Pose the harder question and let it sit before answering.",
+                activityNote: null,
+                keyQuestion: "So if God's people ended up not living in the land — does that mean God didn't keep his promise?",
+                teacherGuidance: "Accept responses. Don't resolve it yet; Hebrews 11 gives the answer next.",
+              },
+              {
+                heading: "What Abraham was waiting for",
+                minutes: "3–4 min",
+                teacherTalk: "Read Hebrews 11:9–10 and draw out that Abraham was in the land and still waiting.",
+                activityNote: "Use the Hebrews 11 verse block.",
+                keyQuestion: "What was Abraham waiting for, and where is it?",
+                teacherGuidance: "Accept responses. An eternal city planned and built by God — heaven.",
+              },
+              {
+                heading: "Always about Jesus",
+                minutes: "2–3 min",
+                teacherTalk: "Land the point: the promise of Canaan was pointing to heaven, and to Jesus, and it is for people today.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Verse and prayer",
+                minutes: "2 min",
+                teacherTalk: "Say Psalm 117:2 together and close in prayer.",
+                activityNote: "Use the verse and prayer blocks.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Next week is the last of the term: the old agreement and the new one God made in Jesus.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 10 =================
+    "Week 10": {
+      lessonTitle: "The new covenant",
+      passage: "Jeremiah 31:31–34; Hebrews 10:1; Luke 24:27",
+      bigIdea: "The old agreement God made through Moses was only ever a shadow pointing forward. In Jesus, God made a new agreement — his people are forgiven, and his Spirit lives in them so they can obey him.",
+      source: "Connect B2 Upper Primary — Lesson 10",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "They made it — and there was still a problem",
+          blocks: [
+            { type: "story", text: "Last week God led his people into the land he had promised, and they captured Jericho. God had kept his promise. Homes, fields, food, a place of their own — they must have thought everything would be great from here." },
+            { type: "image", key: "wk10-01-promised-land", caption: "God's people had finally arrived in the land he promised them — exactly as he said they would." },
+            { type: "story", text: "But it turns out there was still a huge problem. And the problem was not with God." },
+            { type: "question", text: "The agreement God made at Mount Sinai had two sides — God's side and the people's side. Which side kept failing?", hint: "Accept responses. The people's side, every time. God kept his promises. His people broke theirs — they promised to obey and worship him alone, and they didn't." },
+            { type: "story", text: "So through the prophet Jeremiah, God said something new: the time will surely come when I will make a new agreement with the people of Israel — not like the agreement I made with their ancestors when I led them out of Egypt, an agreement they broke." },
+            { type: "story", text: "This week — our last week of the term — we are going to look at God's new agreement. And to understand it, we have to remember everything we have learned this term about his old one." },
+            { type: "verse", reference: "Luke 24:27 (CEV)", text: "“Jesus then explained everything written about himself in the Scriptures, beginning with the Law of Moses and the Books of the Prophets.”" },
+            { type: "activity", text: "This week we have a new memory verse — our last one for the term. Let's read it together and say it two or three times." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Jeremiah 31:31–32",
+            topic: "The problem with the old agreement",
+            bigIdea: "The old agreement God made through Moses was only ever a shadow pointing forward. In Jesus, God made a new agreement — his people are forgiven, and his Spirit lives in them so they can obey him.",
+            learningIntentions: [
+              "We are learning that God kept his promise and brought his people into the land.",
+              "We are learning that the old agreement failed because God's people broke it, not because God did.",
+              "I can begin learning this week's new memory verse, Luke 24:27.",
+            ],
+            assessment: "Listen for whether students can state clearly whose side of the agreement failed.",
+            resources: ["Comic panel: the Happy Promised Land"],
+            script: [
+              {
+                heading: "They made it",
+                minutes: "2–3 min",
+                teacherTalk: "Recap last week's arrival in the land and display the comic panel.",
+                activityNote: "Show the Promised Land image block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Still a problem",
+                minutes: "3 min",
+                teacherTalk: "Introduce the problem and ask which side of the agreement kept failing.",
+                activityNote: null,
+                keyQuestion: "The agreement God made at Mount Sinai had two sides — God's side and the people's side. Which side kept failing?",
+                teacherGuidance: "Accept responses. The people's side, every time. God kept his promises; his people broke theirs.",
+              },
+              {
+                heading: "God promises something new",
+                minutes: "3 min",
+                teacherTalk: "Give Jeremiah 31:31–32 — God will make a new agreement, not like the old one they broke.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "New memory verse",
+                minutes: "2 min",
+                teacherTalk: "Introduce this term's final memory verse, Luke 24:27, and say it together.",
+                activityNote: "Use the verse block, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 lines the old agreement up beside the new one, side by side.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Old agreement, new agreement",
+          blocks: [
+            { type: "story", text: "This term we have followed God's old agreement with his people the whole way — out of Egypt, through the Red Sea, to Mount Sinai, into the tabernacle, and into the Promised Land. Today we put it side by side with the new agreement God made in Jesus." },
+            { type: "dictation", title: "The old agreement and the new — read together", lines: [
+              { text: "God promised his people a land ..." },
+              { text: "In the old agreement, that land was Canaan." },
+              { text: "In the new agreement, it is heaven." },
+              { text: "God rescued his people ..." },
+              { text: "In the old agreement, he rescued them out of slavery in Egypt, by Moses, whom God sent to rescue them." },
+              { text: "In the new agreement, he rescues people out of slavery to sin, by Jesus, whom God sent." },
+              { text: "God chose for himself a special people ..." },
+              { text: "In the old agreement, that was the nation of Israel, whose job was to be priests." },
+              { text: "In the new agreement, it is people from every nation — a royal priesthood, a holy nation." },
+              { text: "God made an agreement with his people ..." },
+              { text: "In the old agreement, at Mount Sinai, through Moses." },
+              { text: "In the new agreement, at Mount Zion, through Jesus." },
+              { text: "And in both agreements, this is what his people agreed to do: to obey him, and to worship him only." },
+              { text: "God chose to live with his people ..." },
+              { text: "In the old agreement, he lived among them in the tabernacle, the sacred tent." },
+              { text: "In the new agreement, he lives in his people, by his Spirit." },
+            ] },
+            { type: "question", text: "What do you notice, comparing the two? What is the same, and what is different?", hint: "Accept responses. The same: God rescues, God chooses a people, God makes an agreement, God comes to live with them, and he asks for worship and obedience. Different: the rescue is bigger (sin, not Egypt), the people are wider (every nation, not one), and God moves from living beside his people to living inside them." },
+            { type: "question", text: "Which line in that list do you think would have been the most surprising to an Israelite?", hint: "Accept responses. Likely candidates: people from every nation, and God living in his people rather than in the tent. Both were genuinely new." },
+            { type: "verse", reference: "Luke 24:27 (CEV)", text: "“Jesus then explained everything written about himself in the Scriptures, beginning with the Law of Moses and the Books of the Prophets.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 12:5b–7; Exodus 3:7–10; 19:1–6; 25:8–9; John 1:29; Hebrews 12:18–25; 1 Corinthians 3:16; 1 Peter 2:9; Revelation 21:1–3",
+            topic: "The old and new agreements side by side",
+            bigIdea: "The old agreement God made through Moses was only ever a shadow pointing forward. In Jesus, God made a new agreement — his people are forgiven, and his Spirit lives in them so they can obey him.",
+            learningIntentions: [
+              "We are learning how each part of the old agreement matches a part of the new agreement.",
+              "We are learning that in the new agreement God's people come from every nation.",
+              "I can name one thing that is the same and one thing that is different between the two agreements.",
+            ],
+            assessment: "Listen for whether students can pair at least two old-agreement items with their new-agreement counterparts.",
+            resources: ["On-screen whole-class reading: the old agreement and the new"],
+            script: [
+              {
+                heading: "Where we've been this term",
+                minutes: "2 min",
+                teacherTalk: "Trace the term quickly: Egypt, Red Sea, Sinai, tabernacle, Promised Land.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Read it together",
+                minutes: "5–6 min",
+                teacherTalk: "Run the whole-class reading on screen, one line at a time.",
+                activityNote: "Tap Start the script on screen. The class reads each line together off the display.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Same and different",
+                minutes: "3–4 min",
+                teacherTalk: "Debrief the comparison with both questions.",
+                activityNote: null,
+                keyQuestion: "What do you notice, comparing the two? What is the same, and what is different?",
+                teacherGuidance: "Accept responses. Same: God rescues, chooses, makes an agreement, comes to live with his people. Different: a bigger rescue, a wider people, and God living inside rather than beside them.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Luke 24:27 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 asks why God gave the old agreement at all, if it was never going to work.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "A shadow of the good things to come",
+          blocks: [
+            { type: "story", text: "If the old agreement was always going to be broken, why did God give it at all? The writer of Hebrews answers that with a picture. He says the Law of Moses is only a shadow of the good things to come." },
+            { type: "question", text: "Picture a shadow stretched out on the ground in front of you. What does a shadow tell you — and what can't it do?", hint: "Accept responses. A shadow tells you someone is really standing there, and roughly what shape they are. But the shadow isn't the person. You can't talk to it or shake its hand. It only points to the real thing." },
+            { type: "story", text: "It's the same with the old agreement God made with his people through Moses at Mount Sinai. It was never the good thing itself. It only ever pointed to the good thing — the new agreement." },
+            { type: "question", text: "What can't the Law of Moses do?", hint: "Accept responses. It can't free people from their sin. It could show people what sin was, but it was never designed to actually take it away." },
+            { type: "story", text: "Think of all those sacrifices at the tabernacle — every day, every year, over and over. They showed how serious sin was. But they never finished the job, which is why they had to keep happening." },
+            { type: "story", text: "They were a shadow, pointing to the real thing: Jesus, the Lamb of God, who takes away the sin of the world. The old agreement was never designed to actually forgive God's people. It was only ever a shadow that pointed to the reality." },
+            { type: "question", text: "Why do you think God gave his people a shadow first, instead of just sending Jesus straight away?", hint: "Accept responses. Guide toward: the shadow taught them what they needed to know — how holy God is, how serious sin is, and how badly they needed a rescuer. Without the old agreement, nobody would have understood what Jesus came to do." },
+            { type: "verse", reference: "Luke 24:27 (CEV)", text: "“Jesus then explained everything written about himself in the Scriptures, beginning with the Law of Moses and the Books of the Prophets.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Hebrews 10:1; John 1:29",
+            topic: "The old agreement as a shadow",
+            bigIdea: "The old agreement God made through Moses was only ever a shadow pointing forward. In Jesus, God made a new agreement — his people are forgiven, and his Spirit lives in them so they can obey him.",
+            learningIntentions: [
+              "We are learning that the Law of Moses is described as a shadow of the good things to come.",
+              "We are learning that the Law could not free people from sin.",
+              "I can explain what the shadow was pointing to.",
+            ],
+            assessment: "Listen for whether students can use the shadow picture to explain what the old agreement could and could not do.",
+            resources: [],
+            script: [
+              {
+                heading: "Why give it at all?",
+                minutes: "2 min",
+                teacherTalk: "Pose the question, then introduce Hebrews 10:1 and the shadow picture.",
+                activityNote: null,
+                keyQuestion: "Picture a shadow stretched out on the ground in front of you. What does a shadow tell you — and what can't it do?",
+                teacherGuidance: "Accept responses. It tells you someone is really there, but it isn't the person. It only points to the real thing.",
+              },
+              {
+                heading: "What the Law couldn't do",
+                minutes: "3–4 min",
+                teacherTalk: "Apply the picture to the old agreement and the daily sacrifices.",
+                activityNote: null,
+                keyQuestion: "What can't the Law of Moses do?",
+                teacherGuidance: "Accept responses. It can't free people from sin. It showed what sin was but never took it away.",
+              },
+              {
+                heading: "Pointing to Jesus",
+                minutes: "3 min",
+                teacherTalk: "Name what the shadow pointed to — Jesus, the Lamb of God who takes away the sin of the world.",
+                activityNote: null,
+                keyQuestion: "Why do you think God gave his people a shadow first, instead of just sending Jesus straight away?",
+                teacherGuidance: "Accept responses. The shadow taught them how holy God is, how serious sin is, and how badly they needed a rescuer.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Luke 24:27 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 finishes the term with what the new agreement actually changes.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Written on hearts",
+          blocks: [
+            { type: "story", text: "Here is what God said the new agreement would be like. Through Jeremiah he said: I will write my laws on their hearts and minds. I will be their God, and they will be my people. And I will forgive their sins and forget the evil things they have done." },
+            { type: "question", text: "How would that fix the problem the old agreement had?", hint: "Accept responses. The old agreement was written on stone tablets outside people; the new one is written on their hearts and minds, so God's people would actually be able to keep their end of it and obey him." },
+            { type: "question", text: "What did God do so that he could forgive his people?", hint: "Accept responses. He sent Jesus to die on the cross in the place of sinners, to bring forgiveness to everyone who trusts and follows him." },
+            { type: "question", text: "And where does God live now, when his people have been forgiven?", hint: "Accept responses. God lives in his people, by his Spirit. That is what he meant by writing his law on their hearts and minds — his Spirit lives in his people so they can obey his word." },
+            { type: "story", text: "The apostle Paul puts it like this: anyone who belongs to Christ is a new person. The past is forgotten, and everything is new. When someone puts their trust in Jesus they are forgiven, they have a new relationship with God, and they no longer live the way they used to." },
+            { type: "story", text: "And this is why our memory verse this week comes from Luke 24. After Jesus rose from death he walked along a road with two of his followers, and he explained everything written about himself in the Scriptures — beginning with the Law of Moses and the Books of the Prophets." },
+            { type: "question", text: "Think back over this whole term — Egypt, the Red Sea, the Law at Sinai, the tabernacle, the Promised Land. What was all of it pointing to?", hint: "Accept responses. All of it points to Jesus. The rescue, the agreement, the sacrifices, God living with his people, the land — every one of them is a shadow of something Jesus brings." },
+            { type: "verse", reference: "Luke 24:27 (CEV)", text: "“Jesus then explained everything written about himself in the Scriptures, beginning with the Law of Moses and the Books of the Prophets.”" },
+            { type: "prayer", text: "Dear God, thank you that you are faithful to your promises. Thank you that your old agreement with your people points to your new and better agreement. Thank you that Jesus' death on the cross means that people today can be forgiven and your Spirit can live in them. Please help your people to put their trust in Jesus and worship and obey you only. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Jeremiah 31:33–34; Luke 24:27; 2 Corinthians 5:17",
+            topic: "What the new agreement changes",
+            bigIdea: "The old agreement God made through Moses was only ever a shadow pointing forward. In Jesus, God made a new agreement — his people are forgiven, and his Spirit lives in them so they can obey him.",
+            learningIntentions: [
+              "We are learning that in the new agreement God writes his law on people's hearts and minds.",
+              "We are learning that God forgives his people because Jesus died in their place, and his Spirit then lives in them.",
+              "I can explain that everything we studied this term points to Jesus.",
+            ],
+            assessment: "Listen for whether students can name the two things the new agreement gives — forgiveness, and God's Spirit living in his people.",
+            resources: [],
+            script: [
+              {
+                heading: "A law written on hearts",
+                minutes: "3 min",
+                teacherTalk: "Give Jeremiah 31:33–34 and ask how it fixes the old problem.",
+                activityNote: null,
+                keyQuestion: "How would that fix the problem the old agreement had?",
+                teacherGuidance: "Accept responses. The old agreement was written outside people, on stone; the new one is written inside, so God's people can actually obey.",
+              },
+              {
+                heading: "Forgiveness, and the Spirit",
+                minutes: "4 min",
+                teacherTalk: "Work through both questions — what God did so he could forgive, and where God lives now.",
+                activityNote: null,
+                keyQuestion: "What did God do so that he could forgive his people?",
+                teacherGuidance: "Accept responses. He sent Jesus to die on the cross in the place of sinners.",
+              },
+              {
+                heading: "A new person",
+                minutes: "2 min",
+                teacherTalk: "Give 2 Corinthians 5:17 — anyone who belongs to Christ is a new person.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The whole term in one verse",
+                minutes: "3 min",
+                teacherTalk: "Set the Luke 24 scene and ask the closing review question.",
+                activityNote: "Use the Luke 24:27 verse block.",
+                keyQuestion: "Think back over this whole term — Egypt, the Red Sea, the Law at Sinai, the tabernacle, the Promised Land. What was all of it pointing to?",
+                teacherGuidance: "Accept responses. All of it points to Jesus — every part is a shadow of something Jesus brings.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close the term in prayer.",
+                activityNote: "Use the prayer block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "That's the end of Term 3. Next term the students become journalists in training, starting a new book of the curriculum.",
           },
         },
       ],
