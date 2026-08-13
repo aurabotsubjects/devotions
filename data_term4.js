@@ -1,0 +1,3015 @@
+// ============================================================
+// DEVOTION DATA — STUDENT-FACING PRESENTATION — TERM 4
+// FILE STRUCTURE: one file per term (data_term4.js), each holding up to 10 weeks
+// (= 10 lessons) of that term, merged into window.DEVOTIONS["Term 4"]. Load all
+// data_term*.js files in ascending order in index.html, after the matching
+// images_term*.js files. Every term is 10 lessons; when a term isn't fully built
+// yet, its file just holds however many weeks exist so far — see the term-status
+// note further down and the handoff doc for what's outstanding.
+// Structure: DEVOTIONS[term][week] = { lessonTitle, passage, bigIdea, source, days: [day1..day4] }
+// Each day = { label, theme, blocks: [ {type, ...} ] }
+//
+// Block types (all shown ON SCREEN to students unless noted):
+//  - 'story'      : narration text, big storybook-style, read aloud together
+//  - 'image'      : a comic panel, full width, with an optional short caption
+//  - 'question'   : a discussion question for the class — shown big.
+//                   optional `hint` field is for the TEACHER ONLY (hidden behind a toggle)
+//  - 'verse'      : a memory verse, shown as a feature slide
+//  - 'prayer'     : a closing prayer, said together
+//  - 'activity'   : a short instruction students themselves act on (stand up, choose a side, etc.)
+//  - 'roleplay'   : a scripted scene students act out (multiple characters). Renders as a small
+//                   "act it out" preview card with a "Start the script on screen" button, which
+//                   opens a FULLSCREEN presenter (index.html: openScript/renderScriptLine)
+//                   showing ONE LINE AT A TIME in large text, readable from across the room on
+//                   a streamed/TV display — no printed scripts needed.
+//                   Shape: { type:'roleplay', title:'...', characters:['Name', ...] OR
+//                   [{name,color}, ...], lines:[ {character:'Name', text:'...'},
+//                   {character:'Narrator', text:'...', direction:true}, ... ] }
+//  - 'dictation'  : the SAME fullscreen line-by-line presenter as 'roleplay', but for a
+//                   WHOLE-CLASS reading (no cast list, plain "read together" framing).
+//                   Shape: { type:'dictation', title:'...', lines:[ {text:'...'}, ... ] }
+//
+// NOTE: `hint` only renders on `question` blocks, never on `activity` blocks.
+//
+// TERM 4 SOURCE: Connect B2 Upper Primary teacher's manual, Lessons 11-20 —
+// the same book Term 3 came from, continuing on from its Lesson 10, so
+// Term 4 Week N = that book's Lesson N+10. The curriculum switches at
+// Lesson 11 from the Old Testament "Survivor: Egypt" unit into a New
+// Testament unit working through Paul's letter to the Romans, framed as a
+// term-long "trainee journalists" conceit: most lessons open with a media
+// briefing, and by the end of the term the students write a newspaper
+// article outlining the gospel.
+//
+// TERM 4 STATUS: COMPLETE — all 10 weeks built (Lessons 11-20: "The
+// gospel: then and now," "The need for the gospel," "The good news of the
+// gospel!", "The fruit of the gospel," "The goal of the gospel," "The
+// hope of the gospel," "The body of the gospel," "The love of the
+// gospel," "The Christmas promise," "Miriam" — Romans 1:1-17; 1:18-3:26;
+// 3:21-5:21; 6-7; 8:1-13; 8:14-39; 12:1-8; 16:25-27; then Matthew 1 and
+// 1 Timothy 4:12).
+// This also completes the whole app: Terms 1-4 are all 10 weeks each.
+//
+// NOTE ON THE LAST TWO LESSONS: the term does not end on Romans. Lesson
+// 18 closes the letter and sets the students' end-of-term newspaper
+// article going; Lesson 19 is a Christmas lesson (Matthew 1) that also
+// closes out the entire B cycle, tying the promises to Abraham, David and
+// Isaiah back to Jesus; and Lesson 20 is a completely different KIND of
+// lesson — a contemporary profile of a real living person, Miriam, a
+// Chinese-Australian assistant school chaplain, showing students what
+// following Jesus looks like today. Lesson 20 also labels its verse "KEY
+// VERSE" rather than "Memory verse", which is why the header below says
+// key verse for Week 10. Lesson 20 ships with two PowerPoints, a standard
+// and an ALT; Week 10 was built against the STANDARD deck at the class
+// teacher's request.
+//
+// RECURRING MEMORY VERSE FOR THIS TERM: confirmed directly from each
+// lesson's own "Memory verse" box in the manual.
+//   - Weeks 1-3 (Lessons 11-13): Ephesians 2:8a (CEV) — "You were saved
+//     by faith in God, who treats us much better than we deserve." All
+//     three lessons print the identical verse.
+//   - Weeks 4-7 (Lessons 14-17): the SAME verse, EXTENDED. From Lesson 14
+//     the manual's own Memory verse box runs the full Ephesians 2:8-10
+//     (CEV): "...This is God's gift to you, and not anything you have
+//     done on your own. It isn't something you have earned, so there is
+//     nothing you can boast about. God planned for us to do good things
+//     and to live as he has always wanted us to live. That's why he sent
+//     Christ to make us what we are." This is a genuine extension printed
+//     in the manual, not an error, and it fits Lesson 14's whole point
+//     (good works follow salvation rather than earning it). Lesson 15's
+//     box prints verses 8-10 but stops just before "That's why he sent
+//     Christ to make us what we are"; Lessons 14, 16 and 17 print the
+//     full thing, so the full version is used throughout Weeks 4-8 for
+//     consistency. Week 4 Day 1 explicitly tells the class the verse has
+//     grown.
+//   - Week 8 (Lesson 18): still the full Ephesians 2:8-10, unchanged.
+//   - Week 9 (Lesson 19): changes to Luke 24:27 (CEV) — "Jesus then
+//     explained everything written about himself in the Scriptures,
+//     beginning with the Law of Moses and the Books of the Prophets."
+//     Note this is the SAME verse Term 3 Week 10 used; that is the
+//     manual's own choice in both places, not a copy-paste error. Week 9
+//     Day 1 flags to the class that they may recognise it.
+//   - Week 10 (Lesson 20): the manual switches the label from "Memory
+//     verse" to "KEY VERSE" and gives 1 Timothy 4:12 (CEV) — "Don't let
+//     anyone make fun of you, just because you are young. Set an example
+//     for other followers by what you say and do, as well as by your
+//     love, faith, and purity." Built as a normal verse block; the
+//     Monday activity block calls it the key verse rather than the memory
+//     verse, matching the manual.
+//   Two lessons additionally quote a clearly-flagged secondary verse
+//   alongside the running memory verse, included as extra verse blocks
+//   rather than replacements: Week 6 Day 3 uses Romans 8:18 (CEV) and
+//   Week 6 Day 4 uses Romans 8:38-39 (CEV), both as the manual does.
+//
+// NOTE ON SCRIPTS: this term's manual replaces the Old Testament scene
+// scripts with "media releases" — short fictional news bulletins the
+// teacher reads out to open each briefing. Those are built as `dictation`
+// blocks so the class reads them off the fullscreen presenter together:
+//   - Week 2 Day 2: Lesson 12 Media releases 1 and 2 (Alfred Woodcock;
+//     Jean-Pierre Moreau), transcribed verbatim from the manual's own
+//     printed, photocopy-licensed Visual aid page 143.
+//   - Week 3 Day 2: Lesson 13 Media releases 1 and 2 (the Robert Stanford
+//     trial and the Prime Minister's pardon).
+//   - Week 3 Day 3: Lesson 13 Media release 3 (Amar Joshi and Christina
+//     Wu, wages versus gift).
+//   - Week 5 Day 2: Lesson 15 Media release (Stavros Massoud wins the
+//     Olympic marathon), verbatim from manual page 164.
+//   - Week 7 Day 2: Lesson 17 Media release (Ricky Hong blinded in an
+//     industrial accident), verbatim from manual page 185.
+//   - Week 8 Day 4: Lesson 18 Media release, verbatim from manual page
+//     192. This is the LAST one — the manual itself calls it the final
+//     media release and it hands the students their end-of-term
+//     assignment, so Week 8 Day 4 also carries the article task and the
+//     manual's own question-suggestion list from page 195. Weeks 9 and 10
+//     have no media releases; the journalist framing finishes at Week 8.
+// Week 6 Day 1 additionally uses a `roleplay` block for the manual's own
+// printed two-hander "Interview with Stavros Massoud" (manual pages
+// 176-177, Host and SM), transcribed verbatim. It is the only scripted
+// scene in the term so far with named speaking parts rather than a
+// whole-class reading. Weeks 1, 4 and 6 have no media release of their
+// own: Lesson 11 predates the briefings, Lesson 14 re-uses Lesson 13's
+// Robert Stanford release as a follow-up interview task (built as a
+// paired activity rather than a dictation, since the text was already
+// read in Week 3), and Lesson 16 uses the interview instead.
+// The Lesson 13 releases sit on manual page 150, which falls outside the
+// scanned PDF — their text was taken verbatim from the Lesson 13
+// PowerPoint instead, where the same three releases appear as full slides.
+// The manual itself notes that all these news stories and their
+// characters are fictional; the `dictation` block titles say so too.
+//
+// NOTE ON IMAGES: Weeks 1-10 ship with NO images. None of the Lesson
+// 11-20 PowerPoints contains hand-drawn comic panel art — see the
+// images_term4.js header for the full rundown of what those decks hold
+// and why every item in them was skipped. Term 4 is the only term in the
+// app with no images at all, which is a property of this unit's source
+// material rather than an oversight.
+//
+// NOTE ON WEEK 8's CALLBACK: Week 8 Day 4 asks students to compare their
+// end-of-term newspaper article with the gospel definition they wrote in
+// Week 1 Day 4. If you are teaching this term, keep those Week 1 sheets —
+// the comparison is the intended payoff of the whole term.
+// ============================================================
+
+window.DEVOTIONS = window.DEVOTIONS || {};
+window.DEVOTIONS["Term 4"] = Object.assign(window.DEVOTIONS["Term 4"] || {}, {
+    // ================= WEEK 1 =================
+    "Week 1": {
+      lessonTitle: "The gospel: then and now",
+      passage: "Romans 1:1–17",
+      bigIdea: "God kept his promises to Abraham in Jesus. That is the good news — the gospel — and Paul was so certain of it that nothing could stop him talking about it.",
+      source: "Connect B2 Upper Primary — Lesson 11",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Part one and the sequel",
+          blocks: [
+            { type: "activity", text: "Guess that sequel. I'll say the name of a movie, and you tell me what the sequel was called. Shrek ... Home Alone ... Ice Age ... Harry Potter and the Philosopher's Stone ... The Lion, the Witch and the Wardrobe." },
+            { type: "story", text: "A sequel is the story that comes next — the one the first story was building toward. For the last two terms we have been reading part one of God's promises to Abraham. This term we find out that part one was always pointing to the sequel." },
+            { type: "question", text: "Who can remember the promises God made to Abraham?", hint: "Accept responses. Land, a great nation, and blessing to all the nations of the world — Genesis 12:1–3." },
+            { type: "question", text: "Over the last two terms, did we discover that God was a promise-keeper or a promise-breaker? What did we actually see him do?", hint: "Accept responses. A promise-keeper, every time — the birth of Isaac, Abraham's family becoming a great nation, Israel rescued from Egypt, and Israel entering the Promised Land." },
+            { type: "story", text: "It looked like things were going really well for God's people. They had finally made it into the land God promised. But the problem with God's people was that they struggled to obey God. They kept ignoring his good laws and worshipping other things." },
+            { type: "story", text: "Thankfully, God had a plan right from the beginning. Stretch your mind all the way back to the start of Term 2. God was fixing the problem of sin. Sin, then consequence, then grace — that cycle, over and over. And his plan to fix it started with Abraham." },
+            { type: "story", text: "But God's plan was never meant to end there. The promises to Abraham were always pointing forward to Jesus. God's plan to fix sin has always been about Jesus. That is the good news — which the Bible also calls the gospel." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+            { type: "activity", text: "This term we have a new memory verse. Let's read it together and say it two or three times." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 12:1–3 (review); Romans 1:1–2",
+            topic: "Part one was always pointing to the sequel",
+            bigIdea: "God kept his promises to Abraham in Jesus. That is the good news — the gospel — and Paul was so certain of it that nothing could stop him talking about it.",
+            learningIntentions: [
+              "We are learning to recall God's three promises to Abraham and how we saw him keep them.",
+              "We are learning that God's promises to Abraham were always pointing forward to Jesus.",
+              "I can begin learning this term's memory verse, Ephesians 2:8a.",
+            ],
+            assessment: "Listen for whether students can name the promises to Abraham and say who they were pointing to.",
+            resources: [],
+            script: [
+              {
+                heading: "Guess that sequel",
+                minutes: "2–3 min",
+                teacherTalk: "Run the sequel game quickly, then explain what a sequel is and make the link: two terms of part one, and this term is the sequel.",
+                activityNote: "Add any current movies your class will know.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "What we already know",
+                minutes: "3 min",
+                teacherTalk: "Review the promises to Abraham and how God kept them across Terms 2 and 3.",
+                activityNote: null,
+                keyQuestion: "Over the last two terms, did we discover that God was a promise-keeper or a promise-breaker? What did we actually see him do?",
+                teacherGuidance: "Accept responses. A promise-keeper — Isaac's birth, a great nation, the rescue from Egypt, entering the land.",
+              },
+              {
+                heading: "The problem that remained",
+                minutes: "3 min",
+                teacherTalk: "Describe how God's people struggled to obey, and recap the sin / consequence / grace cycle from Term 2.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Always about Jesus",
+                minutes: "2 min",
+                teacherTalk: "Land the point: God's plan to fix sin started with Abraham but was always about Jesus. That is the gospel.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "New memory verse",
+                minutes: "2 min",
+                teacherTalk: "Introduce this term's memory verse, Ephesians 2:8a, and say it together.",
+                activityNote: "Use the verse block, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 meets Paul and opens his letter to the Christians in Rome.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "A letter to Rome",
+          blocks: [
+            { type: "story", text: "This term you are all trainee journalists. Our job, by the end of the term, is to write a newspaper article outlining the gospel of God — the good news about Jesus. So today we start with our source." },
+            { type: "question", text: "If you had some really important news, how would you tell people? And what if it was news you wanted the whole world to know?", hint: "Accept responses — face to face, a message, a post, a video. For the whole world: TV news, the internet, a newspaper. Newspapers are a good way to get important news out, which is where our journalist job comes from." },
+            { type: "story", text: "A man named Paul believed that God had kept his promises to Abraham in Jesus. He believed this was the most important news anyone could ever hear, and he wanted everyone in the world to hear it." },
+            { type: "question", text: "But back then there was no internet, no phones, no television and no newspapers. So how do you think Paul got his message to so many people?", hint: "Accept responses. He travelled around preaching, and he wrote lots of letters." },
+            { type: "story", text: "Thankfully for us, some of the letters Paul wrote about two thousand years ago are in our Bibles. The one we are reading this term is a letter he wrote to a group of Christians living in Rome. He probably wrote it while visiting the church at Corinth." },
+            { type: "story", text: "Paul opens the letter by introducing himself: a servant of Jesus Christ, called to be an apostle. An apostle is someone sent by Jesus to tell people the good news." },
+            { type: "question", text: "The word gospel simply means good news. From the very start of Paul's letter — what is the good news actually about?", hint: "Accept responses. It is about Jesus Christ, who was both God and man — descended from David, and shown to be the Son of God by his resurrection. And it isn't new: God promised it long ago in the Scriptures, through the prophets." },
+            { type: "question", text: "And who is the good news for?", hint: "Accept responses. People of all nations — it is for everyone. Paul says God had always planned to include people who weren't Israelites." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 1:1–7",
+            topic: "Paul, his letter, and what the gospel is",
+            bigIdea: "God kept his promises to Abraham in Jesus. That is the good news — the gospel — and Paul was so certain of it that nothing could stop him talking about it.",
+            learningIntentions: [
+              "We are learning who Paul was and why he wrote letters.",
+              "We are learning that the word gospel means good news, and that the good news is about Jesus.",
+              "I can say that the gospel is for people of every nation.",
+            ],
+            assessment: "Listen for whether students can define gospel and say who it is about and who it is for.",
+            resources: ["Optional: a real newspaper, to hold up while reading out headlines"],
+            script: [
+              {
+                heading: "Trainee journalists",
+                minutes: "2 min",
+                teacherTalk: "Set up the term's job: write a newspaper article outlining the good news about Jesus.",
+                activityNote: "If you have newspapers, hold them up and read out a couple of headlines.",
+                keyQuestion: "If you had some really important news, how would you tell people? And what if it was news you wanted the whole world to know?",
+                teacherGuidance: "Accept responses. Face to face, a message, a post; for the whole world, TV, internet or a newspaper.",
+              },
+              {
+                heading: "How Paul spread the news",
+                minutes: "3 min",
+                teacherTalk: "Introduce Paul and the problem of spreading news without modern technology.",
+                activityNote: null,
+                keyQuestion: "But back then there was no internet, no phones, no television and no newspapers. So how do you think Paul got his message to so many people?",
+                teacherGuidance: "Accept responses. He travelled around preaching, and he wrote lots of letters.",
+              },
+              {
+                heading: "Opening the letter",
+                minutes: "3–4 min",
+                teacherTalk: "Read or summarise Romans 1:1–7. Draw out who Paul is, what an apostle is, and what the gospel is about.",
+                activityNote: "If your students have Bibles, read Romans 1:1–7 together.",
+                keyQuestion: "The word gospel simply means good news. From the very start of Paul's letter — what is the good news actually about?",
+                teacherGuidance: "Accept responses. Jesus Christ, God and man, descended from David, shown to be God's Son by his resurrection — and promised long ago in the Scriptures.",
+              },
+              {
+                heading: "Who it's for",
+                minutes: "2 min",
+                teacherTalk: "Ask who the good news is for and note that it was always meant for every nation.",
+                activityNote: null,
+                keyQuestion: "And who is the good news for?",
+                teacherGuidance: "Accept responses. People of all nations — everyone.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Ephesians 2:8a together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 finds out what it actually cost Paul to keep telling people this news.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Not ashamed",
+          blocks: [
+            { type: "story", text: "Paul was so certain about the good news that nothing was going to stop him speaking about it. Listen to some of what happened to Paul while he was telling people about Jesus." },
+            { type: "story", text: "Paul wrote that he had worked harder than most, been in prison more often, been beaten with whips more times than he could count, and had faced death again and again. Three times he was beaten with a stick. Once he was almost stoned to death. Three times he was shipwrecked, and one time he spent a night and a day in the sea." },
+            { type: "story", text: "He was in constant danger — from rivers, from robbers, from his own people and from strangers; in the city, in the desert, and at sea. He often went without sleep or food, and was cold without enough clothes. And on top of all that, he worried every day about all the churches." },
+            { type: "question", text: "What was life like for Paul as he spoke about Jesus?", hint: "Accept responses. He faced enormous challenges and suffered a great deal — beatings, prison, shipwrecks, hunger, danger and constant worry." },
+            { type: "question", text: "So why do you think Paul kept talking about Jesus, when he suffered so much as a result?", hint: "Accept responses. Let students think before giving Paul's own answer from Romans 1:16 — he was not ashamed of the good news, because it is God's powerful way of saving everyone who has faith." },
+            { type: "story", text: "Paul answers that question himself. He says: I am not ashamed of the good news. It is God's powerful way of saving everyone who has faith — Jews first, and Gentiles as well." },
+            { type: "question", text: "Why did Paul go through all those really hard things?", hint: "Accept responses. Because the good news about Jesus is God's powerful way of saving people. Paul wanted everyone to know Jesus and be saved, so he didn't care what happened to him." },
+            { type: "verse", reference: "Romans 1:16 (CEV)", text: "“I am not ashamed of the good news! It is God's powerful way of saving all people who have faith, whether they are Jews or Gentiles.”" },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "2 Corinthians 11:25b–28; Romans 1:16–17",
+            topic: "Why Paul would not stop telling people",
+            bigIdea: "God kept his promises to Abraham in Jesus. That is the good news — the gospel — and Paul was so certain of it that nothing could stop him talking about it.",
+            learningIntentions: [
+              "We are learning what Paul suffered while telling people about Jesus.",
+              "We are learning that Paul was not ashamed of the gospel because it is God's power to save.",
+              "I can explain why Paul thought the good news was worth suffering for.",
+            ],
+            assessment: "Listen for whether students can give Paul's own reason from Romans 1:16, not just a general answer.",
+            resources: ["A CEV Bible marked at 2 Corinthians 11:25b–28 and Romans 1:16–17"],
+            script: [
+              {
+                heading: "What happened to Paul",
+                minutes: "4 min",
+                teacherTalk: "Read or retell 2 Corinthians 11:25b–28. Take it slowly — the list is the point.",
+                activityNote: "Read straight from a CEV Bible if you can.",
+                keyQuestion: "What was life like for Paul as he spoke about Jesus?",
+                teacherGuidance: "Accept responses. Enormous challenges and a great deal of suffering.",
+              },
+              {
+                heading: "Why keep going?",
+                minutes: "3 min",
+                teacherTalk: "Ask the class to guess before revealing Paul's own answer.",
+                activityNote: null,
+                keyQuestion: "So why do you think Paul kept talking about Jesus, when he suffered so much as a result?",
+                teacherGuidance: "Accept responses. Let them think, then give Romans 1:16 — he was not ashamed, because the gospel is God's power to save.",
+              },
+              {
+                heading: "Romans 1:16",
+                minutes: "3 min",
+                teacherTalk: "Read Romans 1:16–17 and unpack why this made Paul unstoppable.",
+                activityNote: "Use the Romans 1:16 verse block.",
+                keyQuestion: "Why did Paul go through all those really hard things?",
+                teacherGuidance: "Accept responses. Because the gospel is God's powerful way of saving people, and he wanted everyone to know Jesus.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Ephesians 2:8a together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 asks each student to put the good news into their own words.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "The gospel is ...",
+          blocks: [
+            { type: "story", text: "Paul is proud of the good news because it is God's power to save everyone who has faith — everyone who trusts in Jesus." },
+            { type: "story", text: "Remember what a journalist has to do. They take the facts they've been given and turn them into something other people can read and understand. That's our job this term, and today we make a start." },
+            { type: "activity", text: "Take a moment on your own. In your own words, write down what you think the gospel — the good news about Jesus — actually is. You have two minutes. There is no trick to this; just write what you understand so far." },
+            { type: "question", text: "Who would like to read out what they wrote?", hint: "Accept responses warmly, without correcting. This is a starting point you can return to at the end of term — students will notice how much their answer grows." },
+            { type: "story", text: "Here is the short version Paul gives. God promised Abraham that through his family the whole world would be blessed. God kept that promise in Jesus — God's own Son, who died and was raised to life. And now anyone from any nation who trusts in Jesus is saved." },
+            { type: "question", text: "Our memory verse says we are saved by faith in God, who treats us much better than we deserve. What does much better than we deserve suggest about how much we could earn?", hint: "Accept responses. It suggests we couldn't earn it at all. That is exactly where Paul goes next in his letter, and it's what the next two weeks are about." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+            { type: "prayer", text: "Dear God, thank you that you always had a plan to deal with people's sin. Thank you for the promises you made to Abraham and for keeping them in Jesus. Thank you that Paul wasn't discouraged when telling others about Jesus, even when he suffered because of it. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 1:16–17 (review)",
+            topic: "Putting the gospel into your own words",
+            bigIdea: "God kept his promises to Abraham in Jesus. That is the good news — the gospel — and Paul was so certain of it that nothing could stop him talking about it.",
+            learningIntentions: [
+              "We are learning to explain the gospel in our own words.",
+              "We are learning that the gospel is God's power to save everyone who trusts in Jesus.",
+              "I can connect the memory verse to the idea that salvation cannot be earned.",
+            ],
+            assessment: "Collect or listen to students' written definitions. Keep them — they are a useful before-and-after for the end of term.",
+            resources: ["Paper or Activity books and pencils for the written definition"],
+            script: [
+              {
+                heading: "Why Paul is proud of it",
+                minutes: "2 min",
+                teacherTalk: "Restate Romans 1:16 in plain terms and connect it to the journalist job.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The gospel is ...",
+                minutes: "4–5 min",
+                teacherTalk: "Give two silent minutes for students to write their own definition, then invite a few to read out.",
+                activityNote: "Don't correct answers — keep them to compare with the end-of-term article.",
+                keyQuestion: "Who would like to read out what they wrote?",
+                teacherGuidance: "Accept responses warmly, without correcting. This is a starting point to return to.",
+              },
+              {
+                heading: "Paul's short version",
+                minutes: "3 min",
+                teacherTalk: "Give the compact summary: the promise to Abraham, kept in Jesus, open to every nation.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Much better than we deserve",
+                minutes: "2 min",
+                teacherTalk: "Point at the memory verse's wording and use it to set up the next two weeks.",
+                activityNote: null,
+                keyQuestion: "Our memory verse says we are saved by faith in God, who treats us much better than we deserve. What does much better than we deserve suggest about how much we could earn?",
+                teacherGuidance: "Accept responses. That we couldn't earn it at all — which is where Paul goes next.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close in prayer.",
+                activityNote: "Use the prayer block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Next week Paul explains why anyone needs this good news in the first place.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 2 =================
+    "Week 2": {
+      lessonTitle: "The need for the gospel",
+      passage: "Romans 1:18—3:26",
+      bigIdea: "Every single person has sinned and ignored God, and God's standard is perfection — so nobody measures up. But because of God's great love, he sent Jesus to take the consequences we deserve.",
+      source: "Connect B2 Upper Primary — Lesson 12",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Consequences",
+          blocks: [
+            { type: "story", text: "Sometimes people do things that are wrong, and there are consequences for what they did. Cheating on a school test, for example, means a student gets in trouble and probably ends up seeing the principal." },
+            { type: "activity", text: "Consequences, or no consequences? I'll read out an action. You decide which side of the board it belongs on. Using an unlicensed gun. Telling a little lie. Eating cookies from the cupboard that are for school only. Stealing a car. Not doing homework. Taking $50 from a parent's wallet without them knowing. Hacking into someone's bank account and taking their money. Hacking into someone's account and posting from it." },
+            { type: "question", text: "How would you feel if the people who did the things on the Consequences side didn't get in trouble at all?", hint: "Accept responses. They might feel angry or outraged that people could do these things and get away with it. Expect a strong desire for justice — name it when you hear it." },
+            { type: "story", text: "Justice is a good thing. When people do the wrong thing, we know they should get in trouble. We don't want people getting away with doing wrong. Hold on to that, because today we're going to hear about God's justice, from Paul's letter to the Romans." },
+            { type: "question", text: "Look back at the list. Was it always obvious which side something belonged on?", hint: "Accept responses. The small ones are the interesting ones — a little lie, the cookies. We tend to sort wrongs into serious and not-so-serious. Paul is about to argue that God doesn't grade them that way." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 1:18—2:1 (introduction)",
+            topic: "Wrong actions and consequences",
+            bigIdea: "Every single person has sinned and ignored God, and God's standard is perfection — so nobody measures up. But because of God's great love, he sent Jesus to take the consequences we deserve.",
+            learningIntentions: [
+              "We are learning that wrong actions have consequences, and that justice is a good thing.",
+              "We are learning that people tend to sort wrongs into serious and not-so-serious.",
+              "I can explain why it would feel wrong for people to get away with doing wrong.",
+            ],
+            assessment: "Listen for whether students can articulate why justice matters to them.",
+            resources: ["A whiteboard or butcher's paper, divided into Consequences and No consequences"],
+            script: [
+              {
+                heading: "Set up the board",
+                minutes: "1 min",
+                teacherTalk: "Draw a line down the middle of the board — Consequences on one side, No consequences on the other. Use the cheating-on-a-test example.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Sort the actions",
+                minutes: "5 min",
+                teacherTalk: "Read the list one item at a time and add each to the side the class chooses. Encourage disagreement and discussion.",
+                activityNote: "Keep this board up — you'll add to it on Day 3.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Justice is a good thing",
+                minutes: "3 min",
+                teacherTalk: "Ask how it would feel if nobody faced consequences, then name the desire for justice as a good instinct.",
+                activityNote: null,
+                keyQuestion: "How would you feel if the people who did the things on the Consequences side didn't get in trouble at all?",
+                teacherGuidance: "Accept responses. Angry or outraged; a strong desire for justice.",
+              },
+              {
+                heading: "Serious and not-so-serious",
+                minutes: "2–3 min",
+                teacherTalk: "Point back at the borderline items and flag where Paul is heading.",
+                activityNote: null,
+                keyQuestion: "Look back at the list. Was it always obvious which side something belonged on?",
+                teacherGuidance: "Accept responses. The small ones are the interesting ones — we grade wrongs, and Paul argues God doesn't.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Ephesians 2:8a together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 is our first media briefing of the term.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Media briefing: guilty",
+          blocks: [
+            { type: "story", text: "Trainee journalists, welcome to your first media briefing. A media release is the basic information a journalist gets handed for a news story. Their job is to turn it into an article for tomorrow's paper. Here are today's releases." },
+            { type: "dictation", title: "Media briefing — Lesson 12 (these news stories are fictional)", lines: [
+              { text: "MEDIA RELEASE 1." },
+              { text: "The jury has handed down their verdict in the case against Alfred Woodcock." },
+              { text: "Alfred Woodcock attacked his next-door neighbour, shooting him in the shoulder." },
+              { text: "Woodcock has been charged with attempted murder." },
+              { text: "Today, the court found Woodcock to be guilty and sentenced him to stay in prison for the rest of his life." },
+              { text: "Although the court case was long and painful, the victim and his family are relieved by the court's ruling." },
+              { text: "MEDIA RELEASE 2." },
+              { text: "Yesterday, Jean-Pierre Moreau, a prominent religious leader, was charged with stealing from the church funds." },
+              { text: "Parishioners reported that on many occasions Jean-Pierre had preached against breaking the Ten Commandments." },
+              { text: "The community has been left confused and outraged at Jean-Pierre's hypocrisy, saying: He should practise what he preaches." },
+            ] },
+            { type: "question", text: "Alfred Woodcock attacked his neighbour and was found guilty. Why do you think he deserves consequences for what he did?", hint: "Accept responses. He seriously hurt someone on purpose. Most students will find this one easy — that's the point, before the second release complicates it." },
+            { type: "story", text: "In his letter, Paul lists some of the things people do, and they're not good. He says people are full of wickedness, meanness, greed and viciousness; that they are jealous, quarrelsome and deceitful; that they gossip and tell lies about each other; that they hate God, are proud and boastful, and disobey their parents." },
+            { type: "question", text: "Now the second release. How do you feel about Jean-Pierre Moreau — and what do you think should happen to him?", hint: "Accept responses. Students usually react strongly to hypocrisy. Draw out that he broke the very rule he told others to keep." },
+            { type: "story", text: "There is a word for people like that: hypocrites. They do the very thing they tell other people not to do. We sometimes say they have double standards — one standard for other people, and a different one for themselves." },
+            { type: "story", text: "Paul says that people who judge others for doing wrong will be judged themselves, and if they are doing the same wrong things, they will face the same consequences. God does not have double standards. God has the same standard for everyone." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 1:29–30; Romans 2:1",
+            topic: "Guilt, hypocrisy and one standard for everyone",
+            bigIdea: "Every single person has sinned and ignored God, and God's standard is perfection — so nobody measures up. But because of God's great love, he sent Jesus to take the consequences we deserve.",
+            learningIntentions: [
+              "We are learning what a hypocrite is and why hypocrisy provokes such a strong reaction.",
+              "We are learning that God has the same standard for everyone.",
+              "I can explain Romans 2:1 in my own words.",
+            ],
+            assessment: "Listen for whether students can say what a hypocrite is and why God having one standard matters.",
+            resources: ["On-screen media briefing: Lesson 12 Media releases 1 and 2", "The Consequences board from Day 1"],
+            script: [
+              {
+                heading: "Media briefing",
+                minutes: "4–5 min",
+                teacherTalk: "Explain what a media release is, then run the on-screen briefing. Remind the class these stories are fictional.",
+                activityNote: "Tap Start the script on screen. The class reads each line together off the display.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The first case",
+                minutes: "2 min",
+                teacherTalk: "Debrief release 1 quickly — this one is meant to feel obvious.",
+                activityNote: null,
+                keyQuestion: "Alfred Woodcock attacked his neighbour and was found guilty. Why do you think he deserves consequences for what he did?",
+                teacherGuidance: "Accept responses. He deliberately and seriously hurt someone.",
+              },
+              {
+                heading: "Paul's list",
+                minutes: "2 min",
+                teacherTalk: "Read out Paul's list from Romans 1:29–30 and add a few of those words to the Consequences side of the board.",
+                activityNote: "Add points from the passage to the board.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Hypocrites",
+                minutes: "3–4 min",
+                teacherTalk: "Debrief release 2, define hypocrite and double standards, then give Romans 2:1 and God's single standard.",
+                activityNote: "Add the word Hypocrites to the Consequences side of the board.",
+                keyQuestion: "Now the second release. How do you feel about Jean-Pierre Moreau — and what do you think should happen to him?",
+                teacherGuidance: "Accept responses. Draw out that he broke the very rule he told others to keep.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Ephesians 2:8a together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 asks what God's one standard actually is.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "God's standard",
+          blocks: [
+            { type: "story", text: "Yesterday we said God has the same standard for everyone. So the obvious question is: what is it?" },
+            { type: "question", text: "What do you think God's standard is?", hint: "Accept responses. Take a few guesses before revealing it — students often aim at being good, or being better than average. The actual answer surprises them." },
+            { type: "story", text: "Here is what Paul says in his letter: all of us have sinned and fallen short of God's glory. The standard to get into heaven is perfection. To get in on your own, a person would need to obey God's law perfectly, all of the time." },
+            { type: "activity", text: "Put your hand up if you have never, ever done anything wrong. Not once. Have a good look around the room." },
+            { type: "question", text: "So how do people measure up against God's standard?", hint: "Accept responses. All have sinned and fallen short — nobody reaches God's standard. Not one person in the room could put their hand up." },
+            { type: "story", text: "Let's do the maths. Imagine someone who was pretty good and only did or said three wrong things a day — told one lie, ignored their mum once, and thought one mean thought. Over eighty years, that's three times three hundred and sixty-five times eighty. Eighty-seven thousand, six hundred." },
+            { type: "story", text: "And that's the good version. So look back at our board from Monday. According to God's law, all people are guilty and deserve consequences for their sin." },
+            { type: "activity", text: "Add one more word to the Consequences side of the board: everyone." },
+            { type: "question", text: "On Monday we said justice is a good thing and people who do wrong should face consequences. How does that feel now that we're on the list too?", hint: "Accept responses — this is meant to be uncomfortable. Don't rush to fix it; sit with the problem so tomorrow's answer lands. Reassure them that Paul's sentence does not stop where we stopped today." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 3:23",
+            topic: "Everyone falls short of God's standard",
+            bigIdea: "Every single person has sinned and ignored God, and God's standard is perfection — so nobody measures up. But because of God's great love, he sent Jesus to take the consequences we deserve.",
+            learningIntentions: [
+              "We are learning that God's standard is perfection.",
+              "We are learning that all have sinned and fallen short, so everyone belongs on the Consequences side.",
+              "I can explain Romans 3:23 in my own words.",
+            ],
+            assessment: "Listen for whether students include themselves when they describe who has fallen short.",
+            resources: ["The Consequences board from Day 1"],
+            script: [
+              {
+                heading: "What is the standard?",
+                minutes: "2–3 min",
+                teacherTalk: "Take guesses before revealing that the standard is perfection.",
+                activityNote: null,
+                keyQuestion: "What do you think God's standard is?",
+                teacherGuidance: "Accept responses. Take guesses first — students often aim at being good, or better than average.",
+              },
+              {
+                heading: "Romans 3:23",
+                minutes: "3 min",
+                teacherTalk: "Give Romans 3:23 and run the hands-up moment.",
+                activityNote: "Accept hands only — there almost certainly won't be any.",
+                keyQuestion: "So how do people measure up against God's standard?",
+                teacherGuidance: "Accept responses. All have sinned and fallen short; nobody reaches it.",
+              },
+              {
+                heading: "Eighty-seven thousand, six hundred",
+                minutes: "3 min",
+                teacherTalk: "Walk through the three-wrongs-a-day calculation out loud. Let the number land.",
+                activityNote: "3 × 365 × 80 = 87,600. Ignore leap years.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Everyone",
+                minutes: "3 min",
+                teacherTalk: "Add everyone to the Consequences side and ask the closing question honestly.",
+                activityNote: "Don't resolve the discomfort today — tomorrow finishes the sentence.",
+                keyQuestion: "On Monday we said justice is a good thing and people who do wrong should face consequences. How does that feel now that we're on the list too?",
+                teacherGuidance: "Accept responses. This is meant to be uncomfortable. Reassure them Paul's sentence does not stop here.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Ephesians 2:8a together — and note that it is about to make a lot more sense.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 finishes Paul's sentence — and it changes everything.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "But the verse doesn't finish there",
+          blocks: [
+            { type: "story", text: "Yesterday we stopped in the middle of what Paul was saying. All of us have sinned and fallen short of God's glory. But the sentence doesn't finish there." },
+            { type: "story", text: "Paul goes on: but God treats us much better than we deserve, and because of Jesus Christ, he freely accepts us and sets us free from our sins. God sent Jesus to take our punishment and to show us his great mercy, so that by faith in him we could come to God." },
+            { type: "question", text: "So what does God do?", hint: "Accept responses. He treats his people much better than they deserve; he shows mercy and grace. Grace means God being kind to people when they don't deserve it — which is exactly what our memory verse says." },
+            { type: "question", text: "And how did God deal with sin?", hint: "Accept responses. He sent Jesus to die on the cross in the place of sinners." },
+            { type: "story", text: "God loves us so much that he decided to deal with our sin himself. He became a man — Jesus. Jesus lived a perfect life; he never did anything wrong. And because he was perfect, he was able to die on the cross and take the consequences for sin. Which means all who trust and follow Jesus will live with him forever." },
+            { type: "question", text: "So who does Paul say deserves to go to heaven?", hint: "Accept responses. No-one — because no-one is perfect." },
+            { type: "question", text: "Can anyone ever be good enough to get to heaven?", hint: "Accept responses. No. They would need to be perfect, and nobody is. This is the whole point of the last two days." },
+            { type: "question", text: "How do you feel about being offered forgiveness you couldn't earn?", hint: "Accept responses. Make sure students understand there is no right or wrong answer here — some feel relieved, some find it hard to accept, and both reactions are worth hearing." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+            { type: "prayer", text: "Dear God, thank you for teaching us that people who are in your family are sorry for ignoring you and for living their own way. Thank you for sending Jesus who brings forgiveness; he died on the cross and rose again. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 3:24–25a",
+            topic: "God's grace in Jesus",
+            bigIdea: "Every single person has sinned and ignored God, and God's standard is perfection — so nobody measures up. But because of God's great love, he sent Jesus to take the consequences we deserve.",
+            learningIntentions: [
+              "We are learning that God freely accepts his people because of Jesus.",
+              "We are learning that no-one can be good enough for heaven on their own.",
+              "I can explain what grace means using the memory verse.",
+            ],
+            assessment: "Listen for whether students can state both halves of Romans 3:23–24 — the problem and God's answer.",
+            resources: ["A CEV Bible marked at Romans 3:24–25a"],
+            script: [
+              {
+                heading: "Finishing the sentence",
+                minutes: "3 min",
+                teacherTalk: "Recap where you stopped yesterday, then read Romans 3:24–25a, finishing at so that by faith in him we could come to God.",
+                activityNote: null,
+                keyQuestion: "So what does God do?",
+                teacherGuidance: "Accept responses. He treats his people much better than they deserve; he shows mercy and grace.",
+              },
+              {
+                heading: "How God dealt with sin",
+                minutes: "3–4 min",
+                teacherTalk: "Explain that God dealt with sin himself — Jesus lived a perfect life and took the consequences on the cross.",
+                activityNote: null,
+                keyQuestion: "And how did God deal with sin?",
+                teacherGuidance: "Accept responses. He sent Jesus to die on the cross in the place of sinners.",
+              },
+              {
+                heading: "Nobody deserves it",
+                minutes: "3 min",
+                teacherTalk: "Work through both Connections questions about who deserves heaven and whether anyone can be good enough.",
+                activityNote: null,
+                keyQuestion: "Can anyone ever be good enough to get to heaven?",
+                teacherGuidance: "Accept responses. No — they would need to be perfect.",
+              },
+              {
+                heading: "How does this feel?",
+                minutes: "2–3 min",
+                teacherTalk: "Ask the honest reaction question and receive the answers without correcting.",
+                activityNote: null,
+                keyQuestion: "How do you feel about being offered forgiveness you couldn't earn?",
+                teacherGuidance: "Accept responses. Make sure students understand there is no right or wrong answer here.",
+              },
+              {
+                heading: "Verse and prayer",
+                minutes: "2 min",
+                teacherTalk: "Say Ephesians 2:8a together and close in prayer.",
+                activityNote: "Use the verse and prayer blocks.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Next week: if it can't be earned, what is it? Paul explains the difference between wages and a gift.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 3 =================
+    "Week 3": {
+      lessonTitle: "The good news of the gospel!",
+      passage: "Romans 3:21—5:21",
+      bigIdea: "Nobody deserves eternal life — it is God's gift, given because Jesus took the consequence in our place. And like any gift, it has to be accepted, which is exactly what Abraham did when he simply trusted God's promises.",
+      source: "Connect B2 Upper Primary — Lesson 13",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Wages and gifts",
+          blocks: [
+            { type: "activity", text: "I need two volunteers, and I have two prizes. Volunteer one: for your prize, I want you to do ten star jumps, five sit-ups and one push-up. Ready, set, go. (Everyone applaud.) Here is your prize. Volunteer two: I want to give you this prize. Both of you take a seat." },
+            { type: "question", text: "Who knows what wages are?", hint: "Accept responses. Wages are the payment we get for working. We earn our wages." },
+            { type: "question", text: "So which of our two volunteers earned their prize — and which one was given it?", hint: "Accept responses. The first student earned it by doing the exercises. The second was simply given it." },
+            { type: "question", text: "And which one deserved their prize?", hint: "Accept responses. The first one. The second one didn't deserve it — that's exactly what makes it a gift rather than a wage." },
+            { type: "story", text: "In this next part of his letter, Paul wants the Roman Christians to understand the difference between gifts and wages. It is the difference between being given something you don't deserve, and being owed something you worked for." },
+            { type: "story", text: "Remember where we finished last week. Nobody can reach God's standard, so nobody has earned anything from God. Which means if we are going to get anything from God at all, it can only be one of those two things — and it isn't wages." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 4:4–5 (introduction)",
+            topic: "The difference between wages and a gift",
+            bigIdea: "Nobody deserves eternal life — it is God's gift, given because Jesus took the consequence in our place. And like any gift, it has to be accepted, which is exactly what Abraham did when he simply trusted God's promises.",
+            learningIntentions: [
+              "We are learning the difference between wages and a gift.",
+              "We are learning that a gift is undeserved and free, while a wage is earned and owed.",
+              "I can explain why anything we get from God has to be a gift.",
+            ],
+            assessment: "Listen for whether students use the words earned and deserved accurately when describing the two prizes.",
+            resources: ["Two small identical prizes for the Way in demonstration"],
+            script: [
+              {
+                heading: "Two prizes",
+                minutes: "4 min",
+                teacherTalk: "Run the two-volunteer demonstration. Make the first student work for it and hand the second theirs for nothing.",
+                activityNote: "Pick two students who will take it in good humour, and make sure both actually receive a prize.",
+                keyQuestion: "Who knows what wages are?",
+                teacherGuidance: "Accept responses. Wages are the payment we get for working — we earn them.",
+              },
+              {
+                heading: "Earned or given?",
+                minutes: "3 min",
+                teacherTalk: "Debrief the demonstration with the earned / given / deserved questions.",
+                activityNote: null,
+                keyQuestion: "And which one deserved their prize?",
+                teacherGuidance: "Accept responses. The first one. The second didn't deserve it — that's what makes it a gift.",
+              },
+              {
+                heading: "Gifts and wages in Romans",
+                minutes: "3 min",
+                teacherTalk: "Explain what Paul is doing with this distinction, and connect it back to last week's conclusion.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Ephesians 2:8a together and point out the words much better than we deserve.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 is a media briefing about a trial with a very strange verdict.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Media briefing: the pardon",
+          blocks: [
+            { type: "story", text: "Trainee journalists, into the briefing room. Here is our first media release for the day." },
+            { type: "dictation", title: "Media briefing — Lesson 13, releases 1 and 2 (these news stories are fictional)", lines: [
+              { text: "MEDIA RELEASE 1." },
+              { text: "The verdict was handed down today in the trial against Robert Stanford." },
+              { text: "Robert Stanford has been standing trial for treason." },
+              { text: "He was caught stirring up rebellion against the Prime Minister and causing riots." },
+              { text: "The evidence against Stanford is overwhelming, which makes the verdict shocking!" },
+              { text: "Stanford was declared innocent today!" },
+              { text: "There is an inquiry into what has happened." },
+              { text: "MEDIA RELEASE 2 — an update to this story." },
+              { text: "It seems that the verdict was handed down as the result of a pardon from the Prime Minister." },
+              { text: "What is even more interesting is that the Prime Minister himself will serve the sentence that Stanford deserves." },
+              { text: "The Prime Minister will take Stanford's consequence." },
+            ] },
+            { type: "question", text: "Had Stanford actually committed the crime he was standing trial for?", hint: "Accept responses. Yes, he had. The evidence was overwhelming — that's what makes the verdict so strange." },
+            { type: "question", text: "So what should have happened to him, and what happened instead?", hint: "Accept responses. He should have been given a consequence for committing treason. Instead he was declared not guilty." },
+            { type: "story", text: "That is strange indeed. Robert Stanford was the Prime Minister's own enemy. He was guilty of the crime he was accused of. Yet the Prime Minister decided to take the consequence for him — and Stanford was declared innocent." },
+            { type: "question", text: "What do you think of that?", hint: "Accept responses. Some students will call it unjust, others generous. Both reactions are worth naming — they are exactly the reactions people have to the cross." },
+            { type: "story", text: "Now listen to what Paul says God has done. All of us have sinned and fallen short of God's glory — but God treats us much better than we deserve, and because of Jesus Christ he freely accepts us and sets us free from our sins." },
+            { type: "question", text: "How is it possible for God to freely accept people as his friends when they are guilty sinners?", hint: "Accept responses. Because Jesus sets his people free from sin — he took the consequence they deserved, just as the Prime Minister did for Stanford." },
+            { type: "story", text: "Just like Robert Stanford, all people are guilty. But in the same way that Stanford was declared innocent, God himself took the consequence that people deserve. And God's people are now declared innocent — they are acceptable to God." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 3:23–25a",
+            topic: "Guilty, yet declared innocent",
+            bigIdea: "Nobody deserves eternal life — it is God's gift, given because Jesus took the consequence in our place. And like any gift, it has to be accepted, which is exactly what Abraham did when he simply trusted God's promises.",
+            learningIntentions: [
+              "We are learning that God's people are guilty but are declared innocent.",
+              "We are learning that this is possible because Jesus took the consequence in their place.",
+              "I can explain the Stanford story and say what it pictures.",
+            ],
+            assessment: "Listen for whether students can map the story onto the gospel — who is guilty, who takes the consequence, who is declared innocent.",
+            resources: ["On-screen media briefing: Lesson 13 Media releases 1 and 2", "A CEV Bible marked at Romans 3:23–25a"],
+            script: [
+              {
+                heading: "Media briefing",
+                minutes: "4–5 min",
+                teacherTalk: "Run the on-screen briefing. Remind the class the stories are fictional. Let release 1 sit for a beat before release 2 explains it.",
+                activityNote: "Tap Start the script on screen.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "A shocking verdict",
+                minutes: "3 min",
+                teacherTalk: "Debrief: he was guilty, he should have been punished, he was declared not guilty instead.",
+                activityNote: null,
+                keyQuestion: "So what should have happened to him, and what happened instead?",
+                teacherGuidance: "Accept responses. He should have faced a consequence for treason; instead he was declared not guilty.",
+              },
+              {
+                heading: "The Prime Minister's choice",
+                minutes: "2–3 min",
+                teacherTalk: "Draw attention to the fact that Stanford was the Prime Minister's own enemy, and ask for honest reactions.",
+                activityNote: null,
+                keyQuestion: "What do you think of that?",
+                teacherGuidance: "Accept responses. Some will call it unjust, others generous — both are the reactions people have to the cross.",
+              },
+              {
+                heading: "What God has done",
+                minutes: "3 min",
+                teacherTalk: "Read Romans 3:23–25a and map the story onto it.",
+                activityNote: null,
+                keyQuestion: "How is it possible for God to freely accept people as his friends when they are guilty sinners?",
+                teacherGuidance: "Accept responses. Because Jesus sets his people free from sin — he took the consequence they deserved.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Ephesians 2:8a together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 has a third media release — and forty million dollars.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "The forty million dollar gift",
+          blocks: [
+            { type: "story", text: "Back into the briefing room. Our third media release for the term is ready." },
+            { type: "dictation", title: "Media briefing — Lesson 13, release 3 (this news story is fictional)", lines: [
+              { text: "MEDIA RELEASE 3." },
+              { text: "This week, both Amar Joshi, a 36-year-old web designer, and Christina Wu, a 46-year-old mother of five, became millionaires." },
+              { text: "Amar has been working for over 10 years on a new social networking tool." },
+              { text: "He was paid $40 million by a leading software company after signing a contract handing over his new website." },
+              { text: "Amar suggests he'll be heading to early retirement!" },
+              { text: "Christina received her $40 million fortune after her uncle won the lottery." },
+              { text: "He already owned many houses and had lots of money, so he gave her all his winnings." },
+            ] },
+            { type: "question", text: "Who was given their money as a gift, and who earned theirs?", hint: "Accept responses. Christina was given hers as a gift. Amar earned his, after ten years of work." },
+            { type: "question", text: "There's a huge difference between a gift and a wage. In your own words — what is it?", hint: "Accept responses. A wage is earned and a gift is given. The wage is deserved and owed; the gift is undeserved and free." },
+            { type: "story", text: "Paul puts it like this: sin pays off with death, but God's gift is eternal life given by Jesus Christ our Lord." },
+            { type: "question", text: "What does Paul say sin leads to — and what is God's gift to his people?", hint: "Accept responses. Sin leads to death. God's gift is eternal life in Jesus." },
+            { type: "story", text: "Eternal life is a free gift from God. And when a person is given a gift, they need to accept it." },
+            { type: "question", text: "Imagine Christina found out about her forty million dollars and said, no thanks, I don't want it. What would you think about that?", hint: "Accept responses. It doesn't make sense. When someone receives a gift to enjoy, they can accept it and enjoy it — they don't need to do anything to earn it. But the person taking the gift does need to take it; to say yes to it." },
+            { type: "question", text: "So how do you think someone accepts God's gift of eternal life?", hint: "Accept responses without correcting — tomorrow answers it properly. The way to accept God's offer is to have faith in Jesus, another way of saying to trust in Jesus. Part of trusting Jesus is being sorry for living your own way and wanting to live God's way instead." },
+            { type: "verse", reference: "Romans 6:23 (CEV)", text: "“Sin pays off with death. But God's gift is eternal life given by Jesus Christ our Lord.”" },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 6:23",
+            topic: "Eternal life is a gift that has to be accepted",
+            bigIdea: "Nobody deserves eternal life — it is God's gift, given because Jesus took the consequence in our place. And like any gift, it has to be accepted, which is exactly what Abraham did when he simply trusted God's promises.",
+            learningIntentions: [
+              "We are learning that eternal life is a free gift, not wages.",
+              "We are learning that a gift still has to be accepted by the person receiving it.",
+              "I can explain Romans 6:23 in my own words.",
+            ],
+            assessment: "Listen for whether students can explain why a gift needs accepting without turning acceptance into something earned.",
+            resources: ["On-screen media briefing: Lesson 13 Media release 3", "A CEV Bible marked at Romans 6:23"],
+            script: [
+              {
+                heading: "Media briefing",
+                minutes: "3–4 min",
+                teacherTalk: "Run the on-screen briefing. Remind the class the story is fictional.",
+                activityNote: "Tap Start the script on screen.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Earned or given",
+                minutes: "3 min",
+                teacherTalk: "Debrief both characters and press for a clear definition of the difference.",
+                activityNote: "Link back to Monday's two prizes.",
+                keyQuestion: "There's a huge difference between a gift and a wage. In your own words — what is it?",
+                teacherGuidance: "Accept responses. A wage is earned, deserved and owed; a gift is given, undeserved and free.",
+              },
+              {
+                heading: "Romans 6:23",
+                minutes: "3 min",
+                teacherTalk: "Read Romans 6:23 and draw out both halves of the verse.",
+                activityNote: "Use the Romans 6:23 verse block.",
+                keyQuestion: "What does Paul say sin leads to — and what is God's gift to his people?",
+                teacherGuidance: "Accept responses. Sin leads to death; God's gift is eternal life in Jesus.",
+              },
+              {
+                heading: "Saying yes to a gift",
+                minutes: "3–4 min",
+                teacherTalk: "Use the no-thanks-I-don't-want-it scenario, then ask how someone accepts God's gift.",
+                activityNote: "Don't fully resolve the last question — tomorrow answers it with Abraham.",
+                keyQuestion: "So how do you think someone accepts God's gift of eternal life?",
+                teacherGuidance: "Accept responses. The way to accept it is to have faith in Jesus — to trust him, be sorry for living your own way, and want to live God's way.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Ephesians 2:8a together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 goes back to Abraham to see what accepting God's gift actually looks like.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Just like Abraham",
+          blocks: [
+            { type: "story", text: "Yesterday we asked how someone accepts God's gift. Paul answers it by going all the way back to Abraham — the man we spent two whole terms following." },
+            { type: "question", text: "What do you remember about Abraham?", hint: "Accept responses and write them on the board around his name, like a mind map. Expect: God promised him land, a great nation and blessing to the world; he left his home; he and Sarah were very old; Isaac was born." },
+            { type: "question", text: "How did Abraham respond to God's promise of a son, remembering that he and Sarah were both very, very old?", hint: "Accept responses. He trusted and obeyed God. He chose to live God's way and not his own." },
+            { type: "story", text: "Even though it seemed impossible to Abraham that he and Sarah could have a baby when they were so old, Abraham trusted God. He knew that God was a promise-keeper, so he trusted that God was able to do what he said he would do." },
+            { type: "story", text: "And here is what Paul says about that: Abraham had faith in God, and that is why God accepted him. Abraham was declared innocent because he trusted God's promises. He didn't earn it. He didn't deserve it. He simply believed God's word." },
+            { type: "question", text: "Who did God's promises to Abraham point to?", hint: "Accept responses. Jesus. That has been the answer running underneath all three terms." },
+            { type: "story", text: "And just like Abraham, people today can trust God's promises and also be declared innocent. Nobody can earn their way to heaven by being good, because nobody is perfect. But God treats his people better than they deserve — he has offered the gift of eternal life, and Jesus died on the cross in the place of guilty people. That's everyone." },
+            { type: "question", text: "So what does the Bible say about how to accept God's gift of eternal life?", hint: "Accept responses. By following Abraham's example — trusting in God's promises, which are fulfilled in Jesus." },
+            { type: "verse", reference: "Ephesians 2:8a (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve.”" },
+            { type: "prayer", text: "Dear God, thank you that we learned about guilt and innocence today. Thank you that Abraham is a good example of what it looks like to trust you. Help your people to always trust and follow Jesus. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 4:3",
+            topic: "Abraham was declared innocent because he trusted God",
+            bigIdea: "Nobody deserves eternal life — it is God's gift, given because Jesus took the consequence in our place. And like any gift, it has to be accepted, which is exactly what Abraham did when he simply trusted God's promises.",
+            learningIntentions: [
+              "We are learning that Abraham was declared innocent because he trusted God's promises.",
+              "We are learning that people today are accepted the same way Abraham was.",
+              "I can say what it looks like to accept God's gift of eternal life.",
+            ],
+            assessment: "Listen for whether students describe accepting the gift as trusting, rather than as doing something to earn it.",
+            resources: ["A whiteboard for the Abraham mind map", "A CEV Bible marked at Romans 4:3"],
+            script: [
+              {
+                heading: "Abraham mind map",
+                minutes: "4 min",
+                teacherTalk: "Write Abraham in a bubble in the middle of the board and collect everything the class remembers around it.",
+                activityNote: "Two terms of material — let them fill the board.",
+                keyQuestion: "What do you remember about Abraham?",
+                teacherGuidance: "Accept responses. Land, a great nation, blessing to the world; leaving home; old age; Isaac's birth.",
+              },
+              {
+                heading: "How Abraham responded",
+                minutes: "3 min",
+                teacherTalk: "Focus in on the promise of a son and how Abraham responded to something that looked impossible.",
+                activityNote: null,
+                keyQuestion: "How did Abraham respond to God's promise of a son, remembering that he and Sarah were both very, very old?",
+                teacherGuidance: "Accept responses. He trusted and obeyed God, and chose to live God's way.",
+              },
+              {
+                heading: "Romans 4:3",
+                minutes: "3 min",
+                teacherTalk: "Read Romans 4:3 and make the point that Abraham simply believed — he did not earn it.",
+                activityNote: null,
+                keyQuestion: "Who did God's promises to Abraham point to?",
+                teacherGuidance: "Accept responses. Jesus.",
+              },
+              {
+                heading: "The same way today",
+                minutes: "3 min",
+                teacherTalk: "Apply it: nobody can earn heaven, but anyone can trust God's promises fulfilled in Jesus and be declared innocent.",
+                activityNote: null,
+                keyQuestion: "So what does the Bible say about how to accept God's gift of eternal life?",
+                teacherGuidance: "Accept responses. By following Abraham's example — trusting God's promises, fulfilled in Jesus.",
+              },
+              {
+                heading: "Verse and prayer",
+                minutes: "2 min",
+                teacherTalk: "Say Ephesians 2:8a together and close in prayer.",
+                activityNote: "Use the verse and prayer blocks.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "This is as far as Term 4 is built. Lesson 14 continues Romans, but its manual pages have not been scanned yet — see the file header.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 4 =================
+    "Week 4": {
+      lessonTitle: "The fruit of the gospel",
+      passage: "Romans 6–7",
+      bigIdea: "People are declared innocent by trusting in Jesus — and once that happens, their old life and their new life simply don't go together. Christians don't do good things in order to be saved; they do good things because they already are.",
+      source: "Connect B2 Upper Primary — Lesson 14",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Coke and Pepsi",
+          blocks: [
+            { type: "activity", text: "Half the room is Coke, half the room is Pepsi. Imagine you have just been hired as the marketing manager for your side. Your job is to promote your product as well as you possibly can, so you sell as many cans as you can. Take a few minutes and come up with as many ideas as you can. Then we'll hear some." },
+            { type: "question", text: "As the marketing manager for Coke or Pepsi, what is something you would never do?", hint: "Accept responses. They would never promote their opposition's product. Coke and Pepsi are rivals — you can't work for Coke and then promote Pepsi." },
+            { type: "activity", text: "Now imagine that after a year you get employed by the opposite company. Swap sides." },
+            { type: "question", text: "What would you be doing now — and would you still be promoting the product from your first job?", hint: "Accept responses. You would be doing everything you could to promote the other product. And no way would you still be promoting the first one." },
+            { type: "story", text: "That is exactly the kind of idea Paul is talking about in this next part of his letter. A Pepsi employee would never dream of promoting Coke, even though they used to work for them." },
+            { type: "story", text: "Paul tells the Romans that if they have been declared innocent by God, they need to live a new life. Their old life and their new life just don't go together." },
+            { type: "story", text: "Something else changes this week too — our memory verse grows. Up until now we've been learning the first part of Ephesians 2:8. From this week we learn the whole thing, verses 8 to 10, because the last part is exactly what this lesson is about." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+            { type: "activity", text: "Let's read the whole verse together and say it two or three times. Listen for the last bit — God planned for us to do good things." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 6:1–2 (introduction)",
+            topic: "Old life and new life don't mix",
+            bigIdea: "People are declared innocent by trusting in Jesus — and once that happens, their old life and their new life simply don't go together. Christians don't do good things in order to be saved; they do good things because they already are.",
+            learningIntentions: [
+              "We are learning that a Christian's old life and new life do not go together.",
+              "We are learning that being declared innocent by God changes how a person lives.",
+              "I can learn the extended memory verse, Ephesians 2:8–10.",
+            ],
+            assessment: "Listen for whether students can explain the rival-companies picture and say what it stands for.",
+            resources: ["Optional: a can of Coke and a can of Pepsi to display and swap over"],
+            script: [
+              {
+                heading: "Marketing managers",
+                minutes: "4–5 min",
+                teacherTalk: "Split the room, set the task, and let both sides share a few ideas.",
+                activityNote: "Display the two cans if you have them.",
+                keyQuestion: "As the marketing manager for Coke or Pepsi, what is something you would never do?",
+                teacherGuidance: "Accept responses. They would never promote their opposition's product.",
+              },
+              {
+                heading: "Swap companies",
+                minutes: "2–3 min",
+                teacherTalk: "Swap the sides over and ask what they'd be doing now.",
+                activityNote: "Swap the cans over if they're displayed.",
+                keyQuestion: "What would you be doing now — and would you still be promoting the product from your first job?",
+                teacherGuidance: "Accept responses. Promoting the other product — and no way would they still promote the first.",
+              },
+              {
+                heading: "What Paul is saying",
+                minutes: "2–3 min",
+                teacherTalk: "Make the link: if God has declared you innocent, your old life and new life don't go together.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The verse grows",
+                minutes: "2–3 min",
+                teacherTalk: "Explain that the memory verse now runs to Ephesians 2:10, and say the whole thing together.",
+                activityNote: "Use the verse block, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 checks back in on Robert Stanford, a month after he walked free.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "One month later",
+          blocks: [
+            { type: "story", text: "Journalists, back to a story we covered a few weeks ago. It has been a month since Robert Stanford was released, and today you have to write an interview with him to find out what life has been like since." },
+            { type: "question", text: "Who remembers Robert Stanford? What had he been arrested for?", hint: "Accept responses. He was arrested for treason, because he had been stirring up riots and rebellion against the Prime Minister." },
+            { type: "question", text: "What should have happened to Robert Stanford — and what happened instead?", hint: "Accept responses. He should have been sentenced and put in prison. Instead he was declared innocent and set free, because the Prime Minister pardoned him and took his consequence." },
+            { type: "activity", text: "In pairs, spend a few minutes preparing an interview with Robert Stanford, one month on. One of you is the journalist, one is Robert. Write a few questions and think about how he'd answer them. Then we'll hear some." },
+            { type: "question", text: "Would you expect Robert Stanford's life to be different once he was declared innocent and released? How?", hint: "Accept responses. Yes. You would expect him to stop inciting riots and rebellion — and possibly even to start encouraging people to support the Prime Minister." },
+            { type: "question", text: "How would you feel if, once Robert was released, he went straight back to his old way of life, causing riots and committing crimes?", hint: "Accept responses. It would be unthinkable. He had been given an amazing gift, a second chance, and the Prime Minister had been extraordinarily generous to him. His old life does not fit with his new freedom." },
+            { type: "story", text: "Paul says this is exactly what it is like for those who have been declared innocent by God. He writes that our old life was nailed to the cross with Christ, so that sin would no longer control us and we would be set free from sin." },
+            { type: "question", text: "What does Paul say about their old lives?", hint: "Accept responses. Their old lives have been completely transformed by Jesus' death on the cross. They are no longer the people they used to be — they have gone from being controlled by sin to being declared innocent." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 6:6–7",
+            topic: "A changed life after being declared innocent",
+            bigIdea: "People are declared innocent by trusting in Jesus — and once that happens, their old life and their new life simply don't go together. Christians don't do good things in order to be saved; they do good things because they already are.",
+            learningIntentions: [
+              "We are learning that we would expect a pardoned person's life to change.",
+              "We are learning that Paul says a Christian's old life was nailed to the cross with Christ.",
+              "I can explain why going back to the old life would be unthinkable.",
+            ],
+            assessment: "Listen for whether students connect the Stanford story to Romans 6:6–7 rather than treating it as just a story.",
+            resources: ["Paper and pencils for the paired interview"],
+            script: [
+              {
+                heading: "Recap the case",
+                minutes: "2–3 min",
+                teacherTalk: "Bring back the Stanford story with the two recall questions.",
+                activityNote: null,
+                keyQuestion: "What should have happened to Robert Stanford — and what happened instead?",
+                teacherGuidance: "Accept responses. Prison; instead, declared innocent because the Prime Minister took his consequence.",
+              },
+              {
+                heading: "Interview Robert",
+                minutes: "5 min",
+                teacherTalk: "Set the paired interview task, roam to check students are on task, then hear a few.",
+                activityNote: "Allow about five minutes, then lead a short discussion on what came up.",
+                keyQuestion: "Would you expect Robert Stanford's life to be different once he was declared innocent and released? How?",
+                teacherGuidance: "Accept responses. Yes — he would stop inciting rebellion, and might even support the Prime Minister.",
+              },
+              {
+                heading: "Back to the old life?",
+                minutes: "2–3 min",
+                teacherTalk: "Ask how it would feel if he reoffended, and name why it would be unthinkable.",
+                activityNote: null,
+                keyQuestion: "How would you feel if, once Robert was released, he went straight back to his old way of life, causing riots and committing crimes?",
+                teacherGuidance: "Accept responses. Unthinkable — he'd been given a second chance. His old life doesn't fit his new freedom.",
+              },
+              {
+                heading: "Romans 6:6–7",
+                minutes: "3 min",
+                teacherTalk: "Read Romans 6:6–7 and draw out what Paul says about the old life.",
+                activityNote: null,
+                keyQuestion: "What does Paul say about their old lives?",
+                teacherGuidance: "Accept responses. Completely transformed by Jesus' death — from controlled by sin to declared innocent.",
+              },
+            ],
+            whereToNext: "Day 3 asks what it means to be a slave to sin, and what Paul tells God's people to do instead.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Slaves to sin, free in Christ",
+          blocks: [
+            { type: "story", text: "Paul says our old life was nailed to the cross with Christ so that sin would no longer control us." },
+            { type: "question", text: "Why did that happen?", hint: "Accept responses. So that they would no longer be slaves to sin. Their new lives in Christ are free from the power of sin." },
+            { type: "question", text: "What do you think it means to be a slave to sin?", hint: "Accept responses. To be a slave is to be controlled by someone else; it means not being free. To be a slave to sin means someone can't help sinning, because sin controls them." },
+            { type: "story", text: "Paul then goes on. He says that Christ was raised from death and will never die again, so death no longer has any power over him. And because of that, God's people are dead to sin and alive for God." },
+            { type: "question", text: "What no longer has power over Christ?", hint: "Accept responses. Death no longer has power over Jesus." },
+            { type: "question", text: "And what happened to Jesus after he died?", hint: "Accept responses. Jesus was raised to life, never to die again." },
+            { type: "story", text: "So what does the Bible say people need to do? Paul writes: don't let sin rule your body. Don't let any part of your body become a slave of evil. Give yourselves to God, as people who have been raised from death to life." },
+            { type: "question", text: "What does Paul tell God's people not to do?", hint: "Accept responses. Not to give in to sin — which is ignoring God and living their own way." },
+            { type: "question", text: "And what does Paul tell God's people to do?", hint: "Accept responses. To give themselves to pleasing God, which means living the way God wants his people to live." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 6:8–10; 6:12–14",
+            topic: "Free from sin, given to God",
+            bigIdea: "People are declared innocent by trusting in Jesus — and once that happens, their old life and their new life simply don't go together. Christians don't do good things in order to be saved; they do good things because they already are.",
+            learningIntentions: [
+              "We are learning what it means to be a slave to sin.",
+              "We are learning that death no longer has power over Jesus, and that his people are alive for God.",
+              "I can say what Paul tells God's people to do and not to do.",
+            ],
+            assessment: "Listen for whether students can define slavery to sin in their own words.",
+            resources: ["A CEV Bible marked at Romans 6:8–10 and 6:12–14"],
+            script: [
+              {
+                heading: "Slaves to sin",
+                minutes: "3–4 min",
+                teacherTalk: "Recap Romans 6:6–7 briefly, then unpack the slavery picture.",
+                activityNote: null,
+                keyQuestion: "What do you think it means to be a slave to sin?",
+                teacherGuidance: "Accept responses. Being controlled by someone else; not free. Sin controls them so they can't help sinning.",
+              },
+              {
+                heading: "Romans 6:8–10",
+                minutes: "3 min",
+                teacherTalk: "Read Romans 6:8–10, noting that Christ refers to Jesus, and draw out both questions.",
+                activityNote: null,
+                keyQuestion: "What no longer has power over Christ?",
+                teacherGuidance: "Accept responses. Death no longer has power over Jesus.",
+              },
+              {
+                heading: "Romans 6:12–14",
+                minutes: "4 min",
+                teacherTalk: "Read Romans 6:12–14 and work through the not-to-do and to-do questions.",
+                activityNote: null,
+                keyQuestion: "And what does Paul tell God's people to do?",
+                teacherGuidance: "Accept responses. Give themselves to pleasing God — living the way God wants his people to live.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Ephesians 2:8–10 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4 gets the order right: good things come after being saved, not before.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Because, not in order to",
+          blocks: [
+            { type: "story", text: "Jesus took the penalty for sin. The Bible says that when people accept God's gift by trusting in Jesus, they will be declared innocent and have eternal life. They have been forgiven — and now how they live as a Christian matters." },
+            { type: "story", text: "Christians still aren't perfect. But they want to listen to the Bible and live in a way that pleases God." },
+            { type: "question", text: "Remember Romans 6:23 from a couple of weeks ago. What are God's people given as a gift?", hint: "Accept responses. Eternal life." },
+            { type: "question", text: "And what does the Bible say someone has to do to be declared innocent and have eternal life?", hint: "Accept responses. All they have to do is accept God's gift by trusting in Jesus." },
+            { type: "question", text: "So here is the important one. Do God's people do good things in order to get saved, or because they have already been saved?", hint: "Accept responses. Because they are already saved. People aren't saved by the good things they do. Getting this the wrong way round turns the gift back into wages." },
+            { type: "activity", text: "Two lists, out loud. First, name some things that belong to a Christian's old life. Now name some things that belong to their new life." },
+            { type: "story", text: "Listen again to the last part of our memory verse: God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are. The good things come last in that sentence — not first." },
+            { type: "story", text: "But living the way God wants isn't easy, because no-one is perfect yet. So God sends his Spirit to help. And that is what we start looking at next week." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+            { type: "prayer", text: "Dear God, thank you that Jesus died on the cross so that people who trust in him can be declared innocent. Please help your people to stop living their own way and to please you with how they live. Thank you that you have given your Spirit to help your followers. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 6:23; Ephesians 2:8–10",
+            topic: "Good works follow salvation",
+            bigIdea: "People are declared innocent by trusting in Jesus — and once that happens, their old life and their new life simply don't go together. Christians don't do good things in order to be saved; they do good things because they already are.",
+            learningIntentions: [
+              "We are learning that God's people are not saved by the good things they do.",
+              "We are learning that Christians do good things because they have already been saved.",
+              "I can name things that belong to a Christian's old life and new life.",
+            ],
+            assessment: "Listen carefully for the order in students' answers — because saved, not in order to be saved.",
+            resources: [],
+            script: [
+              {
+                heading: "How they live matters",
+                minutes: "3 min",
+                teacherTalk: "Recap that Jesus took the penalty, and that forgiven people's lives now matter.",
+                activityNote: null,
+                keyQuestion: "And what does the Bible say someone has to do to be declared innocent and have eternal life?",
+                teacherGuidance: "Accept responses. Accept God's gift by trusting in Jesus.",
+              },
+              {
+                heading: "Getting the order right",
+                minutes: "3–4 min",
+                teacherTalk: "Press on the key distinction — because saved, not in order to be saved.",
+                activityNote: null,
+                keyQuestion: "Do God's people do good things in order to get saved, or because they have already been saved?",
+                teacherGuidance: "Accept responses. Because they are already saved. Getting it backwards turns the gift into wages.",
+              },
+              {
+                heading: "Old life, new life",
+                minutes: "3 min",
+                teacherTalk: "Collect the two lists out loud.",
+                activityNote: "If your students have Activity books, this matches the two people outlines.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "The verse says it",
+                minutes: "2 min",
+                teacherTalk: "Read the last part of Ephesians 2:10 and point out where the good things sit in the sentence.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close in prayer and flag the Spirit for next week.",
+                activityNote: "Use the prayer block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Next week: how the goal of heaven changes the way Christians live now.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 5 =================
+    "Week 5": {
+      lessonTitle: "The goal of the gospel",
+      passage: "Romans 8:1–13",
+      bigIdea: "Knowing you have been declared innocent and are heading for heaven changes the way you live right now — and God gives his people his Holy Spirit so they can say no to sin and yes to him.",
+      source: "Connect B2 Upper Primary — Lesson 15",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Goals change today",
+          blocks: [
+            { type: "story", text: "I want to tell you about Corey. Corey just won the award for the most gold medals at his little athletics carnival. He'd been training all year for that day — every afternoon he'd go for a run at the park, practise his long jump and shot-put, even his high jump. Corey's goal all year was to win as many events as he could at that carnival. All the hard work paid off, and he got his trophy." },
+            { type: "question", text: "What are some goals that you have had in the past?", hint: "Accept responses. You may need to offer examples — winning a certain race or competition, saving up to buy a particular item, learning an instrument." },
+            { type: "question", text: "Did you achieve your goal? And how did you change the way you did things in order to reach it?", hint: "Accept responses. Look for the pattern: the goal changed what they did in the meantime — training, practising, saving instead of spending." },
+            { type: "story", text: "Our future goals shape the way we live in the present. When you have a future goal in mind, it changes what you do today." },
+            { type: "story", text: "In this next part of his letter, Paul tells the Romans that their future goal — their destiny — should shape the way they live now. That's what this week is about." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 8:1–13 (introduction)",
+            topic: "A future goal shapes the present",
+            bigIdea: "Knowing you have been declared innocent and are heading for heaven changes the way you live right now — and God gives his people his Holy Spirit so they can say no to sin and yes to him.",
+            learningIntentions: [
+              "We are learning that a future goal changes the way a person lives now.",
+              "We are learning that Paul says a Christian's future should shape their present.",
+              "I can describe a goal I have had and how it changed what I did.",
+            ],
+            assessment: "Listen for whether students can name a concrete change they made because of a goal.",
+            resources: [],
+            script: [
+              {
+                heading: "Corey's carnival",
+                minutes: "2–3 min",
+                teacherTalk: "Tell Corey's story — the training, the goal, the trophy.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Your goals",
+                minutes: "4–5 min",
+                teacherTalk: "Collect students' own goals and, importantly, what they changed to reach them.",
+                activityNote: "Push past the goal itself to what they actually did differently.",
+                keyQuestion: "Did you achieve your goal? And how did you change the way you did things in order to reach it?",
+                teacherGuidance: "Accept responses. Look for the pattern: the goal changed what they did in the meantime.",
+              },
+              {
+                heading: "Paul's point",
+                minutes: "2–3 min",
+                teacherTalk: "Make the link: Paul says a Christian's future goal should shape how they live now.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Ephesians 2:8–10 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 is a media briefing from the Olympic marathon.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Media briefing: the marathon",
+          blocks: [
+            { type: "story", text: "Journalists, into the briefing room. Our media release for today is a big one." },
+            { type: "dictation", title: "Media briefing — Lesson 15 (this news story is fictional)", lines: [
+              { text: "MEDIA RELEASE." },
+              { text: "It's a proud day for Australians everywhere!" },
+              { text: "Australian Stavros Massoud has just won the Olympic gold medal for the marathon." },
+              { text: "He ran into the stadium late yesterday afternoon ten minutes ahead of the silver medallist, Christopher James." },
+              { text: "What an outstanding athlete!" },
+              { text: "We knew he was the best in the field and he would always win this race — but this result is just incredible!" },
+            ] },
+            { type: "question", text: "Ten minutes ahead of the silver medallist. What does that tell you about Stavros Massoud?", hint: "Accept responses. That is an unheard-of margin. He was the favourite, the best in the field — his victory was never really in doubt." },
+            { type: "story", text: "Now listen to what Paul says. He writes that God raised Jesus from death, and the Spirit of God who did that lives in his people — and he will also give life to their bodies." },
+            { type: "question", text: "What does Paul say the future holds for those who belong to Jesus?", hint: "Accept responses. They will be raised to life." },
+            { type: "question", text: "So what is the goal of those who belong to Jesus? Where are they heading?", hint: "Accept responses. Heaven. Followers of Jesus can be confident that their bodies will be raised again and that they will live in heaven forever." },
+            { type: "story", text: "Think about Stavros Massoud. He was always the favourite. He was always going to win the race. His victory was definite. Just like that, those who belong to Jesus can be confident of their place in heaven. Their goal is secure." },
+            { type: "question", text: "Why can those who follow Jesus be confident?", hint: "Accept responses. Because Jesus, the perfect man, died in the place of sinners so that they can be declared innocent." },
+            { type: "question", text: "Is it because of the good things people do that they can be confident of their place in heaven?", hint: "Accept responses. No. It is only because Jesus died and invites people to receive forgiveness. Unlike Stavros, a place in heaven doesn't come from hard work — it is a gift." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 8:11; Romans 8:2–4",
+            topic: "The Christian's goal is secure",
+            bigIdea: "Knowing you have been declared innocent and are heading for heaven changes the way you live right now — and God gives his people his Holy Spirit so they can say no to sin and yes to him.",
+            learningIntentions: [
+              "We are learning that those who belong to Jesus will be raised to life.",
+              "We are learning that a Christian's confidence rests on Jesus' death, not their own effort.",
+              "I can explain where the Stavros picture fits and where it breaks down.",
+            ],
+            assessment: "Listen for whether students say the confidence comes from Jesus rather than from good behaviour.",
+            resources: ["On-screen media briefing: Lesson 15 Media release", "A CEV Bible marked at Romans 8:11 and 8:2–4"],
+            script: [
+              {
+                heading: "Media briefing",
+                minutes: "3–4 min",
+                teacherTalk: "Run the on-screen briefing. Remind the class the story is fictional.",
+                activityNote: "Tap Start the script on screen.",
+                keyQuestion: "Ten minutes ahead of the silver medallist. What does that tell you about Stavros Massoud?",
+                teacherGuidance: "Accept responses. An unheard-of margin — he was the best in the field and was always going to win.",
+              },
+              {
+                heading: "Romans 8:11",
+                minutes: "3 min",
+                teacherTalk: "Read Romans 8:11 and draw out the future and the goal.",
+                activityNote: null,
+                keyQuestion: "So what is the goal of those who belong to Jesus? Where are they heading?",
+                teacherGuidance: "Accept responses. Heaven — raised bodies, living with God forever.",
+              },
+              {
+                heading: "A secure goal",
+                minutes: "3 min",
+                teacherTalk: "Use the Stavros comparison for certainty, then read Romans 8:2–4 for the reason.",
+                activityNote: null,
+                keyQuestion: "Why can those who follow Jesus be confident?",
+                teacherGuidance: "Accept responses. Because Jesus, the perfect man, died in the place of sinners.",
+              },
+              {
+                heading: "Where the picture breaks",
+                minutes: "2–3 min",
+                teacherTalk: "Be explicit that unlike Stavros, heaven doesn't come from hard work.",
+                activityNote: null,
+                keyQuestion: "Is it because of the good things people do that they can be confident of their place in heaven?",
+                teacherGuidance: "Accept responses. No — only because Jesus died and invites people to receive forgiveness.",
+              },
+            ],
+            whereToNext: "Day 3 looks at how what people think about reveals what their goal really is.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "What you think about shows your goal",
+          blocks: [
+            { type: "story", text: "Paul goes on to show us that the way we think reveals our goal. He writes that people who are ruled by their desires think only of themselves — but people who are ruled by the Spirit think about spiritual things, and that leads to life and peace." },
+            { type: "story", text: "Picture two people. One is ruled by their own desires. The other is ruled by God's Spirit." },
+            { type: "question", text: "What kinds of things do you think the first person — the one ruled by their desires — thinks about?", hint: "Accept responses. Pleasure, food, money, getting their way, the things they want, not caring about others." },
+            { type: "question", text: "And what does the person ruled by the Spirit think about?", hint: "Accept responses. Spiritual things — things that please the Spirit of God. Loving others, being kind, speaking nicely, sharing, being generous, putting others first." },
+            { type: "question", text: "What is the end result for someone whose goal is to please God?", hint: "Accept responses. They will have life and peace — Paul says so directly in Romans 8:6." },
+            { type: "story", text: "The things people think about reveal their goals in life. And those goals then influence their behaviour — the way they act." },
+            { type: "question", text: "What do you think might have happened if Stavros Massoud had thought like this: I'm going to win the Olympic medal for sure, so I don't think I'll worry about training today. I might just sleep in and have pizza for dinner tonight.", hint: "Accept responses. Stavros might have been the favourite and may have thought he was definitely going to win — but if he didn't train or keep focused on the goal, he would have lost." },
+            { type: "story", text: "Paul says the same to those who follow Jesus. Christians have a goal, and that goal influences how they live now." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 8:5–6",
+            topic: "Thinking reveals the goal",
+            bigIdea: "Knowing you have been declared innocent and are heading for heaven changes the way you live right now — and God gives his people his Holy Spirit so they can say no to sin and yes to him.",
+            learningIntentions: [
+              "We are learning that what people think about reveals what their goal is.",
+              "We are learning that being ruled by the Spirit leads to life and peace.",
+              "I can contrast a person ruled by desires with a person ruled by the Spirit.",
+            ],
+            assessment: "Listen for whether students can give concrete examples for both kinds of thinking.",
+            resources: ["A CEV Bible marked at Romans 8:5–6"],
+            script: [
+              {
+                heading: "Romans 8:5–6",
+                minutes: "3 min",
+                teacherTalk: "Read Romans 8:5–6 and set up the two contrasting people.",
+                activityNote: "If your students have Activity books, this matches the two-halves timeline with thought bubbles.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Two thought bubbles",
+                minutes: "4–5 min",
+                teacherTalk: "Collect examples for both people. Concrete answers matter more than tidy ones.",
+                activityNote: null,
+                keyQuestion: "And what does the person ruled by the Spirit think about?",
+                teacherGuidance: "Accept responses. Spiritual things — loving others, kindness, generosity, putting others first.",
+              },
+              {
+                heading: "Life and peace",
+                minutes: "2 min",
+                teacherTalk: "Name the end result from verse 6.",
+                activityNote: null,
+                keyQuestion: "What is the end result for someone whose goal is to please God?",
+                teacherGuidance: "Accept responses. Life and peace.",
+              },
+              {
+                heading: "If Stavros stopped training",
+                minutes: "3 min",
+                teacherTalk: "Run the sleep-in-and-pizza scenario and land the point about goals shaping behaviour.",
+                activityNote: null,
+                keyQuestion: "What do you think might have happened if Stavros Massoud had thought like this: I'm going to win for sure, so I won't train today?",
+                teacherGuidance: "Accept responses. He may have been the favourite, but without training and focus he would have lost.",
+              },
+            ],
+            whereToNext: "Day 4 is about saying no — and who helps you do it.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Saying no, saying yes",
+          blocks: [
+            { type: "story", text: "Paul finishes this section with an instruction. He says that with the Spirit's help, God's people must say no to their sinful desires — and then they will live." },
+            { type: "question", text: "What does Paul tell the Romans to do?", hint: "Accept responses. With the Spirit's help, they must say no to sinful desires." },
+            { type: "story", text: "But remember: obeying God and living his way doesn't earn a person a place in heaven. The Bible says good works can't save people. Christians want to please God because he has already saved them." },
+            { type: "question", text: "What are some examples of sinful things people would need to say no to if they want to please God?", hint: "Accept responses. Lying, saying mean things, hurting others, disobeying parents or teachers, stealing, being jealous." },
+            { type: "question", text: "And what would be the choice in those same situations that would please God?", hint: "Accept responses. Telling the truth, speaking kindly, not being aggressive, listening to and obeying parents and teachers, being generous, being thankful to God for his gifts." },
+            { type: "question", text: "Do you think it is easy for someone to say no to sinful desires?", hint: "Accept responses. It's not easy. Each day people have to choose not to do the wrong thing and choose to do the right thing, and that can be very difficult." },
+            { type: "question", text: "Did the Romans have to say no to their sinful desires using their own efforts?", hint: "Accept responses. No, they didn't. God's Spirit lived in them and helped them to make the right choices. This is the whole point — they were not left to manage on their own." },
+            { type: "story", text: "Christians read the Bible and learn from it how to choose to do the right thing. They want to say no to the sinful things they might want to do, and yes to the things God wants them to do — because God loves them and knows what is best for them." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+            { type: "prayer", text: "Dear God, thank you for teaching us about what the Bible says about saying no to sinful things. You want your people to instead say yes to you. Help your people to do this. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 8:13b",
+            topic: "Saying no to sin with the Spirit's help",
+            bigIdea: "Knowing you have been declared innocent and are heading for heaven changes the way you live right now — and God gives his people his Holy Spirit so they can say no to sin and yes to him.",
+            learningIntentions: [
+              "We are learning that God's people say no to sinful desires with the Spirit's help.",
+              "We are learning that obeying God does not earn a place in heaven.",
+              "I can name a sinful choice and the alternative that would please God.",
+            ],
+            assessment: "Listen for whether students include the Spirit's help rather than describing this as pure willpower.",
+            resources: ["A CEV Bible marked at Romans 8:13b"],
+            script: [
+              {
+                heading: "Romans 8:13b",
+                minutes: "2–3 min",
+                teacherTalk: "Read from But you will live... and draw out the instruction.",
+                activityNote: null,
+                keyQuestion: "What does Paul tell the Romans to do?",
+                teacherGuidance: "Accept responses. With the Spirit's help they must say no to sinful desires.",
+              },
+              {
+                heading: "Not to earn it",
+                minutes: "2 min",
+                teacherTalk: "Guard the order again — Christians please God because he has already saved them.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "No and yes",
+                minutes: "4 min",
+                teacherTalk: "Collect paired answers — the sinful choice, then the alternative that pleases God.",
+                activityNote: "If your students have Activity books, this matches the two-column table.",
+                keyQuestion: "And what would be the choice in those same situations that would please God?",
+                teacherGuidance: "Accept responses. Telling the truth, speaking kindly, obeying, being generous, being thankful.",
+              },
+              {
+                heading: "Not on their own",
+                minutes: "3 min",
+                teacherTalk: "Acknowledge how hard this is, then make sure the Spirit's help is clearly stated.",
+                activityNote: null,
+                keyQuestion: "Did the Romans have to say no to their sinful desires using their own efforts?",
+                teacherGuidance: "Accept responses. No — God's Spirit lived in them and helped them make the right choices.",
+              },
+              {
+                heading: "Verse and prayer",
+                minutes: "2 min",
+                teacherTalk: "Say Ephesians 2:8–10 together and close in prayer.",
+                activityNote: "Use the verse and prayer blocks.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Next week: what happens when living as a Christian gets genuinely hard.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 6 =================
+    "Week 6": {
+      lessonTitle: "The hope of the gospel",
+      passage: "Romans 8:14–39",
+      bigIdea: "Living as a Christian can be genuinely hard — but God's people don't suffer alone, they have a hope that is certain rather than a wish, and nothing at all can separate them from God's love.",
+      source: "Connect B2 Upper Primary — Lesson 16",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Worth suffering for",
+          blocks: [
+            { type: "question", text: "Is there anything you could imagine that would be worth suffering pain for?", hint: "Accept responses. Students may recall the marathon runner from last week. Others might say a sport, a performance, or helping someone they love." },
+            { type: "question", text: "Why would it be worth it?", hint: "Accept responses. Look for the shape of the answer: because what you get at the end is worth more than what it costs on the way." },
+            { type: "story", text: "Paul reminds the Romans that the sufferings and pain of this life are not worth comparing with the glory of heaven. That's a big claim — so let's hear from someone who knows about suffering for a goal." },
+            { type: "story", text: "Journalists, Stavros Massoud has been kind enough to join us this week for an interview." },
+            { type: "roleplay", title: "Interview with Stavros Massoud", characters: ["Host", "Stavros Massoud"], lines: [
+              { character: "Host", text: "Welcome Stavros. It is so great to have you with us!" },
+              { character: "Stavros Massoud", text: "Thanks for inviting me. It's great to be here!" },
+              { character: "Host", text: "It's been a month since you won the Olympic gold medal. What was it like representing your country in the Olympics?" },
+              { character: "Stavros Massoud", text: "It was a great honour to have the support of my country behind me. I was so proud to bear the name Australian." },
+              { character: "Host", text: "What does it feel like to be the first Australian to win an Olympic gold for the marathon?" },
+              { character: "Stavros Massoud", text: "Incredible! There's really nothing like it!" },
+              { character: "Host", text: "Did the fact that you were the favourite all along take away from the glory of winning?" },
+              { character: "Stavros Massoud", text: "Not a bit! With all the hard work that goes in, to actually finish the race and to wear my medal around my neck ... It's just amazing!" },
+              { character: "Host", text: "Tell us a little bit about those final moments of the race." },
+              { character: "Stavros Massoud", text: "As I ran into the stadium the excitement kicked in. By that time, you know the end is near! The pain in my body and the sweat pouring down my face ... I could barely see the crowds but you could certainly hear them cheering. On those final laps around the stadium, you know that all that hard work has been worth it — but you still need to make it to that finish line!" },
+              { character: "Host", text: "I have never tried to run a marathon but I tried to run down the road once and that was pretty hard! What kind of obstacles or hardships did you have to endure to win that gold medal?" },
+              { character: "Stavros Massoud", text: "There are lots of hard things. There are injuries — I rolled my ankle about 18 months ago and that took a while to recover from. There's the discipline of training — going to bed and getting up early, not being able to eat junk food, and missing out on what my friends are doing. Not only that, marathon running is also hard on your body and on your mind. There are points where you feel like your body just can't go on, that you can't take another step. Your mind has to keep your legs moving but sometimes your mind's not even sure that you can do it. There were a couple of moments when I thought that it might just be easier to give up." },
+              { character: "Host", text: "Wow! That all sounds really hard! How did you get through it all?" },
+              { character: "Stavros Massoud", text: "The support of my coach! I certainly wouldn't have won this gold medal if he wasn't by my side every step of the way! And keeping my eyes fixed firmly on the goal — that Olympic gold medal and the glory that comes with being the first Australian to win it! That's what kept me going!" },
+              { character: "Host", text: "Wow! Knowing all the pain and suffering you had to go through to win the gold medal, would you do it again?" },
+              { character: "Stavros Massoud", text: "In a second. The pain that you go through is not at all worth comparing with the glory of winning that race! It is totally worth it!" },
+              { character: "Host", text: "That is truly inspirational. Thanks for sharing with us!" },
+              { character: "Stavros Massoud", text: "Thanks for having me!" },
+            ] },
+            { type: "question", text: "Two things kept Stavros going when he wanted to give up. What were they?", hint: "Accept responses. His coach, by his side every step of the way — and keeping his eyes fixed on the goal. Hold on to both; they map onto the rest of this week exactly." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 8:18 (introduction)",
+            topic: "What makes suffering worth it",
+            bigIdea: "Living as a Christian can be genuinely hard — but God's people don't suffer alone, they have a hope that is certain rather than a wish, and nothing at all can separate them from God's love.",
+            learningIntentions: [
+              "We are learning that some goals are worth suffering for.",
+              "We are learning that Stavros kept going because of his coach and his goal.",
+              "I can say what Paul claims about the sufferings of this life compared with heaven.",
+            ],
+            assessment: "Listen for whether students identify both the coach and the goal — those two threads carry the rest of the week.",
+            resources: ["On-screen script: Interview with Stavros Massoud (2 speaking parts)"],
+            script: [
+              {
+                heading: "Worth suffering for?",
+                minutes: "2–3 min",
+                teacherTalk: "Open with both Way in questions before introducing the interview.",
+                activityNote: null,
+                keyQuestion: "Is there anything you could imagine that would be worth suffering pain for?",
+                teacherGuidance: "Accept responses. Students may recall the marathon runner from last week.",
+              },
+              {
+                heading: "The interview",
+                minutes: "6–7 min",
+                teacherTalk: "Choose a Host and a Stavros and run the on-screen script. Teacher can take Stavros if the reading load is heavy.",
+                activityNote: "Tap Start the script on screen; readers follow one line at a time.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Two things kept him going",
+                minutes: "2–3 min",
+                teacherTalk: "Debrief and pin the two threads: the coach, and the goal.",
+                activityNote: "Write both on the board — you'll come back to them on Days 3 and 4.",
+                keyQuestion: "Two things kept Stavros going when he wanted to give up. What were they?",
+                teacherGuidance: "Accept responses. His coach by his side, and keeping his eyes fixed on the goal.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Ephesians 2:8–10 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 asks whose name a Christian bears, and whose glory they share.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Children of God",
+          blocks: [
+            { type: "story", text: "That interview reminds me of what Paul wrote to the Romans. He says that everyone who is led by God's Spirit is a child of God — and God's Spirit doesn't make people slaves who are afraid, but lets them call God their Father." },
+            { type: "question", text: "Whose name did Stavros proudly bear as he competed in the Olympic marathon?", hint: "Accept responses. Australia's name — because he was representing them." },
+            { type: "question", text: "And whose name do Christians bear? What family have they become part of?", hint: "Accept responses. God's name, because they have become his children." },
+            { type: "question", text: "Those who have the Spirit living in them are children of God. What are the benefits of being a child of God?", hint: "Accept responses. Christians can call God Father; they can be confident they are his children; they will be given what was promised — their inheritance, heaven, eternal life; and they share in the glory of Jesus, God's risen Son." },
+            { type: "story", text: "Paul says that God's children share in Christ's glory. So it's worth asking what glory actually is." },
+            { type: "question", text: "What was Stavros' glory?", hint: "Accept responses. The victory of winning the gold medal for the Olympic marathon." },
+            { type: "question", text: "So what do you think Christ's glory is?", hint: "Accept responses. His victory over sin and death, seen in his resurrection. He is now in heaven reigning as Lord over all." },
+            { type: "question", text: "And what do you think it will mean for Christians to share Christ's glory?", hint: "Accept responses. Christians share in Jesus' victory over sin and death — sin and death no longer have power over them. Like Jesus, they will rise to life and share in his new nature with new eternal bodies." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 8:14–17",
+            topic: "Bearing God's name and sharing Christ's glory",
+            bigIdea: "Living as a Christian can be genuinely hard — but God's people don't suffer alone, they have a hope that is certain rather than a wish, and nothing at all can separate them from God's love.",
+            learningIntentions: [
+              "We are learning that those led by God's Spirit are children of God.",
+              "We are learning what the benefits of being God's child are.",
+              "I can say what Christ's glory is and what it means to share in it.",
+            ],
+            assessment: "Listen for whether students can define Christ's glory as his victory over sin and death, not just fame.",
+            resources: ["A CEV Bible marked at Romans 8:14–17"],
+            script: [
+              {
+                heading: "Whose name?",
+                minutes: "3 min",
+                teacherTalk: "Read Romans 8:14–17, then run the two name questions side by side.",
+                activityNote: "If your students have Activity books, this matches the Stavros / Jesus / Christians table.",
+                keyQuestion: "And whose name do Christians bear? What family have they become part of?",
+                teacherGuidance: "Accept responses. God's name, because they have become his children.",
+              },
+              {
+                heading: "Benefits of being God's child",
+                minutes: "3–4 min",
+                teacherTalk: "Collect the benefits — Father, confidence, inheritance, sharing Jesus' glory.",
+                activityNote: null,
+                keyQuestion: "Those who have the Spirit living in them are children of God. What are the benefits of being a child of God?",
+                teacherGuidance: "Accept responses. Calling God Father, confidence, the promised inheritance of heaven, and sharing Jesus' glory.",
+              },
+              {
+                heading: "What is glory?",
+                minutes: "4 min",
+                teacherTalk: "Work down the column: Stavros' glory, then Christ's glory, then what Christians share.",
+                activityNote: null,
+                keyQuestion: "So what do you think Christ's glory is?",
+                teacherGuidance: "Accept responses. His victory over sin and death, seen in his resurrection; he reigns as Lord.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Ephesians 2:8–10 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 is honest about how hard following Jesus can be.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "The path to glory",
+          blocks: [
+            { type: "question", text: "What was Stavros' path to glory — what did he actually have to do?", hint: "Accept responses. He trained hard, endured pain and suffering, and made sacrifices." },
+            { type: "story", text: "The writer of Hebrews says that Jesus endured the shame of the cross because of the joy that was waiting for him — and now he is at the right side of God's throne." },
+            { type: "question", text: "So what did Jesus do to receive his glory?", hint: "Accept responses. He died on the cross." },
+            { type: "question", text: "And what does Paul say is a Christian's path to glory?", hint: "Accept responses. Sharing in Jesus' suffering — Romans 8:17b says they will share in his glory if they share in his suffering." },
+            { type: "question", text: "When Stavros decided to be a marathon runner, what made life harder for him than for his friends who weren't running marathons?", hint: "Accept responses. He had to say no to hanging out with friends sometimes, be careful about what he ate, get enough sleep, stick to a strict training program and be self-disciplined." },
+            { type: "question", text: "It can be like that for Christians too. What are some things that might make life harder for someone who follows Jesus than for those who don't?", hint: "Accept responses. They care about how they live; they're generous with money instead of spending it all on themselves; they put others first and sometimes miss out for other people's sake; they won't join in when others are bullying or doing things others find fun; and sometimes they'll be teased because they love and follow Jesus." },
+            { type: "story", text: "The Bible is honest that being a Christian can be really hard, and that there are times when people feel like giving up. But Paul reminds his readers of the goal — heaven. He writes that what we suffer now is nothing compared with the glory that will be given to us." },
+            { type: "question", text: "How did Stavros feel about the pain and suffering he went through?", hint: "Accept responses. He didn't complain, because the glory of winning the gold medal was better than anything else. He said he'd do it again in a second." },
+            { type: "verse", reference: "Romans 8:18 (CEV)", text: "“I am sure that what we are suffering now cannot compare with the glory that will be shown to us.”" },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Hebrews 12:2; Romans 8:17b–18",
+            topic: "Following Jesus can be hard",
+            bigIdea: "Living as a Christian can be genuinely hard — but God's people don't suffer alone, they have a hope that is certain rather than a wish, and nothing at all can separate them from God's love.",
+            learningIntentions: [
+              "We are learning that Jesus' path to glory was the cross.",
+              "We are learning that following Jesus can make life harder in real, specific ways.",
+              "I can explain Romans 8:18 in my own words.",
+            ],
+            assessment: "Listen for whether students can name specific ways following Jesus costs something, rather than staying general.",
+            resources: ["A CEV Bible marked at Hebrews 12:2 and Romans 8:18"],
+            script: [
+              {
+                heading: "Three paths to glory",
+                minutes: "3–4 min",
+                teacherTalk: "Work across Stavros, Jesus and Christians — training and sacrifice, the cross, sharing Jesus' suffering.",
+                activityNote: "Read Hebrews 12:2 for Jesus' path.",
+                keyQuestion: "And what does Paul say is a Christian's path to glory?",
+                teacherGuidance: "Accept responses. Sharing in Jesus' suffering — Romans 8:17b.",
+              },
+              {
+                heading: "What made it harder",
+                minutes: "4 min",
+                teacherTalk: "Start with Stavros' sacrifices, then move to what makes life harder for a Christian.",
+                activityNote: "Don't rush this — specific answers are the useful ones.",
+                keyQuestion: "What are some things that might make life harder for someone who follows Jesus than for those who don't?",
+                teacherGuidance: "Accept responses. Caring how they live, generosity, putting others first, not joining in, sometimes being teased.",
+              },
+              {
+                heading: "Romans 8:18",
+                minutes: "3 min",
+                teacherTalk: "Be honest that it's hard, then give Romans 8:18 and compare with how Stavros felt.",
+                activityNote: "Use the Romans 8:18 verse block.",
+                keyQuestion: "How did Stavros feel about the pain and suffering he went through?",
+                teacherGuidance: "Accept responses. He didn't complain — the glory of winning was better than anything else.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1 min",
+                teacherTalk: "Say Ephesians 2:8–10 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 4: what Christian hope actually means, and who helps while they wait.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "A hope you can be certain of",
+          blocks: [
+            { type: "story", text: "Paul reminds his readers of the goal — heaven. The Bible has a word for that: hope." },
+            { type: "question", text: "What do you think hope is?", hint: "Accept responses. Let them answer before you correct the everyday meaning." },
+            { type: "story", text: "When we use the word hope, we often use it like a wish: I hope it doesn't rain tomorrow. We don't know whether it will rain, but we hope it doesn't." },
+            { type: "story", text: "That is not what Paul is talking about. The kind of hope Paul means is certain. You hope for something you know will definitely happen." },
+            { type: "question", text: "What is something you hope for that you know will definitely happen?", hint: "Accept responses. Christmas, birthdays, school holidays. These are things you look forward to and are sure about — that's Paul's kind of hope." },
+            { type: "question", text: "Was Stavros' hope sure? Could he be certain he was going to win the gold medal?", hint: "Accept responses. In this case, yes — explain that it isn't like this for most Olympians, but in this example Stavros was the fastest runner and was always going to win." },
+            { type: "question", text: "Is Christian hope sure? Can God's people be certain that they will go to heaven?", hint: "Accept responses. Yes — because Jesus defeated sin on the cross and defeated death by rising again. Christians have a sure hope because Jesus is alive now. Also, God promised, and when God makes a promise, he always keeps it." },
+            { type: "story", text: "But hope comes with waiting. Just like Stavros had to wait until he crossed the finish line to get his medal, God's people wait until Jesus comes back to receive all that God has promised. And waiting can be hard." },
+            { type: "question", text: "Stavros had his coach beside him while he waited. Who has God given his people as a helper?", hint: "Accept responses. God's Spirit. Paul says the Spirit helps us when we are weak. God's Spirit is always with his people and will never leave them." },
+            { type: "story", text: "God's Spirit will give his people the strength they need to make good choices and to live the way God wants them to. And when they feel like giving up, the Holy Spirit will point them again to the goal — eternal life with Jesus Christ our Lord." },
+            { type: "story", text: "And Paul finishes this whole section with the biggest promise of all. He says he is certain that nothing can separate God's people from his love — not life or death, not angels or spirits, not the present or the future, not powers above or powers below, nothing in all creation." },
+            { type: "verse", reference: "Romans 8:38–39 (CEV)", text: "“I am sure that nothing can separate us from God's love — not life or death, not angels or spirits, not the present or the future, and not powers above or powers below. Nothing in all creation can separate us from God's love for us in Christ Jesus our Lord!”" },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+            { type: "prayer", text: "Dear God, thank you that we could learn about heaven today. The Bible says that one day your people will be perfect and live with you forever. Thank you that you give Christians your Spirit to help them when life gets hard. Help your people today to live your way. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 8:24–27; 8:26a; 8:38–39",
+            topic: "Christian hope is certain, and nobody waits alone",
+            bigIdea: "Living as a Christian can be genuinely hard — but God's people don't suffer alone, they have a hope that is certain rather than a wish, and nothing at all can separate them from God's love.",
+            learningIntentions: [
+              "We are learning that biblical hope is certainty, not a wish.",
+              "We are learning that God gives his Spirit to help his people while they wait.",
+              "I can say that nothing in all creation can separate God's people from his love.",
+            ],
+            assessment: "Listen for whether students distinguish hope-as-wish from hope-as-certainty.",
+            resources: ["A CEV Bible marked at Romans 8:26a and 8:38–39"],
+            script: [
+              {
+                heading: "What is hope?",
+                minutes: "3–4 min",
+                teacherTalk: "Take answers first, then draw the distinction between a wish and a certainty.",
+                activityNote: null,
+                keyQuestion: "What is something you hope for that you know will definitely happen?",
+                teacherGuidance: "Accept responses. Christmas, birthdays, school holidays — sure things, which is Paul's kind of hope.",
+              },
+              {
+                heading: "Is the Christian hope sure?",
+                minutes: "3 min",
+                teacherTalk: "Compare Stavros' certainty with the Christian's, and give the reasons.",
+                activityNote: null,
+                keyQuestion: "Is Christian hope sure? Can God's people be certain that they will go to heaven?",
+                teacherGuidance: "Accept responses. Yes — Jesus defeated sin and death and is alive now, and God always keeps his promises.",
+              },
+              {
+                heading: "Waiting, with a helper",
+                minutes: "3 min",
+                teacherTalk: "Name the waiting, then read Romans 8:26a and make the coach comparison explicit.",
+                activityNote: "Read just the first sentence, up to help us.",
+                keyQuestion: "Stavros had his coach beside him while he waited. Who has God given his people as a helper?",
+                teacherGuidance: "Accept responses. God's Spirit, who is always with his people and will never leave them.",
+              },
+              {
+                heading: "Nothing can separate",
+                minutes: "3 min",
+                teacherTalk: "Finish with Romans 8:38–39. Read it slowly; let the list do the work.",
+                activityNote: "Use the Romans 8:38–39 verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close in prayer.",
+                activityNote: "Use the prayer block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Next week: what it means to be part of Christ's body, the Church.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 7 =================
+    "Week 7": {
+      lessonTitle: "The body of the gospel",
+      passage: "Romans 12:1–8",
+      bigIdea: "When people trust Jesus they become part of his body, the Church. God has made every person different and given them different gifts on purpose — and the body only works properly when every member uses their gifts to love and serve others.",
+      source: "Connect B2 Upper Primary — Lesson 17",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Pass the ball",
+          blocks: [
+            { type: "activity", text: "Everyone stand up, push your chairs in and take a step away from your desk. We're going to pass a soft ball around the room — gently and slowly. Strict rules: gently, slowly, and no throwing. Anyone being unsafe takes a seat and misses out." },
+            { type: "activity", text: "Round two: keep passing the ball, but now you have to stand on one leg. Round three: still on one leg, and now you can only use one arm to catch and pass. Then everyone take a seat." },
+            { type: "question", text: "Was it difficult to pass the ball to begin with? What about standing on one leg? What about using only one arm?", hint: "Accept responses. It gets harder each round. Draw out that it got harder the more of the body they weren't allowed to use." },
+            { type: "question", text: "Was it easier to pass the ball when you could use your whole body?", hint: "Accept responses. Yes. When the whole body is working properly and every part is doing its job, we are much more effective at completing the task." },
+            { type: "story", text: "When our whole body is working properly and every part is doing its job, we're far better at what we need to do. Paul tells us it's exactly the same with Christ's body — the Church." },
+            { type: "activity", text: "Let's fill the room with body parts. Call them out. Bones. Parts to do with your senses. Parts you can see, like hands and elbows. Parts you can't see, like your heart and lungs." },
+            { type: "story", text: "God made us with lots of different parts. All of them work differently and all of them have a different job to do. You may know someone who has a physical disability, and doing some specific activities may be more difficult for them." },
+            { type: "question", text: "What would it be like if some of our body parts weren't working properly?", hint: "Accept responses. We might need help doing some tasks; other tasks might take longer, because we're not able to use the body parts that are most helpful for those things. Handle this gently and matter-of-factly, and be sensitive to any students this touches directly." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 12:4–5 (introduction)",
+            topic: "A body works best when every part does its job",
+            bigIdea: "When people trust Jesus they become part of his body, the Church. God has made every person different and given them different gifts on purpose — and the body only works properly when every member uses their gifts to love and serve others.",
+            learningIntentions: [
+              "We are learning that a body works best when every part does its job.",
+              "We are learning that God made our bodies with many different parts, each with a different job.",
+              "I can explain what Paul compares the Church to.",
+            ],
+            assessment: "Listen for whether students can state the comparison — the Church is like a body.",
+            resources: ["A soft ball for the Way in game"],
+            script: [
+              {
+                heading: "Pass the ball",
+                minutes: "5 min",
+                teacherTalk: "Run all three rounds of the ball game, then bring everyone back to their seats.",
+                activityNote: "Give strict rules up front. Anyone disruptive sits down and misses out.",
+                keyQuestion: "Was it easier to pass the ball when you could use your whole body?",
+                teacherGuidance: "Accept responses. Yes — the whole body working together is far more effective.",
+              },
+              {
+                heading: "Name the parts",
+                minutes: "3 min",
+                teacherTalk: "Collect body parts by category — bones, senses, visible, hidden.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "When a part doesn't work",
+                minutes: "3 min",
+                teacherTalk: "Ask what it's like when parts of the body aren't working properly.",
+                activityNote: "Be sensitive here — some students may have a disability or a family member who does.",
+                keyQuestion: "What would it be like if some of our body parts weren't working properly?",
+                teacherGuidance: "Accept responses. Needing help with some tasks; other tasks taking longer.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Ephesians 2:8–10 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2's media briefing is about exactly this.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Media briefing: Ricky Hong",
+          blocks: [
+            { type: "story", text: "Journalists, our media release for today is about this very thing." },
+            { type: "dictation", title: "Media briefing — Lesson 17 (this news story is fictional)", lines: [
+              { text: "MEDIA RELEASE." },
+              { text: "A tragic industrial accident at Mount Princeton's iron mill last night has left one of the workers, Ricky Hong, blind." },
+              { text: "Ricky was rushed to emergency after a machine shattered, shooting shards of metal into his eyes." },
+              { text: "Doctors say that Ricky will recover, but he will never see again." },
+            ] },
+            { type: "question", text: "What do you think it would be like to be able to see one day, and not the next?", hint: "Accept responses. Take this seriously and unhurriedly. Students may name fear, grief, frustration, or the loss of ordinary things." },
+            { type: "question", text: "What kinds of things do you think would have to change for Ricky?", hint: "Accept responses. How he gets around, how he works, how he reads, how he recognises people — and how much he would need other people's help." },
+            { type: "story", text: "When specific parts of our body don't do their job, there are huge consequences. This is exactly what Paul was talking about in this next part of his letter." },
+            { type: "story", text: "Paul wanted the Romans to realise that when they became Christians they became part of a body — Christ's body. He writes that a body is made up of many parts, and each of them has its own use, and it's the same with Christians: though there are many of us, we are all one body in Christ, and we are all parts of each other." },
+            { type: "question", text: "What did Paul say are similar about the Church and a body?", hint: "Accept responses. The body has many members which make up the one body. So it is with the Church — there are many of us, but we are one body in Christ." },
+            { type: "question", text: "What do you think it would be like if all the parts of the body were the same?", hint: "Accept responses. There would be no body — it would just be a giant ball of eyes, or of arms. A body needs different parts to be a body at all." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 12:4–5",
+            topic: "Many parts, one body in Christ",
+            bigIdea: "When people trust Jesus they become part of his body, the Church. God has made every person different and given them different gifts on purpose — and the body only works properly when every member uses their gifts to love and serve others.",
+            learningIntentions: [
+              "We are learning that there are real consequences when a part of the body can't do its job.",
+              "We are learning that Christians are many parts of one body in Christ.",
+              "I can explain why a body needs different parts.",
+            ],
+            assessment: "Listen for whether students can state Romans 12:4–5 in their own words.",
+            resources: ["On-screen media briefing: Lesson 17 Media release", "A CEV Bible marked at Romans 12:4–5"],
+            script: [
+              {
+                heading: "Media briefing",
+                minutes: "3 min",
+                teacherTalk: "Run the on-screen briefing. Remind the class the story is fictional.",
+                activityNote: "Tap Start the script on screen.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "What would change",
+                minutes: "3–4 min",
+                teacherTalk: "Give both debrief questions room. Don't rush past the human weight of it.",
+                activityNote: "Be sensitive — treat this seriously rather than as a puzzle.",
+                keyQuestion: "What kinds of things do you think would have to change for Ricky?",
+                teacherGuidance: "Accept responses. Getting around, working, reading, recognising people, needing others' help.",
+              },
+              {
+                heading: "Romans 12:4–5",
+                minutes: "3–4 min",
+                teacherTalk: "Read Romans 12:4–5 and draw out the comparison.",
+                activityNote: null,
+                keyQuestion: "What did Paul say are similar about the Church and a body?",
+                teacherGuidance: "Accept responses. Many members, one body — so it is with the Church.",
+              },
+              {
+                heading: "All the same?",
+                minutes: "2 min",
+                teacherTalk: "Ask the giant-ball-of-eyes question — it makes the point stick.",
+                activityNote: null,
+                keyQuestion: "What do you think it would be like if all the parts of the body were the same?",
+                teacherGuidance: "Accept responses. There would be no body — just a giant ball of eyes or arms.",
+              },
+            ],
+            whereToNext: "Day 3: God made every person different on purpose, and gave them different gifts.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Different on purpose",
+          blocks: [
+            { type: "story", text: "Each member of the body is different and has a different part to play. If all the parts were the same, there would be no body. So it is with Christ's body, the Church." },
+            { type: "story", text: "God has made each person different. He has given each person a different personality, different passions, different likes and dislikes. One person is outgoing and bubbly, another is quiet and shy. One person loves animals, another loves sport. One person likes chocolate, another likes cookies." },
+            { type: "activity", text: "Finish this sentence in your head, then a few of us will share: God has made me like this ... Think about your personality, what you love, what you're drawn to." },
+            { type: "story", text: "We have all been made differently. Each one of us has been made unique by God and for God. But he has also given each person different skills. One person is great at playing guitar, another is great with computers. One person is awesome at drama, another is really great at caring for people." },
+            { type: "activity", text: "Now the second half: God has given me these gifts ... Think of something you are good at, or something people come to you for." },
+            { type: "story", text: "Paul lists some of the gifts God gives — prophecy, serving, teaching, encouraging, giving generously, leading, and showing kindness. And he says: whatever gift you have, use it." },
+            { type: "question", text: "So what does Paul tell us to do with the gifts God has given us?", hint: "Accept responses. Use them to love and serve others. Not to show off with them, and not to compare them with everyone else's." },
+            { type: "question", text: "What would it be like if some parts of the body didn't do their job?", hint: "Accept responses. The body wouldn't work properly — remind students of the ball game on Monday, and of Ricky Hong." },
+            { type: "question", text: "And what would it be like if some Christians didn't use their gifts?", hint: "Accept responses. The body of Christ wouldn't work properly. It wouldn't function to its full capacity. It's best when all members use their gifts to love and serve each other." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 12:6–8",
+            topic: "Different people, different gifts",
+            bigIdea: "When people trust Jesus they become part of his body, the Church. God has made every person different and given them different gifts on purpose — and the body only works properly when every member uses their gifts to love and serve others.",
+            learningIntentions: [
+              "We are learning that God has made each person unique, by him and for him.",
+              "We are learning that God gives different gifts so the body can work together.",
+              "I can name a gift God has given me.",
+            ],
+            assessment: "Listen for whether every student can name at least one gift of their own without comparing it unfavourably to someone else's.",
+            resources: ["A CEV Bible marked at Romans 12:6–8"],
+            script: [
+              {
+                heading: "Made different",
+                minutes: "3–4 min",
+                teacherTalk: "Describe how God has made people different, then run the God has made me like this reflection.",
+                activityNote: "If your students have Activity books, this matches the God has made me like this section.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Given different gifts",
+                minutes: "3 min",
+                teacherTalk: "Move to skills and gifts, then run the God has given me these gifts reflection.",
+                activityNote: "Watch for students who can't name anything — have a suggestion ready for each of them.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Romans 12:6–8",
+                minutes: "3 min",
+                teacherTalk: "Read the gift list and Paul's instruction to use them.",
+                activityNote: null,
+                keyQuestion: "So what does Paul tell us to do with the gifts God has given us?",
+                teacherGuidance: "Accept responses. Use them to love and serve others — not to show off or to compare.",
+              },
+              {
+                heading: "If parts don't do their job",
+                minutes: "3 min",
+                teacherTalk: "Run both consequence questions, linking back to Monday's game and Tuesday's briefing.",
+                activityNote: null,
+                keyQuestion: "And what would it be like if some Christians didn't use their gifts?",
+                teacherGuidance: "Accept responses. The body of Christ wouldn't work to its full capacity.",
+              },
+            ],
+            whereToNext: "Day 4 asks what the Church actually is — and where you can use your gifts.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "What the Church actually is",
+          blocks: [
+            { type: "story", text: "If Christians don't play their parts, the body of Christ doesn't work as well as it should. Another word for the body of Christ is the Church." },
+            { type: "question", text: "What is the Church?", hint: "Accept responses. Students will very likely think first of the building we meet in — let them say it, then correct it gently." },
+            { type: "story", text: "We do call the building we meet in a church. But the Bible defines the Church differently. The Bible says the Church is wherever people who trust and follow Jesus meet together to read the Bible, encourage each other and pray to God." },
+            { type: "question", text: "So apart from a church building, where else can people meet to learn more about God from the Bible?", hint: "Accept responses. Well — here we are, in this class together, learning about God from the Bible and praying together. They might also go to a lunchtime group at school, or a kids club at a local church." },
+            { type: "story", text: "Paul says that when people love and trust Jesus, they are part of his body — the Church. And for Jesus' Church to work well, every single member needs to use the gifts God has given them to serve and love others." },
+            { type: "question", text: "In what ways can a Christian use their gifts to serve others?", hint: "Accept responses. Encouraging someone who's down, helping with something practical, being generous, including someone left out, teaching a younger student, praying for someone." },
+            { type: "question", text: "And where else could someone use their gifts to serve others?", hint: "Accept responses. Help students see that they can use their gifts right here at school and in this class, serving the people around them — not only at church on a Sunday." },
+            { type: "activity", text: "Think about the way God has made you and the gifts he's given you. Write down one way you could use those gifts this week to help someone. Then a few of us will share." },
+            { type: "story", text: "God wants every person to become part of his family — that's why Jesus died on the cross. He wants each person to live forever with him. And he also wants his people to use the gifts he's given them to love and serve others." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+            { type: "prayer", text: "Dear God, thank you that you have brought people into your family. These people trust and follow Jesus. Please help your people to use the gifts you have given them to love and serve other people. In Jesus' name we pray, Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 12:1–8 (review)",
+            topic: "The Church, and using your gifts",
+            bigIdea: "When people trust Jesus they become part of his body, the Church. God has made every person different and given them different gifts on purpose — and the body only works properly when every member uses their gifts to love and serve others.",
+            learningIntentions: [
+              "We are learning that the Church is people, not a building.",
+              "We are learning that every member of Christ's body needs to use their gifts to serve others.",
+              "I can name one way I could use my gifts to serve someone this week.",
+            ],
+            assessment: "Collect or listen to students' one practical idea. Specific and small is better than grand and vague.",
+            resources: ["Paper or Activity books and pencils"],
+            script: [
+              {
+                heading: "What is the Church?",
+                minutes: "3–4 min",
+                teacherTalk: "Take the building answer first, then give the Bible's definition — people meeting to read the Bible, encourage each other and pray.",
+                activityNote: null,
+                keyQuestion: "So apart from a church building, where else can people meet to learn more about God from the Bible?",
+                teacherGuidance: "Accept responses. This class is one; also lunchtime groups and kids clubs.",
+              },
+              {
+                heading: "Every member matters",
+                minutes: "3 min",
+                teacherTalk: "Restate Paul's point that the Church works well when every member uses their gifts.",
+                activityNote: null,
+                keyQuestion: "In what ways can a Christian use their gifts to serve others?",
+                teacherGuidance: "Accept responses. Encouraging, helping practically, being generous, including someone, praying.",
+              },
+              {
+                heading: "One thing this week",
+                minutes: "4 min",
+                teacherTalk: "Give quiet time to write one practical idea, then hear a few.",
+                activityNote: "Push for specific and doable rather than impressive.",
+                keyQuestion: "And where else could someone use their gifts to serve others?",
+                teacherGuidance: "Accept responses. Help them see they can serve right here at school and in this class.",
+              },
+              {
+                heading: "Verse and prayer",
+                minutes: "2 min",
+                teacherTalk: "Say Ephesians 2:8–10 together and close in prayer.",
+                activityNote: "Use the verse and prayer blocks.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "This is as far as Term 4 is built. Lessons 18-20 are scanned and available — see the file header before starting Weeks 8-10.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 8 =================
+    "Week 8": {
+      lessonTitle: "The love of the gospel",
+      passage: "Romans 16:25–27",
+      bigIdea: "The good news about Jesus has God's power to establish and strengthen his people — like a seed planted in rich soil that grows, bears fruit, and drops new seeds — and God means it to be told to people of every nation.",
+      source: "Connect B2 Upper Primary — Lesson 18",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "The growing plant",
+          blocks: [
+            { type: "question", text: "Picture a plant growing, right from the very start. What happens to a plant as it grows?", hint: "Accept responses. Let them describe it in their own words before you give the stages — you're building a picture you'll use all week." },
+            { type: "story", text: "Let's walk through it. The plant begins with a seed planted in nutrient-rich soil." },
+            { type: "story", text: "The seed germinates and begins to grow. As it takes in the nutrients from the soil and is watered, it begins to grow roots ... and sprouts." },
+            { type: "story", text: "The nutrients from the soil, together with watering and sunshine, help it to grow strong until it finally produces flowers or fruit." },
+            { type: "story", text: "Then, once the flower is pollinated or the fruit falls from the tree, new life begins." },
+            { type: "story", text: "Hold on to that picture, because it is exactly the kind of image Paul leaves with the Romans in the final verses of his letter to them. We have reached the end." },
+            { type: "story", text: "Paul finishes by praising God — because God can make his people strong by means of his good news, the message about Jesus Christ." },
+            { type: "question", text: "Why does Paul praise God at the end of his letter?", hint: "Accept responses. Because God can make his people strong by means of his good news." },
+            { type: "question", text: "And what is Paul's good news?", hint: "Accept responses. The message about Jesus Christ. If they need a prompt, point back at everything the term has covered." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 16:25–27",
+            topic: "The plant picture, and the end of Paul's letter",
+            bigIdea: "The good news about Jesus has God's power to establish and strengthen his people — like a seed planted in rich soil that grows, bears fruit, and drops new seeds — and God means it to be told to people of every nation.",
+            learningIntentions: [
+              "We are learning the stages a plant goes through as it grows.",
+              "We are learning that Paul praises God because God strengthens his people through the gospel.",
+              "I can say what Paul's good news is.",
+            ],
+            assessment: "Listen for whether students can name the message about Jesus as Paul's good news.",
+            resources: ["A CEV Bible marked at Romans 16:25–27", "Optional: the YouTube time-lapse video of a growing plant"],
+            script: [
+              {
+                heading: "How a plant grows",
+                minutes: "4 min",
+                teacherTalk: "Ask the question first, then walk through the four stages: seed in rich soil, roots and sprouts, flowers or fruit, then new life.",
+                activityNote: "If you have the time-lapse video of a growing plant, play it here.",
+                keyQuestion: "Picture a plant growing, right from the very start. What happens to a plant as it grows?",
+                teacherGuidance: "Accept responses. Let them describe it before you give the stages.",
+              },
+              {
+                heading: "The end of the letter",
+                minutes: "3–4 min",
+                teacherTalk: "Explain that this is the last part of Romans, then read Romans 16:25–27.",
+                activityNote: null,
+                keyQuestion: "Why does Paul praise God at the end of his letter?",
+                teacherGuidance: "Accept responses. Because God can make his people strong by means of his good news.",
+              },
+              {
+                heading: "What is the good news?",
+                minutes: "2–3 min",
+                teacherTalk: "Draw out that the good news is the message about Jesus Christ.",
+                activityNote: null,
+                keyQuestion: "And what is Paul's good news?",
+                teacherGuidance: "Accept responses. The message about Jesus Christ.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Ephesians 2:8–10 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 plants people in the gospel and watches the roots grow.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Planted in the gospel",
+          blocks: [
+            { type: "story", text: "Paul says something interesting about his good news: it was kept secret for a very long time, but now it has been told." },
+            { type: "question", text: "So how do we know about this message today?", hint: "Accept responses. It was written about by the prophets in the Scriptures — that is, in the Bible." },
+            { type: "question", text: "Why do you think God commanded that the good news about Jesus be written down?", hint: "Accept responses. So that people from all nations would obey and have faith. If it had stayed spoken only, it would have reached almost nobody." },
+            { type: "story", text: "Now back to our plant. Paul is saying that people today are a bit like that seed. When people hear and accept the good news about Jesus, they are planted in that gospel — that message about Jesus." },
+            { type: "story", text: "God's people's roots in the gospel grow, and they begin to sprout. As they feed on the gospel's nutrients — reading God's word and understanding more about Jesus — they are strengthened." },
+            { type: "question", text: "In our picture, what were the nutrients that made the plant grow strong?", hint: "Accept responses. The rich soil, water and sunshine. For a Christian, the equivalent is God's word — reading the Bible and understanding more about Jesus." },
+            { type: "story", text: "It is the same gospel, the same good news about Jesus, that Christians are planted in that gives them the strength they need to grow up strong in their trust in Jesus. The gospel establishes God's people's trust in Jesus, but it also strengthens that trust so that they can bear fruit." },
+            { type: "question", text: "Why do you think Paul chose a plant rather than, say, a building, to describe how Christians grow?", hint: "Accept responses. A building gets finished; a plant keeps growing, needs feeding, and eventually produces something new. Growing is ongoing, and it produces more life." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 16:25–26",
+            topic: "Being planted in the gospel and growing strong",
+            bigIdea: "The good news about Jesus has God's power to establish and strengthen his people — like a seed planted in rich soil that grows, bears fruit, and drops new seeds — and God means it to be told to people of every nation.",
+            learningIntentions: [
+              "We are learning that the good news was kept secret and has now been made known.",
+              "We are learning that Christians are planted in the gospel and strengthened by God's word.",
+              "I can explain what feeds a Christian's growth.",
+            ],
+            assessment: "Listen for whether students identify God's word as what strengthens a Christian.",
+            resources: [],
+            script: [
+              {
+                heading: "Kept secret, now told",
+                minutes: "3 min",
+                teacherTalk: "Explain that the message was hidden and has now been made known, and that it was written down.",
+                activityNote: null,
+                keyQuestion: "Why do you think God commanded that the good news about Jesus be written down?",
+                teacherGuidance: "Accept responses. So that people from all nations would obey and have faith.",
+              },
+              {
+                heading: "Planted in the gospel",
+                minutes: "3–4 min",
+                teacherTalk: "Return to the plant picture — seeds planted, roots growing, feeding on nutrients.",
+                activityNote: "Refer back to the seed and sprouting stages from Day 1.",
+                keyQuestion: "In our picture, what were the nutrients that made the plant grow strong?",
+                teacherGuidance: "Accept responses. Soil, water and sunshine — for a Christian, God's word.",
+              },
+              {
+                heading: "Established and strengthened",
+                minutes: "3 min",
+                teacherTalk: "Make the distinction: the gospel both establishes trust in Jesus and strengthens it.",
+                activityNote: null,
+                keyQuestion: "Why do you think Paul chose a plant rather than a building to describe how Christians grow?",
+                teacherGuidance: "Accept responses. A building gets finished; a plant keeps growing and produces more life.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Ephesians 2:8–10 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 asks what fruit actually looks like on a Christian.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Bearing fruit",
+          blocks: [
+            { type: "story", text: "The plant grows strong until it finally produces flowers or fruit. Paul says the same happens with God's people." },
+            { type: "question", text: "What is some of the fruit that Christians will bear? In other words, what things will they do that show they love and follow Jesus?", hint: "Accept responses. They will listen to God's word and obey it; they will meet with other Christians and use the gifts God has given them to serve them; they will love their enemies and be kind to those who speak badly about them." },
+            { type: "question", text: "What does the fruit or the flowers on a plant tell you about the soil and the plant?", hint: "Accept responses. It shows you the soil is rich with nutrients and good for growing. It shows the soil is good because the plant is healthy." },
+            { type: "story", text: "So it is with Christians. As they read God's word, the Bible, they grow up stronger in their faith — and they bear fruit that shows how good the gospel about Jesus is." },
+            { type: "question", text: "Careful with this one. Does the fruit make the plant healthy, or does the healthy plant produce the fruit?", hint: "Accept responses. The healthy plant produces the fruit — never the other way round. This is the same point as Week 4: good things come because of the gospel, not in order to earn it." },
+            { type: "question", text: "But what happens after the plant has grown strong and produced flowers or fruit?", hint: "Accept responses. It drops seeds that produce new life. Hold that thought — it's tomorrow's whole point." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 16:25–27 (continued)",
+            topic: "The fruit of a Christian's life",
+            bigIdea: "The good news about Jesus has God's power to establish and strengthen his people — like a seed planted in rich soil that grows, bears fruit, and drops new seeds — and God means it to be told to people of every nation.",
+            learningIntentions: [
+              "We are learning what fruit looks like in a Christian's life.",
+              "We are learning that fruit shows the soil and the plant are healthy.",
+              "I can explain that the healthy plant produces fruit, not the reverse.",
+            ],
+            assessment: "Listen carefully on the healthy-plant question — it's the same order-of-things point as Week 4.",
+            resources: [],
+            script: [
+              {
+                heading: "What fruit looks like",
+                minutes: "4 min",
+                teacherTalk: "Collect concrete examples of Christian fruit.",
+                activityNote: "Refer back to the flower and fruit stages of the plant.",
+                keyQuestion: "What is some of the fruit that Christians will bear?",
+                teacherGuidance: "Accept responses. Obeying God's word, meeting with and serving other Christians, loving enemies, kindness.",
+              },
+              {
+                heading: "What fruit tells you",
+                minutes: "3 min",
+                teacherTalk: "Draw out that fruit is evidence of good soil and a healthy plant.",
+                activityNote: null,
+                keyQuestion: "What does the fruit or the flowers on a plant tell you about the soil and the plant?",
+                teacherGuidance: "Accept responses. The soil is rich and good for growing; the plant is healthy.",
+              },
+              {
+                heading: "Which way round?",
+                minutes: "3 min",
+                teacherTalk: "Press the order question — this is Week 4's point in a new picture.",
+                activityNote: null,
+                keyQuestion: "Does the fruit make the plant healthy, or does the healthy plant produce the fruit?",
+                teacherGuidance: "Accept responses. The healthy plant produces the fruit — good works come because of the gospel, not to earn it.",
+              },
+              {
+                heading: "And then?",
+                minutes: "2 min",
+                teacherTalk: "End on the seeds question and leave it hanging for tomorrow.",
+                activityNote: null,
+                keyQuestion: "But what happens after the plant has grown strong and produced flowers or fruit?",
+                teacherGuidance: "Accept responses. It drops seeds that produce new life.",
+              },
+            ],
+            whereToNext: "Day 4 is the final media briefing of the term — and the assignment the whole term has been building toward.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "The seeds drop",
+          blocks: [
+            { type: "story", text: "Yesterday we finished with the seeds. Once a plant is mature it drops seeds, and those seeds produce new plants." },
+            { type: "story", text: "So it is with God's people today. They don't only show how good God is by the way they live — they will also be telling others about Jesus. Then other people too can be planted in the gospel and have eternal life." },
+            { type: "question", text: "Why do you think God wants his people to do this?", hint: "Accept responses. So that people from every nation can come to know Jesus and follow him. That is what Paul said the good news was written down for in the first place." },
+            { type: "story", text: "OK, my journalists in the making. Here is our final media release. After this, it's up to you." },
+            { type: "dictation", title: "Final media briefing — Lesson 18 (this news story is fictional)", lines: [
+              { text: "MEDIA RELEASE." },
+              { text: "They say that history repeats itself ... and that certainly seems to be the case." },
+              { text: "I have been through all the archives, dating right back to the first century!" },
+              { text: "And every year there is a similar story ... people everywhere are putting their trust in a man named Jesus!" },
+              { text: "Training is over ... and today I need you to write a story!" },
+              { text: "I want you to make sure you find out and understand who this Jesus is ... it seems that he will be big news for generations to come." },
+              { text: "Find out who he is and write up an article!" },
+              { text: "If this news really is as big as it seems, we don't want to miss out on sharing it!" },
+            ] },
+            { type: "activity", text: "This is the assignment the whole term has been building toward: write a newspaper article explaining Paul's gospel to someone else. Use everything you've learned this term. Here are some questions to help you: Why did God make promises to Abraham? Who did those promises point to? What is the standard for heaven? Can anyone be good enough for heaven by the good things they do? What does sin lead to? What is God's gift to people? What did Jesus do, and why? How does a person accept God's gift? If someone has been declared innocent, how should they live now? Where are Christians headed? Who does God give to help them get there? And what does God want his people to do with the gospel?" },
+            { type: "question", text: "Cast your mind right back to Week 1, when you wrote down what you thought the gospel was. How would your answer be different now?", hint: "Accept responses. If you kept their Week 1 definitions, hand them back — students are usually surprised at how much has been added." },
+            { type: "verse", reference: "Ephesians 2:8–10 (CEV)", text: "“You were saved by faith in God, who treats us much better than we deserve. This is God's gift to you, and not anything you have done on your own. It isn't something you have earned, so there is nothing you can boast about. God planned for us to do good things and to live as he has always wanted us to live. That's why he sent Christ to make us what we are.”" },
+            { type: "prayer", text: "Dear God, thank you for Paul's letter to the Romans. Thank you that through this letter so many people can now know the good news about Jesus. Thank you that your plan right from the beginning has been to send Jesus to save people. Please help your people to grow up strong in their trust in you. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Romans 16:26–27",
+            topic: "Telling others, and the newspaper article",
+            bigIdea: "The good news about Jesus has God's power to establish and strengthen his people — like a seed planted in rich soil that grows, bears fruit, and drops new seeds — and God means it to be told to people of every nation.",
+            learningIntentions: [
+              "We are learning that God's people tell others about Jesus so they too can be planted in the gospel.",
+              "We are learning that the gospel is for people of every nation.",
+              "I can write a newspaper article explaining the gospel in my own words.",
+            ],
+            assessment: "The article itself is the assessment. Compare it with the definition each student wrote in Week 1 Day 4.",
+            resources: ["On-screen media briefing: Lesson 18 Media release", "Paper or Activity books and pencils", "The students' Week 1 gospel definitions, if you kept them"],
+            script: [
+              {
+                heading: "The seeds drop",
+                minutes: "2–3 min",
+                teacherTalk: "Complete the plant cycle and apply it — Christians tell others, and new people are planted.",
+                activityNote: null,
+                keyQuestion: "Why do you think God wants his people to do this?",
+                teacherGuidance: "Accept responses. So that people from every nation can come to know Jesus and follow him.",
+              },
+              {
+                heading: "Final media briefing",
+                minutes: "3–4 min",
+                teacherTalk: "Run the last on-screen briefing. Remind the class the story is fictional. Make a moment of it — training is over.",
+                activityNote: "Tap Start the script on screen.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Write the article",
+                minutes: "5+ min",
+                teacherTalk: "Set the article task and read the helper questions aloud for anyone who's stuck.",
+                activityNote: "This will likely spill past today — that's fine, students can keep working on it.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Then and now",
+                minutes: "2 min",
+                teacherTalk: "Compare with the Week 1 definitions and close in prayer.",
+                activityNote: "Use the prayer block.",
+                keyQuestion: "Cast your mind right back to Week 1. How would your answer be different now?",
+                teacherGuidance: "Accept responses. Hand back their Week 1 definitions if you kept them.",
+              },
+            ],
+            whereToNext: "Next week is the Christmas lesson — and it ties every promise in the last three terms back to Jesus.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 9 =================
+    "Week 9": {
+      lessonTitle: "The Christmas promise",
+      passage: "Matthew 1",
+      bigIdea: "Christmas is not really about presents — it is about promises, and about God keeping them. Every promise God made to Abraham, to David and through Isaiah was always pointing to Jesus.",
+      source: "Connect B2 Upper Primary — Lesson 19",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Christmas is about promises",
+          blocks: [
+            { type: "question", text: "Christmas is coming very soon. What do you look forward to most at Christmas time?", hint: "Accept responses — food, family, holidays, presents. Let it be genuinely open." },
+            { type: "question", text: "And what do you think is the most important thing at Christmas?", hint: "Accept responses. Some will say presents, some family. Don't correct — you're about to offer a different answer." },
+            { type: "story", text: "Some people think Christmas time is all about presents. Some think that what we get and give is the most important thing. But I think Christmas time is really all about promises. And most importantly, it's about how God keeps his promises." },
+            { type: "question", text: "This year we've spent a lot of time on promises. What have we learned about them?", hint: "Accept responses. Help them remember the promises God made to Abraham — land, a great nation, blessing to the whole world — and that God is faithful in keeping his promises." },
+            { type: "story", text: "Imagine three wrapped presents sitting here. Christmas is about promises, not presents, so inside these boxes are three important promises that God made." },
+            { type: "story", text: "Promise one, to Abraham: land, a great nation, and blessing to the whole world." },
+            { type: "story", text: "Promise two, to King David: that his kingdom would never end — that one of his descendants would always be king." },
+            { type: "story", text: "Promise three, to his people through the prophet Isaiah: that one would come who would take the consequences that people deserve for their sin, and would make God's people well — healing and forgiving them." },
+            { type: "story", text: "God made these promises over a really long time. He made his promise to King David about nine hundred years after his promise to Abraham. And he made his promise through Isaiah about two hundred and fifty years after that." },
+            { type: "question", text: "Over eleven hundred years, three different promises. What would you expect — three separate answers, or one?", hint: "Accept responses. The remarkable thing is that all three promises are pointing to the same thing. And to find out what, we're going to Matthew chapter 1." },
+            { type: "verse", reference: "Luke 24:27 (CEV)", text: "“Jesus then explained everything written about himself in the Scriptures, beginning with the Law of Moses and the Books of the Prophets.”" },
+            { type: "activity", text: "We have a new memory verse for our last two weeks. Some of you may recognise it from last term. Let's read it together and say it two or three times." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Genesis 12:1–3; 2 Samuel 7:12–16; Isaiah 53 (overview)",
+            topic: "Three promises, made over eleven hundred years",
+            bigIdea: "Christmas is not really about presents — it is about promises, and about God keeping them. Every promise God made to Abraham, to David and through Isaiah was always pointing to Jesus.",
+            learningIntentions: [
+              "We are learning that Christmas is about God keeping his promises.",
+              "We are learning the three promises God made — to Abraham, to David, and through Isaiah.",
+              "I can learn this fortnight's memory verse, Luke 24:27.",
+            ],
+            assessment: "Listen for whether students can name all three promises without prompting by the end.",
+            resources: ["Three wrapped 'Promise boxes', each with a Bible passage inside", "A CEV Bible"],
+            script: [
+              {
+                heading: "What's Christmas about?",
+                minutes: "3 min",
+                teacherTalk: "Open with both Way in questions, then offer the answer: promises, and God keeping them.",
+                activityNote: null,
+                keyQuestion: "And what do you think is the most important thing at Christmas?",
+                teacherGuidance: "Accept responses. Don't correct — you're about to offer a different answer.",
+              },
+              {
+                heading: "Open the promise boxes",
+                minutes: "5 min",
+                teacherTalk: "Ask three volunteers to open the boxes and read each Bible passage out, one at a time.",
+                activityNote: "If you have prepared physical Promise boxes, use them here.",
+                keyQuestion: "This year we've spent a lot of time on promises. What have we learned about them?",
+                teacherGuidance: "Accept responses. The promises to Abraham, and that God is faithful in keeping them.",
+              },
+              {
+                heading: "Eleven hundred years apart",
+                minutes: "3 min",
+                teacherTalk: "Give the timings — David about 900 years after Abraham, Isaiah about 250 years after David.",
+                activityNote: "If you have the Bible timeline poster, place arrows at Abraham, David and Isaiah.",
+                keyQuestion: "Over eleven hundred years, three different promises. What would you expect — three separate answers, or one?",
+                teacherGuidance: "Accept responses. All three are pointing to the same thing.",
+              },
+              {
+                heading: "New memory verse",
+                minutes: "2 min",
+                teacherTalk: "Introduce Luke 24:27 for the last two weeks and say it together.",
+                activityNote: "Use the verse block, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 opens Matthew 1 and checks the first promise.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Promise one: blessing for the whole world",
+          blocks: [
+            { type: "story", text: "Christmas time is about Jesus' birth. We've been celebrating his birth every year for more than two thousand years now." },
+            { type: "question", text: "What do you think is so important about this particular baby that we keep celebrating his birth every single year?", hint: "Accept responses. Let them offer their own reasons before the passage answers it." },
+            { type: "story", text: "Matthew starts his account of Jesus' life with a long list of names — Jesus' family history, all the way back through King David to Abraham. Listening to a long list of who was in someone's family might seem boring. But Matthew clearly thought it mattered." },
+            { type: "question", text: "Why do you think Matthew thought it was so important to tell us about Jesus' family history?", hint: "Accept responses. He wanted to make sure people understood that Jesus came from the family of Abraham and of David — which is exactly what the first two promises were about." },
+            { type: "story", text: "So let's check promise one. God promised Abraham that through him the whole world would be blessed." },
+            { type: "story", text: "Now listen to what John saw in Revelation: a crowd that no-one could count, from every nation, tribe, language and people, standing in front of God's throne and shouting that our God, who sits on the throne, has the power to save his people." },
+            { type: "question", text: "Who were God's people in the Old Testament?", hint: "Accept responses. Israel — Abraham's family." },
+            { type: "question", text: "And who were God's people in that passage from Revelation?", hint: "Accept responses. People from every nation, language, tribe and people. Not just Israel, but people from every country." },
+            { type: "question", text: "So how do you think this promise to Abraham came true through Jesus coming to earth?", hint: "Accept responses. Through Jesus' death on the cross, God's people are no longer just Abraham's family — people from every nation can be saved and become part of God's family." },
+            { type: "story", text: "Jesus came from Abraham's family, and because of Jesus' death, people from every nation can be saved and join God's family. So God kept his promise to Abraham in Jesus. Promise one: kept." },
+            { type: "verse", reference: "Luke 24:27 (CEV)", text: "“Jesus then explained everything written about himself in the Scriptures, beginning with the Law of Moses and the Books of the Prophets.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Matthew 1:1–17; Revelation 7:9–10",
+            topic: "The promise to Abraham, kept in Jesus",
+            bigIdea: "Christmas is not really about presents — it is about promises, and about God keeping them. Every promise God made to Abraham, to David and through Isaiah was always pointing to Jesus.",
+            learningIntentions: [
+              "We are learning why Matthew begins with Jesus' family history.",
+              "We are learning that God's people now come from every nation.",
+              "I can explain how the promise to Abraham was kept in Jesus.",
+            ],
+            assessment: "Listen for whether students connect Revelation's crowd from every nation back to Genesis 12.",
+            resources: ["A CEV Bible marked at Matthew 1:1–17 and Revelation 7:9–10"],
+            script: [
+              {
+                heading: "Why this baby?",
+                minutes: "2–3 min",
+                teacherTalk: "Open with the question, then read or summarise Matthew 1:1–17.",
+                activityNote: "You don't need to read every name — the shape of the list is the point.",
+                keyQuestion: "What do you think is so important about this particular baby?",
+                teacherGuidance: "Accept responses. Let them offer their own reasons first.",
+              },
+              {
+                heading: "Why the family list?",
+                minutes: "3 min",
+                teacherTalk: "Draw out that Matthew is proving Jesus came from Abraham's and David's families.",
+                activityNote: null,
+                keyQuestion: "Why do you think Matthew thought it was so important to tell us about Jesus' family history?",
+                teacherGuidance: "Accept responses. To show Jesus came from the family of Abraham and of David.",
+              },
+              {
+                heading: "Revelation 7:9–10",
+                minutes: "4 min",
+                teacherTalk: "Read Revelation 7:9–10, then compare who God's people were then and are now.",
+                activityNote: "If your students have Activity books, fill in the last column of the promises table.",
+                keyQuestion: "So how do you think this promise to Abraham came true through Jesus coming to earth?",
+                teacherGuidance: "Accept responses. Through Jesus' death, people from every nation can join God's family.",
+              },
+              {
+                heading: "Memory verse",
+                minutes: "1–2 min",
+                teacherTalk: "Say Luke 24:27 together.",
+                activityNote: "Use the verse block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 3 checks the second promise — the king whose kingdom never ends.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "Promise two: a king forever",
+          blocks: [
+            { type: "story", text: "Second promise box. God promised King David that his kingdom would never end, and that someone in his family would always be king." },
+            { type: "question", text: "That's a big promise. Every kingdom in history has eventually ended. How could that promise possibly be kept?", hint: "Accept responses. Let them wrestle with it — the answer only works if the king never dies, which is exactly where the passage goes." },
+            { type: "story", text: "Now listen to what the angel Gabriel said to Mary. He told her not to be afraid, because God was pleased with her. He said she would have a son and was to name him Jesus. He would be great and would be called the Son of God Most High. The Lord God would make him king, as his ancestor David was. He would rule the people of Israel forever, and his kingdom would never end." },
+            { type: "question", text: "So how was God's promise to King David kept in Jesus?", hint: "Accept responses. Jesus would be the king in David's family who would reign over God's people forever." },
+            { type: "story", text: "Jesus came from King David's family. And he was the one who would be king forever. Jesus is the king of all the world now, and he will be king forever. Promise two: kept." },
+            { type: "question", text: "Gabriel said this to Mary before Jesus was even born. What does it tell you that God announced the answer to a nine-hundred-year-old promise to a young woman in a small town?", hint: "Accept responses. Guide toward: God keeps his promises in his own way and his own time, and often not the way people expect. Nobody was watching Nazareth." },
+            { type: "verse", reference: "Luke 24:27 (CEV)", text: "“Jesus then explained everything written about himself in the Scriptures, beginning with the Law of Moses and the Books of the Prophets.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Luke 1:30–33",
+            topic: "The promise to David, kept in Jesus",
+            bigIdea: "Christmas is not really about presents — it is about promises, and about God keeping them. Every promise God made to Abraham, to David and through Isaiah was always pointing to Jesus.",
+            learningIntentions: [
+              "We are learning what God promised King David.",
+              "We are learning that Jesus is the king from David's family whose kingdom never ends.",
+              "I can explain how a kingdom could last forever.",
+            ],
+            assessment: "Listen for whether students grasp that the promise needs a king who doesn't die.",
+            resources: ["A CEV Bible marked at Luke 1:30–33"],
+            script: [
+              {
+                heading: "The second promise box",
+                minutes: "2–3 min",
+                teacherTalk: "Restate the promise to David and let the class chew on how it could ever be kept.",
+                activityNote: "Indicate the second Promise box if you're using them.",
+                keyQuestion: "Every kingdom in history has eventually ended. How could that promise possibly be kept?",
+                teacherGuidance: "Accept responses. Let them wrestle — the answer needs a king who never dies.",
+              },
+              {
+                heading: "Gabriel's announcement",
+                minutes: "4 min",
+                teacherTalk: "Read Luke 1:30–33 and draw out the four claims — Son of God, made king, rules forever, kingdom never ends.",
+                activityNote: null,
+                keyQuestion: "So how was God's promise to King David kept in Jesus?",
+                teacherGuidance: "Accept responses. Jesus is the king in David's family who reigns over God's people forever.",
+              },
+              {
+                heading: "King forever",
+                minutes: "3 min",
+                teacherTalk: "State it plainly: Jesus is king of all the world now and will be forever.",
+                activityNote: null,
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "How God keeps promises",
+                minutes: "2–3 min",
+                teacherTalk: "Ask the closing reflection about the way God chose to announce it.",
+                activityNote: null,
+                keyQuestion: "What does it tell you that God announced this to a young woman in a small town?",
+                teacherGuidance: "Accept responses. God keeps his promises in his own way and time, often not as people expect.",
+              },
+            ],
+            whereToNext: "Day 4 checks the third promise — and it's the one that explains Jesus' name.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Promise three: a Saviour",
+          blocks: [
+            { type: "story", text: "Final promise box. Through the prophet Isaiah, God promised his people that one would come who would take the consequences that people deserve for their sin — a servant who would make God's people well, healing and forgiving them." },
+            { type: "story", text: "Now listen to what an angel said to Joseph in a dream: don't be afraid to take Mary as your wife. The child she is expecting is from the Holy Spirit. She will have a son, and you are to name him Jesus, because he will save his people from their sins." },
+            { type: "question", text: "Why was Joseph to give this baby the name Jesus?", hint: "Accept responses. Because he would save his people from their sin." },
+            { type: "question", text: "Who does that sound like?", hint: "Accept responses. The servant God promised through Isaiah — the one who would take the consequences people deserve." },
+            { type: "question", text: "So how did Jesus save his people from their sin?", hint: "Accept responses. He died on the cross and then rose from death to bring forgiveness." },
+            { type: "question", text: "And what does that mean for God's people?", hint: "Accept responses. That they have been forgiven. Their sin has been dealt with and they can become part of God's family." },
+            { type: "story", text: "Promise three: kept. Three promises, made over more than a thousand years, to three different people — and every one of them pointing at the same person." },
+            { type: "question", text: "So what should Christmas time remind us of?", hint: "Accept responses. How God keeps his promises in Jesus. God is faithful and keeps his promises." },
+            { type: "question", text: "There are lots of fun things at Christmas that can take our focus off Jesus. What are some of them — and how could someone keep Jesus in view anyway?", hint: "Accept responses. Presents, food, decorations, holidays. None of these are bad; the question is what sits at the centre. Christmas is about God keeping his promises to Abraham, David and his people through Isaiah, in Jesus." },
+            { type: "verse", reference: "Luke 24:27 (CEV)", text: "“Jesus then explained everything written about himself in the Scriptures, beginning with the Law of Moses and the Books of the Prophets.”" },
+            { type: "prayer", text: "Dear God, thank you that the Bible says that you are a faithful God who keeps your promises. We've seen that you've kept your promises to Abraham, David and the rest of your people. Thank you that you sent Jesus to die on the cross to bring forgiveness. As Jesus' birth is celebrated this Christmas we pray that you would help us to remember all that we've learned about him this year. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "Matthew 1:20–21",
+            topic: "The promise through Isaiah, kept in Jesus",
+            bigIdea: "Christmas is not really about presents — it is about promises, and about God keeping them. Every promise God made to Abraham, to David and through Isaiah was always pointing to Jesus.",
+            learningIntentions: [
+              "We are learning why Jesus was given his name.",
+              "We are learning that Jesus is the servant Isaiah promised.",
+              "I can say what Christmas should remind us of.",
+            ],
+            assessment: "Listen for whether students can link Jesus' name to his job — saving his people from their sins.",
+            resources: ["A CEV Bible marked at Matthew 1:20–21"],
+            script: [
+              {
+                heading: "The third promise",
+                minutes: "2 min",
+                teacherTalk: "Restate Isaiah's promise — a servant who takes the consequences and makes God's people well.",
+                activityNote: "Indicate the third Promise box if you're using them.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Matthew 1:20–21",
+                minutes: "4 min",
+                teacherTalk: "Read Matthew 1:20–21 and work through the name questions.",
+                activityNote: null,
+                keyQuestion: "Why was Joseph to give this baby the name Jesus?",
+                teacherGuidance: "Accept responses. Because he would save his people from their sin.",
+              },
+              {
+                heading: "How, and what it means",
+                minutes: "3 min",
+                teacherTalk: "Draw out the cross and resurrection, and what forgiveness means for God's people.",
+                activityNote: null,
+                keyQuestion: "And what does that mean for God's people?",
+                teacherGuidance: "Accept responses. They have been forgiven and can become part of God's family.",
+              },
+              {
+                heading: "What Christmas reminds us of",
+                minutes: "3 min",
+                teacherTalk: "Pull all three promises together, then ask about the things that pull focus at Christmas.",
+                activityNote: "If your students have Activity books, this is the T-shirt design activity.",
+                keyQuestion: "What are some of them — and how could someone keep Jesus in view anyway?",
+                teacherGuidance: "Accept responses. None of these are bad; the question is what sits at the centre.",
+              },
+              {
+                heading: "Verse and prayer",
+                minutes: "2 min",
+                teacherTalk: "Say Luke 24:27 together and close in prayer.",
+                activityNote: "Use the verse and prayer blocks.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Next week is the last of the term — meeting someone who is living all of this out today.",
+          },
+        },
+      ],
+    },
+    // ================= WEEK 10 =================
+    "Week 10": {
+      lessonTitle: "Miriam",
+      passage: "1 Timothy 4:12",
+      bigIdea: "Miriam is a real person following Jesus today. She trusted him when she was eight and now sets an example for the students she works with — because Paul told Timothy that being young is no reason for anyone to look down on you.",
+      source: "Connect B2 Upper Primary — Lesson 20",
+      days: [
+        // ---------------- DAY 1 (MON) ----------------
+        {
+          label: "Monday",
+          theme: "Which country am I?",
+          blocks: [
+            { type: "activity", text: "Which country am I? Listen to all the clues before you guess. I am on one of the continents in the northern hemisphere. My people value literature, music and art highly. My architecture is based on width and symmetry. Historically, I have been ruled by one dynasty after another. Over my history there were mainly two classes of people — the imperial class, including the government and military, and everyone else. The culture of my people is largely influenced by the philosophy of Confucius and Tao. Soups, rice dishes and noodles are among our staple meals. Our meals are mostly eaten with chopsticks. Three major figures in our religious life are Guan Yin, the Jade Emperor and Buddha. Martial arts was invented here — specifically Kung Fu. Which country am I?" },
+            { type: "story", text: "That's right — China. Today we're going to learn about a woman named Miriam, and her dad, who came from China." },
+            { type: "question", text: "What things do you already know about China?", hint: "Accept responses. Anything goes here — food, language, the Great Wall, family members who've been there." },
+            { type: "story", text: "The first major immigration of Chinese people to Australia was during the gold rushes in the 1850s. Miriam's dad moved to Australia in 1963." },
+            { type: "question", text: "Roughly how long was that after the first significant number of Chinese people moved to Australia?", hint: "Accept responses. About 110 years." },
+            { type: "story", text: "Miriam's dad was training to be a doctor in Australia." },
+            { type: "question", text: "Where would Miriam's dad have worked — and what kinds of people might he have met there?", hint: "Accept responses. In a hospital. He'd have met doctors, nurses, patients, chaplains, administration staff, cooks and cleaners." },
+            { type: "story", text: "About five years after Miriam's dad moved to Australia, he met a lovely young Australian nurse." },
+            { type: "question", text: "Who do you think that nurse turned out to be?", hint: "Accept responses. Miriam's mum. They married three years later, in 1971." },
+            { type: "story", text: "Miriam's mum was born in Australia, but her parents were from England and Ireland. Miriam's parents had four children — Daniel first, then Naomi two years later, then Miriam four years after that, and finally Elizabeth." },
+            { type: "verse", reference: "1 Timothy 4:12 (CEV)", text: "“Don't let anyone make fun of you, just because you are young. Set an example for other followers by what you say and do, as well as by your love, faith, and purity.”" },
+            { type: "activity", text: "This is our key verse for our very last week. Let's read it together and say it two or three times." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "1 Timothy 4:12 (introduction)",
+            topic: "Meeting Miriam and her family",
+            bigIdea: "Miriam is a real person following Jesus today. She trusted him when she was eight and now sets an example for the students she works with — because Paul told Timothy that being young is no reason for anyone to look down on you.",
+            learningIntentions: [
+              "We are learning about Miriam's cultural background.",
+              "We are learning how Miriam's family came to be a bi-cultural family in Australia.",
+              "I can learn this week's key verse, 1 Timothy 4:12.",
+            ],
+            assessment: "Listen for whether students engage with the timeline dates rather than just the story.",
+            resources: ["Optional: a map of China and a timeline for students to fill in"],
+            script: [
+              {
+                heading: "Which country am I?",
+                minutes: "4 min",
+                teacherTalk: "Read all the clues even if someone guesses early — the detail is the point.",
+                activityNote: "Display a map of China afterwards if you have one.",
+                keyQuestion: "What things do you already know about China?",
+                teacherGuidance: "Accept responses. Anything goes — food, language, places, family connections.",
+              },
+              {
+                heading: "Miriam's dad",
+                minutes: "3–4 min",
+                teacherTalk: "Give the 1850s gold rush and the 1963 move, then work through the hospital questions.",
+                activityNote: "If students are keeping a timeline, label 1850 and 1963 here.",
+                keyQuestion: "Roughly how long was that after the first significant number of Chinese people moved to Australia?",
+                teacherGuidance: "Accept responses. About 110 years.",
+              },
+              {
+                heading: "Meeting Miriam's mum",
+                minutes: "3 min",
+                teacherTalk: "Tell how her parents met and married, then list the four children.",
+                activityNote: "Label 1971 on the timeline, then the four births.",
+                keyQuestion: "Who do you think that nurse turned out to be?",
+                teacherGuidance: "Accept responses. Miriam's mum. They married three years later, in 1971.",
+              },
+              {
+                heading: "Key verse",
+                minutes: "2 min",
+                teacherTalk: "Introduce 1 Timothy 4:12 as the key verse for the final week and say it together.",
+                activityNote: "Use the verse block, then the say-it-together activity block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "Day 2 is about growing up in two cultures — and the camp where Miriam became a Christian.",
+          },
+        },
+        // ---------------- DAY 2 (TUE) ----------------
+        {
+          label: "Tuesday",
+          theme: "Growing up in two cultures",
+          blocks: [
+            { type: "story", text: "Miriam grew up in a family with parents from two different cultures." },
+            { type: "question", text: "Does anyone here have a mum from one cultural background and a dad from a different one? Would anyone like to tell us about it?", hint: "Accept hands. Only invite students who are comfortable to share. Be aware of children who have divorced parents or live with carers other than their parents, and keep it light and optional." },
+            { type: "story", text: "Growing up in a bi-cultural family was great for Miriam. Her family ate Chinese food all the time at home and even ate with chopsticks. She went to Chinese language school on Saturdays, learned the piano and went to maths tutoring — activities that were very typical for children with Chinese cultural backgrounds in Australia." },
+            { type: "story", text: "But Miriam was also involved with other activities that her mother thought were important. She played lots of sport — hockey, water polo and snowboarding — and she also sang in the school choir." },
+            { type: "question", text: "Miriam got things from both sides of her family. What is something you've been given by your family — a food, a language, a skill, a tradition?", hint: "Accept responses warmly, and let students pass if they'd rather not answer. There's no wrong answer here." },
+            { type: "story", text: "Miriam's parents were both Christians. They loved Jesus, and so every week they took their family to church. Miriam attended Western Sydney Chinese Christian Church in Strathfield until she left high school." },
+            { type: "story", text: "Growing up, Miriam also attended lots of Christian camps. It was on one of these camps that she decided to put her trust in Jesus for herself. Miriam was eight years old." },
+            { type: "question", text: "Miriam's parents were Christians — but she still had to decide for herself. Why do you think that matters?", hint: "Accept responses. Guide toward: nobody is a Christian just because their family is. Trusting Jesus is something each person does for themselves." },
+            { type: "story", text: "And people can become a Christian at any age. Miriam was eight. Others come to trust Jesus as teenagers, or in their forties, or much later than that." },
+            { type: "verse", reference: "1 Timothy 4:12 (CEV)", text: "“Don't let anyone make fun of you, just because you are young. Set an example for other followers by what you say and do, as well as by your love, faith, and purity.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "1 Timothy 4:12 (continued)",
+            topic: "Miriam's childhood and becoming a Christian",
+            bigIdea: "Miriam is a real person following Jesus today. She trusted him when she was eight and now sets an example for the students she works with — because Paul told Timothy that being young is no reason for anyone to look down on you.",
+            learningIntentions: [
+              "We are learning what Miriam's bi-cultural childhood was like.",
+              "We are learning that Miriam decided to trust Jesus for herself at eight years old.",
+              "I can say that people can become a Christian at any age.",
+            ],
+            assessment: "Listen for whether students understand that faith isn't inherited from parents.",
+            resources: [],
+            script: [
+              {
+                heading: "Two cultures at home",
+                minutes: "4 min",
+                teacherTalk: "Describe Miriam's childhood — Chinese food and language school, plus sport and choir.",
+                activityNote: "Be sensitive with the cultural background question; only invite volunteers.",
+                keyQuestion: "Does anyone here have a mum from one cultural background and a dad from a different one?",
+                teacherGuidance: "Accept hands. Only invite students who are comfortable. Be aware of varied family situations.",
+              },
+              {
+                heading: "What your family gave you",
+                minutes: "3 min",
+                teacherTalk: "Widen it out so every student has something to contribute.",
+                activityNote: "Let students pass if they'd rather not answer.",
+                keyQuestion: "What is something you've been given by your family — a food, a language, a skill, a tradition?",
+                teacherGuidance: "Accept responses warmly. There's no wrong answer.",
+              },
+              {
+                heading: "Church and camp",
+                minutes: "3 min",
+                teacherTalk: "Tell about her family's church, and the camp where she decided to trust Jesus at eight.",
+                activityNote: "Label 'Miriam becomes a Christian' on the timeline, about eight years after her birth.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Deciding for yourself",
+                minutes: "3 min",
+                teacherTalk: "Draw out that faith isn't inherited, and that people come to trust Jesus at any age.",
+                activityNote: null,
+                keyQuestion: "Miriam's parents were Christians — but she still had to decide for herself. Why do you think that matters?",
+                teacherGuidance: "Accept responses. Nobody is a Christian just because their family is.",
+              },
+            ],
+            whereToNext: "Day 3 follows Miriam from art teacher to school chaplain.",
+          },
+        },
+        // ---------------- DAY 3 (WED) ----------------
+        {
+          label: "Wednesday",
+          theme: "From art teacher to chaplain",
+          blocks: [
+            { type: "story", text: "Miriam served as a leader on many camps from the time she was in Year 8 until she left school. But when Miriam left school she had lots of questions about God, and she felt that she didn't really have anyone she could ask about these things." },
+            { type: "question", text: "Who might you be able to talk to if you had questions about God?", hint: "Accept responses. A Scripture teacher, perhaps parents, leaders at church. Make sure students know they can ask you." },
+            { type: "story", text: "But God looked after Miriam, and she kept going to church to learn more about him. Over the years Miriam's love for Jesus has grown, and she has continued to commit her life to following him." },
+            { type: "question", text: "What kind of jobs do you think someone who loves and follows Jesus might have?", hint: "Accept responses. There is no right or wrong answer here — Christians are involved in lots of different vocations. That's exactly the point." },
+            { type: "story", text: "Miriam went to university and trained to be a visual arts teacher." },
+            { type: "question", text: "Who here likes doing art in class, and what's your favourite type of art?", hint: "Accept responses. Drawing, painting, clay-making, digital art, and so on." },
+            { type: "story", text: "Over time, Miriam decided to combine her love of teaching and her love of Jesus in a new way, and she became an assistant chaplain and youth worker at a Christian high school for girls." },
+            { type: "question", text: "Who can tell us what a Christian chaplain is?", hint: "Accept responses. A Christian chaplain works in schools, hospitals, nursing homes and prisons to help people understand more about Jesus." },
+            { type: "question", text: "What kinds of things do you think Miriam might do as an assistant chaplain at a Christian school?", hint: "Accept responses before telling them. She runs Bible studies every day for students in Years 7 to 12, trains senior students to lead Bible studies with the younger girls, and teaches visual arts at the school." },
+            { type: "story", text: "Miriam loves teaching the Bible to the students in her school. She loves helping them understand more about Jesus, and she loves being able to help them live for Jesus at school." },
+            { type: "verse", reference: "1 Timothy 4:12 (CEV)", text: "“Don't let anyone make fun of you, just because you are young. Set an example for other followers by what you say and do, as well as by your love, faith, and purity.”" },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "1 Timothy 4:12 (continued)",
+            topic: "Miriam's work as an assistant chaplain",
+            bigIdea: "Miriam is a real person following Jesus today. She trusted him when she was eight and now sets an example for the students she works with — because Paul told Timothy that being young is no reason for anyone to look down on you.",
+            learningIntentions: [
+              "We are learning what a Christian chaplain does.",
+              "We are learning what Miriam does in her job each day.",
+              "I can name someone I could ask if I had questions about God.",
+            ],
+            assessment: "Listen for whether every student can name at least one person they could ask about God.",
+            resources: [],
+            script: [
+              {
+                heading: "Questions with nobody to ask",
+                minutes: "3 min",
+                teacherTalk: "Tell how Miriam left school with questions, then ask who students could go to.",
+                activityNote: "Make sure students know they can ask you.",
+                keyQuestion: "Who might you be able to talk to if you had questions about God?",
+                teacherGuidance: "Accept responses. A Scripture teacher, parents, leaders at church.",
+              },
+              {
+                heading: "Jobs and art",
+                minutes: "3 min",
+                teacherTalk: "Ask about jobs a Christian might have, then Miriam's training as a visual arts teacher.",
+                activityNote: null,
+                keyQuestion: "What kind of jobs do you think someone who loves and follows Jesus might have?",
+                teacherGuidance: "Accept responses. No right or wrong answer — Christians work in lots of different vocations.",
+              },
+              {
+                heading: "What a chaplain is",
+                minutes: "3 min",
+                teacherTalk: "Define chaplain, then let students guess what Miriam does before telling them.",
+                activityNote: "Label 'Assistant chaplain at a Christian school' on the timeline.",
+                keyQuestion: "Who can tell us what a Christian chaplain is?",
+                teacherGuidance: "Accept responses. Works in schools, hospitals, nursing homes and prisons to help people understand more about Jesus.",
+              },
+              {
+                heading: "Miriam's day",
+                minutes: "3 min",
+                teacherTalk: "Describe the daily Bible studies, the leadership training and the visual arts teaching.",
+                activityNote: null,
+                keyQuestion: "What kinds of things do you think Miriam might do as an assistant chaplain?",
+                teacherGuidance: "Accept responses first. Then: daily Bible studies for Years 7-12, training senior leaders, teaching visual arts.",
+              },
+            ],
+            whereToNext: "Day 4 is the last day of the term — Miriam's favourite verse, and Timothy.",
+          },
+        },
+        // ---------------- DAY 4 (THU) ----------------
+        {
+          label: "Thursday",
+          theme: "Don't let anyone look down on you",
+          blocks: [
+            { type: "story", text: "One of Miriam's favourite Bible verses is our key verse for this week — and it comes from a letter the apostle Paul wrote to a young minister named Timothy." },
+            { type: "story", text: "Paul met a young man named Timothy in Lystra when he and Silas were visiting some churches. Timothy joined Paul, and Paul taught him about Jesus and trained him to teach others. Eventually, Paul left Timothy in Ephesus to be the minister of the church there." },
+            { type: "story", text: "But Timothy was only a young man. His job was to teach and care for the people in the church at Ephesus, and he would have been younger than lots of the people in that church." },
+            { type: "question", text: "What did Paul tell Timothy not to do?", hint: "Accept responses. He wasn't to let people make fun of him because he was young. Paul didn't want people looking down on Timothy or ignoring what he had to say just because of his age." },
+            { type: "question", text: "And what did Paul tell Timothy to do instead?", hint: "Accept responses. To set an example for other followers by what he said and did, as well as in love, faith and purity." },
+            { type: "story", text: "Timothy was to make sure that the way he lived matched up with the things he was teaching, so that no-one could say anything bad about him. He was to show people how to live as a follower of Jesus, so that others could follow Jesus too." },
+            { type: "story", text: "It's the same for Miriam. She has to make sure that the way she lives matches up with the things she's teaching about Jesus. And one part of her job is helping the senior students do the same thing — they are to be examples to the other girls, showing them how to follow Jesus." },
+            { type: "question", text: "What kinds of things do you think Miriam and those senior students would do to show that they follow Jesus?", hint: "Accept responses. Be kind and caring to others; not be exclusive or leave people out; not say mean things or gossip behind people's backs; listen to and do what the teacher asks; meet together and read the Bible; pray for each other and go to church." },
+            { type: "story", text: "Even though Miriam is still herself very young, she is setting a godly example by the way she lives for the girls in her school. She is teaching them about Jesus and how they can love him and live the way he wants them to." },
+            { type: "question", text: "Paul told Timothy that being young was no reason for anyone to look down on him. What does that mean for people your age?", hint: "Accept responses. Guide toward: you don't have to wait until you're older to live as a follower of Jesus or to be an example to others. Timothy was young. Miriam was eight when she started following Jesus." },
+            { type: "verse", reference: "1 Timothy 4:12 (CEV)", text: "“Don't let anyone make fun of you, just because you are young. Set an example for other followers by what you say and do, as well as by your love, faith, and purity.”" },
+            { type: "prayer", text: "Dear God, thank you for what we learned about Miriam's life in our lesson today. Thank you for the good example Miriam's family was to her at an early age. Please help Miriam as she continues to live your way and not her own way. Thank you for showing us what a Christian life looks like today. Amen." },
+          ],
+          lessonPlan: {
+            duration: "10–15 minutes",
+            passage: "1 Timothy 4:12",
+            topic: "Setting an example, however young you are",
+            bigIdea: "Miriam is a real person following Jesus today. She trusted him when she was eight and now sets an example for the students she works with — because Paul told Timothy that being young is no reason for anyone to look down on you.",
+            learningIntentions: [
+              "We are learning who Timothy was and why Paul wrote to him.",
+              "We are learning that Christians are not to be ashamed of following Jesus.",
+              "I can describe what setting an example looks like in practice.",
+            ],
+            assessment: "Listen for whether students give concrete, everyday examples rather than abstract ones.",
+            resources: ["A CEV Bible marked at 1 Timothy 4:12"],
+            script: [
+              {
+                heading: "Who was Timothy?",
+                minutes: "3–4 min",
+                teacherTalk: "Tell how Paul met Timothy in Lystra, trained him, and left him leading the church in Ephesus while still young.",
+                activityNote: "Some students may recall Timothy from an earlier Connect book.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+              {
+                heading: "Not to, and instead",
+                minutes: "3 min",
+                teacherTalk: "Read 1 Timothy 4:12 and work both questions — what not to do, and what to do instead.",
+                activityNote: null,
+                keyQuestion: "And what did Paul tell Timothy to do instead?",
+                teacherGuidance: "Accept responses. Set an example by what he said and did, and in love, faith and purity.",
+              },
+              {
+                heading: "The same for Miriam",
+                minutes: "3 min",
+                teacherTalk: "Apply it to Miriam and the senior students she trains.",
+                activityNote: null,
+                keyQuestion: "What kinds of things do you think Miriam and those senior students would do to show that they follow Jesus?",
+                teacherGuidance: "Accept responses. Kindness, including others, no gossip, listening to teachers, reading the Bible, praying, going to church.",
+              },
+              {
+                heading: "And for you",
+                minutes: "2–3 min",
+                teacherTalk: "Land the last point of the year: you don't have to be older to follow Jesus or set an example.",
+                activityNote: null,
+                keyQuestion: "Paul told Timothy that being young was no reason for anyone to look down on him. What does that mean for people your age?",
+                teacherGuidance: "Accept responses. You don't have to wait until you're older. Timothy was young; Miriam was eight.",
+              },
+              {
+                heading: "Closing prayer",
+                minutes: "1–2 min",
+                teacherTalk: "Close the term, and the year, in prayer.",
+                activityNote: "Use the prayer block.",
+                keyQuestion: null,
+                teacherGuidance: null,
+              },
+            ],
+            whereToNext: "That's the end of Term 4 and the end of the Connect B2 Upper Primary book. A future Term 5 would start a new book — see the handoff doc before beginning one.",
+          },
+        },
+      ],
+    },
+});
