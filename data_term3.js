@@ -269,6 +269,16 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Wednesday",
           theme: "A basket of hope",
           blocks: [
+            { type: "roleplay", title: "Lesson 1 scene: Shiphrah and Puah defy Pharaoh", characters: ["Narrator", "Pharaoh", "Shiphrah", "Puah"], lines: [
+              { character: "Narrator", text: "Pharaoh summoned Shiphrah and Puah, the two Hebrew midwives who helped deliver the Israelite babies." },
+              { character: "Pharaoh", text: "When you help the Hebrew women give birth, watch closely. If the baby is a boy, kill him. If it is a girl, let her live." },
+              { character: "Narrator", text: "But Shiphrah and Puah feared God more than they feared Pharaoh, and they let the baby boys live." },
+              { character: "Narrator", text: "Pharaoh soon found out, and summoned the two women to explain themselves." },
+              { character: "Pharaoh", text: "Why have you done this? Why have you let the boys live?" },
+              { character: "Shiphrah", text: "The Hebrew women are not like the Egyptian women." },
+              { character: "Puah", text: "They are so quick and strong that their babies are born before we even arrive." },
+              { character: "Narrator", text: "Pharaoh could not prove otherwise. And because the midwives feared God, God was good to them, and gave them families of their own." },
+            ] },
             { type: "story", text: "Last time, we saw the king of Egypt force the Israelites into hard slave labour \u2014 but they kept growing in number anyway. The king tried something sneakier next: he told two Hebrew midwives, named Shiphrah and Puah, to secretly kill any baby boy they helped deliver." },
             { type: "story", text: "But Shiphrah and Puah feared God more than they feared Pharaoh. They refused to obey his order, and let the baby boys live \u2014 even though disobeying the most powerful man in Egypt was incredibly dangerous for them." },
             { type: "question", text: "Why do you think the midwives were willing to disobey Pharaoh's direct order, even though it put them at risk?", hint: "Guide toward: their respect and fear of God went deeper than their fear of Pharaoh \u2014 they trusted that obeying God, even at personal cost, mattered more than obeying an unjust human command." },
@@ -353,6 +363,20 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Thursday",
           theme: "Pulled out of the water",
           blocks: [
+            { type: "roleplay", title: "Lesson 1 scene: The princess finds baby Moses", characters: ["Narrator", "Princess", "Sister", "Attendant"], lines: [
+              { character: "Narrator", text: "Pharaoh's daughter came down to the river to bathe, with her attendants walking along the bank beside her." },
+              { character: "Narrator", text: "She noticed a basket hidden among the reeds and sent her attendant to bring it to her." },
+              { character: "Attendant", text: "Carries the basket to the princess", direction: true },
+              { character: "Narrator", text: "The princess opened the basket and found a crying baby boy inside." },
+              { character: "Princess", text: "This must be one of the Hebrew babies." },
+              { character: "Narrator", text: "She felt sorry for him. Just then, the baby's sister, who had been watching from a distance, stepped forward." },
+              { character: "Sister", text: "Shall I go and find one of the Hebrew women to nurse the baby for you?" },
+              { character: "Princess", text: "Yes, go." },
+              { character: "Narrator", text: "So the girl ran and brought back the baby's own mother." },
+              { character: "Princess", text: "Take this child and nurse him for me, and I will pay you for it." },
+              { character: "Narrator", text: "When the boy was old enough, his mother brought him back to Pharaoh's daughter, and she adopted him as her own son." },
+              { character: "Princess", text: "I will name him Moses, because I pulled him out of the water." },
+            ] },
             { type: "story", text: "Last time, a Levite mother placed her baby son in a basket among the reeds of the Nile River, with his sister watching from a distance to see what would happen to him." },
             { type: "story", text: "Soon, one of Pharaoh's own daughters came down to the riverbank to bathe. Walking along the water's edge with her attendants, she spotted the strange little basket tucked among the reeds and sent a servant to fetch it for her." },
             { type: "story", text: "When she opened the basket, she found the crying baby inside \u2014 and she felt sorry for him. She knew right away he must be one of the Hebrew babies, the very babies her own father had ordered to be thrown into this same river." },
@@ -445,6 +469,16 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Monday",
           theme: "A blazing bush",
           blocks: [
+            { type: "roleplay", title: "Lesson 2 scene: The burning bush", characters: ["Narrator", "God", "Moses"], lines: [
+              { character: "Narrator", text: "Moses was out with the sheep near Mount Horeb when he noticed a bush blazing with fire — but it never burned up. He went closer to look." },
+              { character: "God", text: "Moses! Moses!" },
+              { character: "Moses", text: "Here I am." },
+              { character: "God", text: "Do not come any closer. Take off your sandals, because the place where you are standing is holy ground. I am the God of your father — the God of Abraham, Isaac and Jacob." },
+              { character: "Narrator", text: "At this, Moses hid his face, because he was afraid to look directly at God." },
+              { character: "God", text: "I have seen how my people are suffering as slaves in Egypt. I have heard their cries, and I have come down to rescue them. So now, go — I am sending you to Pharaoh, to bring my people out of Egypt." },
+              { character: "Moses", text: "Who am I, that I should go to Pharaoh and bring the Israelites out of Egypt?" },
+              { character: "God", text: "I will be with you." },
+            ] },
             { type: "story", text: "Last time, baby Moses was rescued from the Nile and raised in Pharaoh's own palace. Today's story jumps ahead many years, to when Moses had grown into a man." },
             { type: "story", text: "One day, Moses saw an Egyptian mistreating one of his own Israelite people, and in anger, Moses killed the Egyptian. Afraid of what Pharaoh would do, Moses fled far away to a land called Midian, where he became a shepherd, married a woman named Zipporah, and quietly looked after his father-in-law's flock for years." },
             { type: "story", text: "Think about that change: Moses had grown up with every comfort in Pharaoh's own palace. Now, decades later, he was just an ordinary shepherd in the middle of nowhere, herding sheep for his father-in-law. It must have felt like his exciting future was long behind him." },
@@ -692,6 +726,14 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Thursday",
           theme: "Moses and his helper",
           blocks: [
+            { type: "roleplay", title: "Lesson 2 scene: Moses' last excuse", characters: ["Narrator", "Moses", "God"], lines: [
+              { character: "Moses", text: "Pardon me, Lord, but I have never been a good speaker. I am slow of speech and tongue." },
+              { character: "Moses", text: "Please, send someone else instead of me." },
+              { character: "Narrator", text: "The Lord's anger burned against Moses — after everything God had shown him, Moses was still trying to get out of the job. But even angry, God did not give up on Moses or walk away from the plan." },
+              { character: "God", text: "Is not Aaron your brother? I know he can speak well, and he is already on his way to meet you. He will be glad to see you." },
+              { character: "God", text: "You will tell him what to say and perform the signs I have given you. He will speak to the people for you." },
+              { character: "Narrator", text: "So Moses went back to Jethro, his father-in-law, and asked to return to his people in Egypt. Together, Moses and Aaron set out to face Pharaoh." },
+            ] },
             { type: "story", text: "Last time, God gave Moses miraculous signs to prove that God had really sent him. But Moses had one more excuse left." },
             { type: "story", text: "\u201cPardon me, Lord,\u201d Moses said, \u201cI have never been a good speaker. I am slow of speech and tongue.\u201d He begged God to send someone else instead of him." },
             { type: "story", text: "This time, God's anger burned against Moses \u2014 after everything God had shown him, Moses was still trying to wriggle out of the job! But even angry, God didn't give up on Moses or walk away from the plan." },
@@ -774,6 +816,17 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           "label": "Monday",
           "theme": "Let my people go!",
           "blocks": [
+            { type: "roleplay", title: "Lesson 3 scene: Let my people go!", characters: ["Narrator", "Moses", "Aaron", "Pharaoh"], lines: [
+              { character: "Narrator", text: "Moses and Aaron went in before Pharaoh, just as God had commanded." },
+              { character: "Aaron", text: "Throws down his staff — it becomes a snake on the floor", direction: true },
+              { character: "Narrator", text: "Pharaoh called for his own wise men and magicians, and they did the same trick with their secret arts — but Aaron's snake swallowed up every one of theirs." },
+              { character: "Narrator", text: "Even after seeing that, Pharaoh's heart stayed hard. The next morning Moses and Aaron met him by the Nile." },
+              { character: "Moses", text: "This is what the Lord says: let my people go, or I will turn every drop of water in Egypt to blood." },
+              { character: "Pharaoh", text: "No. Your God has no power over me." },
+              { character: "Aaron", text: "Strikes the water of the Nile with his staff", direction: true },
+              { character: "Narrator", text: "Instantly the whole river turned to blood. The fish died, and the river stank so badly that no one could drink from it. But Pharaoh's magicians copied the trick with a little water of their own." },
+              { character: "Narrator", text: "So Pharaoh turned and walked back into his palace, and his heart stayed hard, just as the Lord had said it would." },
+            ] },
             {
               "type": "story",
               "text": "Last week, Moses ran out of excuses at the burning bush, and God provided his brother Aaron to help him speak. Today, the two brothers finally stand face to face with the most powerful man in Egypt \u2014 Pharaoh, the king."
@@ -1004,6 +1057,16 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           "label": "Wednesday",
           "theme": "Boils, hail, and locusts",
           "blocks": [
+            { type: "roleplay", title: "Lesson 3 scene: Hail and a promise broken", characters: ["Narrator", "Moses", "Pharaoh"], lines: [
+              { character: "Moses", text: "This is what the Lord says: tomorrow, at this time, I will send the worst hailstorm Egypt has ever known. Bring your animals and workers inside for shelter, or they will die." },
+              { character: "Narrator", text: "Some of Pharaoh's officials believed the warning and brought everything inside. Others ignored it and left everything out in the open." },
+              { character: "Narrator", text: "The hail fell exactly as God had said, flattening crops and stripping trees across the whole land — except in Goshen, where the Israelites lived. There was no hail there at all." },
+              { character: "Pharaoh", text: "This time I have sinned. The Lord is in the right, and I and my people are in the wrong." },
+              { character: "Pharaoh", text: "Pray to the Lord for me. Beg him to stop this thunder and hail, and I will let your people go." },
+              { character: "Narrator", text: "Moses prayed, and the storm stopped completely. But the very moment it did —" },
+              { character: "Pharaoh", text: "No. They will not go." },
+              { character: "Narrator", text: "Pharaoh sinned again, and broke his promise, exactly as he had every time before." },
+            ] },
             {
               "type": "story",
               "text": "So far, God had sent gnats, flies, and a disease that wiped out Egypt's livestock \u2014 all while Pharaoh kept refusing to let God's people go. Today, the plagues get even more serious."
@@ -1234,6 +1297,15 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Monday",
           theme: "The last plague",
           blocks: [
+            { type: "dictation", title: "The Passover instructions — read together", lines: [
+              { text: "Tell the whole community of Israel: on the tenth day of this month, each family must choose a lamb." },
+              { text: "Take care of it until the fourteenth day, then the whole community must slaughter it at twilight." },
+              { text: "Take some of the blood, and put it on the sides and tops of the doorframes of the houses where you eat it." },
+              { text: "That same night, eat the meat, roasted over the fire, together with bitter herbs and bread made without yeast." },
+              { text: "Eat it in a hurry, dressed and ready to go — it is the Lord's Passover." },
+              { text: "On this night I will pass through Egypt, and every house marked with the blood, I will pass over." },
+              { text: "No harm will come to you when I strike Egypt. This is a day you and your children after you will remember forever." },
+            ] },
             { type: "question", text: "So far, God has sent nine plagues on Egypt, but Pharaoh still won't let God's people go. If you were God, and you'd already given someone nine warnings, what would you do next?", hint: "Accept responses. Use this to set up how serious the tenth and final plague was — this wasn't God acting rashly, it was the last of ten clear warnings." },
             { type: "story", text: "God told Moses there would be one more plague — the worst one yet. At midnight, the Lord would strike down the firstborn son in every Egyptian family, from Pharaoh's own household right down to the lowest servant. But God had a way to protect his own people from this judgement." },
             { type: "story", text: "Each Israelite family was told to kill a lamb and paint its blood on the sides and top of their doorframes. When the Lord came to judge Egypt that night, he would pass over any house marked with the blood, and no one inside would be harmed." },
@@ -1305,6 +1377,14 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Tuesday",
           theme: "Pharaoh's army",
           blocks: [
+            { type: "roleplay", title: "Lesson 4 scene: Don't be afraid", characters: ["Narrator", "Israelites", "Moses"], lines: [
+              { character: "Narrator", text: "God led his people out with a pillar of cloud by day and a pillar of fire by night. But he told Moses to camp beside the Red Sea, in a spot where it would look like they were trapped." },
+              { character: "Narrator", text: "Sure enough, Pharaoh changed his mind again, and set out after them with his whole army and six hundred of his best chariots." },
+              { character: "Israelites", text: "The Egyptians! They're coming! We're trapped between the sea and the army!" },
+              { character: "Israelites", text: "Were there no graves in Egypt, that you brought us out here to die in the desert? It would have been better to stay as slaves than to die out here!" },
+              { character: "Moses", text: "Don't be afraid! Stand firm, and you will see the Lord save you today." },
+              { character: "Moses", text: "The Egyptians you see today, you will never see again. The Lord will fight for you — you only need to be still." },
+            ] },
             { type: "story", text: "That very night, Pharaoh sent for Moses and Aaron and told them to take the Israelites and leave Egypt at last. The Egyptians were so afraid and eager for them to go that they gave the Israelites gold, silver and clothing — so as they left, Israel carried away the wealth of Egypt." },
             { type: "story", text: "God led his people out with a pillar of cloud by day and a pillar of fire by night, so they could see where to go. But God told Moses to lead them to camp beside the Red Sea — in a spot where it would look like they were trapped." },
             { type: "question", text: "Why do you think God deliberately led his people into a spot that looked like a trap, instead of a safer route?", hint: "Guide toward Exodus 14:1–4: God wanted to use this moment to show his power over Pharaoh and the Egyptian army, so that everyone would know he is the Lord — not because he'd made a mistake." },
@@ -1512,6 +1592,14 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Monday",
           theme: "God's promise to his people",
           blocks: [
+            { type: "roleplay", title: "Lesson 5 scene: The mountain agreement", characters: ["Narrator", "God", "Moses", "People"], lines: [
+              { character: "Narrator", text: "Israel camped at the bottom of Mount Sinai, and Moses went up the mountain to meet with God." },
+              { character: "God", text: "Tell the people of Israel: you saw for yourselves how I rescued you out of Egypt, and carried you on eagles' wings to bring you here to me." },
+              { character: "God", text: "Now, if you will faithfully obey me and keep my covenant, you will be my own special possession, my treasured people, out of all the nations on earth." },
+              { character: "Narrator", text: "Moses went back down the mountain and called the elders of the people together, and told them everything the Lord had said." },
+              { character: "People", text: "We will do everything the Lord has said." },
+              { character: "Narrator", text: "So Moses took their answer back up the mountain to God." },
+            ] },
             { type: "question", text: "Last week we saw God rescue Israel out of Egypt and through the Red Sea. If God has just done something amazing to save you, what do you think he might want from you next?", hint: "Accept responses. Guide toward: not payment or earning the rescue back, but a relationship — as we'll see today, God's answer was to invite Israel into a special relationship with him." },
             { type: "story", text: "Three months after leaving Egypt, Moses led God's people to Mount Sinai, and Israel camped at the bottom of the mountain. Moses went up the mountain to meet with God." },
             { type: "story", text: "God told Moses to say this to the people: 'You saw for yourselves how I rescued you out of Egypt... Now, if you will faithfully obey me and keep my covenant, you will be my own special possession, my treasured people, out of all the nations on earth.'" },
@@ -1574,6 +1662,18 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Tuesday",
           theme: "Loving God first",
           blocks: [
+            { type: "dictation", title: "The Ten Commandments — read together", lines: [
+              { text: "Do not worship any god except me." },
+              { text: "Do not make idols that look like anything in the sky, on the earth, or in the ocean, and do not bow down to them." },
+              { text: "Do not misuse my name." },
+              { text: "Remember that the Sabbath day belongs to me — six days you may work, but the seventh day belongs to the Lord your God." },
+              { text: "Respect your father and your mother." },
+              { text: "Do not murder." },
+              { text: "Be faithful in marriage." },
+              { text: "Do not steal." },
+              { text: "Do not tell lies about each other." },
+              { text: "Do not want anything that belongs to someone else." },
+            ] },
             { type: "question", text: "If you were making a list of rules for how to live well, what do you think should come first on the list?", hint: "Accept responses. Use this to set up how the Ten Commandments begin — not with rules about people, but about our relationship with God first." },
             { type: "story", text: "God spoke his Ten Commandments to Moses on Mount Sinai. The first four are all about how God's people should relate to God himself." },
             { type: "story", text: "'Do not worship any god except me. Do not make idols that look like anything in the sky or on the earth or in the ocean, and do not bow down and worship them. Do not misuse my name. Remember that the Sabbath Day belongs to me — you have six days when you can work, but the seventh day of each week belongs to me, your God.'" },
@@ -1767,6 +1867,13 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Monday",
           theme: "God wants to live with his people",
           blocks: [
+            { type: "roleplay", title: "Lesson 6 scene: Build me a sacred tent", characters: ["Narrator", "God", "Moses"], lines: [
+              { character: "God", text: "Tell the people of Israel to bring me an offering — gold, silver, fine cloth, and everything else that is needed." },
+              { character: "God", text: "Make me a sacred tent, so that I can live among my people." },
+              { character: "Narrator", text: "Then God showed Moses an exact pattern to follow — for the sacred chest, the table, the lampstand, the curtains, and everything else." },
+              { character: "God", text: "See that you make everything according to the pattern I have shown you on this mountain." },
+              { character: "Narrator", text: "So Moses went down the mountain, gathered the skilled workers among the people, and began the work — building everything exactly to the pattern God had given him." },
+            ] },
             { type: "question", text: "If God wanted to actually live among his people, right in the middle of their camp, what do you think that tent or building would need to be like?", hint: "Accept responses. Use this to set up just how detailed and careful God's instructions for the tabernacle were." },
             { type: "story", text: "God told Moses to have the people bring gifts — gold, silver, fine cloth, and more — so that a sacred tent could be built. God said, 'Make me a sacred tent, so that I can live among my people.'" },
             { type: "story", text: "God gave Moses an extremely detailed pattern to follow — exact measurements, materials, and instructions for the sacred chest, the table, the lampstand, the curtains, and everything else. Moses had to build it exactly to the pattern God had shown him." },
@@ -1950,6 +2057,15 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Thursday",
           theme: "No more tabernacle needed",
           blocks: [
+            { type: "dictation", title: "God's promise for the future — read together", lines: [
+              { text: "Look! God's home is now among his people." },
+              { text: "He will live with them, and they will be his own." },
+              { text: "Yes, God himself will be with them." },
+              { text: "He will wipe every tear from their eyes." },
+              { text: "There will be no more death, no more sadness or crying or pain." },
+              { text: "The old things have gone forever." },
+              { text: "God will make his home among his people, forever." },
+            ] },
             { type: "story", text: "This week we've seen how much God wanted to live among his people — first through the tabernacle, with its priests and sacrifices, and then completely and finally through Jesus." },
             { type: "story", text: "The Bible ends with a promise about the future: God's home will be with his people. He will live with them, and they will be his own. God will make his home among his people, and there will be no more death, suffering, crying, or pain." },
             { type: "question", text: "What do you think it will be like to live with God face to face, with no more sin, sadness, or separation between us and him?", hint: "Accept responses — encourage genuine imagination here. Guide toward: this is what the whole tabernacle system was pointing forward to all along — perfect, permanent closeness with God, made possible through Jesus." },
@@ -2094,6 +2210,15 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Tuesday",
           theme: "Twelve explorers",
           blocks: [
+            { type: "roleplay", title: "Lesson 7 scene: Two reports", characters: ["Narrator", "Explorer", "Caleb", "Joshua"], lines: [
+              { character: "Narrator", text: "Forty days after being sent out, the twelve explorers came back to camp, carrying fruit from the land." },
+              { character: "Explorer", text: "We went into the land you sent us to explore, and it truly is flowing with milk and honey — here is its fruit." },
+              { character: "Explorer", text: "But the people who live there are powerful, and the cities are large, with walls up to the sky. We can't attack those people. They are stronger than we are." },
+              { character: "Narrator", text: "That report spread through the whole camp, and the people began to grumble. But two of the explorers spoke up." },
+              { character: "Caleb", text: "We should go up and take the land — we can certainly do it." },
+              { character: "Joshua", text: "The land we explored is exceedingly good. If the Lord is pleased with us, he will lead us into it and give it to us." },
+              { character: "Explorer", text: "Don't listen to them! We can't do it! We seemed like grasshoppers next to those people, and that's exactly how they saw us too." },
+            ] },
             { type: "story", text: "God told Moses to choose twelve men — one leader from each of the twelve tribes of Israel — and send them into the land to explore it." },
             { type: "story", text: "Their instructions were clear. Explore the land from south to north. See what it is like: how many people live there, how strong they are, what kind of cities they live in, how good the soil is, what kind of trees grow there. And bring back some fruit." },
             { type: "story", text: "Forty days later the twelve explorers came back. And every single one of them agreed about what they had seen: the land was good. It was flowing with milk and honey. They brought back fruit to prove it." },
@@ -2166,6 +2291,18 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Wednesday",
           theme: "The night they said no",
           blocks: [
+            { type: "roleplay", title: "Lesson 7 scene: Caleb and Joshua's plea", characters: ["Narrator", "People", "Caleb", "Joshua", "God"], lines: [
+              { character: "Narrator", text: "That night the whole camp cried out loud, and grumbled against Moses and Aaron." },
+              { character: "People", text: "If only we had died in Egypt! Or in this desert! Why is the Lord bringing us to this land, only to die by the sword?" },
+              { character: "People", text: "Wouldn't it be better to choose a new leader and go back to Egypt?" },
+              { character: "Narrator", text: "Caleb and Joshua tore their clothes and spoke to the whole community." },
+              { character: "Caleb", text: "The land we passed through and explored is exceedingly good!" },
+              { character: "Joshua", text: "If the Lord is pleased with us, he will lead us into that land and give it to us — a land flowing with milk and honey." },
+              { character: "Caleb", text: "Only, do not rebel against the Lord. And do not be afraid of the people of the land, because we will swallow them up." },
+              { character: "Joshua", text: "The Lord is with us. Do not be afraid of them." },
+              { character: "Narrator", text: "But the whole community picked up stones to stone them. Just then, the glory of the Lord appeared at the sacred tent, in front of everyone." },
+              { character: "God", text: "How long will these people treat me with contempt? How long will they refuse to believe in me, in spite of all the signs I have performed among them?" },
+            ] },
             { type: "story", text: "Yesterday we left the Israelites with a choice. So — who did they listen to? They listened to the ten." },
             { type: "story", text: "That night the whole camp cried out loud. They grumbled against Moses and Aaron and said they would have been better off dying in Egypt. They started talking about choosing a new leader to take them back." },
             { type: "story", text: "Caleb and Joshua were desperate. They tore their clothes and begged the people: the land is very good! If the Lord is pleased with us, he will lead us there and give it to us. Don't rebel against the Lord, and don't be afraid of the people who live there." },
@@ -2392,6 +2529,14 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Tuesday",
           theme: "The choice",
           blocks: [
+            { type: "dictation", title: "The choice — read together", lines: [
+              { text: "See, I am setting before you today a blessing and a curse." },
+              { text: "If you obey the commands of the Lord your God, you will be blessed." },
+              { text: "Rain will fall on your land in season, and your crops will grow." },
+              { text: "You will live in peace, in the land the Lord your God is giving you." },
+              { text: "But if you turn away and worship other gods, you will be cursed." },
+              { text: "So choose life, by loving the Lord your God, and holding fast to him." },
+            ] },
             { type: "story", text: "In his speeches Moses reminded the people how God rescued them from Egypt, how their parents had disobeyed him, and how they had spent forty years in the desert. He reminded them of God's faithfulness. And he called them to love the Lord their God with all their heart, all their soul and all their strength." },
             { type: "story", text: "Then Moses set a choice in front of them, and it was a stark one. If they obeyed all the Lord's decrees and laws, they would be blessed — God would send life-giving rain on the land, their crops would grow, and they would live in peace. But if they disobeyed him, they would be cursed and sent out of the land altogether." },
             { type: "question", text: "What was the one thing God most wanted his people not to do?", hint: "Accept responses. He did not want them making idols and worshipping them. In a land full of other nations and other gods, that was the temptation waiting for them." },
@@ -2454,6 +2599,13 @@ window.DEVOTIONS["Term 3"] = Object.assign(window.DEVOTIONS["Term 3"] || {}, {
           label: "Wednesday",
           theme: "God never gives up",
           blocks: [
+            { type: "dictation", title: "God's mercy — read together", lines: [
+              { text: "Even if you break the agreement, and worship other gods, hear this promise." },
+              { text: "The Lord your God is a merciful God." },
+              { text: "He will not abandon you, or destroy you, or forget the agreement he made." },
+              { text: "When you are in trouble, and all these things have happened to you, you will return to the Lord your God, and obey him." },
+              { text: "For the Lord your God is a merciful God; he will not abandon you." },
+            ] },
             { type: "story", text: "Let's put this back together. God saved Israel out of Egypt to be his own special people. He gave them the Law to show them how to live as his people. And at Mount Sinai they made a special agreement with him." },
             { type: "question", text: "What did Israel agree to do?", hint: "Accept responses. They agreed to worship God alone and obey everything he commanded." },
             { type: "question", text: "Knowing what you know about them by now — what do you think would happen to that agreement?", hint: "Accept responses. They would break it. Moses himself told them they would. This is not God being caught by surprise." },

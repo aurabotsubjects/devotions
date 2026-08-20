@@ -307,6 +307,15 @@ window.DEVOTIONS["Term 4"] = Object.assign(window.DEVOTIONS["Term 4"] || {}, {
           label: "Wednesday",
           theme: "Not ashamed",
           blocks: [
+            { type: "dictation", title: "Paul's résumé of suffering — read together", lines: [
+              { text: "I have worked harder than most, and been in prison more often." },
+              { text: "I have been beaten with whips more times than I can count, and faced death again and again." },
+              { text: "Three times I was beaten with rods. Once I was stoned." },
+              { text: "Three times I was shipwrecked, and once I spent a night and a day in the open sea." },
+              { text: "I have been in constant danger — from rivers, from robbers, from my own people, and from strangers." },
+              { text: "I have often gone without sleep, without food, and without enough clothes to keep out the cold." },
+              { text: "And I am not ashamed of the good news. It is God's powerful way of saving everyone who has faith." },
+            ] },
             { type: "story", text: "Paul was so certain about the good news that nothing was going to stop him speaking about it. Listen to some of what happened to Paul while he was telling people about Jesus." },
             { type: "story", text: "Paul wrote that he had worked harder than most, been in prison more often, been beaten with whips more times than he could count, and had faced death again and again. Three times he was beaten with a stick. Once he was almost stoned to death. Three times he was shipwrecked, and one time he spent a night and a day in the sea." },
             { type: "story", text: "He was in constant danger — from rivers, from robbers, from his own people and from strangers; in the city, in the desert, and at sea. He often went without sleep or food, and was cold without enough clothes. And on top of all that, he worried every day about all the churches." },
@@ -371,6 +380,13 @@ window.DEVOTIONS["Term 4"] = Object.assign(window.DEVOTIONS["Term 4"] || {}, {
           label: "Thursday",
           theme: "The gospel is ...",
           blocks: [
+            { type: "dictation", title: "The gospel in one paragraph — read together", lines: [
+              { text: "God promised Abraham that through his family, the whole world would be blessed." },
+              { text: "That promise was always pointing forward to Jesus." },
+              { text: "God kept his promise in Jesus — God's own Son, who died and was raised to life." },
+              { text: "And now, anyone from any nation who trusts in Jesus is saved." },
+              { text: "This is the good news. This is the gospel." },
+            ] },
             { type: "story", text: "Paul is proud of the good news because it is God's power to save everyone who has faith — everyone who trusts in Jesus." },
             { type: "story", text: "Remember what a journalist has to do. They take the facts they've been given and turn them into something other people can read and understand. That's our job this term, and today we make a start." },
             { type: "activity", text: "Take a moment on your own. In your own words, write down what you think the gospel — the good news about Jesus — actually is. You have two minutes. There is no trick to this; just write what you understand so far." },
@@ -1132,6 +1148,14 @@ window.DEVOTIONS["Term 4"] = Object.assign(window.DEVOTIONS["Term 4"] || {}, {
           label: "Tuesday",
           theme: "One month later",
           blocks: [
+            { type: "roleplay", title: "Lesson 14 scene: Interview with Robert Stanford, one month on", characters: ["Journalist", "Robert Stanford"], lines: [
+              { character: "Journalist", text: "Mr Stanford, thank you for speaking with us. It's been a month since you were released. What's changed?" },
+              { character: "Robert Stanford", text: "Everything. I was guilty — everyone knew it — and I should have faced the consequences. Instead, someone else paid the price for me, and I walked free." },
+              { character: "Journalist", text: "Some people expected you to go straight back to your old ways once you were out." },
+              { character: "Robert Stanford", text: "I understand why they'd think that. But how could I go back? My old life was finished the moment I was declared innocent. It just doesn't make sense to live like nothing happened." },
+              { character: "Journalist", text: "So what does your life look like now?" },
+              { character: "Robert Stanford", text: "I'm trying to live like someone who's actually been given a second chance — not to earn what I was already given for free, but because I already have it." },
+            ] },
             { type: "story", text: "Journalists, back to a story we covered a few weeks ago. It has been a month since Robert Stanford was released, and today you have to write an interview with him to find out what life has been like since." },
             { type: "question", text: "Who remembers Robert Stanford? What had he been arrested for?", hint: "Accept responses. He was arrested for treason, because he had been stirring up riots and rebellion against the Prime Minister." },
             { type: "question", text: "What should have happened to Robert Stanford — and what happened instead?", hint: "Accept responses. He should have been sentenced and put in prison. Instead he was declared innocent and set free, because the Prime Minister pardoned him and took his consequence." },
@@ -1196,6 +1220,14 @@ window.DEVOTIONS["Term 4"] = Object.assign(window.DEVOTIONS["Term 4"] || {}, {
           label: "Wednesday",
           theme: "Slaves to sin, free in Christ",
           blocks: [
+            { type: "dictation", title: "Old life, new life — read together", lines: [
+              { text: "Our old life was nailed to the cross with Christ, so that sin would no longer control us." },
+              { text: "We are no longer slaves to sin." },
+              { text: "Christ was raised from death, and he will never die again — death no longer has any power over him." },
+              { text: "In the same way, we are dead to sin, and alive for God." },
+              { text: "So don't let sin rule your body. Don't let any part of it become a slave to evil." },
+              { text: "Instead, give yourselves to God, as people who have been raised from death to life." },
+            ] },
             { type: "story", text: "Paul says our old life was nailed to the cross with Christ so that sin would no longer control us." },
             { type: "question", text: "Why did that happen?", hint: "Accept responses. So that they would no longer be slaves to sin. Their new lives in Christ are free from the power of sin." },
             { type: "question", text: "What do you think it means to be a slave to sin?", hint: "Accept responses. To be a slave is to be controlled by someone else; it means not being free. To be a slave to sin means someone can't help sinning, because sin controls them." },
@@ -2597,6 +2629,16 @@ window.DEVOTIONS["Term 4"] = Object.assign(window.DEVOTIONS["Term 4"] || {}, {
           label: "Wednesday",
           theme: "Promise two: a king forever",
           blocks: [
+            { type: "roleplay", title: "Lesson 19 scene: The angel visits Mary", characters: ["Narrator", "Gabriel", "Mary"], lines: [
+              { character: "Narrator", text: "God sent the angel Gabriel to Nazareth, to a virgin named Mary, who was engaged to a man named Joseph." },
+              { character: "Gabriel", text: "Greetings! The Lord has blessed you in a wonderful way, and is with you." },
+              { character: "Narrator", text: "Mary was confused and wondered what his words meant." },
+              { character: "Gabriel", text: "Don't be afraid, Mary! God is pleased with you. You will soon be pregnant and will have a baby boy. You must name him Jesus." },
+              { character: "Gabriel", text: "He will be great and will be called the Son of God Most High. The Lord God will make him king, as his ancestor David was, and he will rule his people forever. His kingdom will never end." },
+              { character: "Mary", text: "How can this happen? I am not even married." },
+              { character: "Gabriel", text: "The Holy Spirit will come upon you, and God's power will rest on you. And so your child will be called the holy Son of God." },
+              { character: "Mary", text: "I am the Lord's servant. Let it happen as you have said." },
+            ] },
             { type: "story", text: "Second promise box. God promised King David that his kingdom would never end, and that someone in his family would always be king." },
             { type: "question", text: "That's a big promise. Every kingdom in history has eventually ended. How could that promise possibly be kept?", hint: "Accept responses. Let them wrestle with it — the answer only works if the king never dies, which is exactly where the passage goes." },
             { type: "story", text: "Now listen to what the angel Gabriel said to Mary. He told her not to be afraid, because God was pleased with her. He said she would have a son and was to name him Jesus. He would be great and would be called the Son of God Most High. The Lord God would make him king, as his ancestor David was. He would rule the people of Israel forever, and his kingdom would never end." },
@@ -2659,6 +2701,14 @@ window.DEVOTIONS["Term 4"] = Object.assign(window.DEVOTIONS["Term 4"] || {}, {
           label: "Thursday",
           theme: "Promise three: a Saviour",
           blocks: [
+            { type: "roleplay", title: "Lesson 19 scene: The angel visits Joseph", characters: ["Narrator", "Angel", "Joseph"], lines: [
+              { character: "Narrator", text: "Joseph was engaged to marry Mary. When he found out she was pregnant, he planned to quietly call off the engagement. But while he was thinking about this, an angel came to him in a dream." },
+              { character: "Angel", text: "Joseph, son of David, don't be afraid to take Mary as your wife. The child she is expecting is from the Holy Spirit." },
+              { character: "Angel", text: "She will have a son, and you will name him Jesus, because he will save his people from their sins." },
+              { character: "Narrator", text: "All this happened to fulfil what the Lord had said through the prophet: they will call him Immanuel, which means 'God is with us.'" },
+              { character: "Narrator", text: "When Joseph woke up, he did exactly what the angel had told him, and took Mary as his wife." },
+              { character: "Joseph", text: "His name will be Jesus. He will save his people from their sins." },
+            ] },
             { type: "story", text: "Final promise box. Through the prophet Isaiah, God promised his people that one would come who would take the consequences that people deserve for their sin — a servant who would make God's people well, healing and forgiving them." },
             { type: "story", text: "Now listen to what an angel said to Joseph in a dream: don't be afraid to take Mary as your wife. The child she is expecting is from the Holy Spirit. She will have a son, and you are to name him Jesus, because he will save his people from their sins." },
             { type: "question", text: "Why was Joseph to give this baby the name Jesus?", hint: "Accept responses. Because he would save his people from their sin." },
@@ -2940,6 +2990,15 @@ window.DEVOTIONS["Term 4"] = Object.assign(window.DEVOTIONS["Term 4"] || {}, {
           label: "Thursday",
           theme: "Don't let anyone look down on you",
           blocks: [
+            { type: "roleplay", title: "Scene: Paul commissions Timothy", characters: ["Narrator", "Paul", "Timothy"], lines: [
+              { character: "Narrator", text: "Paul first met a young man named Timothy in Lystra. Timothy joined Paul on his travels, and Paul taught him and trained him to teach others." },
+              { character: "Narrator", text: "Eventually, Paul left Timothy behind in Ephesus, to be the minister of the church there — even though Timothy was younger than many of the people he was now leading." },
+              { character: "Paul", text: "Don't let anyone make fun of you, just because you are young." },
+              { character: "Paul", text: "Instead, set an example for other believers — in what you say and do, and in your love, your faith, and your purity." },
+              { character: "Timothy", text: "How can I lead people so much older than me?" },
+              { character: "Paul", text: "Watch how you live, and watch what you teach. Keep on doing this, because it will bring you and your listeners the gift of eternal life." },
+              { character: "Narrator", text: "So Timothy stayed, and taught the church at Ephesus — showing, by the way he lived, that being young was never a reason to be looked down on." },
+            ] },
             { type: "story", text: "One of Miriam's favourite Bible verses is our key verse for this week — and it comes from a letter the apostle Paul wrote to a young minister named Timothy." },
             { type: "story", text: "Paul met a young man named Timothy in Lystra when he and Silas were visiting some churches. Timothy joined Paul, and Paul taught him about Jesus and trained him to teach others. Eventually, Paul left Timothy in Ephesus to be the minister of the church there." },
             { type: "story", text: "But Timothy was only a young man. His job was to teach and care for the people in the church at Ephesus, and he would have been younger than lots of the people in that church." },
